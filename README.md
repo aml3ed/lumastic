@@ -3,7 +3,7 @@ Last revision on 7/6/18 by Drew Lytle
 ## Who We Are
 ### Our Mission
 Lumastic has two organizational missions:
-1. Create a positive, sustainable evolution in education for all.
+1. Create a positive and sustainable evolution in education for all.
 2. Enable teammates to fulfill their dreams.
 
 Every decision we make is based on what will help us complete those two missions *simultaneously*.  Both are essential to the well-being of the company and its members.  Neither one is worth completing without the other.
