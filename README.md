@@ -1,24 +1,52 @@
-# README
+# Lumastic
+Last README revision on 7/6/18 by Drew Lytle
+## Project Description
+Lumastic is an online learning tool where teachers can flip their classrooms, track student learning and participation, and sell additional learning resources to other teachers or students.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Codebase Information
+Lumastic is built on the Ruby on Rails framework with the following versions:
+* Ruby 2.5.1
+* Rails 5.2.0
 
-Things you may want to cover:
+The dependencies and configuration of the application are all handled through a *docker container*.  Therefore, Docker must be installed on your computer for the application to run.  The `Dockerfile` is in the root of the project and should remain unchanged for a majority of development.
 
-* Ruby version
+## How To Start Developing
+### Running the Application
+Once the repository has been cloned, it can be run by navigating to the `/lumastic/` directory and running the following command:
+`docker-compose up`
+This will initiate the virtual environment and also start the rails server.  You can then view the application by navigating to `localhost:3000/` in your browser.
+### Running Commands
+Since the application is being run in a virtual environment, **one can not simply run rails commands in the project folder**.  Before any command, we must specify which container the command should run inside.
 
-* System dependencies
+For example, to migrate the database, we would run the command:
+`docker-compose run web rails db:migrate`
 
-* Configuration
+This tells `docker-compose` to `run` the `web` container and perform the `rails db:migrate` action inside of it.  Without doing this, changes made to the project might not be reflected in the docker container or the code-base.  So, better safe than sorry.
+### Rebuilding the Container
+If any changes are made to the `Gemfile` or the `Dockerfile`, the project must be rebuilt.  The command to rebuild the containers is:
+`docker-compose build`
 
-* Database creation
+NOTE: If adding gems, this command should be performed AFTER running `docker-compose run web bundle install`
+### How to Be an Effective Teammate
+#### Github
+When developing with a team, the Github repository for the project can get a little insane.  To combat this, please keep the following guidelines in mind:
+1. **Never** develop directly on the `master` branch (the master branch should house a fully working version of the application at all times)
+2. When starting new work, make a new branch with the following naming convention:
+`'firstname'_'feature'_'sprintNumber'`
+3. Comment at the top of anything you add / change with a brief paragraph that answers:
+* What is the change / addition?
+* What does it do?
+* What additional work needs to be done?
 
-* Database initialization
+*With these guidelines in mind, merges will be much quicker and it will be easier to onboard new developers.*
+#### Slack
+Slack will be the primary means of online communication between the team.  Slack is an intelligent group-chatting application that offers great features for team and project organization.
 
-* How to run the test suite
+*Workspaces* (like Lumastic) have a variety of *Channels*.  Each channel is basically a group chat but for a more specific purpose.  Teammates can create channels for specific features, actions, or just to talk to each other.  It's pretty intuitive once you get going.
 
-* Services (job queues, cache servers, search engines, etc.)
+Here are some example channels for Lumastic:
+* *Standup* - This channel is for sprint standup meetings in which teammates update others on the progress of their tasks by answering: 1. *What I've done*  2. *What I'm working on now*  3. *What I need help with*
+* *PlsHelp* - This channel is for asking questions and getting assistance from teammates.
+NOTE: Once you have fixed your issue, edit your original post with a "WE GOOD:" to let others know.
 
-* Deployment instructions
-
-* ...
+[Download Slack](https://slack.com/downloads/) and [Join the Workspace](https://join.slack.com/t/lumastic/shared_invite/enQtMzkzOTkzNjYzOTcxLWVkNTRlN2Y5YTgyM2ZjNTAwY2U2YjcxMTRhNjVlZmJjNTY1MGFhNTJlZGJjZmZiOWI3MjI3ZTRmODQ5ZWVkOTU)
