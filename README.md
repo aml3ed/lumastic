@@ -12,18 +12,30 @@ The dependencies and configuration of the application are all handled through a 
 
 ## How To Start Developing
 ### Running the Application
-Once the repository has been cloned, it can be run by navigating to the `/lumastic/` directory and running the following command: ```docker-compose up```
+Once the repository has been cloned, it can be run by navigating to the `/lumastic/` directory and running the following command:
+```
+docker-compose up
+```
 This will initiate the virtual environment and also start the rails server.  You can then view the application by navigating to `localhost:3000/` in your browser.
 ### Running Commands
 Since the application is being run in a virtual environment, **one can not simply run rails commands in the project folder**.  Before any command, we must specify which container the command should run inside.
 
-For example, to migrate the database, we would run the command: ```docker-compose run web rails db:migrate```
+For example, to migrate the database, we would run the command:
+```
+docker-compose run web rails db:migrate
+```
 
 This tells `docker-compose` to `run` the `web` container and perform the `rails db:migrate` action inside of it.  Without doing this, changes made to the project might not be reflected in the docker container or the code-base.  So, better safe than sorry.
 ### Rebuilding the Container
-If any changes are made to the `Gemfile` or the `Dockerfile`, the project must be rebuilt.  The command to rebuild the containers is: ```docker-compose build```
+If any changes are made to the `Gemfile` or the `Dockerfile`, the project must be rebuilt.  The command to rebuild the containers is:
+```
+docker-compose build
+```
 
-NOTE: If adding gems, this command should be performed AFTER running ```docker-compose run web bundle install```
+NOTE: If adding gems, this command should be performed AFTER running:
+```
+docker-compose run web bundle install
+```
 ### How to Be an Effective Teammate
 #### Github
 When developing with a team, the Github repository for the project can get a little insane.  To combat this, please keep the following guidelines in mind:
