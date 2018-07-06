@@ -1,7 +1,18 @@
 # Lumastic
-Last README revision on 7/6/18 by Drew Lytle
+Last revision on 7/6/18 by Drew Lytle
+## Who We Are
+### Our Mission
+Lumastic has two organizational missions:
+1. Create a positive, sustainable evolution in education for all.
+2. Enable teammates to fulfill their dreams.
+
+Every decision we make is based on what will help us complete those two missions *simultaneously*.  Both are essential to the well-being of the company and its members.  Neither one is worth completing without the other.
+
 ## Project Description
 Lumastic is an online learning tool where teachers can flip their classrooms, track student learning and participation, and sell additional learning resources to other teachers or students.
+
+[View the AdobeXD Prototype (Password: Lumastic1234)](https://xd.adobe.com/view/8b14feb3-d85f-42f4-55ce-ff877f2043a5-fd25/)
+[View the Business Plan](https://docs.google.com/document/d/1oTVtZjsgA98P2BRpPWLxomp3ZmPDBMP_lfGZM-U13dU/edit?usp=sharing)
 
 ## Codebase Information
 Lumastic is built on the Ruby on Rails framework with the following versions:
@@ -36,15 +47,15 @@ NOTE: If adding gems, this command should be performed AFTER running:
 ```
 docker-compose run web bundle install
 ```
-### How to Be an Effective Teammate
+### Teammate Tools
 #### Github
 When developing with a team, the Github repository for the project can get a little insane.  To combat this, please keep the following guidelines in mind:
 1. **Never** develop directly on the `master` branch (the master branch should house a fully working version of the application at all times)
 2. When starting new work, make a new branch with the following naming convention:  `'firstname'_'feature'_'sprintNumber'`
 3. Comment at the top of anything you add / change with a brief paragraph that answers:
-* What is the change / addition?
-* What does it do?
-* What additional work needs to be done?
+  * What is the change / addition?
+  * What does it do?
+  * What additional work needs to be done?
 
 *With these guidelines in mind, merges will be much quicker and it will be easier to onboard new developers.*
 #### Slack
