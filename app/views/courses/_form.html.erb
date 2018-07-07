@@ -11,6 +11,36 @@
     </div>
   <% end %>
 
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :course_info %>
+    <%= form.text_area :course_info %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subject %>
+    <%= form.select :subject, ['Math', 'English', 'Art', 'History', 'Music', 'Science'] %>
+  </div>
+
+  <div class="field">
+    <%= form.label :instructor_bio %>
+    <%= form.text_area :instructor_bio %>
+  </div>
+
+  <div class="field">
+    <%= form.label :keywords %>
+    <%= form.text_field :keywords %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price %>
+  </div>
+
   <div class="actions">
     <%= form.submit %>
   </div>

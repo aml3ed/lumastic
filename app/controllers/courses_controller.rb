@@ -1,10 +1,10 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, :except => [:show] #-> routes to the login / signup if not authenticated
   # GET /courses
   # GET /courses.json
   def index
-    @courses = Course.all
+    @courses = Course.where(:user_id => current_user.id)
   end
 
   # GET /courses/1
@@ -25,6 +25,7 @@ class CoursesController < ApplicationController
   # POST /courses.json
   def create
     @course = Course.new(course_params)
+    @course.user_id = 1
 
     respond_to do |format|
       if @course.save
@@ -69,6 +70,6 @@ class CoursesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def course_params
-      params.fetch(:course, {})
+      params.require(:course).permit(:title, :course_info, :subject, :instructor_bio, :keywords, :price)
     end
 end
