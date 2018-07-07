@@ -1,6 +1,7 @@
 class CoursesController < ApplicationController
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, :except => [:show] #-> routes to the login / signup if not authenticated
+  before_action :set_course, only: [:show, :edit, :update, :destroy]
+
   # GET /courses
   # GET /courses.json
   def index
@@ -19,13 +20,16 @@ class CoursesController < ApplicationController
 
   # GET /courses/1/edit
   def edit
+    if @course.user_id != current_user.id
+      redirect_to root_path
+    end
   end
 
   # POST /courses
   # POST /courses.json
   def create
     @course = Course.new(course_params)
-    @course.user_id = 1
+    @course.user_id = current_user.id
 
     respond_to do |format|
       if @course.save
