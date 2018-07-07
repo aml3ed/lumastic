@@ -23,6 +23,13 @@ The dependencies and configuration of the application are all handled through a 
 
 ## How To Start Developing
 ### Running the Application
+Clone the repository and checkout the `develop` branch using the following commands (or your preferred git client)
+```
+git clone https://github.com/aml3ed/lumastic.git
+git fetch
+git checkout develop
+```
+
 Once the repository has been cloned, it can be run by navigating to the `/lumastic/` directory and running the following command:
 ```
 docker-compose up
