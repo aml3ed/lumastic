@@ -2,5 +2,5 @@
 
 <%= render 'form', lesson: @lesson %>
 
-<%= link_to 'Show', @lesson %> |
-<%= link_to 'Back', lessons_path %>
+<%= link_to 'Show', course_lesson_path(:id => @lesson.id) %> |
+<%= link_to 'Back', course_lessons_path %>

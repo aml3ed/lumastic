@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  resources :courses
-  resources :lessons
+  resources :courses do
+    resources :lessons
+  end
   root to: 'pages#home'
 
   resources :materials

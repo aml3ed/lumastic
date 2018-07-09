@@ -1,10 +1,11 @@
 class LessonsController < ApplicationController
+  before_action :set_course
+  before_action :find_lessons
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   # GET /lessons
   # GET /lessons.json
   def index
-    @lessons = Lesson.all
   end
 
   # GET /lessons/1
@@ -25,10 +26,10 @@ class LessonsController < ApplicationController
   # POST /lessons.json
   def create
     @lesson = Lesson.new(lesson_params)
-
+    @lesson.course_id = params[:course_id]
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to @lesson, notice: 'Lesson was successfully created.' }
+        format.html { redirect_to course_lesson_path(:id => @lesson.id), notice: 'Lesson was successfully created.' }
         format.json { render :show, status: :created, location: @lesson }
       else
         format.html { render :new }
@@ -56,7 +57,7 @@ class LessonsController < ApplicationController
   def destroy
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to lessons_url, notice: 'Lesson was successfully destroyed.' }
+      format.html { redirect_to course_lessons_path, notice: 'Lesson was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -65,6 +66,14 @@ class LessonsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_lesson
       @lesson = Lesson.find(params[:id])
+    end
+
+    def set_course
+      @course = Course.find(params[:course_id])
+    end
+
+    def find_lessons
+      @lessons = @course.lessons
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
