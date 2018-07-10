@@ -6,7 +6,7 @@
         <li><%= link_to "Subjects", '#' %></li>
         <li><%= link_to "Teach", '#' %></li>
         <% if current_user %>
-        <li><%= link_to 'My Courses', '#' %><li>
+        <li><%= link_to 'My Courses', courses_path %><li>
         <li><%= link_to 'My Account', '#' %><li>
         <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %><li>
         <% else %>
