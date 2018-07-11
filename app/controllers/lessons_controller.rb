@@ -85,6 +85,6 @@ class LessonsController < ApplicationController
 
     # Declares what parameters are mutatable by the controller
     def lesson_params
-      params.require(:lesson).permit(:title, :video_url, :lesson_info, :keywords)
+      params.require(:lesson).permit(:title, :video_url, :lesson_info, :keywords, materials_attributes: [:id, :title, :_destroy])
     end
 end

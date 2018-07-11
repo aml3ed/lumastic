@@ -8,6 +8,7 @@
       <th>Title</th>
       <th>Video</th>
       <th>Info</th>
+      <th>Materials</th>
       <th colspan="3">Actions</th>
     </tr>
   </thead>
@@ -18,6 +19,9 @@
         <td><%= lesson.title %></td>
         <td><%= lesson.video_url %></td>
         <td><%= lesson.lesson_info %></td>
+        <td><% for material in lesson.materials %>
+                <%= material.title + ", " %>
+            <% end %>
         <td><%= link_to 'Show', course_lesson_path(:id => lesson.id) %></td>
         <td><%= link_to 'Edit', edit_course_lesson_path(:id => lesson.id) %></td>
         <td><%= link_to 'Destroy', course_lesson_path(:id => lesson.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
