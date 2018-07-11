@@ -3,32 +3,34 @@ class LessonsController < ApplicationController
   before_action :find_lessons
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
-  # GET /lessons
-  # GET /lessons.json
+  # Example route: GET /lessons
   def index
   end
 
-  # GET /lessons/1
-  # GET /lessons/1.json
+  # Example route: GET /lessons/1
   def show
+    # Use the YoutubeID gem to get the id from the @lesson object's video_url
     video_id = YoutubeID.from(@lesson.video_url)
+    # Append that the the end of a YouTube embed url for use in the view
     @video_embed_url = 'https://youtube.com/embed/'+video_id
   end
 
-  # GET /lessons/new
+  # Example route: GET /lessons/new
   def new
     @lesson = Lesson.new
   end
 
-  # GET /lessons/1/edit
+  # Example route: GET /lessons/1/edit
   def edit
   end
 
-  # POST /lessons
-  # POST /lessons.json
+  # Example route: POST /lessons
   def create
+    # Build a new lesson object from the form parameters
     @lesson = Lesson.new(lesson_params)
+    # Add the course_id from the url parameters
     @lesson.course_id = params[:course_id]
+    # Save the new lesson object to the database
     respond_to do |format|
       if @lesson.save
         format.html { redirect_to course_lesson_path(:id => @lesson.id), notice: 'Lesson was successfully created.' }
@@ -40,8 +42,7 @@ class LessonsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /lessons/1
-  # PATCH/PUT /lessons/1.json
+  # Example route: PATCH/PUT /lessons/1
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
@@ -54,8 +55,7 @@ class LessonsController < ApplicationController
     end
   end
 
-  # DELETE /lessons/1
-  # DELETE /lessons/1.json
+  # Example route: DELETE /lessons/1
   def destroy
     @lesson.destroy
     respond_to do |format|
@@ -65,20 +65,25 @@ class LessonsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # All of these methods are 'before_actions'
+    # They get run before anything happens inside the controller
+
+    # Finds the lesson in the database and references it in a variable
     def set_lesson
       @lesson = Lesson.find(params[:id])
     end
 
+    # Finds the course in the database and references it in a variable
     def set_course
       @course = Course.find(params[:course_id])
     end
 
+    # Finds all of the  lessons that belong to the specific course
     def find_lessons
       @lessons = @course.lessons
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Declares what parameters are mutatable by the controller
     def lesson_params
       params.require(:lesson).permit(:title, :video_url, :lesson_info, :keywords)
     end
