@@ -11,6 +11,8 @@ class LessonsController < ApplicationController
   # GET /lessons/1
   # GET /lessons/1.json
   def show
+    video_id = YoutubeID.from(@lesson.video_url)
+    @video_embed_url = 'https://youtube.com/embed/'+video_id
   end
 
   # GET /lessons/new

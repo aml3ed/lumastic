@@ -1,4 +1,6 @@
 <p id="notice"><%= notice %></p>
+<iframe src='<%= @video_embed_url %>' frameborder='0' allowfullscreen></iframe>
 
-<%= link_to 'Edit', edit_course_lesson_path(@lesson) %> |
+
+<%= link_to 'Edit', edit_course_lesson_path(:id => @lesson.id) %> |
 <%= link_to 'Back', course_lessons_path %>
