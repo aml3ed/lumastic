@@ -12,12 +12,17 @@ class LessonsController < ApplicationController
     # Use the YoutubeID gem to get the id from the @lesson object's video_url
     video_id = YoutubeID.from(@lesson.video_url)
     # Append that the the end of a YouTube embed url for use in the view
-    @video_embed_url = 'https://youtube.com/embed/'+video_id
+    if video_id
+      @video_embed_url = 'https://youtube.com/embed/'+video_id
+    else
+      @video_embed_url = ''
+    end
   end
 
   # Example route: GET /lessons/new
   def new
     @lesson = Lesson.new
+    @lesson.materials.build
   end
 
   # Example route: GET /lessons/1/edit
@@ -78,9 +83,14 @@ class LessonsController < ApplicationController
       @course = Course.find(params[:course_id])
     end
 
-    # Finds all of the  lessons that belong to the specific course
+    # Finds all of the lessons that belong to the specific course
     def find_lessons
       @lessons = @course.lessons
+    end
+
+    # Finds all of the materials that belong to the specific lesson
+    def find_materials
+      @materials = @lesson.materials
     end
 
     # Declares what parameters are mutatable by the controller

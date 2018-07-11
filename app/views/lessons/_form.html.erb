@@ -31,10 +31,10 @@
     <%= form.text_field :keywords %>
   </div>
   <p> Materials </p>
-  <%= form.fields_for :materials, Material.new do |material_form| %>
+  <%= form.fields_for :materials do |material| %>
     <div class="field">
-      <%= material_form.label :title %>
-      <%= material_form.text_field :title %>
+      <%= material.label :title %>
+      <%= material.text_field :title %>
     </div>
   <% end %>
 
