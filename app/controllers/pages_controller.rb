@@ -6,6 +6,7 @@ class PagesController < ApplicationController
   end
 
   def home
+    @lessons = Lesson.all
   end
 
   def teacher
