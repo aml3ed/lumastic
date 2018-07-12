@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
-<iframe src='<%= @video_embed_url %>' frameborder='0' allowfullscreen></iframe>
+<div class="intrinsic-container intrinsic-container-16x9">
+  <iframe src='<%= @video_embed_url %>' frameborder='0' allowfullscreen></iframe>
+</div>
 
 
 <%= link_to 'Edit', edit_course_lesson_path(:id => @lesson.id) %> |

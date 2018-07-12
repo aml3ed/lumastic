@@ -1,4 +1,3 @@
-<h1>Lumastic</h1>
 <p>All Lessons</p>
 <% for lesson in @lessons %>
   <%= link_to lesson.title, course_lesson_path(:course_id => lesson.course_id, :id => lesson.id) %>
