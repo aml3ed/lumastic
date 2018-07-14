@@ -13,6 +13,19 @@
  *= require_tree .
  *= require_self
  */
+body {
+  margin: 0;
+}
+.main-container {
+  padding: 20px;
+}
+
+nav {
+  padding: 0px 10px;
+}
+nav img {
+  //padding-left: 10px;
+}
  nav ul {
      list-style-type: none;
      float: right;
@@ -23,4 +36,9 @@
  .nav li {
     display: inline-block;
     padding: 10px;
+    line-height: 50px;
+}
+.nav li a {
+  color: #f4faff;
+
 }
