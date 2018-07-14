@@ -2,35 +2,37 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, :except => [:show] #-> routes to the login / signup if not authenticated
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
-  # GET /courses
-  # GET /courses.json
+  # Example route: GET /courses
   def index
+    # Show only the courses for that logged-in user
     @courses = Course.where(:user_id => current_user.id)
   end
 
-  # GET /courses/1
-  # GET /courses/1.json
+  # Example route: GET /courses/1
   def show
   end
 
-  # GET /courses/new
+  # Example route: GET /courses/new
   def new
     @course = Course.new
   end
 
-  # GET /courses/1/edit
+  # Example route: GET /courses/1/edit
   def edit
+    # Check to see if the course belongs to this user
     if @course.user_id != current_user.id
+      # If it doesn't, redirect to the homepage (we should make this go somewhere else)
       redirect_to root_path
     end
   end
 
-  # POST /courses
-  # POST /courses.json
+  # Example route: POST /courses
   def create
+    # Build a new course object from the form parameters
     @course = Course.new(course_params)
+    # Add the user_id from the session object
     @course.user_id = current_user.id
-
+    # Save the new course object to the database
     respond_to do |format|
       if @course.save
         format.html { redirect_to @course, notice: 'Course was successfully created.' }
@@ -42,8 +44,7 @@ class CoursesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /courses/1
-  # PATCH/PUT /courses/1.json
+  # Example route: PATCH/PUT /courses/1
   def update
     respond_to do |format|
       if @course.update(course_params)
@@ -56,8 +57,7 @@ class CoursesController < ApplicationController
     end
   end
 
-  # DELETE /courses/1
-  # DELETE /courses/1.json
+  # Example route: DELETE /courses/1
   def destroy
     @course.destroy
     respond_to do |format|
@@ -67,12 +67,15 @@ class CoursesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # All of these methods are 'before_actions'
+    # They get run before anything happens inside the controller
+
+    # Finds the course in the database and references it in a variable
     def set_course
       @course = Course.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Declares what parameters are mutatable by the controller
     def course_params
       params.require(:course).permit(:title, :course_info, :subject, :instructor_bio, :keywords, :price)
     end

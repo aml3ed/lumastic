@@ -1,10 +1,10 @@
-<header>
-  <div class="container">
-    <nav>
-      <ul class="nav navbar-nav navbar-right">
+
+    <nav style="background-color: #003a6e; display: block; width: 100%; margin: 0; overflow: hidden;">
+      <%= image_tag "LumasticV7.svg", :style => "width: 250px;" %>
+      <ul class="nav navbar-nav navbar-right" style="display: inline-block;">
         <li><%= link_to "Home", root_path %></li>
         <li><%= link_to "Subjects", '#' %></li>
-        <li><%= link_to "Teach", '#' %></li>
+        <li><%= link_to "Teach", teacher_path %></li>
         <% if current_user %>
         <li><%= link_to 'My Courses', courses_path %><li>
         <li><%= link_to 'My Account', '#' %><li>
@@ -15,5 +15,3 @@
         <% end %>
       </ul>
     </nav>
-  </div>
-</header>

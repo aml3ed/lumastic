@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
+  root to: 'pages#home'
+
   resources :courses do
     resources :lessons
   end
-  root to: 'pages#home'
+  get '/home', to: 'pages#home'
+  get '/teacher', to: 'pages#teacher'
 
   resources :materials
   devise_for :users
