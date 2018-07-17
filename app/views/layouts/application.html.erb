@@ -8,16 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <% unless notice.nil? || alert.nil? %>
+    <%= render 'layouts/alerts' %>
+  <% end %>
+  <%= render 'layouts/navigation' %>
   <body>
-
-    <% unless notice.nil? || alert.nil? %>
-      <%= render 'layouts/alerts' %>
-    <% end %>
-    <%= render 'layouts/navigation' %>
-    <section class="main-container">
     <%= yield %>
-    </section>
+
     <%= render 'layouts/footer' %>
 
   </body>
