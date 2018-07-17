@@ -1,0 +1,46 @@
+.main-nav {
+  padding: 10px 15px;
+  margin: 0;
+
+  @include flex-container-centered-row;
+  justify-content: flex-start;
+  box-sizing : border-box;
+  background-color: $primary-color;
+  height: 70px;
+
+  @include material-medium-shadow;
+  position: fixed;
+  top: 0;
+  z-index: 2020;
+  width: 100%;
+
+}
+
+.nav-logo-container {
+  height: 100%;
+  display: inline-block;
+  flex-grow: 1;
+}
+
+.nav-logo-image {
+  height: 100%;
+}
+
+.nav-items {
+     list-style-type: none;
+
+     @include flex-container-centered-row;
+     justify-content: flex-end;
+     flex-grow: 5;
+ }
+
+ .nav-item {
+    display: inline-block;
+    padding: 20px;
+    line-height: 50px;
+
+    a {
+      color: $bg-color;
+      text-decoration: none;
+    }
+}
