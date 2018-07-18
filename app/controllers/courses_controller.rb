@@ -5,6 +5,7 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses
   def index
+    puts current_user.role.inspect
     # Show only the courses for that logged-in user
     @courses = Course.where(:user_id => current_user.id)
   end
