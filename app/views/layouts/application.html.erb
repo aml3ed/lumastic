@@ -10,12 +10,11 @@
   </head>
 
   <body>
-
     <% unless notice.nil? || alert.nil? %>
       <%= render 'layouts/alerts' %>
     <% end %>
     <%= render 'layouts/navigation' %>
-    <section class="main-container">
+    <section class="main-content-container">
     <%= yield %>
     </section>
     <%= render 'layouts/footer' %>
