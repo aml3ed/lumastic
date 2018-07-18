@@ -1,18 +1,26 @@
 
     <nav class="main-nav">
-      <div class="nav-logo-container">
-        <a href="<%=root_path%>">
-        <%= image_tag "LumasticV14.svg", :class => "nav-logo-image" %>
-      </a>
+      <div class="nav-left-container">
+        <div class="nav-logo-container">
+          <a href="<%=root_path%>">
+          <%= image_tag "LumasticV15.svg", :class => "nav-logo-image" %>
+          </a>
+        </div>
+        <ul class="nav-items" id="nav-left-items">
+          <li class="nav-item">
+            <%= link_to "Subjects", '#' %>
+          </li>
+          <li class="nav-item">
+            <%= link_to "Teach", teacher_path, :class => current_class?(teacher_path) %>
+          </li>
+        </ul>
       </div>
-      <ul class="nav-items">
-        <li class="nav-item">
-          <%= link_to "Subjects", '#' %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Teach", teacher_path %>
-        </li>
 
+      <div class="nav-search-container">
+        <%= icon('fas', 'search') %>
+        <input type="text" placeholder="What will you learn?" />
+      </div>
+      <ul class="nav-items" id="nav-right-items">
         <% if current_user %>
         <li class="nav-item">
           <%= link_to 'My Courses', courses_path %>
@@ -20,16 +28,17 @@
         <li class="nav-item">
           <%= link_to 'My Account', '#' %>
         </li>
-        <li class="nav-item">
+        <li class="nav-item" id="sign-out-nav">
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
         </li>
 
         <% else %>
-        <li class="nav-item">
-          <%= link_to "Login", new_user_session_path %>
-        </li>
-        <li class="nav-item">
+        <li class="nav-item" id="sign-up-nav">
           <%= link_to "Sign Up", new_user_registration_path %>
+        </li>
+
+        <li class="nav-item" id="login-nav">
+          <%= link_to "Login", new_user_session_path %>
         </li>
         <% end %>
       </ul>
