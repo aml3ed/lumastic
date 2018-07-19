@@ -150,6 +150,10 @@ When developing with a team, the Github repository for the project can get a lit
   * What is the change / addition?
   * What does it do?
   * What additional work needs to be done?
+4. After making the first push to a new branch, create a pull request on GitHub with the following:
+  * Reviewers - either aml3ed or dclark43
+  * Assignees - yourself
+  * Labels - *Work in progress* if the branch is incomplete and *In review* if the branch is ready to merge
 
 *With these guidelines in mind, merges will be much quicker and it will be easier to onboard new developers.*
 #### Slack
