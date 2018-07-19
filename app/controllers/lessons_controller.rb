@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_course
   before_action :find_lessons
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
