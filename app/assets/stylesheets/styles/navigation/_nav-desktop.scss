@@ -41,6 +41,8 @@
    justify-content: flex-end;
    flex-grow: 1;
    padding-left: 0;
+   margin-left: 15px;
+   box-sizing: border-box;
  }
  #nav-left-items {
    flex-grow: 2;
@@ -63,7 +65,7 @@
      width: 100%;
      padding: 10px;
      font-size: 14px;
-     color: black;
+     color: $bg-color;
      box-sizing: border-box;
      border-radius: 2px;
      border: none;

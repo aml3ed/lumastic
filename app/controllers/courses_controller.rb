@@ -1,9 +1,11 @@
 class CoursesController < ApplicationController
+  load_and_authorize_resource
   before_action :authenticate_user!, :except => [:show] #-> routes to the login / signup if not authenticated
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
   # Example route: GET /courses
   def index
+    puts current_user.role.inspect
     # Show only the courses for that logged-in user
     @courses = Course.where(:user_id => current_user.id)
   end
