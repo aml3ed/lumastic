@@ -5,3 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+david = User.create! email: 'david@email.com',
+                     password: 'password',
+                     role: Roleable::ROLE_ADMIN
