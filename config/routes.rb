@@ -14,8 +14,8 @@ Rails.application.routes.draw do
   #
   devise_for :users,
              path_names: { sign_in: 'login', sign_out: 'logout' },
-             controllers: { sessions: 'sessions', registrations: 'registrations' },
-             skip: %i[invitations passwords]
+             controllers: { sessions: 'sessions', registrations: 'registrations', passwords: 'passwords' },
+             skip: %i[invitations]
   # as :user do
   #   get 'users/edit' => 'devise/registrations#edit', :as => 'edit_user_registration'
   #   put 'users' => 'devise/registrations#update', :as => 'user_registration'
