@@ -14,7 +14,8 @@
       <%= render 'layouts/alerts' %>
     <% end %>
     <%= render 'layouts/navigation' %>
-    <section class="main-content-container">
+    <%= render 'layouts/sidenav' %>
+    <section class="main-content-container" onclick="bodyNavClose()">
     <%= yield %>
     </section>
     <%= render 'layouts/footer' %>
