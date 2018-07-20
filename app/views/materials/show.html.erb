@@ -12,7 +12,12 @@
 
 <p>
   <strong>File url:</strong>
-  <%= @material.file_url %>
+  <%= link_to @material.title, "#{request.base_url}#{url_for(@material.file)}" %>
+</p>
+
+<p>
+  <strong>Download file:</strong>
+  <%= link_to @material.title, rails_blob_path(@material.file, disposition: 'attachment') %>
 </p>
 
 <%= link_to 'Edit', edit_material_path(@material) %> |
