@@ -7,34 +7,33 @@
           <%= image_tag "LumasticV16.svg", :class => "nav-logo-image" %>
           </a>
         </div>
-        <ul class="nav-items" id="nav-left-items">
-          <li class="nav-item">
-            <% subjectCaret = 'Subjects ' + icon('fas', 'caret-down')%>
-            <%= link_to subjectCaret.html_safe, '#' %>
-          </li>
-        </ul>
+        <%= link_to root_path, :class => 'nav-items', :id =>'nav-subject' do %>
+            <div class="nav-item">
+              <%= ('Subjects'+ '&nbsp;' +icon('fas', 'caret-down')).html_safe %>
+            </div>
+        <% end %>
       </div>
 
       <div class="nav-search-container">
         <%= icon('fas', 'search') %>
         <input type="text" placeholder="What will you learn?" />
       </div>
-      <ul class="nav-items" id="nav-right-items">
-        <% if current_user %>
-        <li class="nav-item">
-          <%= link_to 'My Courses', courses_path %>
-        </li>
-        <li class="nav-item" id="sign-out-nav">
-          <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
-        </li>
-        <% else %>
-        <li class="nav-item" id="sign-up-nav">
-          <%= link_to "Sign Up", new_user_registration_path %>
-        </li>
+      <div class="nav-right-container">
+        <div class="nav-items" id="nav-right-items">
+          <% if current_user %>
+            <%= link_to root_path, :class => 'nav-item', :id => 'nav-user' do %>
+              <%= icon('fas', 'user-circle') %>
+              <%= current_user.email  %>
+            <% end %>
+          <% else %>
+          <div class="nav-item" id="sign-up-nav">
+            <%= link_to "Sign Up", new_user_registration_path %>
+          </div>
 
-        <li class="nav-item" id="login-nav">
-          <%= link_to "Login", new_user_session_path %>
-        </li>
-        <% end %>
-      </ul>
+          <div class="nav-item" id="login-nav">
+            <%= link_to "Login", new_user_session_path %>
+          </div>
+          <% end %>
+        </div>
+      </div>
     </nav>

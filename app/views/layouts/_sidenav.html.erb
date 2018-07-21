@@ -55,6 +55,6 @@
       <hr>
       <%= link_to "Terms & Conditions", '#', :class => 'sidenav-bottom-links' %>
       <%= link_to "Privacy Policy", '#', :class => 'sidenav-bottom-links' %>
-      <%= link_to "Sign Out", destroy_user_session_path, :class => 'sidenav-bottom-links', :style => "margin-bottom: 10px;" %>
+      <%= link_to "Sign Out", destroy_user_session_path, method: :delete, :class => 'sidenav-bottom-links', :style => "margin-bottom: 10px;" %>
     </div>
 </div>
