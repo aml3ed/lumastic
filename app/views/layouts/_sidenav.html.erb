@@ -1,11 +1,53 @@
 <div id="sidenav" style="width: 0px;">
-  <ul>
-    <p>Username</p>
-    <li>My Courses</li>
-    <li>Account Info</li>
-    <li>Payment Info</li>
-    <p>Teach</p>
-    <li>Start Here</li>
-    <li>Taught Courses</li>
-    <li>Resource Center</li>
+  <ul class="sidenav-items">
+    <%= link_to root_path, :class => 'sidenav-link '+current_class?(root_path) do %>
+      <li class="sidenav-item">
+          <%=icon('fas', 'home', class: 'sidebar-icon')%>
+          <p class="sidebar-text">Home</p>
+      </li>
+    <% end %>
+    <%= link_to '#', :class => 'sidenav-link' do %>
+      <li class="sidenav-item">
+          <%=icon('fas', 'address-book', class: 'sidebar-icon')%>
+          <p class="sidebar-text">My Courses</p>
+      </li>
+    <% end %>
+    <div class="sidebar-header">
+      Account
+      <hr>
+    </div>
+    <%= link_to courses_path, :class => 'sidenav-link' do %>
+      <li class="sidenav-item">
+          <%=icon('fas', 'user-alt', class: 'sidebar-icon')%>
+          <p class="sidebar-text">Account Info</p>
+      </li>
+    <% end %>
+    <%= link_to courses_path, :class => 'sidenav-link' do %>
+    <li class="sidenav-item">
+        <%=icon('fas', 'credit-card', class: 'sidebar-icon')%>
+        <p class="sidebar-text">Payment Info</p>
+    </li>
+    <% end %>
+    <div class="sidebar-header">
+      Teach
+      <hr>
+    </div>
+    <%= link_to teacher_path, :class => 'sidenav-link' do %>
+      <li class="sidenav-item">
+          <%=icon('fas', 'chalkboard-teacher', class: 'sidebar-icon')%>
+          <p class="sidebar-text">Start Teaching</p>
+      </li>
+    <% end %>
+    <%= link_to teacher_path, :class => 'sidenav-link' do %>
+      <li class="sidenav-item">
+          <%=icon('fas', 'book-open', class: 'sidebar-icon')%>
+          <p class="sidebar-text">Resource Center</p>
+      </li>
+    <% end %>
+    <%= link_to courses_path, :class => 'sidenav-link' do %>
+    <li class="sidenav-item">
+        <%=icon('fas', 'book', class: 'sidebar-icon')%>
+        <p class="sidebar-text">Taught Courses</p>
+    </li>
+    <% end %>
 </div>

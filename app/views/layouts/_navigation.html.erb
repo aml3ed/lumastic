@@ -9,7 +9,8 @@
         </div>
         <ul class="nav-items" id="nav-left-items">
           <li class="nav-item">
-            <%= link_to "Subjects", '#' %>
+            <% subjectCaret = 'Subjects ' + icon('fas', 'caret-down')%>
+            <%= link_to subjectCaret.html_safe, '#' %>
           </li>
         </ul>
       </div>
@@ -23,13 +24,9 @@
         <li class="nav-item">
           <%= link_to 'My Courses', courses_path %>
         </li>
-        <li class="nav-item">
-          <%= link_to 'My Account', '#' %>
-        </li>
         <li class="nav-item" id="sign-out-nav">
           <%= link_to 'Sign Out', destroy_user_session_path, method: :delete %>
         </li>
-
         <% else %>
         <li class="nav-item" id="sign-up-nav">
           <%= link_to "Sign Up", new_user_registration_path %>
