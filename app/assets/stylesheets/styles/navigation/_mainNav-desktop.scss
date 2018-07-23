@@ -61,6 +61,9 @@
     @include flex-container-centered-row;
     border-radius: 3px;
     box-sizing: border-box;
+    &:focus-within {
+      background-color: $bg-color;
+    }
     i {
       display: inline-block;
       box-sizing: border-box;
@@ -81,6 +84,7 @@
       &:focus {
         outline: none;
         color: black;
+        background-color: $bg-color;
       }
     }
   }
@@ -115,7 +119,7 @@
       text-decoration: none;
       margin: 0;
     }
-    .active {
+    &:active {
       color: $accent-color;
     }
 }

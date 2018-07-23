@@ -10,11 +10,6 @@
   transition: 0.5s;
   margin-top: 0px;
 }
-.sidenav-items {
-  list-style-type: none;
-  margin-top: 0;
-  padding: 0;
-}
 
 .sidebar-header {
   font-size: 14px;
@@ -24,29 +19,6 @@
   hr {
     margin-bottom: 0;
     color: darken($bg-color, 60%);
-  }
-}
-.sidenav-link {
-  text-decoration: none;
-  color: $primary-color;
-  &.active {
-    font-weight: bold;
-    .sidenav-item {
-    background-color: lighten($secondary-color, 30%);
-  }
-  }
-}
-.sidenav-item {
-  width: 100%;
-  box-sizing: border-box;
-  padding: 20px 0px 20px 20px;
-  text-decoration: none;
-  .sidebar-text {
-    display: inline;
-    padding: 0px 20px;
-  }
-  &:hover {
-    background-color: darken($bg-color, 10%);
   }
 }
 

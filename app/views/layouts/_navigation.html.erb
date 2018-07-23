@@ -7,24 +7,28 @@
           <%= image_tag "LumasticV16.svg", :class => "nav-logo-image" %>
           </a>
         </div>
-        <%= link_to root_path, :class => 'nav-items', :id =>'nav-subject' do %>
-            <div class="nav-item">
-              <%= ('Subjects'+ '&nbsp;' +icon('fas', 'caret-down')).html_safe %>
-            </div>
-        <% end %>
+        <div class="nav-items" id="nav-subject" onclick="toggleDropdown('nav-subject')">
+          <div class="nav-item">
+            <%= ('Subjects' + raw('&nbsp;')+raw('&nbsp;') + icon('fas', 'caret-down')).html_safe%>
+          </div>
+          <%= render 'layouts/subjectDropdown' %>
+        </div>
+
+
       </div>
 
-      <div class="nav-search-container">
+      <div class="nav-search-container" id="search-container">
         <%= icon('fas', 'search') %>
-        <input type="text" placeholder="What will you learn?" />
+        <input type="text" placeholder="What will you learn?" id="search-input" />
       </div>
       <div class="nav-right-container">
         <div class="nav-items" id="nav-right-items">
           <% if current_user %>
-            <%= link_to root_path, :class => 'nav-item', :id => 'nav-user' do %>
+            <div class="nav-item" id="nav-user" onclick="toggleDropdown('nav-user')">
               <%= icon('fas', 'user-circle') %>
               <%= current_user.email  %>
-            <% end %>
+              <%= render 'layouts/userDropdown' %>
+            </div>
           <% else %>
           <div class="nav-item" id="sign-up-nav">
             <%= link_to "Sign Up", new_user_registration_path %>

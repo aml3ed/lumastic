@@ -19,3 +19,9 @@ function openNav(sidenav, toggleBtn) {
   sidenav.style.width = '250px';
   toggleBtn.innerHTML = '<i class="fas fa-arrow-left"></i>';
 }
+
+function bodyNavClose() {
+  var sidenav = document.getElementById("sidenav");
+  var toggleBtn = document.getElementById("toggleBtn");
+  closeNav(sidenav, toggleBtn);
+}

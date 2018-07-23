@@ -1,0 +1,45 @@
+<div class="dropdown" style="display: none;">
+  <ul class="verticalnav-items">
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'divide', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">Math</p>
+      </li>
+    <% end %>
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'flask', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">Science</p>
+      </li>
+    <% end %>
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'marker', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">Language Arts</p>
+      </li>
+    <% end %>
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'paint-brush', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">Art</p>
+      </li>
+    <% end %>
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'compass', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">History</p>
+      </li>
+    <% end %>
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'music', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">Music</p>
+      </li>
+    <% end %>
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'globe', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">Foreign Language</p>
+      </li>
+    <% end %>
+</div>

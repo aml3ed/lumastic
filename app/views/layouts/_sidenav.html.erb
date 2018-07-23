@@ -1,53 +1,53 @@
 <div id="sidenav" style="width: 0px;">
-  <ul class="sidenav-items">
-    <%= link_to root_path, :class => 'sidenav-link '+current_class?(root_path) do %>
-      <li class="sidenav-item">
+  <ul class="verticalnav-items">
+    <%= link_to root_path, :class => 'verticalnav-link '+current_class?(root_path) do %>
+      <li class="verticalnav-item">
           <%=icon('fas', 'home', class: 'sidebar-icon')%>
-          <p class="sidebar-text">Home</p>
+          <p class="verticalnav-text">Home</p>
       </li>
     <% end %>
-    <%= link_to '#', :class => 'sidenav-link '+current_class?('#') do %>
-      <li class="sidenav-item">
-          <%=icon('fas', 'address-book', class: 'sidebar-icon')%>
-          <p class="sidebar-text">My Courses</p>
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'address-book', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">My Courses</p>
       </li>
     <% end %>
     <div class="sidebar-header">
       Account
       <hr>
     </div>
-    <%= link_to '#', :class => 'sidenav-link '+current_class?('#') do %>
-      <li class="sidenav-item">
-          <%=icon('fas', 'user-alt', class: 'sidebar-icon')%>
-          <p class="sidebar-text">Account Info</p>
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'user-alt', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">Account Info</p>
       </li>
     <% end %>
-    <%= link_to '#', :class => 'sidenav-link '+current_class?('#') do %>
-    <li class="sidenav-item">
-        <%=icon('fas', 'credit-card', class: 'sidebar-icon')%>
-        <p class="sidebar-text">Payment Info</p>
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+    <li class="verticalnav-item">
+        <%=icon('fas', 'credit-card', class: 'verticalnav-icon')%>
+        <p class="verticalnav-text">Payment Info</p>
     </li>
     <% end %>
     <div class="sidebar-header">
       Teach
       <hr>
     </div>
-    <%= link_to teacher_path, :class => 'sidenav-link '+current_class?(teacher_path) do %>
-      <li class="sidenav-item">
-          <%=icon('fas', 'chalkboard-teacher', class: 'sidebar-icon')%>
-          <p class="sidebar-text">Start Teaching</p>
+    <%= link_to teacher_path, :class => 'verticalnav-link '+current_class?(teacher_path) do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'chalkboard-teacher', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">Start Teaching</p>
       </li>
     <% end %>
-    <%= link_to '#', :class => 'sidenav-link '+current_class?('#') do %>
-      <li class="sidenav-item">
-          <%=icon('fas', 'book-open', class: 'sidebar-icon')%>
-          <p class="sidebar-text">Resource Center</p>
+    <%= link_to '#', :class => 'verticalnav-link '+current_class?('#') do %>
+      <li class="verticalnav-item">
+          <%=icon('fas', 'book-open', class: 'verticalnav-icon')%>
+          <p class="verticalnav-text">Resource Center</p>
       </li>
     <% end %>
-    <%= link_to courses_path, :class => 'sidenav-link '+current_class?(courses_path) do %>
-    <li class="sidenav-item">
-        <%=icon('fas', 'book', class: 'sidebar-icon')%>
-        <p class="sidebar-text">Taught Courses</p>
+    <%= link_to courses_path, :class => 'verticalnav-link '+current_class?(courses_path) do %>
+    <li class="verticalnav-item">
+        <%=icon('fas', 'book', class: 'verticalnav-icon')%>
+        <p class="verticalnav-text">Taught Courses</p>
     </li>
     <% end %>
     <div class="sidebar-header">
