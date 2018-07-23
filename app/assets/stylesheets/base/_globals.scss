@@ -8,3 +8,29 @@ $green: #2BAD54;
 $red: #E83E3E;
 
 $bg-color: #fafafa;
+
+.content-container {
+  max-width: 1280px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px 10px;
+  &.top-container {
+    margin-top: 70px;
+  }
+}
+
+.full-width-section {
+  width: 100%;
+  background-color: lighten($secondary-color, 37%);
+  border-bottom: 2px solid $secondary-color;
+}
+
+h1 {
+  font-size: 24px;
+  color: $primary-color;
+  &#main-headline {
+    font-size: 35px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+}

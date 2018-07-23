@@ -1,5 +1,23 @@
-<p>All Lessons</p>
-<% for lesson in @lessons %>
-  <%= link_to lesson.title, course_lesson_path(:course_id => lesson.course_id, :id => lesson.id) %>
-  <br>
-<% end %>
+<section class="full-width-section">
+  <div class="content-container top-container">
+    <div class="home-hero">
+      <div class="home-video" >
+        <%= image_tag "testimages/ballThumb.jpg", :style => "width: 100%;"%>
+      </div>
+      <div class="home-text">
+        <h1 id="main-headline">What is Lumastic?</h1>
+        <p id="headline-text">
+          Lumastic is a digital learning platform where students
+          and teachers connect, learn and grow together.
+
+          Our mission is to provide free, quality education for
+          everyone.  We enable great academics by providing
+          you with the one thing every great student needs,
+          a great teacher.
+
+          Start learning today and join the internet education revolution.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>

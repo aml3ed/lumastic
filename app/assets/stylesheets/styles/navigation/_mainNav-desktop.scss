@@ -6,7 +6,7 @@
   box-sizing : border-box;
   background-color: $primary-color;
   height: 70px;
-  @include material-medium-shadow;
+  @include material-high-shadow;
   position: fixed;
   top: 0;
   z-index: 2020;
