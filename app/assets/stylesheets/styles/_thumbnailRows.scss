@@ -1,0 +1,31 @@
+.thumb-row {
+  @include flex-container-centered-row;
+  width: 100%;
+}
+
+.thumb {
+  @include material-low-shadow;
+  background-color: white;
+  margin-right: 20px;
+  flex-grow: 1;
+  &:hover {
+    @include material-hover;
+  }
+}
+.thumb-video {
+  width: 100%;
+}
+.thumb-text {
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+@media only screen and (max-width: 800px) {
+  .thumb-row {
+    flex-wrap: wrap;
+  }
+  .thumb {
+    margin-bottom: 20px;
+    margin-right: 0px;
+  }
+}

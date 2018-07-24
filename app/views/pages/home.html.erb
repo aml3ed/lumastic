@@ -1,23 +1,46 @@
-<section class="full-width-section">
-  <div class="content-container top-container">
-    <div class="home-hero">
-      <div class="home-video" >
-        <%= image_tag "testimages/ballThumb.jpg", :style => "width: 100%;"%>
-      </div>
-      <div class="home-text">
-        <h1 id="main-headline">What is Lumastic?</h1>
-        <p id="headline-text">
-          Lumastic is a digital learning platform where students
-          and teachers connect, learn and grow together.
+<%= render 'pages/homeHero' %>
+<div class="content-container">
+  <div class="thumb-section">
+    <h2 class="thumb-header">Top Courses <%= link_to "See More", "#" %></h2>
+    <div class="thumb-row">
 
-          Our mission is to provide free, quality education for
-          everyone.  We enable great academics by providing
-          you with the one thing every great student needs,
-          a great teacher.
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/bitThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+        </div>
+      <%end%>
 
-          Start learning today and join the internet education revolution.
-        </p>
-      </div>
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/ballThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+        </div>
+      <%end%>
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/bitThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+        </div>
+      <%end%>
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/fbThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+        </div>
+      <%end%>
+
     </div>
   </div>
-</section>
+
+</div>
