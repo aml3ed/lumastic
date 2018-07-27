@@ -1,20 +1,27 @@
 .home-hero {
   display: flex;
-  flex-direction: row;
+  width: 100%;
 
   .home-video {
-    flex-grow: 1;
     @include material-medium-shadow;
+    flex-grow: 1;
+    flex-basis: 0;
     box-sizing: content-box;
     margin-right: 20px;
     transition: 0.3s;
+    height: 100%;
+    border: 1px solid $accent-color;
+    img {
+      width: 100%;
+    }
     &:hover {
       @include material-hover;
     }
   }
 
   .home-text {
-    flex-grow: 1;
     height: 100%;
+    flex-grow: 1;
+    flex-basis: 0;
   }
 }

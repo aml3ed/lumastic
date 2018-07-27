@@ -1,3 +1,19 @@
+
+
+.thumb-header {
+  margin-top: 30px;
+  margin-bottom: 10px;
+
+  &.first {
+    margin-top: 0px;
+  }
+  a {
+    font-size: 14px;
+    margin-left: 5px;
+    text-decoration: underline;
+  }
+}
+
 .thumb-row {
   @include flex-container-centered-row;
   width: 100%;
@@ -8,6 +24,9 @@
   background-color: white;
   margin-right: 20px;
   flex-grow: 1;
+  &.last {
+    margin-right: 0px;
+  }
   &:hover {
     @include material-hover;
   }
@@ -16,8 +35,21 @@
   width: 100%;
 }
 .thumb-text {
-  padding: 10px;
+  padding: 15px 10px;
   box-sizing: border-box;
+  color: $primary-color;
+  .thumb-title {
+    margin-top: 0;
+  }
+  .thumb-rating {
+    margin-bottom: 0;
+  }
+  p {
+    font-size: 14px;
+    i {
+      margin-right: 5px;
+    }
+  }
 }
 
 @media only screen and (max-width: 800px) {

@@ -12,10 +12,10 @@ $green: #2BAD54;
 $red: #E83E3E;
 
 .content-container {
-  max-width: 1280px;
+  max-width: 1200px;
   margin-left: auto;
   margin-right: auto;
-  padding: 30px 10px;
+  padding: 30px 20px;
   &.top-container {
     margin-top: 70px;
   }
@@ -24,15 +24,32 @@ $red: #E83E3E;
 .full-width-section {
   width: 100%;
   background-color: lighten($secondary-color, 37%);
-  border-bottom: 2px solid $secondary-color;
+  border-bottom: 3px solid $secondary-color;
+  &.home-top {
+    background-color: darken($bg-color, 10%);
+  }
 }
 
 h1 {
   font-size: 24px;
   color: $primary-color;
   &#main-headline {
-    font-size: 35px;
+    font-size: 28px;
     margin-top: 5px;
     margin-bottom: 20px;
   }
+}
+h2 {
+  color: $primary-color;
+  font-size: 24px;
+}
+h3 {
+  font-size: 18px;
+}
+a {
+  text-decoration: none;
+  color: darken($secondary-color, 15%);
+}
+p {
+  color:$primary-color;
 }

@@ -12,6 +12,10 @@
     color: $bg-color !important;
     .verticalnav-item {
     background-color: lighten($primary-color, 10%);
+    color: white;
+    .verticalnav-text {
+      color: white;
+    }
     }
   }
 }

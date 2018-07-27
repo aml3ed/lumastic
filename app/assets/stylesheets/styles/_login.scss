@@ -1,0 +1,13 @@
+.paper-popup {
+  @include material-medium-shadow;
+  background-color: white;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: min-content;
+  .field {
+    box-sizing: content-box;
+  }
+
+}
