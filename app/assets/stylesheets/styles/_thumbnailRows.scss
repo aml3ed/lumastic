@@ -8,9 +8,7 @@
     margin-top: 0px;
   }
   a {
-    font-size: 14px;
     margin-left: 5px;
-    text-decoration: underline;
   }
 }
 
@@ -34,15 +32,29 @@
 .thumb-video {
   width: 100%;
 }
+.thumb-bottom-text {
+  display: flex;
+  .material-link{
+    text-align: right;
+    margin: 0;
+    flex-basis: 0;
+    flex-grow: 2;
+  }
+  .thumb-rating {
+    flex-basis: 0;
+    flex-grow: 1;
+  }
+}
 .thumb-text {
   padding: 15px 10px;
   box-sizing: border-box;
   color: $primary-color;
   .thumb-title {
     margin-top: 0;
+    font-weight: normal;
   }
   .thumb-rating {
-    margin-bottom: 0;
+    margin: 0;
   }
   p {
     font-size: 14px;

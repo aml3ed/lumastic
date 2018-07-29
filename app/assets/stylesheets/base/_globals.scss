@@ -48,8 +48,22 @@ h3 {
 }
 a {
   text-decoration: none;
-  color: darken($secondary-color, 15%);
+  color: darken($secondary-color, 10%);
+}
+.material-link {
+    text-transform: uppercase;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+    color: darken($secondary-color, 10%) !important;
 }
 p {
   color:$primary-color;
+}
+.field {
+  box-sizing: content-box;
+  width: 100%;
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
 }
