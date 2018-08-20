@@ -1,9 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-$font-stack: 'Open Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+$font-stack: 'Roboto', sans-serif;
+$font-light: 300;
+$font-regular: 400;
+$font-bold: 900;
 
-$primary-color: #003A6E;
+
+$primary-color: #19508C;
 $secondary-color: #44BAF4;
 $accent-color: #FECF2F;
+
+$text-color: #003A6E;
 
 $bg-color: #fafafa;
 $card-color: #fff;
@@ -17,7 +23,7 @@ $red: #E83E3E;
   margin-right: auto;
   padding: 30px 20px;
   &.top-container {
-    margin-top: 70px;
+    margin-top: 55px;
   }
 }
 
@@ -32,7 +38,7 @@ $red: #E83E3E;
 
 h1 {
   font-size: 24px;
-  color: $primary-color;
+  color: $text-color;
   &#main-headline {
     font-size: 28px;
     margin-top: 5px;
@@ -40,10 +46,13 @@ h1 {
   }
 }
 h2 {
-  color: $primary-color;
+  color: $text-color;
+  font-weight: 300;
   font-size: 24px;
 }
 h3 {
+  color: $text-color;
+
   font-size: 18px;
 }
 a {
@@ -53,11 +62,11 @@ a {
 .material-link {
     text-transform: uppercase;
     font-size: 12px !important;
-    font-weight: 800 !important;
+    font-weight: 500 !important;
     color: darken($secondary-color, 10%) !important;
 }
 p {
-  color:$primary-color;
+  color:$text-color;
 }
 .field {
   box-sizing: content-box;

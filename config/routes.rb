@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   end
   get '/home', to: 'pages#home'
   get '/teacher', to: 'pages#teacher'
+  get '/testvideo', to: 'pages#testvideo'
 
   resources :materials
   devise_for :users

@@ -49,9 +49,10 @@
   padding: 15px 10px;
   box-sizing: border-box;
   color: $primary-color;
+  font-weight: $font-light;
   .thumb-title {
     margin-top: 0;
-    font-weight: normal;
+    font-weight: $font-regular;
   }
   .thumb-rating {
     margin: 0;
