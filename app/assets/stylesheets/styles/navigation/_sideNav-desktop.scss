@@ -1,0 +1,36 @@
+#sidenav {
+  @include material-high-shadow;
+  position: fixed;
+  z-index: 10;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  background-color: lighten($primary-color, 80%);
+  overflow-x: hidden;
+  transition: 0.5s;
+  margin-top: 0px;
+}
+
+.sidebar-header {
+  font-size: 14px;
+  margin-bottom: 0;
+  padding-left: 20px;
+  color: darken($bg-color, 60%);
+  hr {
+    margin-bottom: 0;
+    color: darken($bg-color, 60%);
+  }
+}
+
+.sidenav-bottom-links {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  color: darken($bg-color, 60%);
+  text-decoration: none;
+  box-sizing: border-box;
+  padding: 5px 0px;
+  &:hover {
+    color: lighten($primary-color, 30%);
+  }
+}

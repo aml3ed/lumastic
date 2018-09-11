@@ -14,10 +14,10 @@
       <%= render 'layouts/alerts' %>
     <% end %>
     <%= render 'layouts/navigation' %>
-    <section class="main-content-container">
+    <%= render 'layouts/sidenav' %>
+    <section  onclick="bodyNavClose()" id="mainContainer">
     <%= yield %>
     </section>
     <%= render 'layouts/footer' %>
-
   </body>
 </html>

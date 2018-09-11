@@ -1,0 +1,49 @@
+footer {
+  background-color: $primary-color;
+  color: white;
+  margin-top: 30px;
+  .content-container {
+    @include flex-container-centered-row;
+    justify-content: center;
+  }
+  .footerMission {
+    flex-grow: 2;
+    flex-basis: 0;
+    img {
+      max-width: 150px;
+    }
+  }
+  .footerLogo {
+    flex-grow: 1;
+    height: 100%;
+    text-align: center;
+    flex-basis: 0;
+    img {
+      width: 100%;
+      max-width: 100px;
+    }
+  }
+  .footerContact {
+    flex-grow: 2;
+    flex-basis: 0;
+    @include flex-container-centered-row;
+    justify-content: flex-end;
+    text-align: right;
+    .contactText {
+      flex-grow: 1;
+    }
+    .social {
+      flex-grow: 1;
+      font-size: 24px;
+      margin-top: 5px;
+
+    }
+  }
+  a {
+    color: $accent-color;
+    font-weight: bold;
+  }
+  p {
+    color: white;
+  }
+}

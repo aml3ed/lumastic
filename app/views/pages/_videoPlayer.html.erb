@@ -1,0 +1,34 @@
+<div class="vid-player-container">
+
+  <div class="vid-iframe-container">
+    <div class="vid-overlay-container">
+      <div class="vid-text-overlay">How confident are you with this topic already?</div>
+      <div class="vid-buttons">
+        <script>
+          function playButton() {
+            var overlay = document.getElementsByClassName("vid-overlay-container")[0];
+            overlay.style.display = "none";
+            var iframeContainer = document.getElementsByClassName("vid-iframe")[0];
+            iframeContainer.style.filter = "none";
+            iframeContainer.src += "&autoplay=1"
+          }
+        </script>
+        <button class="vid-button red-vid-button" onclick="playButton()">
+          <%= icon("fab", "youtube") %> <br>
+          I'm not confident.
+        </button>
+        <button class="vid-button yellow-vid-button" onclick="playButton()">
+          <%= icon("fab", "youtube") %> <br>
+          I'm starting to get it.
+        </button>
+        <button class="vid-button green-vid-button" onclick="playButton()">
+          <%= icon("fab", "youtube") %> <br>
+          I got this!
+        </button>
+      </div>
+    </div>
+
+    <iframe class="vid-iframe" src="https://www.youtube.com/embed/BBFBODPndPI?rel=0" frameborder="0" allowfullscreen>
+    </iframe>
+  </div>
+</div>

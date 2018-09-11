@@ -1,5 +1,124 @@
-<p>All Lessons</p>
-<% for lesson in @lessons %>
-  <%= link_to lesson.title, course_lesson_path(:course_id => lesson.course_id, :id => lesson.id) %>
-  <br>
-<% end %>
+<%= render 'pages/homeHero' %>
+<div class="content-container">
+
+  <div class="thumb-section">
+    <h2 class="thumb-header first">Top Courses <%= link_to "See More", "#", class: "material-link" %></h2>
+    <div class="thumb-row">
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/bitThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <div class="thumb-bottom-text">
+            <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+            <p class="material-link">View Course</p>
+          </div>
+        </div>
+      <%end%>
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/bitThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <div class="thumb-bottom-text">
+            <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+            <p class="material-link">View Course</p>
+          </div>
+        </div>
+      <%end%>
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/bitThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <div class="thumb-bottom-text">
+            <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+            <p class="material-link">View Course</p>
+          </div>
+        </div>
+      <%end%>
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/bitThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <div class="thumb-bottom-text">
+            <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+            <p class="material-link">View Course</p>
+          </div>
+        </div>
+      <%end%>
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/bitThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <div class="thumb-bottom-text">
+            <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+            <p class="material-link">View Course</p>
+          </div>
+        </div>
+      <%end%>
+
+    </div>
+  </div>
+
+  <div class="thumb-section">
+    <h2 class="thumb-header">Top Courses <%= link_to "See More", "#", class: "material-link" %></h2>
+    <div class="thumb-row">
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/bitThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+        </div>
+      <%end%>
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/ballThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+        </div>
+      <%end%>
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/bitThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+        </div>
+      <%end%>
+
+      <%= link_to '#', :class => "thumb" do %>
+        <%= image_tag "testimages/bitThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+        </div>
+      <%end%>
+
+      <%= link_to '#', :class => "thumb last" do %>
+        <%= image_tag "testimages/fbThumb.jpg", :class => "thumb-video" %>
+        <div class="thumb-text">
+          <h3 class="thumb-title">AP Chemistry</h3>
+          <p class="thumb-teacher"><%= icon('fas', 'user') %> Teacher Name</p>
+          <p class="thumb-rating"><%= icon('fas', 'star') %> 5.0</p>
+        </div>
+      <%end%>
+
+    </div>
+  </div>
+
+
+</div>

@@ -1,0 +1,141 @@
+.main-nav {
+  padding: 0;
+  margin: 0;
+  @include flex-container-centered-row;
+  justify-content: flex-start;
+  box-sizing : border-box;
+  background-color: $primary-color;
+  height: 70px;
+  @include material-high-shadow;
+  position: fixed;
+  top: 0;
+  z-index: 2020;
+  width: 100%;
+
+  .nav-items {
+       @include flex-container-centered-row;
+       /*flex-grow: 5;*/
+   }
+
+  .nav-left-container {
+    display: flex;
+    height: 100%;
+    box-sizing: border-box;
+    padding-left: 30px;
+
+    .nav-menu-container {
+      @include flex-container-centered-row;
+      font-size: 24px;
+      margin-right: 25px;
+      cursor: pointer;
+      box-sizing: border-box;
+      color: $bg-color;
+      height: 100%;
+      flex-grow: 1;
+    }
+    .nav-logo-container {
+      height: 100%;
+      display: inline-block;
+      flex-grow: 1;
+      padding: 5px 0px;
+      box-sizing: border-box;
+      a .nav-logo-image {
+        height: 100%;
+      }
+    }
+    #nav-subject {
+      flex-grow: 2;
+      padding: 0px 20px;
+      text-align: center;
+      text-decoration: none;
+      &:hover {
+        background-color: lighten($primary-color, 10%);
+      }
+    }
+  }
+
+  .nav-search-container {
+    justify-content: center;
+    flex-grow: 15;
+    background-color: darken($bg-color, 10%);
+    @include flex-container-centered-row;
+    border-radius: 3px;
+    box-sizing: border-box;
+    &:focus-within {
+      background-color: $bg-color;
+    }
+    i {
+      display: inline-block;
+      box-sizing: border-box;
+      font-size: 18px;
+      padding: 10px 15px;
+      color: darken($secondary-color, 20%);
+    }
+    input {
+      width: 100%;
+      padding: 10px 0px;
+      font-size: 14px;
+      color: black;
+      box-sizing: border-box;
+      border-radius: 2px;
+      border: none;
+      display: inline-block;
+      background-color: darken($bg-color, 10%);
+      &:focus {
+        outline: none;
+        color: black;
+        background-color: $bg-color;
+      }
+    }
+  }
+}
+
+ #nav-right-items {
+   justify-content: flex-end;
+   flex-grow: 1;
+   padding-left: 0;
+   box-sizing: border-box;
+   height: 100%;
+ }
+ #nav-user {
+   padding: 0px 30px;
+   i {
+     margin-right: 10px;
+     font-size: 24px;
+   }
+   &:hover {
+     background-color: lighten($primary-color, 10%);
+   }
+ }
+
+ .nav-item {
+    height: 100%;
+    @include flex-container-centered-row;
+    color: $bg-color;
+    text-decoration: none;
+
+    a {
+      color: $bg-color;
+      text-decoration: none;
+      margin: 0;
+    }
+    &:active {
+      color: $accent-color;
+    }
+}
+
+#sign-up-nav a{
+  @include button-transparent-base($accent-color, $primary-color);
+  margin: 0px 10px;
+}
+
+#login-nav a{
+  @include button-transparent-base($secondary-color, white);
+  margin-right: 30px;
+}
+
+.nav-right-container {
+  display: flex;
+  height: 100%;
+  box-sizing: border-box;
+}

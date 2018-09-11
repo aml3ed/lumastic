@@ -12,4 +12,8 @@ class PagesController < ApplicationController
   def teacher
     generic
   end
+
+  def testvideo
+    generic
+  end
 end

@@ -1,10 +1,80 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-$font-stack: 'Open Sans', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+$font-stack: 'Roboto', sans-serif;
+$font-light: 300;
+$font-regular: 400;
+$font-bold: 900;
 
-$primary-color: #003A6E;
+
+$primary-color: #19508C;
 $secondary-color: #44BAF4;
 $accent-color: #FECF2F;
+
+$text-color: #003A6E;
+
+$bg-color: #fafafa;
+$card-color: #fff;
+
 $green: #2BAD54;
 $red: #E83E3E;
 
-$bg-color: #fafafa;
+.content-container {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 30px 20px;
+  &.top-container {
+    margin-top: 55px;
+  }
+}
+
+.full-width-section {
+  width: 100%;
+  background-color: lighten($secondary-color, 37%);
+  border-bottom: 3px solid $secondary-color;
+  &.home-top {
+    background-color: darken($bg-color, 10%);
+  }
+}
+
+h1 {
+  font-size: 24px;
+  color: $text-color;
+  &#main-headline {
+    font-size: 28px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+  }
+}
+h2 {
+  color: $text-color;
+  font-weight: 300;
+  font-size: 24px;
+}
+h3 {
+  color: $text-color;
+
+  font-size: 18px;
+}
+a {
+  text-decoration: none;
+  color: darken($secondary-color, 10%);
+}
+.material-link {
+    text-transform: uppercase;
+    font-size: 12px;
+    cursor: pointer;
+    padding: 5px;
+    font-weight: 500 !important;
+    color: darken($secondary-color, 10%) !important;
+}
+p {
+  color:$text-color;
+}
+.field {
+  box-sizing: content-box;
+  width: 100%;
+  input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
