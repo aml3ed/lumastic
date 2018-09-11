@@ -1,17 +1,19 @@
 .vid-content-container {
   display: flex;
   .vid-content-left{
-    flex-grow: 6;
+    flex-grow: 65;
     flex-basis: 0;
+    margin-right: 16px;
   }
   .vid-content-right {
-    flex-grow: 4;
+    flex-grow: 35;
     flex-basis: 0;
   }
 }
 
 .vid-player-container {
   box-sizing: border-box;
+  @include material-medium-shadow;
 }
 .vid-header {
   margin-bottom: 10px;
@@ -38,7 +40,6 @@
     padding-left: 10px;
     box-sizing: border-box;
     &.split {
-      border-right: 1px solid $text-color;
       padding-right: 10px;
     }
     &.left {

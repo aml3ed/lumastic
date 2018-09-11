@@ -7,6 +7,9 @@
 
       </div>
       <%= render 'videoPlayer' %>
+      <%= link_to '#' do%>
+        <%=icon('fas', 'user-circle')%> Teacher Name
+      <% end %>
       <div class="vid-controls">
         <%= link_to '#', class:"vid-control split left", title:"Previous" do%>
           <%=icon('fas', 'step-backward')%>
@@ -20,11 +23,9 @@
       </div>
     </div>
     <div class="vid-content-right">
-
+      <%= render 'tab-content' %>
     </div>
   </div>
 
-  <%= link_to '#' do%>
-    <%=icon('fas', 'user-circle')%> Teacher Name
-  <% end %>
+
 </div>
