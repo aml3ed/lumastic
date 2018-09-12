@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
-
+gem 'autoprefixer-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'cancancan'
@@ -15,6 +15,8 @@ gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.0'
 gem 'sass-rails', '~> 5.0'
+gem 'materialize-sass', '~> 1.0.0.rc2'
+gem 'material_icons'
 gem 'semantic-ui-sass'
 gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'turbolinks', '~> 5'
