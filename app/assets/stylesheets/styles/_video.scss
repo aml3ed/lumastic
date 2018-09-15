@@ -122,7 +122,7 @@
   }
 }
 .red-vid-button {
-  background-color: $red;
+  background-color: $red-color;
   &:hover {
 
     color: $accent-color;
@@ -136,7 +136,7 @@
 
 }
 .green-vid-button {
-  background-color: $green;
+  background-color: $green-color;
   &:hover {
     color: $accent-color;
   }
