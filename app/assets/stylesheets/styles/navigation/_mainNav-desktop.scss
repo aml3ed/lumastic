@@ -2,10 +2,14 @@
 .menu-button {
   display: inline-block;
   i {
-    margin-right: 24px;
+    margin-right: 0px;
   }
 }
-
+.no-link-link {
+  &:hover {
+    cursor: pointer;
+  }
+}
 .brand-logo img {
   height: 64px;
   padding: 2px 0px;
@@ -15,8 +19,16 @@
   transition: width 0.3s;
   &:focus {
     width: 350px;
+    position: relative;
   }
 }
 #search-close {
   display: none;
+}
+.left-nav {
+  margin-left: 220px;
+}
+#dropdown1 {
+  min-width: 230px;
+  height: auto;
 }

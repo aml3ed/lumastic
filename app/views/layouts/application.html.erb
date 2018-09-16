@@ -5,8 +5,22 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript">
+      $(document).on('ready turbolinks:load', function() {
+        $(".dropdown-trigger").dropdown();
+        elem = document.querySelector('#slide-out');
+        instance = new M.Sidenav(elem, {});
+      });
+      $(document).on('ready turbolinks:before-visit', function() {
+        $(".dropdown-trigger").dropdown();
+        elem = document.querySelector('#slide-out');
+        instance = new M.Sidenav(elem, {});
+        instance.destroy();
+      });
+    </script>
   </head>
 
   <body>
