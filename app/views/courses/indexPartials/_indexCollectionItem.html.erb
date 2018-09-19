@@ -8,7 +8,7 @@
   <div class="row course-collection-row" style="padding-right: 160px; padding-top: 5px;" >
     <!--        Course Title and Basic Info-->
     <div class="col s12 l9">
-      <span class="title truncate">This is a very long course title</span>
+      <span class="title truncate"><%= course.title %></span>
       <span class="new badge left-badge grey" data-badge-caption="<%="Draft" %>"></span>
     </div>
     <!--          Stats  Info-->
@@ -36,7 +36,7 @@
   </div>
   <!--          Edit and Actions-->
   <div href="#!" class="secondary-content valign-wrapper ">
-    <%= link_to "#", :class=> "btn-small hide-on-small-only" do %>
+    <%= link_to edit_course_path(course), :class=> "btn-small hide-on-small-only" do %>
       <i class="material-icons left">mode_edit</i>
       <span class="">Edit</span>
     <%end%>

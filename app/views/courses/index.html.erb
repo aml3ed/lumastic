@@ -12,7 +12,9 @@
     <ul class="collection course-collection highlight ">
 <!--      For Every Course-->
 <!--      Make Collection Item-->
-      <%= render :partial => '/courses/indexPartials/indexCollectionItem' %>
+      <% @courses.each do |course| %>
+        <%= render partial: '/courses/indexPartials/indexCollectionItem', locals: { course: course } %>
+      <%end %>
     </ul>
 <!--    End Collection-->
   </div>
