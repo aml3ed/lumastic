@@ -51,6 +51,10 @@ footer {
 .justify-right {
   justify-content: flex-end;
 }
+.courses-sidebar {
+  max-height: 400px;
+  overflow-y: scroll !important;
+}
 .course-list-stat {
   margin-bottom: 9px !important;
   i {
