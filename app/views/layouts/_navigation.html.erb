@@ -1,6 +1,6 @@
 <div class="navbar-fixed">
 
-  <ul id="dropdown1" class="dropdown-content">
+  <ul id="subjectDropdown" class="dropdown-content">
     <li><a href="#!"><%=material_icon.edit%>Language Arts</a></li>
     <li><a href="#!"><%=icon('fas', 'paint-brush')%>Art</a></li>
     <li><a href="#!"><%=icon('fas', 'music')%>Music</a></li>
@@ -8,6 +8,10 @@
     <li><a href="#!"><%=icon('fas', 'flask')%>Science</a></li>
     <li><a href="#!"><%=icon('fas', 'compass')%>History</a></li>
     <li><a href="#!"><%=icon('fas', 'globe')%>Foreign Language</a></li>
+  </ul>
+  <ul id="userDropdown" class="dropdown-content">
+    <li><a href="#!"><%=icon('fas', 'info-circle')%>Account Info</a></li>
+    <li><%= link_to destroy_user_session_path, :method => :delete do %><%=icon('fas', 'sign-out-alt')%>Signout<%end %></li>
   </ul>
   <nav>
     <div class="nav-wrapper container">
@@ -21,7 +25,7 @@
         </div>
           <ul class="left left-nav hide-on-med-and-down">
             <li>
-              <a class="dropdown-trigger" href="#!" data-target="dropdown1">
+              <a class="dropdown-trigger" href="#!" data-target="subjectDropdown">
                 Subjects
                 <%=material_icon.arrow_drop_down.css_class("right")%>
               </a>
@@ -37,16 +41,30 @@
             </li>
           </ul>
           <ul class="right hide-on-med-and-down">
-            <li>
-              <%= link_to "Sign Up", new_user_registration_path, :class=>" btn waves-effect waves-light" %>
-            </li>
-            <li>
-              <%= link_to "Login", new_user_session_path, :class=>"  btn waves-effect waves-light" %>
-            </li>
+            <% if !current_user%>
+              <li>
+                <%= link_to "Sign Up", new_user_registration_path, :class=>" btn waves-effect waves-light" %>
+              </li>
+              <li>
+                <%= link_to "Login", new_user_session_path, :class=>"  btn waves-effect waves-light" %>
+              </li>
+            <%else%>
+              <li class="user-nav">
+                <a class="dropdown-trigger valign-wrapper" href="#!" data-target="userDropdown">
+                  <%=icon('fas', 'user-circle')%>
+                  <%=current_user.email %>
+                  <%=material_icon.arrow_drop_down.css_class("right")%>
+                </a>
+              </li>
+            <%end%>
+
           </ul>
     </div>
   </nav>
 </div>
+
+
+<!--Sidebar-->
 <ul id="slide-out" class="sidenav">
   <li><div class="user-view">
     <div class="background">
@@ -55,9 +73,36 @@
     <a href="#name"><span class="white-text name">John Doe</span></a>
     <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
   </div></li>
-  <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-  <li><%= link_to  "Signout", destroy_user_session_path, :method => :delete %></li>
+
   <li><div class="divider"></div></li>
-  <li><a class="subheader">Subheader</a></li>
-  <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  <li><a class="subheader">Teaching</a></li>
+  <li>
+    <%= link_to courses_path do %>
+      <%=material_icon.library_books%>
+      My Courses
+    <%end%>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, :method => :delete do %>
+      <%=material_icon.local_library%>
+      Resource Center
+    <%end%>
+  </li>
+
+  <li><div class="divider"></div></li>
+  <li>
+    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
+      Terms & Conditions
+    <%end%>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
+      Privacy Policy
+    <%end%>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
+      Sign Out
+    <%end%>
+  </li>
 </ul>

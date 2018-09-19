@@ -11,11 +11,14 @@
     <script type="text/javascript">
       $(document).on('ready turbolinks:load', function() {
         $(".dropdown-trigger").dropdown();
+        $('.tabs').tabs();
+        $('.tooltipped').tooltip();
         elem = document.querySelector('#slide-out');
         instance = new M.Sidenav(elem, {});
       });
       $(document).on('ready turbolinks:before-visit', function() {
         $(".dropdown-trigger").dropdown();
+        $('.tabs').tabs();
         elem = document.querySelector('#slide-out');
         instance = new M.Sidenav(elem, {});
         instance.destroy();
@@ -27,11 +30,12 @@
     <% unless notice.nil? || alert.nil? %>
       <%= render 'layouts/alerts' %>
     <% end %>
+    <header>
     <%= render 'layouts/navigation' %>
-    <%= render 'layouts/sidenav' %>
-    <section  onclick="bodyNavClose()" id="mainContainer">
+    </header>
+    <main>
     <%= yield %>
-    </section>
+    </main>
     <%= render 'layouts/footer' %>
   </body>
 </html>
