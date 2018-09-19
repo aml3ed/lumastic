@@ -1,10 +1,108 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans');
-$font-stack: 'Open Sans', sans-serif;
+// @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+$font-stack: 'Roboto', sans-serif;
+$font-light: 300;
+$font-regular: 400;
+$font-bold: 900;
 
-$primary-color: #003A6E;
-$secondary-color: #44BAF4;
+
+$primary-color: #19508C !default;
+$grey-text: rgba(0, 0,0,.54) !default;
+$secondary-color: #44BAF4 !default;
+$link-color: #44BAF4 !default;
+$off-black: darken($primary-color, 10%) !default;
+$sidenav-font-color: darken($primary-color, 10%) !default;
+$card-link-color: #44BAF4 !default;
 $accent-color: #FECF2F;
-$green: #2BAD54;
-$red: #E83E3E;
+
+$text-color: #003A6E;
 
 $bg-color: #fafafa;
+$card-color: #fff;
+
+$green-color: #2BAD54;
+$red-color: #E83E3E !default;
+
+
+// 13. Navigation Bar
+$navbar-height-mobile: 64px !default;
+
+
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+main {
+  flex: 1 0 auto;
+}
+footer {
+  p {
+  color: white;
+  }
+}
+
+
+.header-with-button {
+  display: inline-block;
+  margin-top: 0;
+}
+.justify-right {
+  justify-content: flex-end;
+}
+.course-list-stat {
+  margin-bottom: 9px !important;
+  i {
+    margin-right: 24px;
+  }
+}
+.left-badge {
+  float: left !important;
+  margin-left: 0 !important;
+  margin-top: 5px !important;
+}
+.inline-badge {
+  display: inline-block !important;
+  float: none !important;
+  margin-left: 10px !important;
+ }
+.sidenav li {
+  a {
+    &.subheader {
+      color: $grey-text !important;
+    }
+    &.tiny {
+      height: 32px;
+      line-height: 32px;
+      font-size: 12px;
+      color: $grey-text !important;
+    }
+    i {
+      color: $primary-color !important;
+    }
+  }
+}
+
+
+
+.collections-thumb {
+  position: absolute;
+  width: 200px;
+  overflow: hidden;
+  left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.course-collection .collection-item.avatar {
+  min-height: 140px !important;
+  padding-left: 235px !important;
+
+}
+.course-collection {
+  overflow: visible !important;
+  .title {
+    font-size: 24px !important;
+    padding: 3px 0px;
+  }
+}

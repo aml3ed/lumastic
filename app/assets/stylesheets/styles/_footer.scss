@@ -1,0 +1,23 @@
+footer {
+  background-color: $primary-color;
+  color: white;
+  margin-top: 30px;
+  a {
+    color: $accent-color;
+  }
+  #footer-logo-text {
+    width: 16em;
+  }
+  #footer-logo-symbol {
+    width:  7em;
+  }
+}
+.social {
+  flex-grow: 1;
+  font-size: 24px;
+  margin-top: 5px;
+
+}
+.full-height {
+  height: inherit;
+}

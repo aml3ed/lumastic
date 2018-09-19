@@ -5,19 +5,38 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script type="text/javascript">
+      $(document).on('ready turbolinks:load', function() {
+        $(".dropdown-trigger").dropdown();
+        $('.tabs').tabs();
+        $('.tooltipped').tooltip();
+        $('select').formSelect();
+        elem = document.querySelector('#slide-out');
+        instance = new M.Sidenav(elem, {});
+      });
+      $(document).on('ready turbolinks:before-visit', function() {
+        $(".dropdown-trigger").dropdown();
+        $('.tabs').tabs();
+        elem = document.querySelector('#slide-out');
+        instance = new M.Sidenav(elem, {});
+        instance.destroy();
+      });
+    </script>
   </head>
 
   <body>
     <% unless notice.nil? || alert.nil? %>
       <%= render 'layouts/alerts' %>
     <% end %>
+    <header>
     <%= render 'layouts/navigation' %>
-    <section class="main-content-container">
+    </header>
+    <main>
     <%= yield %>
-    </section>
+    </main>
     <%= render 'layouts/footer' %>
-
   </body>
 </html>

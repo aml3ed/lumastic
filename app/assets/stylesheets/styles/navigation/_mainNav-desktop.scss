@@ -1,0 +1,40 @@
+
+.menu-button {
+  display: inline-block;
+  i {
+    margin-right: 0px;
+  }
+}
+.no-link-link {
+  &:hover {
+    cursor: pointer;
+  }
+}
+.brand-logo img {
+  height: 64px;
+  padding: 2px 0px;
+}
+#search {
+  width: 0;
+  transition: width 0.3s;
+  &:focus {
+    width: 350px;
+    position: relative;
+  }
+}
+#search-close {
+  display: none;
+}
+.left-nav {
+  margin-left: 220px;
+}
+#subjectDropdown {
+  min-width: 230px;
+  height: auto;
+}
+.user-nav .fa-user-circle {
+  margin-right: 10px;
+}
+.user-nav i.right {
+  margin-left: 10px;
+}

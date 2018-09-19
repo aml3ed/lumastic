@@ -1,0 +1,35 @@
+.verticalnav-items {
+  list-style-type: none;
+  margin-top: 0;
+  padding: 0;
+  margin-bottom: 0;
+}
+.verticalnav-link {
+  text-decoration: none;
+  color: $text-color !important;
+  &.active {
+    font-weight: bold;
+    color: $bg-color !important;
+    .verticalnav-item {
+    background-color: lighten($primary-color, 10%);
+    color: white;
+    .verticalnav-text {
+      color: white;
+    }
+    }
+  }
+}
+.verticalnav-item {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 20px 0px 20px 20px;
+  text-decoration: none;
+  .verticalnav-text {
+    display: inline;
+    text-align: left;
+    padding: 0px 20px;
+  }
+  &:hover {
+    background-color: darken($bg-color, 10%);
+  }
+}

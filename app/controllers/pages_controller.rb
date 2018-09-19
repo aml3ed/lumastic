@@ -12,4 +12,5 @@ class PagesController < ApplicationController
   def teacher
     generic
   end
+
 end

@@ -1,7 +1,23 @@
+
+@import "material_icons";
 @import "base/mixins";
+@import "materialize/components/color-variables";
 @import 'base/globals';
-@import "styles/navigation/nav-desktop";
-@import "styles/navigation/nav-mobile";
+@import "materialize";
+@import "base/mediaScreens";
+@import "styles/navigation/mainNav-desktop";
+@import "styles/navigation/mainNav-mobile";
+@import "styles/navigation/verticalNav";
+@import "styles/navigation/sideNav-desktop";
+@import "styles/navigation/dropDown";
+
+@import "styles/homeHero";
+@import "styles/thumbnailRows";
+
+@import "styles/login";
+@import "styles/footer";
+@import "styles/video";
+@import "styles/tab-content";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";

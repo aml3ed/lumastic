@@ -1,0 +1,17 @@
+.tabs .tab a {
+  text-overflow: inherit;
+}
+.card-tabs .tabs {
+  overflow: visible;
+}
+.tab .badge {
+  margin-left: 0;
+  line-height: normal;
+  height: auto;
+  float: none;
+}
+.vid-info-card {
+  height: 350px;
+  max-height: 350px;
+  overflow-y: scroll;
+}
