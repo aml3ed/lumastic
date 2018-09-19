@@ -2,6 +2,7 @@ class CoursesController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!, :except => [:show] #-> routes to the login / signup if not authenticated
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :get_lessons
 
   # Example route: GET /courses
   def index
@@ -73,6 +74,10 @@ class CoursesController < ApplicationController
     # Finds the course in the database and references it in a variable
     def set_course
       @course = Course.find(params[:id])
+    end
+
+    def get_lessons
+      @lessons = Lesson.where(:course_id => @course.id)
     end
 
     # Declares what parameters are mutatable by the controller

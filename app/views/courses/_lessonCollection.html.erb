@@ -1,19 +1,14 @@
-<div class="collection" style="max-height: 400px; overflow-y: scroll;">
-  <a href="#!" class="collection-item active" >Course Info</a>
-  <a href="#!" class="collection-item ">Lesson 1</a>
-  <a href="#!" class="collection-item">Lesson 2</a>
-  <a href="#!" class="collection-item">Lesson 3</a>
-  <a href="#!" class="collection-item ">Lesson 1</a>
-  <a href="#!" class="collection-item">Lesson 2</a>
-  <a href="#!" class="collection-item">Lesson 3</a>
-  <a href="#!" class="collection-item ">Lesson 1</a>
-  <a href="#!" class="collection-item">Lesson 2</a>
-  <a href="#!" class="collection-item">Lesson 3</a>
-  <a href="#!" class="collection-item ">Lesson 1</a>
-  <a href="#!" class="collection-item">Lesson 2</a>
-  <a href="#!" class="collection-item">Lesson 3</a>
-  <a href="#!" class="collection-item ">Lesson 1</a>
-  <a href="#!" class="collection-item">Lesson 2</a>
-  <a href="#!" class="collection-item">Lesson 3</a>
+<% course_id = '8'if local_assigns[:course_id].nil? %>
+<% new = false if local_assigns[:new].nil? %>
+<%= lessons[0].title %>
+<div class="collection courses-sidebar" >
+  <%= link_to "Course Info", edit_course_path(:id => course_id), :class => current_class?(new ? new_course_path : edit_course_path(:id => course_id)) + " collection-item" %>
+  <% lessons.each do |lesson|%>
+    <%= link_to lesson.title, edit_course_lesson_path(:course_id => course_id, :id => lesson.id), :class =>"collection-item" %>
+  <%end%>
 </div>
-<%= link_to "New Lesson", "#" %>
+<!--Add Lesson Button-->
+
+<%= link_to new_course_lesson_path :course_id => course_id do %>
+  <%= material_icon.add.css_class("left") %> Add Lesson
+<%end%>
