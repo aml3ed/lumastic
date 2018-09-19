@@ -2,7 +2,6 @@ class CoursesController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!, :except => [:show] #-> routes to the login / signup if not authenticated
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  before_action :get_lessons
 
   # Example route: GET /courses
   def index
@@ -17,11 +16,14 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses/new
   def new
+    @path_course_info = new_course_path
     @course = Course.new
   end
 
   # Example route: GET /courses/1/edit
   def edit
+    @path_course_info = edit_course_path(@course)
+    @lessons = Lesson.where(:course_id => @course.id)
     # Check to see if the course belongs to this user
     if @course.user_id != current_user.id
       # If it doesn't, redirect to the homepage (we should make this go somewhere else)
@@ -74,10 +76,6 @@ class CoursesController < ApplicationController
     # Finds the course in the database and references it in a variable
     def set_course
       @course = Course.find(params[:id])
-    end
-
-    def get_lessons
-      @lessons = Lesson.where(:course_id => @course.id)
     end
 
     # Declares what parameters are mutatable by the controller
