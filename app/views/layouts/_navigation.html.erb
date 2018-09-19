@@ -1,43 +1,108 @@
+<div class="navbar-fixed">
 
-    <nav class="main-nav">
-      <div class="nav-left-container">
-        <div class="nav-menu-container" id="toggleBtn" onclick="toggleNav()">☰</div>
-        <div class="nav-logo-container">
-          <a href="<%=root_path%>">
-          <%= image_tag "LumasticV16.svg", :class => "nav-logo-image" %>
+  <ul id="subjectDropdown" class="dropdown-content">
+    <li><a href="#!"><%=material_icon.edit%>Language Arts</a></li>
+    <li><a href="#!"><%=icon('fas', 'paint-brush')%>Art</a></li>
+    <li><a href="#!"><%=icon('fas', 'music')%>Music</a></li>
+    <li><a href="#!"><%=icon('fas', 'divide')%>Math</a></li>
+    <li><a href="#!"><%=icon('fas', 'flask')%>Science</a></li>
+    <li><a href="#!"><%=icon('fas', 'compass')%>History</a></li>
+    <li><a href="#!"><%=icon('fas', 'globe')%>Foreign Language</a></li>
+  </ul>
+  <ul id="userDropdown" class="dropdown-content">
+    <li><a href="#!"><%=icon('fas', 'info-circle')%>Account Info</a></li>
+    <li><%= link_to destroy_user_session_path, :method => :delete do %><%=icon('fas', 'sign-out-alt')%>Signout<%end %></li>
+  </ul>
+  <nav>
+    <div class="nav-wrapper container">
+      <div class="left">
+          <a data-target="slide-out" class="menu-button sidenav-trigger show-on-large no-link-link">
+            <%= material_icon.menu %>
           </a>
+          <%= link_to root_path, :class=>"brand-logo" do %>
+            <%= image_tag 'LumasticV16' %>
+          <%end%>
         </div>
-        <div class="nav-items" id="nav-subject" onclick="toggleDropdown('nav-subject')">
-          <div class="nav-item">
-            <%= ('Subjects' + raw('&nbsp;')+raw('&nbsp;') + icon('fas', 'caret-down')).html_safe%>
-          </div>
-          <%= render 'layouts/subjectDropdown' %>
-        </div>
+          <ul class="left left-nav hide-on-med-and-down">
+            <li>
+              <a class="dropdown-trigger" href="#!" data-target="subjectDropdown">
+                Subjects
+                <%=material_icon.arrow_drop_down.css_class("right")%>
+              </a>
+            </li>
+            <li>
+              <form class=" hide-on-med-and-down"  >
+                <div class="input-field" id="search-form">
+                  <input id="search" type="search" placeholder="What would you like to learn?"required />
+                  <label class="label-icon" for="search" ><%=material_icon.search%></label>
+                  <div id="searchResults" ></div>
+                </div>
+              </form>
+            </li>
+          </ul>
+          <ul class="right hide-on-med-and-down">
+            <% if !current_user%>
+              <li>
+                <%= link_to "Sign Up", new_user_registration_path, :class=>" btn waves-effect waves-light" %>
+              </li>
+              <li>
+                <%= link_to "Login", new_user_session_path, :class=>"  btn waves-effect waves-light" %>
+              </li>
+            <%else%>
+              <li class="user-nav">
+                <a class="dropdown-trigger valign-wrapper" href="#!" data-target="userDropdown">
+                  <%=icon('fas', 'user-circle')%>
+                  <%=current_user.email %>
+                  <%=material_icon.arrow_drop_down.css_class("right")%>
+                </a>
+              </li>
+            <%end%>
+
+          </ul>
+    </div>
+  </nav>
+</div>
 
 
-      </div>
+<!--Sidebar-->
+<ul id="slide-out" class="sidenav">
+  <li><div class="user-view">
+    <div class="background">
+    </div>
+    <a href="#user"><img class="circle" ></a>
+    <a href="#name"><span class="white-text name">John Doe</span></a>
+    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
+  </div></li>
 
-      <div class="nav-search-container" id="search-container">
-        <%= icon('fas', 'search') %>
-        <input type="text" placeholder="What will you learn?" id="search-input" />
-      </div>
-      <div class="nav-right-container">
-        <div class="nav-items" id="nav-right-items">
-          <% if current_user %>
-            <div class="nav-item" id="nav-user" onclick="toggleDropdown('nav-user')">
-              <%= icon('fas', 'user-circle') %>
-              <%= current_user.email  %>
-              <%= render 'layouts/userDropdown' %>
-            </div>
-          <% else %>
-          <div class="nav-item" id="sign-up-nav">
-            <%= link_to "Sign Up", new_user_registration_path %>
-          </div>
+  <li><div class="divider"></div></li>
+  <li><a class="subheader">Teaching</a></li>
+  <li>
+    <%= link_to courses_path do %>
+      <%=material_icon.library_books%>
+      My Courses
+    <%end%>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, :method => :delete do %>
+      <%=material_icon.local_library%>
+      Resource Center
+    <%end%>
+  </li>
 
-          <div class="nav-item" id="login-nav">
-            <%= link_to "Login", new_user_session_path %>
-          </div>
-          <% end %>
-        </div>
-      </div>
-    </nav>
+  <li><div class="divider"></div></li>
+  <li>
+    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
+      Terms & Conditions
+    <%end%>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
+      Privacy Policy
+    <%end%>
+  </li>
+  <li>
+    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
+      Sign Out
+    <%end%>
+  </li>
+</ul>

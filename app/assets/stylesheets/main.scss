@@ -1,6 +1,10 @@
-@import "base/mixins";
-@import 'base/globals';
 
+@import "material_icons";
+@import "base/mixins";
+@import "materialize/components/color-variables";
+@import 'base/globals';
+@import "materialize";
+@import "base/mediaScreens";
 @import "styles/navigation/mainNav-desktop";
 @import "styles/navigation/mainNav-mobile";
 @import "styles/navigation/verticalNav";

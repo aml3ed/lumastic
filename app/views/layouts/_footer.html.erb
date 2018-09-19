@@ -1,16 +1,17 @@
-<footer>
-  <div class="content-container">
-    <div class="footerMission">
-      <%= image_tag "LogoText.svg" %>
-      <p>We're on a mission to create a sustainable, positive, and inclusive evolution in education.</p>
-      <a href="#">Join Us</a>
-    </div>
-    <div class="footerLogo">
-      <%= image_tag "Symbol.svg" %>
-    </div>
-    <div class="footerContact">
+<footer class="page-footer">
+  <div class="container">
+    <div class="row valign-wrapper">
+      <div class="col s4">
+        <%= image_tag "LogoText.svg", :id=>"footer-logo-text" %>
+        <p>We're on a mission to create a sustainable, positive, and inclusive evolution in education.</p>
+        <a href="#">Join Our Team</a>
+      </div>
 
-      <div class="contactText">
+      <div class="col s4 center-align full-height">
+        <%= image_tag "Symbol.svg", :id=>"footer-logo-symbol"%>
+      </div>
+
+      <div class="col s4 right-align">
         <p>1717B Jefferson Park Avenue</p>
         <p>Charlottesville, VA 22903</p>
         <a href="#">contact@lumastic.com</a>
@@ -21,6 +22,13 @@
           <%= link_to (icon('fab', 'youtube-square')).html_safe, "#" %>
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="footer-copyright">
+    <div class="container">
+      © 2018 Headfake Digital LLC
+      <a class="grey-text text-lighten-4 right" href="#!">Live the life you have imagined.</a>
     </div>
   </div>
 

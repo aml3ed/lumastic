@@ -13,7 +13,4 @@ class PagesController < ApplicationController
     generic
   end
 
-  def testvideo
-    generic
-  end
 end

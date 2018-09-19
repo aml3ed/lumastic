@@ -1,58 +1,15 @@
-.vid-content-container {
-  display: flex;
-  .vid-content-left{
-    flex-grow: 65;
-    flex-basis: 0;
-    margin-right: 16px;
-  }
-  .vid-content-right {
-    flex-grow: 35;
-    flex-basis: 0;
-  }
-}
+
+
 
 .vid-player-container {
   box-sizing: border-box;
   @include material-medium-shadow;
 }
-.vid-header {
-  margin-bottom: 10px;
-}
-.vid-title {
-  margin: 0px;
-  font-weight: 300;
-  font-size: 20px;
-  box-sizing:border-box;
-}
-.vid-controls {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 12px 0px;
-  flex-grow: 0;
-  .vid-control {
-    display: flex;
-    align-items: center;
-
-    color: $text-color;
-    font-weight: 300;
-    font-size: 14px;
-    padding-left: 10px;
-    box-sizing: border-box;
-    &.split {
-      padding-right: 10px;
-    }
-    &.left {
-      padding-left: 0px;
-    }
-    i {
-      font-size: 18px;
-      margin: 5px;
-    }
-    &:hover {
-      color: darken($secondary-color, 5%);
-    }
-  }
+.vid-header h5 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 0px;
 }
 
 .vid-iframe-container {
@@ -122,9 +79,8 @@
   }
 }
 .red-vid-button {
-  background-color: $red;
+  background-color: $red-color;
   &:hover {
-
     color: $accent-color;
   }
 }
@@ -136,7 +92,7 @@
 
 }
 .green-vid-button {
-  background-color: $green;
+  background-color: $green-color;
   &:hover {
     color: $accent-color;
   }

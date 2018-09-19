@@ -1,6 +1,17 @@
-<h1>Editing Course</h1>
-
-<%= render 'form', course: @course %>
-
-<%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+<div class="section container">
+  <p class="" id="notice"><%= notice %></p>
+  <div class="row ">
+    <h4 class=" header-with-button"><%=@course.title %> </h4>
+    <span class="new badge inline-badge grey" data-badge-caption="<%="Draft" %>"></span>
+    <%= link_to 'Save & Publish', new_course_path, :class=>"right btn" %>
+  </div>
+  <div class="row">
+    <div class="col s3"></div>
+    <div class="col s9">
+      <%= render 'form', course: @course %>
+    </div>
+  </div>
+</div>
+<script>
+  M.updateTextFields();
+</script>

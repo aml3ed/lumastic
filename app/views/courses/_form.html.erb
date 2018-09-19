@@ -1,47 +1,49 @@
 <%= form_with(model: course, local: true) do |form| %>
+<!--  Show Errors-->
   <% if course.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
+  <div id="error_explanation">
+    <h2><%= pluralize(course.errors.count, "error") %> prohibited this course from being saved:</h2>
 
-      <ul>
-      <% course.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
+    <ul>
+    <% course.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
+<!--  Put in form-->
+<!--  Course Title-->
+  <div class="row">
+    <div class="input-field col m12 l6">
+     <%= form.label :title, for: "title" %>
+     <%= form.text_field :title, id: "title" %>
+    </div>
+    <div class="input-field col m12 l6">
+      <%= form.select :subject, [['Choose Subject', {:disabled => true, :selected => true}], 'Math', 'English', 'Art', 'History', 'Music', 'Science'], placeholder:"Subject", id: "subject" %>
+      <%= form.label :subject, for: "subject" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :course_info %>
-    <%= form.text_area :course_info %>
+<!--  Course Info-->
+  <div class="row">
+    <div class="input-field col s12">
+     <%= form.label :course_info, for: "course_info" %>
+     <%= form.text_area :course_info, id: "course_info", class: "materialize-textarea" %>
+    </div>
   </div>
-
-  <div class="field">
-    <%= form.label :subject %>
-    <%= form.select :subject, ['Math', 'English', 'Art', 'History', 'Music', 'Science'] %>
+<!--  Course Subject-->
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.label :keywords %>
+      <%= form.text_field :keywords %>
+    </div>
   </div>
+<!--  Keywords-->
 
-  <div class="field">
-    <%= form.label :instructor_bio %>
-    <%= form.text_area :instructor_bio %>
-  </div>
-
-  <div class="field">
-    <%= form.label :keywords %>
-    <%= form.text_field :keywords %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
+<!--  Save -->
+  <div class="row">
+    <%= form.button :submit, class: " btn btn waves-effect" do %>
+      <% btn_text = "Save" if local_assigns[:btn_text].nil? %>
+      <%= btn_text %>
+    <%end%>
   </div>
 <% end %>

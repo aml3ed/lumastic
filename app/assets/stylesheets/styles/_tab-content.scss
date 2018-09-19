@@ -1,65 +1,17 @@
-.tab-container {
-  background-color: white;
-  @include material-low-shadow;
-  height: calc(100% - 72px);
-  max-height: calc(100% - 72px);
+.tabs .tab a {
+  text-overflow: inherit;
 }
-#tabs {
-  border-bottom: 1px solid #e0e0e0;
-  display: flex;
-  a {
-    flex-grow: 1;
-    flex-basis: 0;
-    position: relative;
-	  display:inline-block;
-		text-decoration: none;
-		padding: 20px 0px;
-		text-transform: uppercase;
-		font-size: 14px;
-		font-weight: 600;
-		color: #424f5a;
-		text-align: center;
-    cursor: pointer;
-  }
+.card-tabs .tabs {
+  overflow: visible;
 }
-#tab-highlight {
-  position: relative;
-  span {
-    position: absolute;
-    z-index: 10;
-    margin-top: -4px;
-    left: 0px;
-    height: 3px;
-    background: $secondary-color;
-    width: 33%;
-    transition: all .2s ease;
-    -webkit-transition: all .2s ease;
-  }
+.tab .badge {
+  margin-left: 0;
+  line-height: normal;
+  height: auto;
+  float: none;
 }
-.tab-content-container {
-  padding: 20px;
-  font-weight: lighter;
-  display: flex;
-  max-height: 100%;
-  .tab-content {
-    display: none;
-    &.active {
-      display: flex;
-      flex-direction: column;
-      overflow: hidden;
-    }
-    .tab-content-text {
-      flex-grow: 2;
-      flex-basis: inherit;
-      overflow-y: scroll;
-
-    }
-    .tab-actions {
-      flex-grow: 0;
-      text-align: right;
-      .material-link {
-        font-size: 14px;
-      }
-    }
-  }
+.vid-info-card {
+  height: 350px;
+  max-height: 350px;
+  overflow-y: scroll;
 }
