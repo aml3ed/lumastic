@@ -16,14 +16,12 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses/new
   def new
-    @path_course_info = new_course_path
     @course = Course.new
   end
 
   # Example route: GET /courses/1/edit
   def edit
-    @path_course_info = edit_course_path(@course)
-    @lessons = Lesson.where(:course_id => @course.id)
+    @lessons = Lesson.where(:course_id => @course.id).order(:position)
     # Check to see if the course belongs to this user
     if @course.user_id != current_user.id
       # If it doesn't, redirect to the homepage (we should make this go somewhere else)

@@ -2,7 +2,11 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :courses do
-    resources :lessons
+    resources :lessons do
+      collection do
+        patch :sort
+      end
+    end
   end
   get '/home', to: 'pages#home'
   get '/teacher', to: 'pages#teacher'

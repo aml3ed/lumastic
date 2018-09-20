@@ -70,6 +70,13 @@ class LessonsController < ApplicationController
     end
   end
 
+  def sort
+    params[:lesson].each_with_index do |id, index|
+      Lesson.where(id: id).update_all(position: index + 1)
+    end
+    head :ok
+  end
+
   private
     # All of these methods are 'before_actions'
     # They get run before anything happens inside the controller
@@ -86,7 +93,7 @@ class LessonsController < ApplicationController
 
     # Finds all of the lessons that belong to the specific course
     def find_lessons
-      @lessons = @course.lessons
+      @lessons = @course.lessons.order(:position)
     end
 
     # Finds all of the materials that belong to the specific lesson
