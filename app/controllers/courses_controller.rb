@@ -12,6 +12,7 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses/1
   def show
+    @lessons = Lesson.where(course: @course).order(:position)
   end
 
   # Example route: GET /courses/new
@@ -51,9 +52,9 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to edit_course_path(@course), :flash => {:notice => "Your course was saved successfully! Woohoo!" } }
+        format.html { redirect_to course_path(@course), :flash => {:notice => "Your course was saved successfully! Woohoo!" } }
       else
-        format.html { render :edit }
+        format.html { render :show }
       end
     end
   end

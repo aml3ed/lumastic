@@ -1,33 +1,41 @@
-
-<p>
-  <strong>Title:</strong>
-  <%= @course.title %>
-</p>
-
-<p>
-  <strong>Course Info:</strong>
-  <%= @course.course_info %>
-</p>
-
-<p>
-  <strong>Subject:</strong>
-  <%= @course.subject %>
-</p>
-
-<p>
-  <strong>Instructor Bio:</strong>
-  <%= @course.instructor_bio %>
-</p>
-
-<p>
-  <strong>Keywords:</strong>
-  <%= @course.keywords %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @course.price %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<div class="section container">
+  <div class="row ">
+    <h4 class=" header-with-button"><%=@course.title %> </h4>
+    <span class="new badge inline-badge grey" data-badge-caption="<%="Draft" %>"></span>
+    <%= link_to new_course_path, :class=>"right btn " + (@lessons.size == 0 ? "disabled": "" ) do %>
+      Publish <%=material_icon.public.css_class('right')%>
+    <%end%>
+  </div>
+  <div class="row">
+    <div class="col m4 s12">
+      <h5>Course Contents</h5>
+      <%= render 'courseSidebar' %>
+    </div>
+    <div class="col m8 s12">
+      <h5>Course Info
+        <%= link_to edit_course_path(@course), :class=> "btn-small hide-on-small-only" do %>
+          <i class="material-icons left">mode_edit</i>
+          <span class="">Edit</span>
+        <%end%>
+      </h5>
+      <div class="row">
+        <div class="col m6 s12">
+          <label>Course Title: </label>
+          <%=@course.title %>
+        </div>
+        <div class="col m6 s12">
+          <label>Subject: </label>
+          <%=@course.subject %>
+        </div>
+        <div class="col s12">
+          <label>Course Info: </label>
+          <%=@course.course_info %>
+        </div>
+        <div class="col s12">
+          <label>Keywords: </label>
+          <%=@course.keywords %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
