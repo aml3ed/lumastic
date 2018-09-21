@@ -64,45 +64,4 @@
 </div>
 
 
-<!--Sidebar-->
-<ul id="slide-out" class="sidenav">
-  <li><div class="user-view">
-    <div class="background">
-    </div>
-    <a href="#user"><img class="circle" ></a>
-    <a href="#name"><span class="white-text name">John Doe</span></a>
-    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-  </div></li>
-
-  <li><div class="divider"></div></li>
-  <li><a class="subheader">Teaching</a></li>
-  <li>
-    <%= link_to courses_path do %>
-      <%=material_icon.library_books%>
-      My Courses
-    <%end%>
-  </li>
-  <li>
-    <%= link_to destroy_user_session_path, :method => :delete do %>
-      <%=material_icon.local_library%>
-      Resource Center
-    <%end%>
-  </li>
-
-  <li><div class="divider"></div></li>
-  <li>
-    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
-      Terms & Conditions
-    <%end%>
-  </li>
-  <li>
-    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
-      Privacy Policy
-    <%end%>
-  </li>
-  <li>
-    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
-      Sign Out
-    <%end%>
-  </li>
-</ul>
+<%= render 'layouts/sidenav' %>

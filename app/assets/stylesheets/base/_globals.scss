@@ -101,7 +101,9 @@ h6.flow-text { @include flow-header-mixin($h6-fontsize) }
 .accent-text {
   color: $accent-color;
 }
-
+.dark-button {
+  background-color: lighten($primary-color, 10%) !important;
+}
 
 // 13. Navigation Bar
 $navbar-height-mobile: 64px !default;
@@ -135,6 +137,10 @@ footer {
 .header-with-button {
   display: inline-block;
   margin-top: 0;
+}
+.header-with-link {
+  display: inline-block;
+  margin-right: 10px;
 }
 .justify-right {
   justify-content: flex-end;

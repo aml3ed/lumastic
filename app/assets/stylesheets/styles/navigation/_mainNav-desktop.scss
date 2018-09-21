@@ -16,6 +16,7 @@
 }
 #search {
   width: 0;
+  height: 64px;
   transition: width 0.3s;
   &:focus {
     width: 350px;
@@ -37,4 +38,7 @@
 }
 .user-nav i.right {
   margin-left: 10px;
+}
+.sidenav .user-view .background img{
+  width: 100%;
 }

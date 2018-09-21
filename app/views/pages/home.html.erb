@@ -1,7 +1,31 @@
 <%= render 'pages/homeHero' %>
 <div class="container">
-    <h4 class="thumb-header first">Top Courses </h4><%= link_to "See More", "#" %>
-    <div class="row">
+  <h4 class="header-with-link">Learn Something New </h4><%= link_to "See More", "#" %>
+  <div class="row">
+
+  <%(1..4).each do%>
+    <div class="col l3 m6 s12">
+      <div class="card hoverable">
+
+        <div class="card-image">
+          <%=link_to "", '/testvideo', :class=>"container-clickable" %>
+          <%= image_tag "testimages/ballThumb.jpg"%>
+        </div>
+        <div class="card-content">
+          <%=link_to "", '/testvideo', :class=>"container-clickable" %>
+          <span class="card-title home-card-title">AP US History with blah</span>
+        </div>
+        <div class="card-action">
+          <%=link_to "See Course", '/testvideo', :class=>"waves-effect" %>
+        </div>
+      </div>
+    </div>
+  <%end%>
+
+  </div>
+
+  <h4 class="header-with-link">Top Courses</h4><%= link_to "See More", "#" %>
+  <div class="row">
 
     <%(1..4).each do%>
       <div class="col l3 m6 s12">
@@ -22,5 +46,5 @@
       </div>
     <%end%>
 
-    </div>
+  </div>
 </div>
