@@ -13,6 +13,7 @@ class CoursesController < ApplicationController
   # Example route: GET /courses/1
   def show
     @lessons = Lesson.where(course: @course).order(:position)
+    @course_path_nav = course_path(@course)
   end
 
   # Example route: GET /courses/new
@@ -22,6 +23,7 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses/1/edit
   def edit
+    @course_path_nav = edit_course_path(@course)
     @lessons = Lesson.where(:course_id => @course.id).order(:position)
     # Check to see if the course belongs to this user
     if @course.user_id != current_user.id
