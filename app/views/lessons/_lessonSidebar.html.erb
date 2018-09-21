@@ -1,0 +1,30 @@
+
+<!--This is the sidebar that appears on new/edit course and new/edit lesson-->
+<div class="collection courses-sidebar" data-behavior="sortable" data-url="<%=sort_course_lessons_path(@course) %>">
+<!--  Make the Course Info Item -->
+  <%= link_to edit_course_path(@course), :class => current_class?(edit_course_path(@course)) + " collection-item not-sortable" do %>
+    Course Info
+  <%end%>
+
+<!--  For each lesson, make a collection item with that lesson and it's url -->
+  <% if @lesson.id == nil %>
+    <%= link_to "", :class => "active collection-item not-sortable" do %>
+      Untitled Lesson
+    <%end%>
+  <%end%>
+  <% @lessons.each do |lesson|%>
+<!--    Make Edit Lesson Url with ID -->
+    <% path_edit_lesson = edit_course_lesson_path(@course, lesson) %>
+<!--    Add Link to Collection Item -->
+    <%= link_to path_edit_lesson, :class => current_class?(path_edit_lesson)+" collection-item", :id => dom_id(lesson) do %>
+      <%= material_icon.drag_handle.css_class('left') %>
+      <%=lesson.title%>
+    <%end%>
+  <%end%>
+
+</div>
+<!--Add Lesson Button-->
+
+<%= link_to new_course_lesson_path(@course), :class => " btn-flat right" do %>
+  <%= material_icon.add.css_class("left") %> Add Lesson
+<%end%>
