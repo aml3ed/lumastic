@@ -32,19 +32,3 @@ $(document).on('ready turbolinks:before-cache', function() {
     instance = new M.Sidenav(elem, {});
     instance.destroy();
 });
-
-
-
-
-
-
-
-// $(document).on('ready turbolinks:before-visit', function() {
-//     $(".dropdown-trigger").dropdown();
-//     $('.tabs').tabs();
-//     $('.tooltipped').tooltip();
-//
-//     elem = document.querySelector('#slide-out');
-//     instance = new M.Sidenav(elem, {});
-//     instance.destroy();
-// });
