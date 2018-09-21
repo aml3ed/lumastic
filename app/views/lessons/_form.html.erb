@@ -1,44 +1,106 @@
 <%= form_for([@course, @lesson]) do |form| %>
+  <!--  Show Errors-->
   <% if lesson.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
 
       <ul>
-      <% lesson.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% lesson.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :video_url %>
-    <%= form.text_field :video_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :lesson_info %>
-    <%= form.text_area :lesson_info %>
-  </div>
-
-  <div class="field">
-    <%= form.label :keywords %>
-    <%= form.text_field :keywords %>
-  </div>
-  <p> Materials </p>
-  <%= form.fields_for :materials do |material| %>
-    <div class="field">
-      <%= material.label :title %>
-      <%= material.text_field :title %>
+  <!--  Put in form-->
+  <!--  Course Title-->
+  <div class="row">
+    <div class="input-field col s12 m12 l6">
+      <%= form.label :title, "Lesson Title", for: "title" %>
+      <%= form.text_field :title, id: "title" %>
     </div>
-  <% end %>
+    <div class="input-field col s12 m12 l6">
+      <%= form.label :video_url, "YouTube URL", for: "video_url" %>
+      <%= form.text_field :video_url, id: "video_url" %>
+    </div>
+  </div>
+  <!--  Course Info-->
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.label :lesson_info, "Lesson Info", for: "lesson_info" %>
+      <%= form.text_area :lesson_info, id: "lesson_info", class: "materialize-textarea" %>
+    </div>
+  </div>
+  <!--  Course Subject-->
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.label :keywords %>
+      <%= form.text_field :keywords %>
+    </div>
+  </div>
+  <!--  Keywords-->
 
-  <div class="actions">
-    <%= form.submit %>
+  <!--  Materials -->
+  <div class="row">
+    <div class="col s12">Materials</div>
+    <%= form.fields_for :materials do |material| %>
+      <div class="input-field col s12">
+        <%= material.label :title %>
+        <%= material.text_field :title %>
+      </div>
+    <% end %>
+  </div>
+
+  <!--  Save -->
+  <div class="row">
+    <%= form.button :submit, class: " btn btn waves-effect" do %>
+      <% btn_text = "Save" if local_assigns[:btn_text].nil? %>
+      <%= btn_text %>
+    <%end%>
   </div>
 <% end %>
+
+
+<%#= form_for([@course, @lesson]) do |form| %>
+  <%# if lesson.errors.any? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2><%#= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>-->
+
+<!--      <ul>-->
+      <%# lesson.errors.full_messages.each do |message| %>
+<!--        <li><%#= message %></li>-->
+      <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
+
+<!--  <div class="field">-->
+    <%#= form.label :title %>
+    <%#= form.text_field :title %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :video_url %>
+    <%#= form.text_field :video_url %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :lesson_info %>
+    <%#= form.text_area :lesson_info %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :keywords %>
+    <%#= form.text_field :keywords %>
+<!--  </div>-->
+<!--  <p> Materials </p>-->
+  <%#= form.fields_for :materials do |material| %>
+<!--    <div class="field">-->
+      <%#= material.label :title %>
+      <%#= material.text_field :title %>
+<!--    </div>-->
+  <%# end %>
+
+<!--  <div class="actions">-->
+    <%#= form.submit %>
+<!--  </div>-->
+<%# end %>

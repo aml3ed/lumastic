@@ -5,13 +5,14 @@
     <span class="new badge inline-badge grey" data-badge-caption="<%="Not Saved" %>"></span>
     <%= link_to 'Publish', new_course_path, :class=>"right btn disabled" %>
   </div>
+  <div class="divider"></div>
+  <div class="section"></div>
   <div class="row">
     <div class="col s12 m4">
       <h5>Course Contents</h5>
       <%= render 'newCourseSidebar', new: true %>
     </div>
     <div class="col s12 m8">
-      <h5>Course Info</h5>
       <%= render 'form', course: @course, btn_text: "Create Course" %>
     </div>
   </div>
