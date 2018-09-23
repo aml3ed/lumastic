@@ -6,6 +6,7 @@ Rails.application.routes.draw do
       collection do
         patch :sort
       end
+      get '/view', to: 'lessons#view', :as => :view_lesson
     end
   end
   get '/home', to: 'pages#home'

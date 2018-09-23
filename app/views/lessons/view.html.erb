@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="section"></div>
+  <div class="row">
+    <div class="col m12 l8">
+      <div class="vid-header">
+        <%= link_to "Mrs. Stull's Algebra 1", "#", class: "material-link" %>
+        <h5>Pastry Chef Attempts To Make Gourmet Skittles | Gourmet Makes | Bon Appétit</h5>
+      </div>
+      <%= render 'videoPlayer', question: "How confident are you with this topic already?", embedUrl: "https://www.youtube.com/embed/nMYopbutSgs" %>
+      <div class="row section">
+        <div class="col s7 left ">
+          <%= link_to '#' do%>
+            <%=icon('fas', 'user-circle')%> Teacher Name
+          <% end %>
+        </div>
+        <div class="col right vid-controls">
+          <%= link_to '#', class:"btn tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Previous Lesson", title:"Previous Lesson" do%>
+            <%=icon('fas', 'step-backward')%>
+          <%end%>
+          <%= link_to '#', class:"btn tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Next Lesson", title:"Next Lesson" do%>
+            <%=icon('fas', 'step-forward')%>
+          <%end%>
+          <%= link_to '#', class:"btn tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Table of Contents", title:"Table of Contents" do%>
+            <%=icon('fas', 'list')%>
+          <%end%>
+        </div>
+      </div>
+    </div>
+    <div class="col m12 l4">
+      <%= render 'tab-content' %>
+    </div>
+  </div>
+</div>
