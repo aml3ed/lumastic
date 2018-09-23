@@ -14,7 +14,7 @@
     <li><%= link_to destroy_user_session_path, :method => :delete do %><%=icon('fas', 'sign-out-alt')%>Signout<%end %></li>
   </ul>
   <nav>
-    <div class="nav-wrapper container">
+    <div class="nav-wrapper ">
       <div class="left">
           <a data-target="slide-out" class="menu-button sidenav-trigger show-on-large no-link-link">
             <%= material_icon.menu %>
@@ -24,17 +24,20 @@
           <%end%>
         </div>
           <ul class="left left-nav hide-on-med-and-down">
-            <li>
-              <a class="dropdown-trigger" href="#!" data-target="subjectDropdown">
-                Subjects
-                <%=material_icon.arrow_drop_down.css_class("right")%>
-              </a>
-            </li>
-            <li>
-              <form class=" hide-on-med-and-down"  >
-                <div class="input-field" id="search-form">
-                  <input id="search" type="search" placeholder="What makes you curious?"required />
-                  <label class="label-icon" for="search" ><%=material_icon.search%></label>
+<!--            <li>-->
+<!--              <a class="dropdown-trigger" href="#!" data-target="subjectDropdown">-->
+<!--                Subjects-->
+                <%#=material_icon.arrow_drop_down.css_class("right")%>
+<!--              </a>-->
+<!--            </li>-->
+            <li id="search-nav-item">
+              <form class="hide-on-med-and-down"  >
+                <div class="" id="search-form">
+                  <div class="valign-wrapper" id="search-container">
+                    <div class="search-icon"><%=material_icon.search%></div>
+                    <input id="search-input" type="search" placeholder="What makes you curious?" required />
+                    <div class="search-icon" id="close-icon"><%=material_icon.close%></div>
+                  </div>
                   <div id="searchResults" ></div>
                 </div>
               </form>

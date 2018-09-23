@@ -1,4 +1,5 @@
-<div class="section container">
+<div class=" container">
+  <div class="section"></div>
   <div class="row ">
     <h4 class=" header-with-button"><%=@course.title %> </h4>
     <span class="new badge inline-badge grey" data-badge-caption="<%="Draft" %>"></span>
@@ -7,13 +8,13 @@
     <%end%>
   </div>
   <div class="divider"></div>
-  <div class="section"></div>
   <div class="row">
     <div class="col m4 s12">
       <h5>Course Contents</h5>
       <%= render 'courseSidebar' %>
     </div>
-    <div class="col m8 s12">
+    <div class="col m8 s12 ">
+      <div class="section"></div>
       <%= render 'form', course: @course %>
     </div>
   </div>
