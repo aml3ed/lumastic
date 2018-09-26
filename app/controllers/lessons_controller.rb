@@ -2,22 +2,17 @@ class LessonsController < ApplicationController
   load_and_authorize_resource
   before_action :set_course
   before_action :find_lessons
-  before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  before_action :set_lesson, only: [:show, :view, :edit, :update, :destroy]
+  before_action :get_embed_from_url, only: [:show, :view, :edit]
 
   # Example route: GET /lessons
   def index
+    # See get_embed_from_url before action
   end
 
   # Example route: GET /lessons/1
   def show
-    # Use the YoutubeID gem to get the id from the @lesson object's video_url
-    video_id = YoutubeID.from(@lesson.video_url)
-    # Append that the the end of a YouTube embed url for use in the view
-    if video_id
-      @video_embed_url = 'https://youtube.com/embed/'+video_id
-    else
-      @video_embed_url = ''
-    end
+    # See get_embed_from_url before action
   end
 
   def view
@@ -106,6 +101,16 @@ class LessonsController < ApplicationController
 
     # Declares what parameters are mutatable by the controller
     def lesson_params
-      params.require(:lesson).permit(:title, :video_url, :lesson_info, :keywords, materials_attributes: [:id, :title, :_destroy])
+      params.require(:lesson).permit(:title, :video_url, :lesson_info, :keywords, materials_attributes: [:id, :title, :file, :_destroy])
+    end
+
+    def get_embed_from_url
+      if @lesson.video_url != nil
+        id = helpers.youtube_id(@lesson.video_url)
+        if id != nil
+          @embed_url = helpers.embed_url(id)
+        end
+      end
+
     end
 end

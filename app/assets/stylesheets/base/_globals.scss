@@ -32,7 +32,7 @@ $h2-fontsize: 3.56rem !default;
 $h3-fontsize: 2.92rem !default;
 $h4-fontsize: 2.28rem !default;
 $h5-fontsize: 1.64rem !default;
-$h6-fontsize: 1rem !default;
+$h6-fontsize: 1.3rem !default;
 
 $small-screen: 600px !default;
 $large-screen: 1200px !default;
@@ -94,7 +94,9 @@ h6.flow-text { @include flow-header-mixin($h6-fontsize) }
 
 
 
-
+.row.no-margin {
+  margin-bottom: 0px;
+}
 
 
 
@@ -132,9 +134,17 @@ footer {
   color: white;
   }
 }
+
+
+
 .show-field {
   margin: 1rem auto;
+  p, h5, h6 {
+    margin-top: 5px;
+  }
 }
+
+
 .header-with-button {
   display: inline-block;
   margin-top: 0;
@@ -147,10 +157,20 @@ footer {
   justify-content: flex-end;
 }
 .courses-sidebar {
-  max-height: 400px;
+  max-height: 650px;
   overflow-y: auto !important;
   overflow-x: hidden !important;
+  .collection-item {
+    color: lighten($primary-color,10%) !important;
+    &.active {
+      background-color: lighten($primary-color,10%) !important;
+      color: white !important;
+    }
+  }
 }
+
+
+
 .course-list-stat {
   margin-bottom: 9px !important;
   i {

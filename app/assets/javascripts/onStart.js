@@ -18,6 +18,7 @@ $(document).on('ready turbolinks:load', function() {
 
     elem = document.querySelector('#slide-out');
     instance = new M.Sidenav(elem, {});
+
 });
 $(document).on('ready turbolinks:before-cache', function() {
     $(".dropdown-trigger").dropdown();
@@ -32,3 +33,5 @@ $(document).on('ready turbolinks:before-cache', function() {
     instance = new M.Sidenav(elem, {});
     instance.destroy();
 });
+
+//Load YouTube API

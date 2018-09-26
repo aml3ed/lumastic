@@ -1,33 +1,42 @@
 <div class="vid-player-container">
   <div class="vid-iframe-container">
     <div class="vid-overlay-container">
-      <div class="vid-text-overlay"><%= question %></div>
+      <div class="vid-text-overlay"><%= locals[:question] %></div>
       <div class="vid-buttons row">
-        <script>
-          function playButton() {
-            var overlay = document.getElementsByClassName("vid-overlay-container")[0];
-            overlay.style.display = "none";
-            var iframeContainer = document.getElementsByClassName("vid-iframe")[0];
-            iframeContainer.style.filter = "none";
-            iframeContainer.src += "?&autoplay=1"
-          }
-        </script>
-        <button class="vid-button red-vid-button" onclick="playButton()">
+
+        <button class="vid-button red-vid-button" id="red">
           <%= icon("fab", "youtube") %> <br>
           I'm not confident.
         </button>
-        <button class="vid-button yellow-vid-button" onclick="playButton()">
+        <button class="vid-button yellow-vid-button" id="blue">
           <%= icon("fab", "youtube") %> <br>
           I'm starting to get it.
         </button>
-        <button class="vid-button green-vid-button" onclick="playButton()">
+        <button class="vid-button green-vid-button" id="green">
           <%= icon("fab", "youtube") %> <br>
           I got this!
         </button>
       </div>
     </div>
-
-    <iframe class="vid-iframe" src="<%= embedUrl %>" frameborder="0" allowfullscreen>
-    </iframe>
+    <iframe src="<%= @embed_url %>" autoplay="0"></iframe>
   </div>
 </div>
+<script>
+    $(".vid-button").click(function() {
+      playButton();
+      switch (this.id) {
+          case 'red':
+              // do something
+              alert('red');
+              break;
+          case 'blue':
+              // do something
+              alert('blue');
+              break;
+          case 'green':
+              // do something
+              alert('green');
+              break;
+      }
+    });
+</script>

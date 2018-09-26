@@ -10,29 +10,53 @@
   <div class="divider"></div>
   <div class="row">
     <div class="col m4 s12">
-      <h5>Course Contents</h5>
+      <h6>Course Contents</h6>
       <%= render 'lessonSidebar' %>
     </div>
+
     <div class="col m8 s12">
-      <div class="row">
-        <div class="col m6 s12 show-field">
+<!--      Lesson Title-->
+      <div class="section"></div>
+      <div class="row no-margin">
+        <div class="col s12 m12 l8">
           <label>Lesson Title </label>
-          <p><%=@lesson.title %></p>
+          <h5 style="margin-top: 0px"><%=@lesson.title %></h5>
         </div>
-        <div class="col m6 s12 show-field">
-          <label>YouTube URL </label>
-          <p><%=@lesson.video_url %></p>
+      </div>
+<!--Video Embed-->
+      <div class="row">
+        <div class="col s12 m12 l7">
+          <div class="video-container">
+            <iframe width="853" height="480" src="<%=@embed_url %>" frameborder="0" allowfullscreen>
+              Please enter a valid youtube url
+            </iframe>
+          </div>
         </div>
-        <div class="col s12 show-field">
+<!--URL and Keywords-->
+        <div class="col m12 l5">
+          <div class="row">
+            <label>YouTube URL </label>
+            <p class="truncate"><%=@lesson.video_url %></p>
+          </div>
+          <div class="row">
+            <label>Keywords </label>
+            <p><%=@lesson.keywords %></p>
+          </div>
+        </div>
+      </div>
+<!--Lesson Info-->
+      <div class="row">
+        <div class="col s12 m6">
           <label>Lesson Info </label>
           <p><%=@lesson.lesson_info %></p>
         </div>
-        <div class="col s12 show-field">
-          <label>Keywords </label>
-          <p><%=@lesson.keywords %></p>
-        </div>
-        <div class="col s12 show-field">
-          <p>Materials</p>
+      </div>
+<!--      Materials-->
+      <div class="row">
+        <h5 class="col s12">Materials</h5>
+      </div>
+      <div class="row">
+        <div class="col s12 m6">
           <% @lesson.materials.each do |material| %>
             <p><%= material.title %></p>
           <%end%>
