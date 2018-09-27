@@ -75,6 +75,14 @@ class LessonsController < ApplicationController
     head :ok
   end
 
+  def count_ticket
+    @lesson = Lesson.where(id: params[:id]).first
+    field = "#{params[:type]}_#{params[:color]}".to_sym
+    cur_val = @lesson.send(field)
+    @lesson.send(field.to_s + '=', cur_val + 1)
+    @lesson.save!
+  end
+
   private
     # All of these methods are 'before_actions'
     # They get run before anything happens inside the controller

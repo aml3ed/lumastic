@@ -4,15 +4,15 @@
       <div class="vid-text-overlay"><%= locals[:question] %></div>
       <div class="vid-buttons row">
 
-        <button class="vid-button red-vid-button" id="red">
+        <button class="vid-button red-vid-button" id="red" data-url="<%= count_ticket_course_lesson_path(@course, @lesson)%>">
           <%= icon("fab", "youtube") %> <br>
           I'm not confident.
         </button>
-        <button class="vid-button yellow-vid-button" id="blue">
+        <button class="vid-button yellow-vid-button" id="blue" data-url="<%= count_ticket_course_lesson_path(@course, @lesson)%>">
           <%= icon("fab", "youtube") %> <br>
           I'm starting to get it.
         </button>
-        <button class="vid-button green-vid-button" id="green">
+        <button class="vid-button green-vid-button" id="green" data-url="<%= count_ticket_course_lesson_path(@course, @lesson)%>">
           <%= icon("fab", "youtube") %> <br>
           I got this!
         </button>
@@ -21,22 +21,3 @@
     <iframe src="<%= @embed_url %>" autoplay="0"></iframe>
   </div>
 </div>
-<script>
-    $(".vid-button").click(function() {
-      playButton();
-      switch (this.id) {
-          case 'red':
-              // do something
-              alert('red');
-              break;
-          case 'blue':
-              // do something
-              alert('blue');
-              break;
-          case 'green':
-              // do something
-              alert('green');
-              break;
-      }
-    });
-</script>

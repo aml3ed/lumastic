@@ -15,3 +15,35 @@ function playButton() {
 
     playVideo($("iframe"));
 }
+
+$(document).ready(function() {
+    $(".vid-button").click(function() {
+        playButton();
+        switch (this.id) {
+            case 'red':
+                // do something
+                Rails.ajax({
+                    url: $(this).data("url"),
+                    type: "PATCH",
+                    data: "color=red&type=in"
+                });
+                break;
+            case 'blue':
+                // do something
+                Rails.ajax({
+                    url: $(this).data("url"),
+                    type: "PATCH",
+                    data: "color=blue&type=in"
+                })
+                break;
+            case 'green':
+                // do something
+                Rails.ajax({
+                    url: $(this).data("url"),
+                    type: "PATCH",
+                    data: "color=green&type=in"
+                })
+                break;
+        }
+    });
+});

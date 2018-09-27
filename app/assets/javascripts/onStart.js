@@ -11,7 +11,7 @@ $(document).on('ready turbolinks:load', function() {
                url: $(this).data("url"),
                type: "PATCH",
                data: $(this).sortable('serialize')
-           })
+           });
 
        }
     });
