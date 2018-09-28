@@ -55,7 +55,7 @@ class CoursesController < ApplicationController
     # Save the new course object to the database
     respond_to do |format|
       if @course.save
-        format.html { redirect_to edit_course_path(@course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
+        format.html { redirect_to course_path(@course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }

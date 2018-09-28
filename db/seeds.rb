@@ -14,4 +14,89 @@ drew = User.create! email: 'drew@lumastic.com',
                      password: 'password',
                      role: Roleable::ROLE_ADMIN
 
-Course.create!
+course1 = Course.create! title: "How to make a website",
+               course_info: "This is a course on how to make a website.  We hope that this is helps you!",
+               subject: "Art",
+               keywords: "Web Developement, Engineering, Computer Science, Art, Design, HTML, CSS",
+               published: "true",
+               user: david
+
+lesson_1 = Lesson.create! title: "Start without a plan",
+                          video_url: "https://www.youtube.com/watch?v=2gUtfBmw86Y&frags=pl%2Cwn",
+                          lesson_info: "When building a website, the best thing to do is not plan it.",
+                          in_red: 10,
+                          in_blue: 5,
+                          in_green: 3,
+                          out_red: 3,
+                          out_blue: 5,
+                          out_green: 10,
+                          keywords: "Do, Not, Plan, Anything",
+                          course: course1
+
+lesson_2 = Lesson.create! title: "HTML Basics",
+                          video_url: "https://www.youtube.com/watch?v=qDrsUcg0bx4&frags=pl%2Cwn",
+                          lesson_info: "Let's get down to basics and learn some HTML!",
+                          in_red: 0,
+                          in_blue: 10,
+                          in_green: 30,
+                          out_red: 15,
+                          out_blue: 14,
+                          out_green: 2,
+                          keywords: "HTML, Web Developement",
+                          course: course1
+
+lesson_2 = Lesson.create! title: "CSS Basics",
+                          video_url: "https://www.youtube.com/watch?v=P34zTU8dWrU&frags=pl%2Cwn",
+                          lesson_info: "Let's get down to basics and learn some HTML!",
+                          in_red: 0,
+                          in_blue: 10,
+                          in_green: 30,
+                          out_red: 15,
+                          out_blue: 14,
+                          out_green: 2,
+                          keywords: "CSS, Web Developement",
+                          course: course1
+
+
+course2 = Course.create! title: "Deep Dive into Fermented Foods",
+               course_info: "This is a course on fermentation and fermented foods.  We hope that this is helps you!",
+               subject: "Cooking",
+               keywords: "Food, Culture, Sauerkraut",
+               published: "true",
+               user: drew
+
+lesson_4 = Lesson.create! title: "How to Make Mustard",
+                          video_url: "https://www.youtube.com/watch?v=8ktONdU_wXU&t=2s&frags=pl%2Cwn",
+                          lesson_info: "This is a video on how to make mustard!",
+                          in_red: 10,
+                          in_blue: 5,
+                          in_green: 3,
+                          out_red: 3,
+                          out_blue: 5,
+                          out_green: 10,
+                          keywords: "Mustard",
+                          course: course2
+
+lesson_5 = Lesson.create! title: "How to Make Fermented Eggs",
+                          video_url: "https://www.youtube.com/watch?v=8ktONdU_wXU&t=2s&frags=pl%2Cwn",
+                          lesson_info: "This is a video on how to make fermented eggs!",
+                          in_red: 0,
+                          in_blue: 10,
+                          in_green: 30,
+                          out_red: 15,
+                          out_blue: 14,
+                          out_green: 2,
+                          keywords: "Fermented, Eggs, Smell",
+                          course: course2
+
+lesson_5 = Lesson.create! title: "How to Make Sauerkraut",
+                          video_url: "https://www.youtube.com/watch?v=snxb_PSe3Ps&frags=pl%2Cwn",
+                          lesson_info: "This is a video on how to make sauerkraut!",
+                          in_red: 0,
+                          in_blue: 10,
+                          in_green: 30,
+                          out_red: 15,
+                          out_blue: 14,
+                          out_green: 2,
+                          keywords: "Sauerkraut, Cooking, Fermentation",
+                          course: course2
