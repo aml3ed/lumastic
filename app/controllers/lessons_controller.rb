@@ -4,6 +4,7 @@ class LessonsController < ApplicationController
   before_action :find_lessons
   before_action :set_lesson, only: [:show, :view, :edit, :update, :destroy]
   before_action :get_embed_from_url, only: [:show, :view, :edit]
+  before_action :get_ticket_percentage, only: [:show, :edit]
 
   # Example route: GET /lessons
   def index
@@ -78,7 +79,9 @@ class LessonsController < ApplicationController
   def count_ticket
     @lesson = Lesson.where(id: params[:id]).first
     field = "#{params[:type]}_#{params[:color]}".to_sym
-    cur_val = @lesson.send(field)
+    puts "****************#{field}*****************"
+    cur_val = @lesson.send(field).nil? ? 0 : @lesson.send(field)
+    puts "****************#{cur_val}*****************"
     @lesson.send(field.to_s + '=', cur_val + 1)
     @lesson.save!
   end
@@ -114,11 +117,16 @@ class LessonsController < ApplicationController
 
     def get_embed_from_url
       if @lesson.video_url != nil
-        id = helpers.youtube_id(@lesson.video_url)
-        if id != nil
-          @embed_url = helpers.embed_url(id)
+        @vid_id = helpers.youtube_id(@lesson.video_url)
+        if @vid_id != nil
+          @embed_url = helpers.embed_url(@vid_id)
         end
       end
 
+    end
+
+    def get_ticket_percentage
+      totalTickets = @lesson.out_red + @lesson.out_blue + @lesson.out_green
+      @tickets = [helpers.percent(@lesson.out_red, totalTickets), helpers.percent(@lesson.out_blue, totalTickets), helpers.percent(@lesson.out_green, totalTickets)]
     end
 end

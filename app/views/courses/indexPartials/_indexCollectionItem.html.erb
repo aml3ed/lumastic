@@ -16,19 +16,19 @@
       <div class="row course-list-stat ">
         <div class="col s12 valign-wrapper justify-right green-text">
           <%= material_icon.local_offer %>
-          <span class="">~%</span>
+          <span class=""><%= @tickets[2] + '%' %></span>
         </div>
       </div>
       <div class="row course-list-stat ">
         <div class="col s12 valign-wrapper justify-right light-blue-text">
           <%= material_icon.local_offer %>
-          <span class="">~%</span>
+          <span class=""><%= @tickets[1] + '%' %></span>
         </div>
       </div>
       <div class="row course-list-stat ">
         <div class="col s12 valign-wrapper justify-right red-text">
           <%= material_icon.local_offer %>
-          <span class="">~%</span>
+          <span class=""><%= @tickets[0] + '%' %></span>
         </div>
       </div>
     </div>
@@ -36,7 +36,7 @@
   </div>
   <!--          Edit and Actions-->
   <div href="#!" class="secondary-content valign-wrapper ">
-    <%= link_to edit_course_path(course), :class=> "btn-small hide-on-small-only" do %>
+    <%= link_to course_path(course), :class=> "btn-small hide-on-small-only" do %>
       <i class="material-icons left">mode_edit</i>
       <span class="">Edit</span>
     <%end%>

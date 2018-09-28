@@ -2,6 +2,9 @@ class CoursesController < ApplicationController
   load_and_authorize_resource
   before_action :authenticate_user!, :except => [:show] #-> routes to the login / signup if not authenticated
   before_action :set_course, only: [:show, :edit, :update, :destroy]
+  before_action :get_lessons, only: [:show, :edit, :show]
+  before_action :ticket_breakdown, only: [:edit, :show, :index]
+
 
   # Example route: GET /courses
   def index
@@ -12,7 +15,7 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses/1
   def show
-    @lessons = Lesson.where(course: @course).order(:position)
+    @lessons.order(:position)
     @course_path_nav = course_path(@course)
   end
 
@@ -24,7 +27,7 @@ class CoursesController < ApplicationController
   # Example route: GET /courses/1/edit
   def edit
     @course_path_nav = edit_course_path(@course)
-    @lessons = Lesson.where(:course_id => @course.id).order(:position)
+    @lessons.order(:position)
     # Check to see if the course belongs to this user
     if @course.user_id != current_user.id
       # If it doesn't, redirect to the homepage (we should make this go somewhere else)
@@ -79,8 +82,25 @@ class CoursesController < ApplicationController
       @course = Course.find(params[:id])
     end
 
+    def get_lessons
+      @lessons = Lesson.where(:course_id => @course.id)
+    end
+
     # Declares what parameters are mutatable by the controller
     def course_params
       params.require(:course).permit(:title, :course_info, :subject, :instructor_bio, :keywords, :price)
+    end
+
+    def ticket_breakdown
+      totalReds = 0
+      totalBlues = 0
+      totalGreens = 0
+      @lessons.each do |lesson|
+        totalReds += lesson.out_red
+        totalBlues += lesson.out_blue
+        totalGreens += lesson.out_green
+      end
+      totalTickets = totalReds + totalBlues + totalGreens
+      @tickets = [helpers.percent(totalReds, totalTickets), helpers.percent(totalBlues, totalTickets), helpers.percent(totalGreens, totalTickets)]
     end
 end

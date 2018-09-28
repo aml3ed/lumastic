@@ -14,9 +14,29 @@
   <!--  Put in form-->
   <!--  Lesson Title-->
   <div class="row no-margin">
-    <div class="input-field col s12 m12 l8">
+    <div class="input-field col s9 m9 l9">
       <%= form.label :title, "Lesson Title", for: "title" %>
       <%= form.text_field :title, id: "title", style: "font-size: 24px" %>
+    </div>
+    <div class="col s3">
+      <div class="row course-list-stat ">
+        <div class="col s12 valign-wrapper justify-right green-text">
+          <%= material_icon.local_offer %>
+          <span class=""><%= @tickets[2] %>%</span>
+        </div>
+      </div>
+      <div class="row course-list-stat ">
+        <div class="col s12 valign-wrapper justify-right light-blue-text">
+          <%= material_icon.local_offer %>
+          <span class=""><%= @tickets[1] %>%</span>
+        </div>
+      </div>
+      <div class="row course-list-stat ">
+        <div class="col s12 valign-wrapper justify-right red-text">
+          <%= material_icon.local_offer %>
+          <span class=""><%= @tickets[0] %>%</span>
+        </div>
+      </div>
     </div>
   </div>
 
