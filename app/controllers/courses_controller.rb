@@ -3,7 +3,7 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, :except => [:show] #-> routes to the login / signup if not authenticated
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :get_lessons, only: [:show, :edit, :show]
-  before_action :ticket_breakdown, only: [:edit, :show, :index]
+  before_action :ticket_breakdown, only: [:edit, :show]
 
 
   # Example route: GET /courses
@@ -44,7 +44,7 @@ class CoursesController < ApplicationController
     # Save the new course object to the database
     respond_to do |format|
       if @course.save
-        format.html { redirect_to edit_course_path(@course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
+        format.html { redirect_to course_path(@course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
