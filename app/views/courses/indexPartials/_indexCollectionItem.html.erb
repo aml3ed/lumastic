@@ -16,19 +16,19 @@
       <div class="row course-list-stat ">
         <div class="col s12 valign-wrapper justify-right green-text">
           <%= material_icon.local_offer %>
-          <span class=""><%#= @tickets[2] + '%' %></span>
+          <span class=""><%= tickets[2].to_s + '%' %></span>
         </div>
       </div>
       <div class="row course-list-stat ">
         <div class="col s12 valign-wrapper justify-right light-blue-text">
           <%= material_icon.local_offer %>
-          <span class=""><%#= @tickets[1] + '%' %></span>
+          <span class=""><%= tickets[1].to_s + '%' %></span>
         </div>
       </div>
       <div class="row course-list-stat ">
         <div class="col s12 valign-wrapper justify-right red-text">
           <%= material_icon.local_offer %>
-          <span class=""><%#= @tickets[0] + '%' %></span>
+          <span class=""><%= tickets[0].to_s + '%' %></span>
         </div>
       </div>
     </div>

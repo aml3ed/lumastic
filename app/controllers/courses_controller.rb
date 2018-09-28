@@ -8,9 +8,20 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses
   def index
-    puts current_user.role.inspect
     # Show only the courses for that logged-in user
     @courses = Course.where(:user_id => current_user.id)
+    @course_tickets = {}
+    @courses.each do |course|
+      totals = course.total_tickets
+      totalTickets = totals[:total]
+      totalReds = totals[:red]
+      totalBlues = totals[:blue]
+      totalGreens = totals[:green]
+      @tickets = [helpers.percent(totalReds, totalTickets),
+                  helpers.percent(totalBlues, totalTickets),
+                  helpers.percent(totalGreens, totalTickets)]
+      @course_tickets[course.id.to_s] = @tickets
+    end
   end
 
   # Example route: GET /courses/1
