@@ -3,14 +3,25 @@ class CoursesController < ApplicationController
   before_action :authenticate_user!, :except => [:show] #-> routes to the login / signup if not authenticated
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :get_lessons, only: [:show, :edit, :show]
-  before_action :ticket_breakdown, only: [:edit, :show, :index]
+  before_action :ticket_breakdown, only: [:edit, :show]
 
 
   # Example route: GET /courses
   def index
-    puts current_user.role.inspect
     # Show only the courses for that logged-in user
     @courses = Course.where(:user_id => current_user.id)
+    @course_tickets = {}
+    @courses.each do |course|
+      totals = course.total_tickets
+      totalTickets = totals[:total]
+      totalReds = totals[:red]
+      totalBlues = totals[:blue]
+      totalGreens = totals[:green]
+      @tickets = [helpers.percent(totalReds, totalTickets),
+                  helpers.percent(totalBlues, totalTickets),
+                  helpers.percent(totalGreens, totalTickets)]
+      @course_tickets[course.id.to_s] = @tickets
+    end
   end
 
   # Example route: GET /courses/1
