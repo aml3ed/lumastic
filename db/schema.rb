@@ -63,12 +63,12 @@ ActiveRecord::Schema.define(version: 2018_09_26_174816) do
     t.datetime "updated_at", null: false
     t.bigint "course_id"
     t.integer "position"
-    t.integer "in_red"
-    t.integer "in_blue"
-    t.integer "in_green"
-    t.integer "out_red"
-    t.integer "out_blue"
-    t.integer "out_green"
+    t.integer "in_red", default: 0
+    t.integer "in_blue", default: 0
+    t.integer "in_green", default: 0
+    t.integer "out_red", default: 0
+    t.integer "out_blue", default: 0
+    t.integer "out_green", default: 0
     t.index ["course_id"], name: "index_lessons_on_course_id"
   end
 
