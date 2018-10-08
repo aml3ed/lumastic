@@ -4,6 +4,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-prod
+      args:
+        - SECRET_KEY_BASE
     volumes:
       - .:/lumastic
     ports:
