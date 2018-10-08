@@ -36,7 +36,7 @@ class LessonsController < ApplicationController
     # Add the course_id from the url parameters
     @lesson.course_id = params[:course_id]
     # Save the new lesson object to the database
-    @lesson.position = Lesson.where(course_id: params[:course_id]).maximum('position') + 1
+    @lesson.position = Lesson.where(course_id: @course).present? ? Lesson.where(course_id: @course).maximum('position') + 1 : 1
     respond_to do |format|
       if @lesson.save
         format.html { redirect_to course_lesson_path(:id => @lesson.id), notice: 'Lesson was successfully created.' }
