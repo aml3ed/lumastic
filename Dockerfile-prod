@@ -11,8 +11,6 @@ RUN bundle install --without development test
 
 ENV RAILS_ENV production
 ENV RACK_ENV production
-EXPOSE 80
+EXPOSE 3000
 
 COPY . /lumastic
-
-CMD bundle exec puma -C config/puma.rb
