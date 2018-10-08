@@ -8,7 +8,7 @@ services:
     volumes:
       - .:/lumastic
     ports:
-      - "80:80"
+      - "80:80git"
     network_mode: "host"
     environment:
       DB_HOST: lumastic-prod-db.cweydkfsbgul.us-east-1.rds.amazonaws.com
