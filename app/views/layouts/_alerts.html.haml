@@ -2,16 +2,16 @@
   - if type == "notice"
     :javascript
       $(function() {
-          M.toast({html: #{message}});
+          M.toast({html: "#{message}"});
       });
   - elsif type == "error"
     :javascript
       $(function() {
-          M.toast({html: #{message}});
+          M.toast({html: "#{message}"});
       });
   - else
     :javascript
       $(function() {
-          M.toast({html: #{message}});
+          M.toast({html: "#{message}"});
       });
 
