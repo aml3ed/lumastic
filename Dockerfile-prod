@@ -12,7 +12,7 @@ RUN bundle install --without development test
 #ENV RAILS_ENV production
 #ENV RACK_ENV production
 
-#EXPOSE 3000
+EXPOSE 3000
 
 COPY . /lumastic
 
