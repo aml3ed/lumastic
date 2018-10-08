@@ -12,8 +12,8 @@ RUN bundle install --without development test
 ENV RAILS_ENV production
 ENV RACK_ENV production
 
-COPY . /lumastic
-
 EXPOSE 3000
 
-CMD rails server -b 0.0.0.0 -p 3000
+COPY . /lumastic
+
+
