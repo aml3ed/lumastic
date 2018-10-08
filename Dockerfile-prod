@@ -7,5 +7,14 @@ WORKDIR /lumastic
 COPY Gemfile /lumastic/Gemfile
 COPY Gemfile.lock /lumastic/Gemfile.lock
 
-RUN bundle install
+RUN bundle install --without development test
+
+ENV RAILS_ENV production
+ENV RACK_ENV production
+EXPOSE 80
+
 COPY . /lumastic
+
+RUN bundle exec rake assets:precompile
+
+CMD bundle exec puma -C config/puma.rb

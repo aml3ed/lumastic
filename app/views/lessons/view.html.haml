@@ -1,0 +1,23 @@
+.container
+  .section
+  .row
+    .col.s12.m12.l8
+      .vid-header
+        = link_to "#", class: "material-link" do
+          = @course.title
+        %h5= @lesson.title
+      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?", videoURL: @lesson.video_url}
+      .row.section
+        .col.s7.left
+          = link_to '#' do
+            = icon('fas', 'user-circle')
+            Teacher Name
+        .col.right.vid-controls
+          = link_to '#', class:"btn btn-small dark-button tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Previous Lesson", title:"Previous Lesson" do
+            = icon('fas', 'step-backward')
+          = link_to '#', class:"btn btn-small dark-button tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Next Lesson", title:"Next Lesson" do
+            = icon('fas', 'step-forward')
+          = link_to '#', class:"btn btn-small dark-button tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Table of Contents", title:"Table of Contents" do
+            = icon('fas', 'list')
+    .col.s12.m12.l4
+      = render 'tab-content', locals: {info: @lesson.lesson_info}

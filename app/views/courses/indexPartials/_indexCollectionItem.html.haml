@@ -1,0 +1,44 @@
+%li.collection-item.avatar
+  / Course Thumbnail
+  .valign-wrapper
+    = link_to "#" do
+      = image_tag "testimages/ballThumb.jpg", class: "collections-thumb responsive-img"
+
+  .row.course-collection-row{:style => "padding-right: 160px; padding-top: 5px;"}
+    / Course Title and Basic Info
+    .col.s12.l9
+      %span.title.truncate= course.title
+      %span.new.badge.left-badge.grey{"data-badge-caption" => "Draft"}
+
+    / Stats  Info
+    .col.s3.hide-on-med-and-down
+      .row.course-list-stat
+        .col.s12.valign-wrapper.justify-right.green-text
+          = material_icon.local_offer
+          %span= tickets[2].to_s + '%'
+      .row.course-list-stat
+        .col.s12.valign-wrapper.justify-right.light-blue-text
+          = material_icon.local_offer
+          %span= tickets[1].to_s + '%'
+      .row.course-list-stat
+        .col.s12.valign-wrapper.justify-right.red-text
+          = material_icon.local_offer
+          %span= tickets[0].to_s + '%'
+
+  / Edit and Actions
+  .secondary-content.valign-wrapper{:href => "#!"}
+    = link_to course_path(course), :class=> "btn-small hide-on-small-only" do
+      %i.material-icons.left mode_edit
+      %span Edit
+    = link_to "#", :class=> "dropdown-trigger", :"data-target"=>"optionsDropdown" do
+      %i.material-icons.left more_vertical
+    %ul#optionsDropdown.dropdown-content
+      %li.hide-on-med-and-up
+        %a{:href => "#!"} Edit
+      %li
+        %a{:href => "#!"} Preview
+      %li
+        %a{:href => "#!"} Share
+      %li
+        %a.red-text{:href => "#!"} Delete
+

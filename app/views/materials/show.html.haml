@@ -1,0 +1,17 @@
+%p#notice= notice
+%p
+  %strong Type:
+  = @material.category
+%p
+  %strong Title:
+  = @material.title
+%p
+  %strong File url:
+  = link_to @material.title, "#{request.base_url}#{url_for(@material.file)}"
+%p
+  %strong Download file:
+  = link_to @material.title, rails_blob_path(@material.file, disposition: 'attachment')
+= link_to 'Edit', edit_material_path(@material)
+|
+= link_to 'Back', materials_path
+

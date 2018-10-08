@@ -1,0 +1,14 @@
+.container
+  .section
+  .section
+    / Page Title
+    .row
+      %h4.header-with-button Your Courses
+      = link_to 'New Course', new_course_path, :class=>"right btn"
+
+    / Begin Collection
+    %ul.collection.course-collection.highlight
+      / For Every Course make Collection Item
+      - @courses.each do |course|
+        = render partial: '/courses/indexPartials/indexCollectionItem', locals: { course: course, tickets: @course_tickets[course.id.to_s] }
+

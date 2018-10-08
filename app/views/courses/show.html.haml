@@ -1,0 +1,32 @@
+.container
+  .section
+  .row
+    %h4.header-with-button
+      = @course.title
+    %span.new.badge.inline-badge.grey{"data-badge-caption" => "Draft"}
+    = link_to new_course_path, :class=>"right btn " + (@lessons.size == 0 ? "disabled": "" ) do
+      Publish #{material_icon.public.css_class('right')}
+  .divider
+  .row
+    .col.m4.s12
+      %h5 Course Contents
+      = render 'courseSidebar'
+    .col.m8.s12
+      .row
+        .col.m6.s12.show-field
+          %label Course Title
+          %p= @course.title
+        .col.m6.s12.show-field
+          %label Subject
+          %p= @course.subject
+        .col.s12.show-field
+          %label Course Info
+          %p= @course.course_info
+        .col.s12.show-field
+          %label Keywords
+          %p= @course.keywords
+      .row
+        .col.s12
+          = link_to edit_course_path(@course), :class=> "btn waves-effect" do
+            %i.material-icons.left mode_edit
+            Edit

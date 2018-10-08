@@ -1,0 +1,10 @@
+/ This is the sidebar that appears on new/edit course and new/edit lesson
+.collection.courses-sidebar
+  / Make the Course Info Item
+  = link_to new_course_path, :class => current_class?(new_course_path) + " collection-item" do
+    Course Info
+
+/ Add Lesson Button
+= link_to "#", :class => "disabled btn-flat right" do
+  = material_icon.add.css_class("left")
+  Add Lesson
