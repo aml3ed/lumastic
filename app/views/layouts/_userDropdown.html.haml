@@ -1,0 +1,11 @@
+.dropdown{:style => "display: none;"}
+  %ul.verticalnav-items
+    = link_to '#', :class => 'verticalnav-link '+current_class?('#') do
+      %li.verticalnav-item
+        = icon('fas', 'wrench', class: 'verticalnav-icon')
+        %p.verticalnav-text Account Settings
+    = link_to destroy_user_session_path, method: :delete, :class => 'verticalnav-link '+current_class?('#') do
+      %li.verticalnav-item
+        = icon('fas', 'sign-out-alt', class: 'verticalnav-icon')
+        %p.verticalnav-text Sign Out
+

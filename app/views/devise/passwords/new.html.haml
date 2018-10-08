@@ -1,0 +1,21 @@
+%center
+  .section
+  .container
+    .z-depth-1.row.paper-popup
+      = form_for(resource, as: resource_name, :class=>"col s12", url: password_path(resource_name)) do |f|
+        = devise_error_messages!
+        .row
+          .col.s12
+            %h5 Forgot your password?
+            %h6 We can help with that!
+        .row
+          .input-field.col.s12
+            = f.email_field :email, autofocus: true, autocomplete: "email", type: "email", id: 'email', class: "validate"
+            = f.label :email, for: "email"
+        %br/
+        %center
+          .row
+            = f.button :submit, class: "col s12 btn btn-large waves-effect form-submit" do
+              Email me Reset Instructions
+  Don't need to reset? #{link_to "Login", new_user_session_path}
+

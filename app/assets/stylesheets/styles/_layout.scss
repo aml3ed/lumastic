@@ -1,0 +1,50 @@
+// General layout additions
+.row.no-margin {
+  margin-bottom: 0px;
+}
+.justify-right {
+  justify-content: flex-end;
+}
+
+
+// Show pages
+.show-field {
+  margin: 1rem auto;
+  p, h5, h6 {
+    margin-top: 5px;
+  }
+}
+
+
+// Button Headers
+.header-with-button {
+  display: inline-block;
+  margin-top: 0;
+}
+.header-with-link {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+
+// Course Collections
+.collections-thumb {
+  position: absolute;
+  width: 200px;
+  overflow: hidden;
+  left: 15px;
+  display: inline-block;
+  vertical-align: middle;
+}
+.course-collection .collection-item.avatar {
+  min-height: 140px !important;
+  padding-left: 235px !important;
+
+}
+.course-collection {
+  overflow: visible !important;
+  .title {
+    font-size: 24px !important;
+    padding: 3px 0px;
+  }
+}

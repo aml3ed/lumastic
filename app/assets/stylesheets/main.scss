@@ -1,23 +1,24 @@
 
 @import "material_icons";
+
 @import "base/mixins";
 @import "materialize/components/color-variables";
 @import 'base/globals';
+
+@import "styles/typography";
+@import "styles/notify";
+
 @import "materialize";
-@import "base/mediaScreens";
-@import "styles/navigation/mainNav-desktop";
-@import "styles/navigation/mainNav-mobile";
-@import "styles/navigation/verticalNav";
-@import "styles/navigation/sideNav-desktop";
-@import "styles/navigation/dropDown";
 
-@import "styles/homeHero";
-@import "styles/thumbnailRows";
+@import "base/media-screens";
 
-@import "styles/login";
+@import "styles/navigation/*";
+@import "styles/course/*";
+@import "styles/components/*";
+
+@import "styles/home-hero";
 @import "styles/footer";
-@import "styles/video";
-@import "styles/tab-content";
+@import "styles/layout";
 
 @import "font-awesome-sprockets";
 @import "font-awesome";

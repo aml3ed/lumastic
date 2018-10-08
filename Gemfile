@@ -25,6 +25,7 @@ gem 'simple_form', '~> 4.0', '>= 4.0.1'
 gem 'turbolinks', '~> 5'
 gem 'uglifier', '>= 1.3.0'
 gem 'yt', '~> 0.29.1'
+gem 'haml'
 gem 'youtube_id'
 
 
