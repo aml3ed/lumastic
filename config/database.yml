@@ -13,6 +13,7 @@ development:
 
 production:
   <<: *default
+  port: 5432
   database: lumastic_production
 
 test:
