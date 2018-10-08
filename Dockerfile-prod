@@ -15,6 +15,7 @@ EXPOSE 80
 
 COPY . /lumastic
 
-RUN bundle exec rake assets:precompile
+ARG SECRET_KEY_BASE
+RUN bundle exec rake SECRET_KEY_BASE=${SECRET_KEY_BASE} assets:precompile
 
 CMD bundle exec puma -C config/puma.rb
