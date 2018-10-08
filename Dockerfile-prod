@@ -9,8 +9,6 @@ COPY Gemfile.lock /lumastic/Gemfile.lock
 
 RUN bundle install
 
-RUN RAILS_ENV=production bundle exec /bin/rake assets:precompile
-
 #ENV RAILS_ENV production
 #ENV RACK_ENV production
 
