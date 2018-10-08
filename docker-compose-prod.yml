@@ -4,9 +4,6 @@ services:
     build:
       context: .
       dockerfile: Dockerfile-prod
-      args:
-        - RAILS_ENV
-        - SECRET_KEY_BASE
     volumes:
       - .:/lumastic
     ports:
