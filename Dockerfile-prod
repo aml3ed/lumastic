@@ -16,4 +16,4 @@ COPY . /lumastic
 
 EXPOSE 3000
 
-CMD rails server -b 0.0.0.0
+CMD rails server -b ec2-35-175-82-36.compute-1.amazonaws.com -p 3000
