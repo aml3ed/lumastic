@@ -1,0 +1,34 @@
+/ Sidebar
+%ul#slide-out.sidenav
+  %li
+    .user-view
+      .background= image_tag "blur-book-stack-books-590493.jpg"
+      %a{:href => "#user"}= image_tag "Symbol.svg", class: "circle"
+      %a{:href => "#name"}
+        %span.white-text.name= current_user ? current_user.email : "-"
+      %a{:href => "#email"}
+        %span.white-text.email= current_user ? current_user.email : "-"
+  %li
+    .divider
+  %li
+    %a.subheader Teaching
+  %li
+    = link_to courses_path do
+      = material_icon.library_books
+      My Courses
+  %li
+    = link_to destroy_user_session_path, :method => :delete do
+      = material_icon.local_library
+      Resource Center
+  %li
+    .divider
+  %li
+    = link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do
+      Terms  Conditions
+  %li
+    = link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do
+      Privacy Policy
+  %li
+    = link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do
+      Sign Out
+

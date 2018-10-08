@@ -31,6 +31,7 @@ lesson_1 = Lesson.create! title: "Start without a plan",
                           out_blue: 5,
                           out_green: 10,
                           keywords: "Do, Not, Plan, Anything",
+                          position: 1,
                           course: course1
 
 lesson_2 = Lesson.create! title: "HTML Basics",
@@ -43,9 +44,10 @@ lesson_2 = Lesson.create! title: "HTML Basics",
                           out_blue: 14,
                           out_green: 2,
                           keywords: "HTML, Web Developement",
+                          position: 2,
                           course: course1
 
-lesson_2 = Lesson.create! title: "CSS Basics",
+lesson_3 = Lesson.create! title: "CSS Basics",
                           video_url: "https://www.youtube.com/watch?v=P34zTU8dWrU&frags=pl%2Cwn",
                           lesson_info: "Let's get down to basics and learn some HTML!",
                           in_red: 0,
@@ -55,6 +57,7 @@ lesson_2 = Lesson.create! title: "CSS Basics",
                           out_blue: 14,
                           out_green: 2,
                           keywords: "CSS, Web Developement",
+                          position: 3,
                           course: course1
 
 
@@ -75,6 +78,7 @@ lesson_4 = Lesson.create! title: "How to Make Mustard",
                           out_blue: 5,
                           out_green: 10,
                           keywords: "Mustard",
+                          position: 1,
                           course: course2
 
 lesson_5 = Lesson.create! title: "How to Make Fermented Eggs",
@@ -87,6 +91,7 @@ lesson_5 = Lesson.create! title: "How to Make Fermented Eggs",
                           out_blue: 14,
                           out_green: 2,
                           keywords: "Fermented, Eggs, Smell",
+                          position: 2,
                           course: course2
 
 lesson_5 = Lesson.create! title: "How to Make Sauerkraut",
@@ -99,4 +104,5 @@ lesson_5 = Lesson.create! title: "How to Make Sauerkraut",
                           out_blue: 14,
                           out_green: 2,
                           keywords: "Sauerkraut, Cooking, Fermentation",
+                          position: 3,
                           course: course2

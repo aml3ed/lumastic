@@ -1,4 +1,4 @@
-// @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700');
 $font-stack: 'Roboto', sans-serif;
 $font-light: 300;
 $font-regular: 400;
@@ -41,188 +41,29 @@ $range : $large-screen - $small-screen !default;
 $intervals: 20 !default;
 $interval-size: $range / $intervals !default;
 
-
-@mixin flow-header-mixin ($fontsize) {
-  font-weight: 400;
-  $i: 0;
-  @while $i <= $intervals {
-    @media only screen and (min-width : 360 + ($i * $interval-size)) {
-      $newfontsize: $fontsize * (1 - (.02 * (20 - $i)));
-      font-size: $newfontsize;
-      margin: ($newfontsize / 2) 0 ($newfontsize / 2.5) 0;
-    }
-    $i: $i + 1;
-  }
-
-  // Handle below 360px screen
-  @media only screen and (max-width: 360px) {
-    $newfontsize: $fontsize * (1 - (.015 * 20 ));
-    font-size: $newfontsize;
-    margin: ($newfontsize / 2) 0 ($newfontsize / 2.5) 0;
-  }
-}
-
-
-.flow-text{
-  font-weight: 300;
-  $i: 0;
-  @while $i <= $intervals {
-    @media only screen and (min-width : 360 + ($i * $interval-size)) {
-      font-size: 1.2rem * (1 + (.02 * $i));
-    }
-    $i: $i + 1;
-  }
-  // Handle below 360px screen
-  @media only screen and (max-width: 360px) {
-    font-size: 1.2rem;
-  }
-  h1 { @include flow-header-mixin($h1-fontsize) }
-  h2 { @include flow-header-mixin($h2-fontsize) }
-  h3 { @include flow-header-mixin($h3-fontsize) }
-  h4 { @include flow-header-mixin($h4-fontsize) }
-  h5 { @include flow-header-mixin($h5-fontsize) }
-  h6 { @include flow-header-mixin($h6-fontsize) }
-
-}
-
-h1.flow-text { @include flow-header-mixin($h1-fontsize) }
-h2.flow-text { @include flow-header-mixin($h2-fontsize) }
-h3.flow-text { @include flow-header-mixin($h3-fontsize) }
-h4.flow-text { @include flow-header-mixin($h4-fontsize) }
-h5.flow-text { @include flow-header-mixin($h5-fontsize) }
-h6.flow-text { @include flow-header-mixin($h6-fontsize) }
-
-
-
-.row.no-margin {
-  margin-bottom: 0px;
-}
-
-
-
-.accent-text {
-  color: $accent-color;
-}
-.dark-button {
-  background-color: lighten($primary-color, 10%) !important;
-}
-
 // 13. Navigation Bar
 $navbar-height-mobile: 64px !default;
 
 
-#error_explanation {
-  font-size: 16px;
-  li {
-    color: $red-color;
-  }
-  h2 {
-    display: none;
-  }
-}
-
-body {
-  display: flex;
-  min-height: 100vh;
-  flex-direction: column;
-}
-main {
-  flex: 1 0 auto;
-}
-footer {
-  p {
-  color: white;
-  }
-}
 
 
 
-.show-field {
-  margin: 1rem auto;
-  p, h5, h6 {
-    margin-top: 5px;
-  }
-}
-
-
-.header-with-button {
-  display: inline-block;
-  margin-top: 0;
-}
-.header-with-link {
-  display: inline-block;
-  margin-right: 10px;
-}
-.justify-right {
-  justify-content: flex-end;
-}
-.courses-sidebar {
-  max-height: 650px;
-  overflow-y: auto !important;
-  overflow-x: hidden !important;
-  .collection-item {
-    color: lighten($primary-color,10%) !important;
-    &.active {
-      background-color: lighten($primary-color,10%) !important;
-      color: white !important;
-    }
-  }
-}
 
 
 
-.course-list-stat {
-  margin-bottom: 9px !important;
-  i {
-    margin-right: 12px;
-  }
-}
-.left-badge {
-  float: left !important;
-  margin-left: 0 !important;
-  margin-top: 5px !important;
-}
-.inline-badge {
-  display: inline-block !important;
-  float: none !important;
-  margin-left: 10px !important;
- }
-.sidenav li {
-  a {
-    &.subheader {
-      color: $grey-text !important;
-    }
-    &.tiny {
-      height: 32px;
-      line-height: 32px;
-      font-size: 12px;
-      color: $grey-text !important;
-    }
-    i {
-      color: $primary-color !important;
-    }
-  }
-}
 
 
 
-.collections-thumb {
-  position: absolute;
-  width: 200px;
-  overflow: hidden;
-  left: 15px;
-  display: inline-block;
-  vertical-align: middle;
-}
-.course-collection .collection-item.avatar {
-  min-height: 140px !important;
-  padding-left: 235px !important;
 
-}
-.course-collection {
-  overflow: visible !important;
-  .title {
-    font-size: 24px !important;
-    padding: 3px 0px;
-  }
-}
+
+
+
+
+
+
+
+
+
+
+
+

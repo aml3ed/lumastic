@@ -1,0 +1,30 @@
+.dropdown{:style => "display: none;"}
+  %ul.verticalnav-items
+    = link_to '#', :class => 'verticalnav-link '+current_class?('#') do
+      %li.verticalnav-item
+        = icon('fas', 'divide', class: 'verticalnav-icon')
+        %p.verticalnav-text Math
+    = link_to '#', :class => 'verticalnav-link '+current_class?('#') do
+      %li.verticalnav-item
+        = icon('fas', 'flask', class: 'verticalnav-icon')
+        %p.verticalnav-text Science
+    = link_to '#', :class => 'verticalnav-link '+current_class?('#') do
+      %li.verticalnav-item
+        = icon('fas', 'file-signature', class: 'verticalnav-icon')
+        %p.verticalnav-text Language Arts
+    = link_to '#', :class => 'verticalnav-link '+current_class?('#') do
+      %li.verticalnav-item
+        = icon('fas', 'paint-brush', class: 'verticalnav-icon')
+        %p.verticalnav-text Art
+    = link_to '#', :class => 'verticalnav-link '+current_class?('#') do
+      %li.verticalnav-item
+        = icon('fas', 'compass', class: 'verticalnav-icon')
+        %p.verticalnav-text History
+    = link_to '#', :class => 'verticalnav-link '+current_class?('#') do
+      %li.verticalnav-item
+        = icon('fas', 'music', class: 'verticalnav-icon')
+        %p.verticalnav-text Music
+    = link_to '#', :class => 'verticalnav-link '+current_class?('#') do
+      %li.verticalnav-item
+        = icon('fas', 'globe-americas', class: 'verticalnav-icon')
+        %p.verticalnav-text Foreign Language

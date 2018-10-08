@@ -1,0 +1,26 @@
+%center
+  .section
+  .container
+    .z-depth-1.row.paper-popup
+      = form_for(resource, as: resource_name, :class=>"col s12", url: session_path(resource_name)) do |f|
+        = devise_error_messages!
+        .row
+          .col.s12
+            %h5 Welcome back to Lumastic!
+            %h6 Login to your account
+        .row
+          .input-field.col.s12
+            = f.email_field :email, autofocus: true, autocomplete: "email", type: "email", id: 'email', class: "validate"
+            = f.label :email, for: "email"
+        .row
+          .input-field.col.s12
+            = f.email_field :password, type: "password", autocomplete: "off" , id: 'password', class: "validate"
+            = f.label :password, for: "password"
+          %label{:style => "float: right;"}
+            = link_to "Forgot your password?", new_user_password_path
+        %br/
+        %center
+          .row
+            = f.button :submit, class: "col s12 btn btn-large waves-effect" do
+              Login
+  Don't have an account? #{link_to "Create one!", new_user_registration_path}

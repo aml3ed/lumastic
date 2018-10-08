@@ -1,0 +1,21 @@
+%p#notice= notice
+%h1 Materials
+%table
+  %thead
+    %tr
+      %th Category
+      %th Title
+      %th File url
+      %th{:colspan => "3"}
+  %tbody
+    - @materials.each do |material|
+      %tr
+        %td= material.category
+        %td= material.title
+        %td= material.file_url
+        %td= link_to 'Show', material
+        %td= link_to 'Edit', edit_material_path(material)
+        %td= link_to 'Destroy', material, method: :delete, data: { confirm: 'Are you sure?' }
+%br/
+= link_to 'New Material', new_material_path
+

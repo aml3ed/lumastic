@@ -1,0 +1,22 @@
+%footer.page-footer
+  .container
+    .row.valign-wrapper
+      .col.s4
+        = image_tag "LogoText.svg", :id=>"footer-logo-text"
+        %p We're on a mission to create a sustainable, positive, and inclusive evolution in education.
+        %a{:href => "#"} Join Our Team
+      .col.s4.center-align.full-height
+        = image_tag "Symbol.svg", :id=>"footer-logo-symbol"
+      .col.s4.right-align
+        %p 1717B Jefferson Park Avenue
+        %p Charlottesville, VA 22903
+        %a{:href => "#"} contact@lumastic.com
+        .social
+          = link_to (icon('fab', 'facebook-square')).html_safe, "#"
+          = link_to (icon('fab', 'twitter-square')).html_safe, "#"
+          = link_to (icon('fab', 'tumblr-square')).html_safe, "#"
+          = link_to (icon('fab', 'youtube-square')).html_safe, "#"
+  .footer-copyright
+    .container
+      © 2018 Headfake Digital LLC
+      %a.grey-text.text-lighten-4.right{:href => "#!"} Live the life you have imagined.
