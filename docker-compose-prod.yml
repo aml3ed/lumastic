@@ -9,6 +9,7 @@ services:
       - .:/lumastic
     ports:
       - "3000:3000"
+    network_mode: "host"
     environment:
       DB_HOST: lumastic-prod-db.cweydkfsbgul.us-east-1.rds.amazonaws.com
       DB_USER: lumastic
