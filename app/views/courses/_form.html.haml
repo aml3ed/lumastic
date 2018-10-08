@@ -1,0 +1,39 @@
+= form_with(model: course, local: true) do |form|
+  / Show Errors
+  - if course.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(course.errors.count, "error")
+        prohibited this course from being saved:
+      %ul
+        - course.errors.full_messages.each do |message|
+          %li= message
+  / Put in form
+
+  .row
+    / Course Title
+    .input-field.col.s12.m12.l6
+      = form.label :title, "Course Title", for: "title"
+      = form.text_field :title, id: "title"
+    / Course Subject
+    .input-field.col.s12.m12.l6
+      = form.select :subject, [['Choose Subject', {:disabled => true, :selected => true}], 'Math', 'English', 'Art', 'History', 'Music', 'Science'], placeholder:"Subject", id: "subject"
+      = form.label :subject, for: "subject"
+
+  / Course Info
+  .row
+    .input-field.col.s12
+      = form.label :course_info, for: "course_info"
+      = form.text_area :course_info, id: "course_info", class: "materialize-textarea"
+
+  / Keywords
+  .row
+    .input-field.col.s12
+      = form.label :keywords
+      = form.text_field :keywords
+
+  / Save
+  .row
+    = form.button :submit, class: " btn btn waves-effect" do
+      - btn_text = "Save" if local_assigns[:btn_text].nil?
+      = btn_text

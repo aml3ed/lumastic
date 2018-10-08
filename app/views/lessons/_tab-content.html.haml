@@ -1,0 +1,17 @@
+.card
+  .card-tabs
+    %ul.tabs.tabs-fixed-width
+      %li.tab
+        %a.active{:href => "#info"} Lesson Info
+      %li.tab
+        %a{:href => "#materials"}
+          Materials
+          %span.new.badge 4
+  .divider
+  .card-content.vid-info-card
+    #info= locals[:info]
+    #materials Test 2
+  .card-action
+    %a.waves-effect{:href => "#"} Access Materials
+    %a.waves-effect{:href => "#"} Donate
+

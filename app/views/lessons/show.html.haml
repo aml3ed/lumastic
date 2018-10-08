@@ -1,0 +1,70 @@
+.container
+  .section
+  .row
+    %h4.header-with-button
+      = @course.title
+    %span.new.badge.inline-badge.grey{"data-badge-caption" => "Draft"}
+    = link_to new_course_path, :class=>"right btn " + (@lessons.size == 0 ? "disabled": "" ) do
+      Publish #{material_icon.public.css_class('right')}
+  .divider
+  .row
+    .col.m4.s12
+      %h6 Course Contents
+      = render 'lessonSidebar'
+    .col.m8.s12
+      / Lesson Title
+      .section
+      .row.no-margin
+        .col.s9.m9.l9
+          %label Lesson Title
+          %h5{:style => "margin-top: 0px"}= @lesson.title
+        .col.s3
+          .row.course-list-stat
+            .col.s12.valign-wrapper.justify-right.green-text
+              = material_icon.local_offer
+              %span
+                = @tickets[2]
+                \%
+          .row.course-list-stat
+            .col.s12.valign-wrapper.justify-right.light-blue-text
+              = material_icon.local_offer
+              %span
+                = @tickets[1]
+                \%
+          .row.course-list-stat
+            .col.s12.valign-wrapper.justify-right.red-text
+              = material_icon.local_offer
+              %span
+                = @tickets[0]
+                \%
+      / Video Embed
+      .row
+        .col.s12.m12.l7
+          .video-container
+            %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480", :src => "#{@embed_url}", :width => "853"}
+              Please enter a valid youtube url
+        / URL and Keywords
+        .col.m12.l5
+          .row
+            %label YouTube URL
+            %p.truncate= @lesson.video_url
+          .row
+            %label Keywords
+            %p= @lesson.keywords
+      / Lesson Info
+      .row
+        .col.s12.m6
+          %label Lesson Info
+          %p= @lesson.lesson_info
+      / Materials
+      .row
+        %h5.col.s12 Materials
+      .row
+        .col.s12.m6
+          - @lesson.materials.each do |material|
+            %p= material.title
+      .row
+        .col.s12
+          = link_to edit_course_lesson_path(@course, @lesson), :class=> "btn waves-effect" do
+            %i.material-icons.left mode_edit
+            Edit

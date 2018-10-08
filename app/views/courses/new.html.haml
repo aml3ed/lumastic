@@ -1,0 +1,14 @@
+.container
+  .section
+  .row
+    %h4.header-with-button New Course
+    %span.new.badge.inline-badge.grey{"data-badge-caption" => "Not Saved"}
+    = link_to 'Publish', new_course_path, :class=>"right btn disabled"
+  .divider
+  .row
+    .col.s12.m4
+      %h5 Course Contents
+      = render 'newCourseSidebar', new: true
+    .col.s12.m8
+      .section
+      = render 'form', course: @course, btn_text: "Create Course"

@@ -1,11 +1,10 @@
 class MaterialsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_material, only: [:show, :edit, :update, :destroy]
-  before_action :yt_config
   # GET /materials
   # GET /materials.json
   def index
     @materials = Material.all
-    @test_video_id = "kl0GRSbxRfo"
   end
 
   # GET /materials/1
@@ -26,6 +25,7 @@ class MaterialsController < ApplicationController
   # POST /materials.json
   def create
     @material = Material.new(material_params)
+    @material.file.attach(params[:file])
 
     respond_to do |format|
       if @material.save
@@ -41,6 +41,7 @@ class MaterialsController < ApplicationController
   # PATCH/PUT /materials/1
   # PATCH/PUT /materials/1.json
   def update
+    @material.file.attach(params[:file])
     respond_to do |format|
       if @material.update(material_params)
         format.html { redirect_to @material, notice: 'Material was successfully updated.' }
@@ -70,12 +71,7 @@ class MaterialsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def material_params
-      params.require(:material).permit(:category, :title, :file_url)
+      params.require(:material).permit(:category, :title, :file_url, :file)
     end
 
-    def yt_config
-      Yt.configure do |config|
-        config.api_key = 'AIzaSyDVDTtFTVpHqrtabrpAOBc3JtV0ntV1TWQ'
-      end
-    end
 end

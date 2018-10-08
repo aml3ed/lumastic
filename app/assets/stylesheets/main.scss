@@ -1,0 +1,24 @@
+
+@import "material_icons";
+
+@import "base/mixins";
+@import "materialize/components/color-variables";
+@import 'base/globals';
+
+@import "styles/typography";
+@import "styles/notify";
+
+@import "materialize";
+
+@import "base/media-screens";
+
+@import "styles/navigation/*";
+@import "styles/course/*";
+@import "styles/components/*";
+
+@import "styles/home-hero";
+@import "styles/footer";
+@import "styles/layout";
+
+@import "font-awesome-sprockets";
+@import "font-awesome";

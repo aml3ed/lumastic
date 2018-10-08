@@ -1,0 +1,22 @@
+.home-hero {
+  background-image: linear-gradient(rgba($primary-color,0.50),rgba($secondary-color,0.1)), url("blur-book-stack-books-590493.jpg");
+  //filter: blur(5px);
+  background-position: center;
+  background-size: cover;
+  h2 {
+    text-shadow: 0px 0px 10px black;
+    margin: 1.4rem 0 0.1rem 0 !important;
+  }
+  h5 {
+    text-shadow: 0px 0px 5px black;
+    margin: 0 !important;
+  }
+}
+.full-width-image {
+  @media #{$large-and-up} {
+    max-width: 70% !important;
+  }
+
+  margin: 0 auto !important;
+  float: none;
+}

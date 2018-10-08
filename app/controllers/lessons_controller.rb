@@ -1,34 +1,45 @@
 class LessonsController < ApplicationController
-  before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  before_action :set_course
+  before_action :find_lessons
+  before_action :set_lesson, only: [:show, :view, :edit, :update, :destroy]
+  before_action :get_embed_from_url, only: [:show, :view, :edit]
+  before_action :get_ticket_percentage, only: [:show, :edit, :new]
 
-  # GET /lessons
-  # GET /lessons.json
+  # Example route: GET /lessons
   def index
-    @lessons = Lesson.all
+    # See get_embed_from_url before action
   end
 
-  # GET /lessons/1
-  # GET /lessons/1.json
+  # Example route: GET /lessons/1
   def show
+    # See get_embed_from_url before action
   end
 
-  # GET /lessons/new
+  def view
+  end
+
+  # Example route: GET /lessons/new
   def new
     @lesson = Lesson.new
+    @lesson.materials.build
   end
 
-  # GET /lessons/1/edit
+  # Example route: GET /lessons/1/edit
   def edit
   end
 
-  # POST /lessons
-  # POST /lessons.json
+  # Example route: POST /lessons
   def create
+    # Build a new lesson object from the form parameters
     @lesson = Lesson.new(lesson_params)
-
+    # Add the course_id from the url parameters
+    @lesson.course_id = params[:course_id]
+    # Save the new lesson object to the database
+    @lesson.position = Lesson.where(course_id: params[:course_id]).maximum('position') + 1
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to @lesson, notice: 'Lesson was successfully created.' }
+        format.html { redirect_to course_lesson_path(:id => @lesson.id), notice: 'Lesson was successfully created.' }
         format.json { render :show, status: :created, location: @lesson }
       else
         format.html { render :new }
@@ -37,12 +48,11 @@ class LessonsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /lessons/1
-  # PATCH/PUT /lessons/1.json
+  # Example route: PATCH/PUT /lessons/1
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to @lesson, notice: 'Lesson was successfully updated.' }
+        format.html { redirect_to course_lesson_path(:id => @lesson.id), notice: 'Lesson was successfully updated.' }
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit }
@@ -51,24 +61,73 @@ class LessonsController < ApplicationController
     end
   end
 
-  # DELETE /lessons/1
-  # DELETE /lessons/1.json
+  # Example route: DELETE /lessons/1
   def destroy
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to lessons_url, notice: 'Lesson was successfully destroyed.' }
+      format.html { redirect_to course_lessons_path, notice: 'Lesson was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
+  def sort
+    params[:lesson].each_with_index do |id, index|
+      Lesson.where(id: id).update_all(position: index + 1)
+    end
+    head :ok
+  end
+
+  def count_ticket
+    @lesson = Lesson.where(id: params[:id]).first
+    field = "#{params[:type]}_#{params[:color]}".to_sym
+    puts "****************#{field}*****************"
+    cur_val = @lesson.send(field).nil? ? 0 : @lesson.send(field)
+    puts "****************#{cur_val}*****************"
+    @lesson.send(field.to_s + '=', cur_val + 1)
+    @lesson.save!
+  end
+
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # All of these methods are 'before_actions'
+    # They get run before anything happens inside the controller
+
+    # Finds the lesson in the database and references it in a variable
     def set_lesson
       @lesson = Lesson.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
+    # Finds the course in the database and references it in a variable
+    def set_course
+      @course = Course.find(params[:course_id])
+    end
+
+    # Finds all of the lessons that belong to the specific course
+    def find_lessons
+      @lessons = @course.lessons.order(:position)
+    end
+
+    # Finds all of the materials that belong to the specific lesson
+    def find_materials
+      @materials = @lesson.materials
+    end
+
+    # Declares what parameters are mutatable by the controller
     def lesson_params
-      params.fetch(:lesson, {})
+      params.require(:lesson).permit(:title, :video_url, :lesson_info, :keywords, materials_attributes: [:id, :title, :file, :_destroy])
+    end
+
+    def get_embed_from_url
+      if @lesson.video_url != nil
+        @vid_id = helpers.youtube_id(@lesson.video_url)
+        if @vid_id != nil
+          @embed_url = helpers.embed_url(@vid_id)
+        end
+      end
+
+    end
+
+    def get_ticket_percentage
+      totalTickets = @lesson.out_red + @lesson.out_blue + @lesson.out_green
+      @tickets = [helpers.percent(@lesson.out_red, totalTickets), helpers.percent(@lesson.out_blue, totalTickets), helpers.percent(@lesson.out_green, totalTickets)]
     end
 end

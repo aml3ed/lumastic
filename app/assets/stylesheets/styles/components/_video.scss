@@ -1,0 +1,99 @@
+
+
+
+.vid-player-container {
+  box-sizing: border-box;
+  @include material-medium-shadow;
+}
+.vid-header h5 {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-top: 0px;
+}
+
+.vid-iframe-container {
+  height: 0;
+  overflow: hidden;
+  padding-top: 56.25%;
+  background: white;
+  position: relative;
+  iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: blur(5px);
+  }
+}
+.vid-overlay-container {
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+
+  position: absolute;
+  top: 0;
+  z-index: 2;
+  background-color: rgba(#003A6E, 0.6);
+}
+.vid-text-overlay {
+  flex: 0 1 auto;
+  margin-top: 45px;
+  color: $bg-color;
+  font-size: 22px;
+  text-shadow: 0px 0px 4px black;
+}
+.vid-buttons {
+  flex: 1 1 auto;
+
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.vid-button {
+  flex: 1 1 0;
+  margin: 10px;
+  height: 70%;
+  font-size: 16px;
+  color: $bg-color;
+  font-weight: bold;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: none;
+  @include material-low-shadow;
+  i {
+    margin-bottom: 16px;
+    font-size: 55px;
+  }
+  &:hover {
+    @include material-hover;
+    cursor: pointer;
+  }
+}
+.red-vid-button {
+  background-color: $red-color;
+  &:hover {
+    color: $accent-color;
+  }
+}
+.yellow-vid-button {
+  background-color: darken($secondary-color, 7%);
+  &:hover {
+    color: $accent-color;
+  }
+
+}
+.green-vid-button {
+  background-color: $green-color;
+  &:hover {
+    color: $accent-color;
+  }
+}
