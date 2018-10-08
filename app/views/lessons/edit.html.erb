@@ -1,6 +1,24 @@
-<h1>Editing Lesson</h1>
-
-<%= render 'form', lesson: @lesson %>
-
-<%= link_to 'Show', course_lesson_path(:id => @lesson.id) %> |
-<%= link_to 'Back', course_lessons_path %>
+<div class=" container">
+  <div class="section"></div>
+  <div class="row ">
+    <h4 class=" header-with-button"><%=@course.title %> </h4>
+    <span class="new badge inline-badge grey" data-badge-caption="<%="Draft" %>"></span>
+    <%= link_to new_course_path, :class=>"right btn " + (@lessons.size == 0 ? "disabled": "" ) do %>
+      Publish <%=material_icon.public.css_class('right')%>
+    <%end%>
+  </div>
+  <div class="divider"></div>
+  <div class="row">
+    <div class="col m4 s12">
+      <h6>Course Contents</h6>
+      <%= render 'lessonSidebar' %>
+    </div>
+    <div class="col m8 s12">
+      <div class="section"></div>
+      <%= render 'form', lesson: @lesson %>
+    </div>
+  </div>
+</div>
+<script>
+    M.updateTextFields();
+</script>

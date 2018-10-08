@@ -14,7 +14,7 @@
     <li><%= link_to destroy_user_session_path, :method => :delete do %><%=icon('fas', 'sign-out-alt')%>Signout<%end %></li>
   </ul>
   <nav>
-    <div class="nav-wrapper container">
+    <div class="nav-wrapper ">
       <div class="left">
           <a data-target="slide-out" class="menu-button sidenav-trigger show-on-large no-link-link">
             <%= material_icon.menu %>
@@ -24,17 +24,20 @@
           <%end%>
         </div>
           <ul class="left left-nav hide-on-med-and-down">
-            <li>
-              <a class="dropdown-trigger" href="#!" data-target="subjectDropdown">
-                Subjects
-                <%=material_icon.arrow_drop_down.css_class("right")%>
-              </a>
-            </li>
-            <li>
-              <form class=" hide-on-med-and-down"  >
-                <div class="input-field" id="search-form">
-                  <input id="search" type="search" placeholder="What would you like to learn?"required />
-                  <label class="label-icon" for="search" ><%=material_icon.search%></label>
+<!--            <li>-->
+<!--              <a class="dropdown-trigger" href="#!" data-target="subjectDropdown">-->
+<!--                Subjects-->
+                <%#=material_icon.arrow_drop_down.css_class("right")%>
+<!--              </a>-->
+<!--            </li>-->
+            <li id="search-nav-item">
+              <form class="hide-on-med-and-down"  >
+                <div class="" id="search-form">
+                  <div class="valign-wrapper" id="search-container">
+                    <div class="search-icon"><%=material_icon.search%></div>
+                    <input id="search-input" type="search" placeholder="What makes you curious?" required />
+                    <div class="search-icon" id="close-icon"><%=material_icon.close%></div>
+                  </div>
                   <div id="searchResults" ></div>
                 </div>
               </form>
@@ -46,7 +49,7 @@
                 <%= link_to "Sign Up", new_user_registration_path, :class=>" btn waves-effect waves-light" %>
               </li>
               <li>
-                <%= link_to "Login", new_user_session_path, :class=>"  btn waves-effect waves-light" %>
+                <%= link_to "Login", new_user_session_path, :class=>"  btn dark-button waves-effect waves-light" %>
               </li>
             <%else%>
               <li class="user-nav">
@@ -64,45 +67,4 @@
 </div>
 
 
-<!--Sidebar-->
-<ul id="slide-out" class="sidenav">
-  <li><div class="user-view">
-    <div class="background">
-    </div>
-    <a href="#user"><img class="circle" ></a>
-    <a href="#name"><span class="white-text name">John Doe</span></a>
-    <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-  </div></li>
-
-  <li><div class="divider"></div></li>
-  <li><a class="subheader">Teaching</a></li>
-  <li>
-    <%= link_to courses_path do %>
-      <%=material_icon.library_books%>
-      My Courses
-    <%end%>
-  </li>
-  <li>
-    <%= link_to destroy_user_session_path, :method => :delete do %>
-      <%=material_icon.local_library%>
-      Resource Center
-    <%end%>
-  </li>
-
-  <li><div class="divider"></div></li>
-  <li>
-    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
-      Terms & Conditions
-    <%end%>
-  </li>
-  <li>
-    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
-      Privacy Policy
-    <%end%>
-  </li>
-  <li>
-    <%= link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do %>
-      Sign Out
-    <%end%>
-  </li>
-</ul>
+<%= render 'layouts/sidenav' %>

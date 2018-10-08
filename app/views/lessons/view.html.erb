@@ -1,0 +1,36 @@
+<div class="container">
+  <div class="section"></div>
+  <div class="row">
+    <div class="col s12 m12 l8">
+      <div class="vid-header">
+        <%= link_to "#", class: "material-link" do %>
+          <%=@course.title%>
+        <%end%>
+        <h5><%=@lesson.title%></h5>
+      </div>
+      <%= render 'videoPlayer', locals: { question: "How confident are you with this topic already?", videoURL: @lesson.video_url} %>
+
+      <div class="row section">
+        <div class="col s7 left ">
+          <%= link_to '#' do%>
+            <%=icon('fas', 'user-circle')%> Teacher Name
+          <% end %>
+        </div>
+        <div class="col right vid-controls">
+          <%= link_to '#', class:"btn btn-small dark-button tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Previous Lesson", title:"Previous Lesson" do%>
+            <%=icon('fas', 'step-backward')%>
+          <%end%>
+          <%= link_to '#', class:"btn btn-small dark-button tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Next Lesson", title:"Next Lesson" do%>
+            <%=icon('fas', 'step-forward')%>
+          <%end%>
+          <%= link_to '#', class:"btn btn-small dark-button tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Table of Contents", title:"Table of Contents" do%>
+            <%=icon('fas', 'list')%>
+          <%end%>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m12 l4">
+      <%= render 'tab-content', locals: {info: @lesson.lesson_info} %>
+    </div>
+  </div>
+</div>

@@ -1,16 +1,19 @@
 
-<div class="section container">
-  <p class="" id="notice"><%= notice %></p>
+<div class="container">
+  <div class="section"></div>
   <div class="row ">
     <h4 class=" header-with-button">New Course</h4>
     <span class="new badge inline-badge grey" data-badge-caption="<%="Not Saved" %>"></span>
-    <%= link_to 'Save & Publish', new_course_path, :class=>"right btn disabled" %>
+    <%= link_to 'Publish', new_course_path, :class=>"right btn disabled" %>
   </div>
+  <div class="divider"></div>
   <div class="row">
-    <div class="col s3">
-      <%= render 'lessonCollection' %>
+    <div class="col s12 m4">
+      <h5>Course Contents</h5>
+      <%= render 'newCourseSidebar', new: true %>
     </div>
-    <div class="col s9">
+    <div class="col s12 m8">
+      <div class="section"></div>
       <%= render 'form', course: @course, btn_text: "Create Course" %>
     </div>
   </div>

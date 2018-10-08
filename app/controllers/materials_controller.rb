@@ -1,12 +1,10 @@
 class MaterialsController < ApplicationController
   load_and_authorize_resource
   before_action :set_material, only: [:show, :edit, :update, :destroy]
-  before_action :yt_config
   # GET /materials
   # GET /materials.json
   def index
     @materials = Material.all
-    @test_video_id = "kl0GRSbxRfo"
   end
 
   # GET /materials/1
@@ -76,9 +74,4 @@ class MaterialsController < ApplicationController
       params.require(:material).permit(:category, :title, :file_url, :file)
     end
 
-    def yt_config
-      Yt.configure do |config|
-        config.api_key = 'AIzaSyDVDTtFTVpHqrtabrpAOBc3JtV0ntV1TWQ'
-      end
-    end
 end

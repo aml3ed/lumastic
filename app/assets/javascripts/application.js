@@ -14,6 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery
+//= require jquery-ui/widget
+//= require jquery-ui/widgets/sortable
 //= require jquery_ujs
 //= require materialize
 //= require_tree .

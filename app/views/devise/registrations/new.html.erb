@@ -23,21 +23,12 @@
               </div>
             </div>
 
-            <div class='row'>
-              <div class='input-field col s12'>
-                <%= f.password_field :password_confirmation, type: "password", autocomplete: "off" , id: 'password_confirmation', class: "validate" %>
-                <%= f.label :password_confirmation, for: "password_confirmation" %>
-              </div>
-            </div>
-
             <br />
-            <center>
               <div class='row'>
                 <%= f.button :submit, class: "col s12 btn btn-large waves-effect form-submit" do %>
                   Sign Up
                 <%end%>
               </div>
-            </center>
           <% end %>
         </div>
       </div>

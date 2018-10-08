@@ -1,44 +1,149 @@
 <%= form_for([@course, @lesson]) do |form| %>
+  <!--  Show Errors-->
   <% if lesson.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
 
       <ul>
-      <% lesson.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
+        <% lesson.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :title %>
-    <%= form.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= form.label :video_url %>
-    <%= form.text_field :video_url %>
-  </div>
-
-  <div class="field">
-    <%= form.label :lesson_info %>
-    <%= form.text_area :lesson_info %>
-  </div>
-
-  <div class="field">
-    <%= form.label :keywords %>
-    <%= form.text_field :keywords %>
-  </div>
-  <p> Materials </p>
-  <%= form.fields_for :materials do |material| %>
-    <div class="field">
-      <%= material.label :title %>
-      <%= material.text_field :title %>
+  <!--  Put in form-->
+  <!--  Lesson Title-->
+  <div class="row no-margin">
+    <div class="input-field col s9 m9 l9">
+      <%= form.label :title, "Lesson Title", for: "title" %>
+      <%= form.text_field :title, id: "title", style: "font-size: 24px" %>
     </div>
-  <% end %>
+    <div class="col s3">
+      <div class="row course-list-stat ">
+        <div class="col s12 valign-wrapper justify-right green-text">
+          <%= material_icon.local_offer %>
+          <span class=""><%= @tickets[2] %>%</span>
+        </div>
+      </div>
+      <div class="row course-list-stat ">
+        <div class="col s12 valign-wrapper justify-right light-blue-text">
+          <%= material_icon.local_offer %>
+          <span class=""><%= @tickets[1] %>%</span>
+        </div>
+      </div>
+      <div class="row course-list-stat ">
+        <div class="col s12 valign-wrapper justify-right red-text">
+          <%= material_icon.local_offer %>
+          <span class=""><%= @tickets[0] %>%</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div class="row">
+    <div class="col s12 m12 l7">
+      <div class="video-container">
+        <iframe width="853" height="480" src="<%=@embed_url %>" frameborder="0" allowfullscreen>
+          Please enter a valid youtube url
+        </iframe>
+      </div>
+    </div>
+    <div class="input-field col s12 m12 l5">
+      <div class="row">
+        <%= form.label :video_url, "YouTube URL", for: "video_url" %>
+        <%= form.text_field :video_url, id: "video_url" %>
+      </div>
+      <div class="row">
+        <%= form.label :keywords %>
+        <%= form.text_field :keywords %>
+      </div>
+    </div>
+  </div>
+  <!--  Lesson Info-->
+  <div class="row">
+    <div class="input-field col s12">
+      <%= form.label :lesson_info, "Lesson Info", for: "lesson_info" %>
+      <%= form.text_area :lesson_info, id: "lesson_info", class: "materialize-textarea" %>
+    </div>
+  </div>
+
+  <!--  Materials -->
+  <div class="row">
+    <h5 class="col s12">Materials</h5>
+  </div>
+  <div class="row">
+    <%= form.fields_for :materials do |material| %>
+      <div class="input-field col s12 m6 l4">
+        <%= material.select :category, [['Choose Type', {:disabled => true, :selected => true}], 'Lesson Plan', 'Slides', 'Activity', 'Worksheet'], id: "category" %>
+        <%= material.label :category, "Category", for: "category" %>
+      </div>
+      <div class="input-field col s12 m6 l4">
+        <%= material.label :title %>
+        <%= material.text_field :title %>
+      </div>
+      <div class="file-field input-field col m12 l4">
+        <div class=" btn-floating waves-effect left dark-button" >
+          <%= material_icon.attachment %>
+          <%= material.file_field :file %>
+        </div>
+        <div class="file-path-wrapper ">
+          <%= text_field_tag nil, (material.object.file.nil? ?  material.object.file.filename : ""), {class: 'file-path ', placeholder: 'Upload a file...', :disabled => true} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <!--  Save -->
+  <div class="row">
+    <%= form.button :submit, class: " btn btn waves-effect" do %>
+      <% btn_text = "Save" if local_assigns[:btn_text].nil? %>
+      <%= btn_text %>
+    <%end%>
   </div>
 <% end %>
+
+
+<%#= form_for([@course, @lesson]) do |form| %>
+  <%# if lesson.errors.any? %>
+<!--    <div id="error_explanation">-->
+<!--      <h2><%#= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>-->
+
+<!--      <ul>-->
+      <%# lesson.errors.full_messages.each do |message| %>
+<!--        <li><%#= message %></li>-->
+      <%# end %>
+<!--      </ul>-->
+<!--    </div>-->
+  <%# end %>
+
+<!--  <div class="field">-->
+    <%#= form.label :title %>
+    <%#= form.text_field :title %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :video_url %>
+    <%#= form.text_field :video_url %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :lesson_info %>
+    <%#= form.text_area :lesson_info %>
+<!--  </div>-->
+
+<!--  <div class="field">-->
+    <%#= form.label :keywords %>
+    <%#= form.text_field :keywords %>
+<!--  </div>-->
+<!--  <p> Materials </p>-->
+  <%#= form.fields_for :materials do |material| %>
+<!--    <div class="field">-->
+      <%#= material.label :title %>
+      <%#= material.text_field :title %>
+<!--    </div>-->
+  <%# end %>
+
+<!--  <div class="actions">-->
+    <%#= form.submit %>
+<!--  </div>-->
+<%# end %>

@@ -2,22 +2,21 @@ class LessonsController < ApplicationController
   load_and_authorize_resource
   before_action :set_course
   before_action :find_lessons
-  before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  before_action :set_lesson, only: [:show, :view, :edit, :update, :destroy]
+  before_action :get_embed_from_url, only: [:show, :view, :edit]
+  before_action :get_ticket_percentage, only: [:show, :edit, :new]
 
   # Example route: GET /lessons
   def index
+    # See get_embed_from_url before action
   end
 
   # Example route: GET /lessons/1
   def show
-    # Use the YoutubeID gem to get the id from the @lesson object's video_url
-    video_id = YoutubeID.from(@lesson.video_url)
-    # Append that the the end of a YouTube embed url for use in the view
-    if video_id
-      @video_embed_url = 'https://youtube.com/embed/'+video_id
-    else
-      @video_embed_url = ''
-    end
+    # See get_embed_from_url before action
+  end
+
+  def view
   end
 
   # Example route: GET /lessons/new
@@ -37,6 +36,7 @@ class LessonsController < ApplicationController
     # Add the course_id from the url parameters
     @lesson.course_id = params[:course_id]
     # Save the new lesson object to the database
+    @lesson.position = Lesson.where(course_id: params[:course_id]).maximum('position') + 1
     respond_to do |format|
       if @lesson.save
         format.html { redirect_to course_lesson_path(:id => @lesson.id), notice: 'Lesson was successfully created.' }
@@ -52,7 +52,7 @@ class LessonsController < ApplicationController
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to course_lessons_path, notice: 'Lesson was successfully updated.' }
+        format.html { redirect_to course_lesson_path(:id => @lesson.id), notice: 'Lesson was successfully updated.' }
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit }
@@ -68,6 +68,23 @@ class LessonsController < ApplicationController
       format.html { redirect_to course_lessons_path, notice: 'Lesson was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def sort
+    params[:lesson].each_with_index do |id, index|
+      Lesson.where(id: id).update_all(position: index + 1)
+    end
+    head :ok
+  end
+
+  def count_ticket
+    @lesson = Lesson.where(id: params[:id]).first
+    field = "#{params[:type]}_#{params[:color]}".to_sym
+    puts "****************#{field}*****************"
+    cur_val = @lesson.send(field).nil? ? 0 : @lesson.send(field)
+    puts "****************#{cur_val}*****************"
+    @lesson.send(field.to_s + '=', cur_val + 1)
+    @lesson.save!
   end
 
   private
@@ -86,7 +103,7 @@ class LessonsController < ApplicationController
 
     # Finds all of the lessons that belong to the specific course
     def find_lessons
-      @lessons = @course.lessons
+      @lessons = @course.lessons.order(:position)
     end
 
     # Finds all of the materials that belong to the specific lesson
@@ -96,6 +113,21 @@ class LessonsController < ApplicationController
 
     # Declares what parameters are mutatable by the controller
     def lesson_params
-      params.require(:lesson).permit(:title, :video_url, :lesson_info, :keywords, materials_attributes: [:id, :title, :_destroy])
+      params.require(:lesson).permit(:title, :video_url, :lesson_info, :keywords, materials_attributes: [:id, :title, :file, :_destroy])
+    end
+
+    def get_embed_from_url
+      if @lesson.video_url != nil
+        @vid_id = helpers.youtube_id(@lesson.video_url)
+        if @vid_id != nil
+          @embed_url = helpers.embed_url(@vid_id)
+        end
+      end
+
+    end
+
+    def get_ticket_percentage
+      totalTickets = @lesson.out_red + @lesson.out_blue + @lesson.out_green
+      @tickets = [helpers.percent(@lesson.out_red, totalTickets), helpers.percent(@lesson.out_blue, totalTickets), helpers.percent(@lesson.out_green, totalTickets)]
     end
 end

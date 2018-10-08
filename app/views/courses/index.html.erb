@@ -1,5 +1,4 @@
 <!--Setup-->
-<p id="notice"><%= notice %></p>
 <div class="container">
   <div class="section"></div>
   <div class="section">
@@ -12,7 +11,9 @@
     <ul class="collection course-collection highlight ">
 <!--      For Every Course-->
 <!--      Make Collection Item-->
-      <%= render :partial => '/courses/indexPartials/indexCollectionItem' %>
+      <% @courses.each do |course| %>
+        <%= render partial: '/courses/indexPartials/indexCollectionItem', locals: { course: course, tickets: @course_tickets[course.id.to_s] } %>
+      <%end %>
     </ul>
 <!--    End Collection-->
   </div>

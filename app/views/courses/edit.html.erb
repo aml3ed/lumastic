@@ -1,13 +1,20 @@
-<div class="section container">
-  <p class="" id="notice"><%= notice %></p>
+<div class=" container">
+  <div class="section"></div>
   <div class="row ">
     <h4 class=" header-with-button"><%=@course.title %> </h4>
     <span class="new badge inline-badge grey" data-badge-caption="<%="Draft" %>"></span>
-    <%= link_to 'Save & Publish', new_course_path, :class=>"right btn" %>
+    <%= link_to new_course_path, :class=>"right btn " + (@lessons.size == 0 ? "disabled": "" ) do %>
+      Publish <%=material_icon.public.css_class('right')%>
+    <%end%>
   </div>
+  <div class="divider"></div>
   <div class="row">
-    <div class="col s3"></div>
-    <div class="col s9">
+    <div class="col m4 s12">
+      <h5>Course Contents</h5>
+      <%= render 'courseSidebar' %>
+    </div>
+    <div class="col m8 s12 ">
+      <div class="section"></div>
       <%= render 'form', course: @course %>
     </div>
   </div>

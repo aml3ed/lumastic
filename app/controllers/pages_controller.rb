@@ -6,7 +6,7 @@ class PagesController < ApplicationController
   end
 
   def home
-    @lessons = Lesson.all
+    @courses = Course.where(id: Lesson.select(:course_id))
   end
 
   def teacher

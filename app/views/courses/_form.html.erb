@@ -14,11 +14,11 @@
 <!--  Put in form-->
 <!--  Course Title-->
   <div class="row">
-    <div class="input-field col m12 l6">
-     <%= form.label :title, for: "title" %>
+    <div class="input-field col s12 m12 l6">
+     <%= form.label :title, "Course Title", for: "title" %>
      <%= form.text_field :title, id: "title" %>
     </div>
-    <div class="input-field col m12 l6">
+    <div class="input-field col s12 m12 l6">
       <%= form.select :subject, [['Choose Subject', {:disabled => true, :selected => true}], 'Math', 'English', 'Art', 'History', 'Music', 'Science'], placeholder:"Subject", id: "subject" %>
       <%= form.label :subject, for: "subject" %>
     </div>
