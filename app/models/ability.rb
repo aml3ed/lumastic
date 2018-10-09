@@ -26,7 +26,7 @@ class Ability
   #
   def grant_guest_roles
     can :view, Course
-    can :view, Lesson
+    can %i[view count_ticket], Lesson
     can :view, Material
   end
 
