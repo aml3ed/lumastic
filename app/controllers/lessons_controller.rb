@@ -4,7 +4,7 @@ class LessonsController < ApplicationController
   before_action :find_lessons
   before_action :set_lesson, only: [:show, :view, :edit, :update, :destroy]
   before_action :get_embed_from_url, only: [:show, :view, :edit]
-  before_action :get_ticket_percentage, only: [:show, :edit, :new]
+  before_action :get_ticket_percentage, only: %i[create show edit new]
 
   # Example route: GET /lessons
   def index
