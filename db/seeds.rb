@@ -14,6 +14,10 @@ drew = User.create! email: 'drew@lumastic.com',
                      password: 'password',
                      role: Roleable::ROLE_ADMIN
 
+student = User.create! email: 'student@lumastic.com',
+                       password: 'password',
+                       role: Roleable::ROLE_STUDENT
+
 course1 = Course.create! title: "How to make a website",
                course_info: "This is a course on how to make a website.  We hope that this is helps you!",
                subject: "Art",

@@ -15,7 +15,7 @@ class Ability
     when Roleable::ROLE_GUEST
       grant_guest_roles
     when Roleable::ROLE_STUDENT
-      grant_student_roles
+      grant_student_roles(user)
     when Roleable::ROLE_TEACHER
       grant_teacher_roles
     when Roleable::ROLE_ADMIN
@@ -27,21 +27,22 @@ class Ability
   # Set roles for user without an account
   #
   def grant_guest_roles
-    can :manage, :all
+    can :view, Course
+    can :view, Lesson
+    can :view, Material
   end
 
   #
   # Set roles for a student
   #
-  def grant_student_roles
-    can :manage, :all
-  end
+  def grant_student_roles(user)
+    can %i[view index create], Course
+    can %i[view index create], Lesson
+    can %i[view index create], Material
 
-  #
-  # Set roles for a teacher
-  #
-  def grant_teacher_roles
-    can :manage, :all
+    if Course.all.where(user: user).present?
+      grant_course_instance_roles(Course.all.where(user: user))
+    end
   end
 
   #
@@ -51,4 +52,32 @@ class Ability
     can :manage, :all
   end
 
+  #
+  # Set roles for course instances
+  #
+  def grant_course_instance_roles(course_instances)
+    course_instances.each do |course|
+      can :manage, course
+      grant_lesson_instance_roles(course) if course.lessons.present?
+    end
+  end
+
+  #
+  # Set roles for lesson instances
+  #
+  def grant_lesson_instance_roles(course)
+    course.lessons.each do |lesson|
+      can :manage, lesson
+      grant_material_instance_roles(lesson) if lesson.materials.present?
+    end
+  end
+
+  #
+  # Set roles for material instances
+  #
+  def grant_material_instance_roles(lesson)
+    lesson.materials.each do |mat|
+      can :manage, mat
+    end
+  end
 end

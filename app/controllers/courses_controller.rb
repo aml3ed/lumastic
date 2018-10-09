@@ -1,6 +1,5 @@
 class CoursesController < ApplicationController
   load_and_authorize_resource
-  before_action :authenticate_user!, :except => [:show] #-> routes to the login / signup if not authenticated
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :get_lessons, only: [:show, :edit, :show]
   before_action :ticket_breakdown, only: [:edit, :show]
