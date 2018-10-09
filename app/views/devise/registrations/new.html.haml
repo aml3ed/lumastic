@@ -10,11 +10,15 @@
             %h6 Create your account to get started
         .row
           .input-field.col.s12
-            = f.email_field :email, autofocus: true, autocomplete: "email", type: "email", id: 'email', class: "validate"
+            = f.text_field :display_name, autofocus: true, autocomplete: "display_name", type: "text", id: 'display_name', placeholder: "What should we call you?"
+            = f.label :display_name, for: "display_name"
+        .row
+          .input-field.col.s12
+            = f.email_field :email, autocomplete: "email", type: "email", id: 'email', class: "validate", placeholder: "What's your email'?"
             = f.label :email, for: "email"
         .row
           .input-field.col.s12
-            = f.password_field :password, type: "password", autocomplete: "off" , id: 'password', class: "validate"
+            = f.password_field :password, type: "password", autocomplete: "off" , id: 'password', class: "validate", placeholder: "Make it memorable!"
             = f.label :password, for: "password"
         %br/
         .row
