@@ -36,10 +36,10 @@ class LessonsController < ApplicationController
     # Add the course_id from the url parameters
     @lesson.course_id = params[:course_id]
     # Save the new lesson object to the database
-    @lesson.position = Lesson.where(course_id: params[:course_id]).maximum('position') + 1
+    @lesson.position = Lesson.where(course_id: @course).present? ? Lesson.where(course_id: @course).maximum('position') + 1 : 1
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to course_lesson_path(:id => @lesson.id), notice: 'Lesson was successfully created.' }
+        format.html { redirect_to course_lesson_path(@course, @lesson), notice: 'Lesson was successfully created.' }
         format.json { render :show, status: :created, location: @lesson }
       else
         format.html { render :new }
@@ -52,7 +52,7 @@ class LessonsController < ApplicationController
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to course_lesson_path(:id => @lesson.id), notice: 'Lesson was successfully updated.' }
+        format.html { redirect_to course_lesson_path(@course, @lesson), notice: 'Lesson was successfully updated.' }
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit }
@@ -65,8 +65,7 @@ class LessonsController < ApplicationController
   def destroy
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to course_lessons_path, notice: 'Lesson was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to course_path(@course), notice: 'Lesson was successfully destroyed.' }
     end
   end
 
@@ -80,9 +79,7 @@ class LessonsController < ApplicationController
   def count_ticket
     @lesson = Lesson.where(id: params[:id]).first
     field = "#{params[:type]}_#{params[:color]}".to_sym
-    puts "****************#{field}*****************"
     cur_val = @lesson.send(field).nil? ? 0 : @lesson.send(field)
-    puts "****************#{cur_val}*****************"
     @lesson.send(field.to_s + '=', cur_val + 1)
     @lesson.save!
   end

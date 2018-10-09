@@ -64,6 +64,7 @@
           %li.user-nav
             %a.dropdown-trigger.valign-wrapper{"data-target" => "userDropdown", :href => "#!"}
               = icon('fas', 'user-circle')
-              = current_user.email
+              %span
+                = current_user.display_name != "" ? current_user.display_name : current_user.email
               = material_icon.arrow_drop_down.css_class("right")
 = render 'layouts/sidenav'

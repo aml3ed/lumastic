@@ -72,8 +72,14 @@ li#search-nav-item {
   min-width: 230px;
   height: auto;
 }
+.dropdown-content {
+  min-width: 200px !important;
+}
+.user-nav span {
+  min-width: 50px;
+}
 .user-nav .fa-user-circle {
-  margin-right: 10px;
+  margin-right: 24px;
 }
 .user-nav i.right {
   margin-left: 10px;

@@ -26,7 +26,7 @@ function bringBackButtons() {
     });
 }
 
-$(document).ready(function() {
+function vidbuttonOnClick() {
     var inDone = false;
     $(".vid-button").click(function() {
         var type = "";
@@ -65,4 +65,4 @@ $(document).ready(function() {
                 break;
         }
     });
-});
+}
