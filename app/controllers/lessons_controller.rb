@@ -17,6 +17,7 @@ class LessonsController < ApplicationController
   end
 
   def view
+    @author_name = @course.user.display_name
   end
 
   # Example route: GET /lessons/new
