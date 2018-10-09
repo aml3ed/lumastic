@@ -14,6 +14,7 @@
     = link_to path_show_lesson, :class => (@lesson.id == lesson.id ? "active" : "")+" collection-item", :id => dom_id(lesson) do
       = material_icon.drag_handle.css_class('left')
       = lesson.title
+
 / Add Lesson Button
 = link_to new_course_lesson_path(@course), :class => " btn-flat right" do
   = material_icon.add.css_class("left")
