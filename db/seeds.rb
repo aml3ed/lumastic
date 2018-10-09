@@ -7,14 +7,17 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 david = User.create! email: 'david@lumastic.com',
+                     display_name: 'David',
                      password: 'password',
                      role: Roleable::ROLE_ADMIN
 
 drew = User.create! email: 'drew@lumastic.com',
+                    display_name: 'Drew',
                      password: 'password',
                      role: Roleable::ROLE_ADMIN
 
 student = User.create! email: 'student@lumastic.com',
+                       display_name: 'Student',
                        password: 'password',
                        role: Roleable::ROLE_STUDENT
 

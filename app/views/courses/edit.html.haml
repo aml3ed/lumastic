@@ -1,5 +1,9 @@
 .container
   .section
+  .row.no-margin
+    = link_to courses_path(@course), :class=> "btn-flat waves-effect", style: "padding-left: 0" do
+      %i.material-icons.left-icon arrow_back
+      Back
   .row
     %h4.header-with-button
       = @course.title

@@ -16,8 +16,6 @@ class Ability
       grant_guest_roles
     when Roleable::ROLE_STUDENT
       grant_student_roles(user)
-    when Roleable::ROLE_TEACHER
-      grant_teacher_roles
     when Roleable::ROLE_ADMIN
       grant_admin_roles
     end
@@ -28,7 +26,7 @@ class Ability
   #
   def grant_guest_roles
     can :view, Course
-    can :view, Lesson
+    can %i[view count_ticket], Lesson
     can :view, Material
   end
 
@@ -37,7 +35,7 @@ class Ability
   #
   def grant_student_roles(user)
     can %i[view index create], Course
-    can %i[view index create], Lesson
+    can %i[view index create count_ticket], Lesson
     can %i[view index create], Material
 
     if Course.all.where(user: user).present?
