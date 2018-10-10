@@ -5,6 +5,6 @@ class Lesson < ApplicationRecord
 
   # Validations
   validates :title, presence: true
-  validates :video_url, presence: true, uniqueness: true
+  validates :video_url, presence: true, uniqueness: false
   validates :position, presence: true, uniqueness: { scope: :course }
   end
