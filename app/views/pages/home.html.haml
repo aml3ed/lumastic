@@ -1,17 +1,22 @@
 = render 'pages/homeHero'
 .container
-  %h4.header-with-link Start Learning
-  = link_to "See More", "#"
+  .row.no-margin
+    .col.s12
+      %h4.header-with-link Find Your Tribe
+      = link_to "See More", "#"
+  .row
+    .col.l4.m6.s12
+      = render('components/community-card')
+    .col.l4.m6.s12
+      = render('components/community-card')
+    .col.l4.m6.s12
+      = render('components/community-card')
+  .row.no-margin
+    .col.s12
+      %h4.header-with-link Start Learning
+      = link_to "See More", "#"
   .row
     - @courses.each do |course|
       .col.l3.m6.s12
-        .card.hoverable
-          .card-image
-            = link_to "", view_course_lesson_path(course, course.first_lesson), :class=>"container-clickable"
-            = image_tag "testimages/ballThumb.jpg"
-          .card-content
-            = link_to "", view_course_lesson_path(course, course.first_lesson), :class=>"container-clickable"
-            %span.card-title.home-card-title= course.title
-          .card-action
-            = link_to "See Course", view_course_lesson_path(course, course.first_lesson), :class=>"waves-effect"
+        = render('components/course-card', :course => course)
 

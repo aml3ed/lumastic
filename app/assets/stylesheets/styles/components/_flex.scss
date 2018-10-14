@@ -1,0 +1,12 @@
+.flex {
+  display: flex !important;
+  align-items: flex-start;
+  flex-basis: 0;
+  flex-wrap: nowrap;
+  .f0 {
+    flex-grow: 0;
+  }
+  .f1 {
+    flex-grow: 1 !important;
+  }
+}

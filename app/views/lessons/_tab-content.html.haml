@@ -9,9 +9,10 @@
           %span.new.badge 4
   .divider
   .card-content.vid-info-card
-    #info= locals[:info]
+    #info= @lesson.lesson_info
     #materials Test 2
   .card-action
-    %a.waves-effect{:href => "#"} Access Materials
-    %a.waves-effect{:href => "#"} Donate
+    = link_to '#', class: "waves-effect" do
+      = material_icon.add.css_class('left')
+      contribute
 

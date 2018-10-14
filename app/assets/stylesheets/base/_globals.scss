@@ -15,6 +15,9 @@ $card-link-color: #44BAF4 !default;
 $accent-color: #FECF2F;
 
 $text-color: #003A6E;
+.text-color {
+  color: $text-color !important;
+}
 
 $bg-color: #fafafa;
 $card-color: #fff;
