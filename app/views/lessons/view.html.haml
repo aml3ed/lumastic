@@ -1,23 +1,5 @@
-.container
-  .section
-  .row.no-margin
-    .col
-      %h4.header-with-button
-        Community Title
-      = link_to '#', class: "icon-action btn-flat waves-effect" do
-        = material_icon.add.css_class('left')
-        join
-    .col.hide-on-med-and-down.right
-      = link_to '#', class: "icon-action btn-flat waves-effect" do
-        = material_icon.person.css_class('left')
-        Members
-      = link_to '#', class: "icon-action btn-flat waves-effect" do
-        = material_icon.book.css_class('left')
-        Courses
-      = link_to '#', class: "icon-action btn-flat waves-effect" do
-        = material_icon.forum.css_class('left')
-        Spaces
-  .divider
+.container.section
+  = render('components/community-header')
   .row.section
 
     .col.s12.m12.l4

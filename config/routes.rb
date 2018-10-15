@@ -18,6 +18,7 @@ Rails.application.routes.draw do
 
   resources :materials
 
+  resources :communities
   #
   # Devise session management
   #

@@ -1,0 +1,20 @@
+.section
+  .row.no-margin
+    .col
+      = link_to '#', class:"text-color" do
+        %h4.header-with-link.header-with-button
+          Community Title
+      = link_to '#', class: "btn-small waves-effect " do
+        = icon('fas', 'user-plus', class: "left")
+        join
+    .col.hide-on-small-and-down.right
+      = link_to '#', class: "icon-action btn-flat waves-effect text-color primary-text" do
+        = icon('fas', 'users', class: "left")
+        13
+      = link_to '#', class: "icon-action btn-flat waves-effect text-color primary-text" do
+        = material_icon.library_books.css_class('left')
+        3
+      = link_to '#', class: "icon-action btn-flat waves-effect text-color primary-text" do
+        = material_icon.forum.css_class('left')
+        4
+  .divider
