@@ -1,0 +1,19 @@
+.number-list {
+  counter-reset: count;
+  .number {
+    float: left;
+    width: 5px;
+    &:before {
+      counter-increment: count;
+      content: counter(count);
+      color: #cccccc;
+      font-weight: 500;
+    }
+  }
+  .text {
+    float: left;
+    text-align: left;
+    margin-right: auto;
+    width: 92%;
+  }
+}

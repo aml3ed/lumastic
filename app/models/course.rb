@@ -9,6 +9,14 @@ class Course < ApplicationRecord
   def first_lesson
     Lesson.where(course: self, position: 1).first
   end
+
+  def default_course
+    default_course = Course.new
+    default_course.title = "Default Course"
+    default_course.course_info = "This is a default course"
+    default_course
+  end
+
   
   def total_tickets
     totalReds = 0

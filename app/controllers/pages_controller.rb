@@ -7,6 +7,7 @@ class PagesController < ApplicationController
 
   def home
     @courses = Course.where(id: Lesson.select(:course_id))
+    @communities = Community.all
   end
 
   def teacher

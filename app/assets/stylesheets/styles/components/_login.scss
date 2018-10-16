@@ -3,4 +3,7 @@
   padding: 32px 48px 0px 48px;
   min-width: 400px;
   max-width: 500px;
+  &.wider {
+    max-width: 750px;
+  }
 }
