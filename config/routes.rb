@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :courses do
+    get '/new/:community_id', to: "courses#new"
     resources :lessons do
       collection do
         patch :sort
@@ -18,6 +19,12 @@ Rails.application.routes.draw do
 
   resources :materials
 
+  resources :communities do
+    member do
+      put :add_user
+      put :remove_user
+    end
+  end
   #
   # Devise session management
   #

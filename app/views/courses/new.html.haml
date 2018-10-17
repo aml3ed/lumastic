@@ -1,18 +1,12 @@
-.container
-  .section
-  .row.no-margin
-    = link_to courses_path(@course), :class=> "btn-flat waves-effect", style: "padding-left: 0" do
-      %i.material-icons.left-icon arrow_back
-      Back
+.container.section
+  = render('components/community-header')
   .row
-    %h4.header-with-button New Course
-    %span.new.badge.inline-badge.grey{"data-badge-caption" => "Not Saved"}
-    = link_to 'Publish', new_course_path, :class=>"right btn disabled"
-  .divider
-  .row
-    .col.s12.m4
-      %h5 Course Contents
-      = render 'newCourseSidebar', new: true
-    .col.s12.m8
-      .section
-      = render 'form', course: @course, btn_text: "Create Course"
+    %center
+      .card.paper-popup.wider.left-align
+        .card-content
+          %h4
+            Making a course?
+            %i Awesome!
+          %h5.grey-text
+            Start with the basics:
+          = render('form', course: @course)

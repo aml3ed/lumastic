@@ -36,8 +36,11 @@
   .row
     .col.s12.m12.l7
       .video-container
-        %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480", :src => "#{@embed_url}", :width => "853"}
-          Please enter a valid youtube url
+        - if @embed_url == ""
+          %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480", :src => "#{@embed_url}", :width => "853"}
+            Please enter a valid youtube url
+        - else
+          = image_tag "AddVideo-8.png", class: "responsive-img"
     .input-field.col.s12.m12.l5
       .row
         = form.label :video_url, "YouTube URL", for: "video_url"

@@ -16,6 +16,12 @@ drew = User.create! email: 'drew@lumastic.com',
                      password: 'password',
                      role: Roleable::ROLE_ADMIN
 
+webdesign = Community.create! name: "Web Design",
+                              description: "This is a community for people who love web design"
+
+cooking = Community.create! name: "cooking",
+                            description: "This is a community for people who love cooking"
+
 student = User.create! email: 'student@lumastic.com',
                        display_name: 'Student',
                        password: 'password',
@@ -23,9 +29,9 @@ student = User.create! email: 'student@lumastic.com',
 
 course1 = Course.create! title: "How to make a website",
                course_info: "This is a course on how to make a website.  We hope that this is helps you!",
-               subject: "Art",
                keywords: "Web Developement, Engineering, Computer Science, Art, Design, HTML, CSS",
                published: "true",
+               community: webdesign,
                user: david
 
 lesson_1 = Lesson.create! title: "Start without a plan",
@@ -39,6 +45,7 @@ lesson_1 = Lesson.create! title: "Start without a plan",
                           out_green: 10,
                           keywords: "Do, Not, Plan, Anything",
                           position: 1,
+                          user: david,
                           course: course1
 
 lesson_2 = Lesson.create! title: "HTML Basics",
@@ -52,6 +59,7 @@ lesson_2 = Lesson.create! title: "HTML Basics",
                           out_green: 2,
                           keywords: "HTML, Web Developement",
                           position: 2,
+                          user: david,
                           course: course1
 
 lesson_3 = Lesson.create! title: "CSS Basics",
@@ -65,14 +73,15 @@ lesson_3 = Lesson.create! title: "CSS Basics",
                           out_green: 2,
                           keywords: "CSS, Web Developement",
                           position: 3,
+                          user: david,
                           course: course1
 
 
 course2 = Course.create! title: "Deep Dive into Fermented Foods",
                course_info: "This is a course on fermentation and fermented foods.  We hope that this is helps you!",
-               subject: "Cooking",
                keywords: "Food, Culture, Sauerkraut",
                published: "true",
+               community: cooking,
                user: drew
 
 lesson_4 = Lesson.create! title: "How to Make Mustard",
@@ -86,6 +95,7 @@ lesson_4 = Lesson.create! title: "How to Make Mustard",
                           out_green: 10,
                           keywords: "Mustard",
                           position: 1,
+                          user: drew,
                           course: course2
 
 lesson_5 = Lesson.create! title: "How to Make Fermented Eggs",
@@ -99,6 +109,7 @@ lesson_5 = Lesson.create! title: "How to Make Fermented Eggs",
                           out_green: 2,
                           keywords: "Fermented, Eggs, Smell",
                           position: 2,
+                          user: drew,
                           course: course2
 
 lesson_5 = Lesson.create! title: "How to Make Sauerkraut",
@@ -112,4 +123,5 @@ lesson_5 = Lesson.create! title: "How to Make Sauerkraut",
                           out_green: 2,
                           keywords: "Sauerkraut, Cooking, Fermentation",
                           position: 3,
+                          user: drew,
                           course: course2
