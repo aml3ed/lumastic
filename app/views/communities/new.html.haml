@@ -1,36 +1,37 @@
 %center
   .section
     .container
-      .z-depth-1.row.paper-popup.wider.left-align
-        #first-modal.modal-content
-          %h4
-            Want to start a community?
-            %i.secondary-text Cool!
-          %h6 Here's what you need to know:
-          .row.number-list
+      .card.row.paper-popup.wider.left-align
+        .card-content
+          #first-modal.modal-content
+            %h4
+              Want to start a community?
+              %i.secondary-text Cool!
+            %h6 Here's what you need to know:
+            .row.number-list
+              .row
+                .col.number
+                .col.text
+                  Communities are open groups.  Anyone can join your community, create courses, and partake in discussions.
+              .row
+                .col.number
+                .col.text
+                  By creating the community, you become its first
+                  %i curator.
+                  Curators are in charge of encouraging participation amongst members, creating a culture of growth
+                  within the community, and approving/removing lessons from collaborative courses.
+              .row
+                .col.number
+                .col.text
+                  You now have the opportunity to make an everlasting, positive impact in the lives of people who love what you love.
+                  Remember, everyone here wants you to succeed.
+                  Be kind, be honest, and
+                  %i ask for help if you need it.
             .row
-              .col.number
-              .col.text
-                Communities are open groups.  Anyone can join your community, create courses, and partake in discussions.
-            .row
-              .col.number
-              .col.text
-                By creating the community, you become its first
-                %i curator.
-                Curators are in charge of encouraging participation amongst members, creating a culture of growth
-                within the community, and approving/removing lessons from collaborative courses.
-            .row
-              .col.number
-              .col.text
-                You now have the opportunity to make an everlasting, positive impact in the lives of people who love what you love.
-                Remember, everyone here wants you to succeed.
-                Be kind, be honest, and
-                %i ask for help if you need it.
-          .row
-            .btn.dark-button.waves-light.right.waves-effect.modalNextButton Next
-        #second-modal.modal-content
-          %h4 Get ready to change the world!
-          = render('form', community: @community)
+              .btn.dark-button.waves-light.right.waves-effect.modalNextButton Next
+          #second-modal.modal-content
+            %h4 Get ready to change the world!
+            = render('form', community: @community)
 
 :javascript
   $('.modalNextButton').click(function() {

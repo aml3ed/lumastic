@@ -5,20 +5,21 @@ class CommunitiesController < ApplicationController
     unless @community.users.include?(current_user)
       @community.users << current_user
     end
-    redirect_to community_path(@community)
+    redirect_back(fallback_location: community_path(@community))
   end
 
   def remove_user
     unless not @community.users.include?(current_user)
       @community.users.delete(current_user)
     end
-    redirect_to community_path(@community)
+    redirect_back(fallback_location: community_path(@community))
   end
 
   def index
   end
 
   def show
+    @courses = @community.courses
   end
 
   def new

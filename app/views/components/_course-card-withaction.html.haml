@@ -18,3 +18,5 @@
     .row
       .col.s12
         %p.truncate= course.course_info
+  .card-action
+    = link_to "See Course", course_lesson_path(course, course.first_lesson)

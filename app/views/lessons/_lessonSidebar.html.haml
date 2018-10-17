@@ -1,8 +1,9 @@
 / This is the sidebar that appears on new/edit course and new/edit lesson
-.collection.courses-sidebar{"data-behavior" => "sortable", "data-url" => "#{sort_course_lessons_path(@course)}"}
+.collection.with-header.courses-sidebar{"data-behavior" => "sortable", "data-url" => "#{sort_course_lessons_path(@course)}"}
   / Make the Course Info Item
-  = link_to course_path(@course), :class => current_class?(course_path(@course)) + " collection-item not-sortable" do
-    Course Info
+  .collection-header
+    %span.badge.card-badge.collaborative Open
+    %h5= @course.title
   / For each lesson, make a collection item with that lesson and it's url
   - if @lesson.id == nil
     = link_to "", :class => "active collection-item not-sortable" do

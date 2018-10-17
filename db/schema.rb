@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_15_185225) do
+ActiveRecord::Schema.define(version: 2018_10_17_162235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,7 +52,6 @@ ActiveRecord::Schema.define(version: 2018_10_15_185225) do
   create_table "courses", force: :cascade do |t|
     t.string "title"
     t.string "course_info"
-    t.string "subject"
     t.string "instructor_bio"
     t.string "keywords"
     t.boolean "published"
@@ -61,6 +60,7 @@ ActiveRecord::Schema.define(version: 2018_10_15_185225) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "community_id"
+    t.boolean "open"
     t.index ["community_id"], name: "index_courses_on_community_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
@@ -84,7 +84,9 @@ ActiveRecord::Schema.define(version: 2018_10_15_185225) do
     t.integer "out_red", default: 0
     t.integer "out_blue", default: 0
     t.integer "out_green", default: 0
+    t.bigint "user_id"
     t.index ["course_id"], name: "index_lessons_on_course_id"
+    t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
   create_table "materials", force: :cascade do |t|

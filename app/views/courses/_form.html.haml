@@ -10,27 +10,32 @@
           %li= message
   / Put in form
 
-  .row
+  .row.no-margin
     / Course Title
-    .input-field.col.s12.m12.l6
+    .input-field.col.s12.m12.l12
       = form.label :title, "Course Title", for: "title"
       = form.text_field :title, id: "title"
-    / Course Subject
-    .input-field.col.s12.m12.l6
-      = form.select :subject, [['Choose Subject', {:disabled => true, :selected => true}], 'Math', 'English', 'Art', 'History', 'Music', 'Science'], placeholder:"Subject", id: "subject"
-      = form.label :subject, for: "subject"
 
   / Course Info
-  .row
+  .row.no-margin
     .input-field.col.s12
       = form.label :course_info, for: "course_info"
       = form.text_area :course_info, id: "course_info", class: "materialize-textarea"
 
   / Keywords
-  .row
+  .row.no-margin
     .input-field.col.s12
       = form.label :keywords
       = form.text_field :keywords
+      = hidden_field_tag(:community_id, @community.id)
+  .row
+    .input-field.col
+      .switch
+        %label
+          Private
+          = form.check_box :open, checked: true
+          %span.lever
+          Open
 
   / Save
   .row

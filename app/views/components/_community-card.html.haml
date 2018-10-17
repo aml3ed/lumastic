@@ -1,6 +1,7 @@
 = link_to community_path(community) do
   .card.horizontal.hoverable
-    %span.badge.card-badge.new
+    - unless community.created_at < Time.now - 7.days
+      %span.badge.card-badge.new
     .card-stacked
       .card-content
         .row.no-margin

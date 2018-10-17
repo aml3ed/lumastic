@@ -1,0 +1,52 @@
+.home-card-title {
+  font-size: 20px !important;
+}
+.container-clickable {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 10;
+}
+.author{
+  font-size: 1.25rem;
+}
+.card .card-content {
+  position: relative;
+}
+.course-card {
+  .badge {
+    z-index: 5;
+  }
+  .card-title {
+    z-index: 5;
+    text-shadow: 0px 0px 5px black;
+    font-weight: 500;
+  }
+}
+.container {
+  width: 90%;
+}
+
+.course-card {
+  .overlay-effect {
+    top:0;
+    left: 0;
+    right: 0;
+    z-index: 2;
+    position: absolute;
+    background-color: rgba($primary-color, 0.2);
+    filter: blur(8px);
+    display: block;
+    height: 0 !important;
+    padding-bottom: 56.25% !important;
+    overflow: hidden !important;
+  }
+  .card-image {
+    display: block;
+    height: 0 !important;
+    padding-bottom: 56.25% !important;
+    overflow: hidden !important;
+  }
+}

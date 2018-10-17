@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
 
   resources :courses do
+    get '/new/:community_id', to: "courses#new"
     resources :lessons do
       collection do
         patch :sort

@@ -26,11 +26,13 @@ class CoursesController < ApplicationController
   # Example route: GET /courses/1
   def show
     @lessons.order(:position)
+    @community = Community.find(@course.community_id)
     @course_path_nav = course_path(@course)
   end
 
   # Example route: GET /courses/new
   def new
+    @community = Community.find(params[:community_id])
     @course = Course.new
   end
 
@@ -48,13 +50,15 @@ class CoursesController < ApplicationController
   # Example route: POST /courses
   def create
     # Build a new course object from the form parameters
+    puts params.inspect
     @course = Course.new(course_params)
+    @course.community = Community.find(params[:community_id])
     # Add the user_id from the session object
     @course.user_id = current_user.id
     # Save the new course object to the database
     respond_to do |format|
       if @course.save
-        format.html { redirect_to course_path(@course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
+        format.html { redirect_to new_course_lesson_path(@course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -98,7 +102,7 @@ class CoursesController < ApplicationController
 
     # Declares what parameters are mutatable by the controller
     def course_params
-      params.require(:course).permit(:title, :course_info, :subject, :instructor_bio, :keywords, :price)
+      params.require(:course).permit(:community_id, :title, :course_info, :open, :instructor_bio, :keywords, :price)
     end
 
     def ticket_breakdown

@@ -1,6 +1,7 @@
 class LessonsController < ApplicationController
   load_and_authorize_resource
   before_action :set_course
+  before_action :set_community
   before_action :find_lessons
   before_action :set_lesson, only: [:show, :view, :edit, :update, :destroy]
   before_action :get_embed_from_url, only: [:show, :view, :edit]
@@ -17,7 +18,6 @@ class LessonsController < ApplicationController
   end
 
   def view
-
   end
 
   # Example route: GET /lessons/new
@@ -36,6 +36,7 @@ class LessonsController < ApplicationController
     @lesson = Lesson.new(lesson_params)
     # Add the course_id from the url parameters
     @lesson.course_id = params[:course_id]
+    @lesson.user_id = current_user.id
     # Save the new lesson object to the database
     @lesson.position = Lesson.where(course_id: @course).present? ? Lesson.where(course_id: @course).maximum('position') + 1 : 1
     respond_to do |format|
@@ -99,6 +100,10 @@ class LessonsController < ApplicationController
       @course = Course.find(params[:course_id])
     end
 
+    def set_community
+      @community = @course.community
+    end
+
     # Finds all of the lessons that belong to the specific course
     def find_lessons
       @lessons = @course.lessons.order(:position)
@@ -111,7 +116,7 @@ class LessonsController < ApplicationController
 
     # Declares what parameters are mutatable by the controller
     def lesson_params
-      params.require(:lesson).permit(:title, :video_url, :lesson_info, :keywords, materials_attributes: [:id, :title, :file, :_destroy])
+      params.require(:lesson).permit(:title, :video_url, :lesson_info, :keywords, :user_id, materials_attributes: [:id, :title, :file, :_destroy])
     end
 
     def get_embed_from_url
