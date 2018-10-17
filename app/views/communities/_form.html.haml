@@ -1,0 +1,30 @@
+= form_for(@community) do |form|
+  / Show Errors
+  - if community.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(communtiy.errors.count, "error")
+        prohibited this community from being saved:
+      %ul
+        - community.errors.full_messages.each do |message|
+          %li= message
+  / Put in form
+
+  .row
+    / Community Name
+    .input-field.col.s12.m12.l12
+      = form.label :name, "Community name", for: "name"
+      = form.text_field :name, id: "name"
+
+
+  .row
+    / Community Info
+    .input-field.col.s12
+      = form.label :description, for: "description"
+      = form.text_area :description, id: "description", class: "materialize-textarea"
+
+  / Save
+  .row
+    = form.button :submit, class: " btn dark-button right waves-effect" do
+      - btn_text = "Create Community" if local_assigns[:btn_text].nil?
+      = btn_text

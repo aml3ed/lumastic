@@ -8,7 +8,7 @@
     %h4.header-with-button
       = @course.title
     %span.new.badge.inline-badge.grey{"data-badge-caption" => "Draft"}
-    = link_to new_course_path, :class=>"right btn " + (@lessons.size == 0 ? "disabled": "" ) do
+    = link_to new_course_path(@community), :class=>"right btn " + (@lessons.size == 0 ? "disabled": "" ) do
       Publish #{material_icon.public.css_class('right')}
   .divider
   .row
@@ -20,9 +20,6 @@
         .col.m6.s12.show-field
           %label Course Title
           %p= @course.title
-        .col.m6.s12.show-field
-          %label Subject
-          %p= @course.subject
         .col.s12.show-field
           %label Course Info
           %p= @course.course_info

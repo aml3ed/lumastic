@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_09_011941) do
+ActiveRecord::Schema.define(version: 2018_10_17_162235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,10 +36,22 @@ ActiveRecord::Schema.define(version: 2018_10_09_011941) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "communities", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "communities_users", id: false, force: :cascade do |t|
+    t.bigint "community_id", null: false
+    t.bigint "user_id", null: false
+    t.index ["community_id", "user_id"], name: "index_communities_users_on_community_id_and_user_id"
+  end
+
   create_table "courses", force: :cascade do |t|
     t.string "title"
     t.string "course_info"
-    t.string "subject"
     t.string "instructor_bio"
     t.string "keywords"
     t.boolean "published"
@@ -47,6 +59,9 @@ ActiveRecord::Schema.define(version: 2018_10_09_011941) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "user_id"
+    t.bigint "community_id"
+    t.boolean "open"
+    t.index ["community_id"], name: "index_courses_on_community_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end
 
@@ -69,7 +84,9 @@ ActiveRecord::Schema.define(version: 2018_10_09_011941) do
     t.integer "out_red", default: 0
     t.integer "out_blue", default: 0
     t.integer "out_green", default: 0
+    t.bigint "user_id"
     t.index ["course_id"], name: "index_lessons_on_course_id"
+    t.index ["user_id"], name: "index_lessons_on_user_id"
   end
 
   create_table "materials", force: :cascade do |t|

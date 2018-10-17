@@ -8,3 +8,14 @@
   float: none !important;
   margin-left: 10px !important;
 }
+.card-badge {
+  position: absolute;
+  top:0;
+  right:0;
+  z-index: 2;
+  &.collaborative {
+    color: white;
+    background-color: darken($accent-color, 10%);
+    border-radius: 2px;
+  }
+}

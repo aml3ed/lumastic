@@ -1,0 +1,9 @@
+.modal {
+  max-height: none !important;
+}
+.modal-content{
+  display: none;
+  &#first-modal {
+    display: block;
+  }
+}

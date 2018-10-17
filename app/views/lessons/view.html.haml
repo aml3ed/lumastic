@@ -1,23 +1,27 @@
-.container
-  .section
+.container.section
+  = render('components/community-header')
   .row
-    .col.s12.m12.l8
-      .vid-header
-        = link_to "#", class: "material-link" do
-          = @course.title
-        %h5= @lesson.title
-      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?", videoURL: @lesson.video_url}
-      .row.section
-        .col.s7.left
-          = link_to '#' do
-            = icon('fas', 'user-circle')
-            #{@author_name}
-        .col.right.vid-controls
-          = link_to '#', class:"btn btn-small dark-button tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Previous Lesson", title:"Previous Lesson" do
-            = icon('fas', 'step-backward')
-          = link_to '#', class:"btn btn-small dark-button tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Next Lesson", title:"Next Lesson" do
-            = icon('fas', 'step-forward')
-          = link_to '#', class:"btn btn-small dark-button tooltipped", :"data-position"=>"top", :"data-tooltip"=>"Table of Contents", title:"Table of Contents" do
-            = icon('fas', 'list')
+
     .col.s12.m12.l4
-      = render 'tab-content', locals: {info: @lesson.lesson_info}
+      = render 'components/toc'
+    .col.s12.m12.l8
+      .row.no-margin
+      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?", videoURL: @lesson.video_url}
+      .row.section.valign-wrapper.no-margin
+        .col
+          = link_to '#', class: "author text-color" do
+            = icon('fas', 'user-circle')
+            = @course.user.display_name
+        .col.right.vid-actions.valign-wrapper{:style => "margin-left: auto;"}
+          = link_to '#', class: "btn-flat waves-effect" do
+            = material_icon.share.css_class('left')
+            share
+          = link_to '#', class: "btn-flat waves-effect" do
+            = material_icon.more_vertical
+      .row.no-margin
+        .col.s12
+          .truncate= @lesson.lesson_info
+      .row.section.no-margin
+        .col.grey-text
+          SHOW MORE
+      .divider

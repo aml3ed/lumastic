@@ -1,0 +1,20 @@
+.card.course-card.hoverable
+  - if course.open
+    %span.badge.card-badge.collaborative Open
+  .card-image
+    .overlay-effect
+    = link_to "", course_lesson_path(course, course.first_lesson), :class=>"container-clickable"
+    = image_tag "HeaderImage-8.png", class: "sixteen-nine"
+    %span.card-title= course.title
+  .card-content
+    .row.valign-wrapper
+      .col.s8.author
+        = icon('fas', 'user-circle')
+        = course.user.display_name
+      .col.s4.valign-wrapper.justify-right.green-text
+        = material_icon.local_offer
+        %span 10%
+    = link_to "", course_lesson_path(course, course.first_lesson), :class=>"container-clickable"
+    .row
+      .col.s12
+        %p.truncate= course.course_info

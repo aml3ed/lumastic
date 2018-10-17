@@ -2,10 +2,10 @@
 %ul#slide-out.sidenav
   %li
     .user-view
-      .background= image_tag "blur-book-stack-books-590493.jpg"
+      .background= image_tag "HeaderImage-8.png"
       %a{:href => "#user"}= image_tag "Symbol.svg", class: "circle"
       %a{:href => "#name"}
-        %span.white-text.name= current_user ? current_user.email : "-"
+        %span.white-text.name= current_user ? current_user.display_name : "-"
       %a{:href => "#email"}
         %span.white-text.email= current_user ? current_user.email : "-"
   %li

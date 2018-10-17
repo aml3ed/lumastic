@@ -1,0 +1,23 @@
+= link_to community_path(community) do
+  .card.horizontal.hoverable
+    - unless community.created_at < Time.now - 7.days
+      %span.badge.card-badge.new
+    .card-stacked
+      .card-content
+        .row.no-margin
+          .col.s12
+            %h5.text-color
+              = community.name
+        .row.no-margin
+          .col.s12.valign-wrapper
+            .text-color.valign-wrapper.icon-action
+              = icon('fas', 'users')
+              = community.users.count
+            .text-color.valign-wrapper.icon-action
+              =material_icon.video_library
+              = community.courses.count
+            .text-color.valign-wrapper.icon-action
+              =material_icon.forum
+              0
+      .card-action
+        VISIT COMMUNITY
