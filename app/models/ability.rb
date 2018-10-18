@@ -25,21 +25,22 @@ class Ability
   # Set roles for user without an account
   #
   def grant_guest_roles
-    can :view, Course
-    can %i[view count_ticket], Lesson
-    can :view, Material
+    can :show, Course
+    can %i[show count_ticket], Lesson
+    can :show, Material
   end
 
   #
   # Set roles for a student
   #
   def grant_student_roles(user)
-    can %i[view index create], Course
-    can %i[view index create count_ticket], Lesson
-    can %i[view index create], Material
+    can :show, Course
+    can %i[show count_ticket], Lesson
+    can :show, Material
+    can %i[new create], Community
 
-    if Course.all.where(user: user).present?
-      grant_course_instance_roles(Course.all.where(user: user))
+    if user.communities.present?
+      grant_community_instance_roles(user.communities)
     end
   end
 
@@ -48,6 +49,17 @@ class Ability
   #
   def grant_admin_roles
     can :manage, :all
+  end
+
+  #
+  # Set roles for Community instances
+  #
+  def grant_community_instance_roles(communities)
+    communities.each do |community|
+      # case community
+      can %i[show index], community
+
+    end
   end
 
   #

@@ -1,4 +1,5 @@
 class Community < ApplicationRecord
-  has_and_belongs_to_many :users
+  # Relationships
+  has_many :users, through: :community_users
   has_many :courses
 end
