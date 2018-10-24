@@ -27,12 +27,13 @@
   %li
     .divider
   %li
+    = link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do
+      Sign Out
+  %li
     = link_to '/legal', :class=>"tiny" do
       Our Story
   %li
     = link_to '/legal', :class=>"tiny" do
       Terms of Use & Community Guidelines
-  %li
-    = link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do
-      Sign Out
+
 

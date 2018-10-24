@@ -15,6 +15,13 @@
 .card .card-content {
   position: relative;
 }
+
+.card {
+  &.light-grey {
+    background-color: lighten(#dfdfdf, 10%);
+  }
+}
+
 .course-card {
   .badge {
     z-index: 5;
