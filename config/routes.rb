@@ -14,6 +14,8 @@ Rails.application.routes.draw do
     end
   end
   get '/home', to: 'pages#home'
+  get '/legal', to: 'pages#legal'
+  get '/join', to: 'pages#join'
   get '/teacher', to: 'pages#teacher'
   get '/testvideo', to: 'pages#testvideo'
 
@@ -23,8 +25,20 @@ Rails.application.routes.draw do
     member do
       put :add_user
       put :remove_user
+      get :members
+      get :courses
+      get :discussions
     end
   end
+
+  resources :discussions do
+    resources :comments, only: [:new, :create]
+  end
+
+  resource :comments do
+    resource :comments
+  end
+
   #
   # Devise session management
   #

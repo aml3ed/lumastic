@@ -1,0 +1,12 @@
+.container.section
+  = render('components/community-header')
+  .row
+    %center
+      .card.paper-popup.wider.left-align
+        .card-content
+          %h4
+            Starting a Discussion?
+            %i Awesome!
+          %h5.grey-text
+            Start with the basics:
+          = render('form', discussion: @discussion)

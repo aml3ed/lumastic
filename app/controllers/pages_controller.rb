@@ -14,4 +14,10 @@ class PagesController < ApplicationController
     generic
   end
 
+  def legal
+  end
+
+  def join
+  end
+
 end

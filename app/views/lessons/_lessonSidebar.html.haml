@@ -2,7 +2,8 @@
 .collection.with-header.courses-sidebar{"data-behavior" => "sortable", "data-url" => "#{sort_course_lessons_path(@course)}"}
   / Make the Course Info Item
   .collection-header
-    %span.badge.card-badge.collaborative Open
+    - if @course.open
+      %span.badge.card-badge.collaborative Open
     %h5= @course.title
   / For each lesson, make a collection item with that lesson and it's url
   - if @lesson.id == nil

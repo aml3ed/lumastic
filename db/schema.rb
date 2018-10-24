@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_17_162235) do
+ActiveRecord::Schema.define(version: 2018_10_18_195109) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,17 +36,23 @@ ActiveRecord::Schema.define(version: 2018_10_17_162235) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "comments", force: :cascade do |t|
+    t.string "content"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "discussion_id"
+    t.bigint "parent_id"
+    t.index ["discussion_id"], name: "index_comments_on_discussion_id"
+    t.index ["parent_id"], name: "index_comments_on_parent_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
   create_table "communities", force: :cascade do |t|
     t.string "name"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "communities_users", id: false, force: :cascade do |t|
-    t.bigint "community_id", null: false
-    t.bigint "user_id", null: false
-    t.index ["community_id", "user_id"], name: "index_communities_users_on_community_id_and_user_id"
   end
 
   create_table "courses", force: :cascade do |t|
@@ -63,6 +69,17 @@ ActiveRecord::Schema.define(version: 2018_10_17_162235) do
     t.boolean "open"
     t.index ["community_id"], name: "index_courses_on_community_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
+  end
+
+  create_table "discussions", force: :cascade do |t|
+    t.string "title"
+    t.string "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "community_id"
+    t.index ["community_id"], name: "index_discussions_on_community_id"
+    t.index ["user_id"], name: "index_discussions_on_user_id"
   end
 
   create_table "lessons", force: :cascade do |t|
@@ -97,6 +114,16 @@ ActiveRecord::Schema.define(version: 2018_10_17_162235) do
     t.datetime "updated_at", null: false
     t.bigint "lesson_id"
     t.index ["lesson_id"], name: "index_materials_on_lesson_id"
+  end
+
+  create_table "memberships", id: false, force: :cascade do |t|
+    t.string "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "community_id"
+    t.index ["community_id"], name: "index_memberships_on_community_id"
+    t.index ["user_id"], name: "index_memberships_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|

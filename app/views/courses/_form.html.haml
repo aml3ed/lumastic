@@ -42,3 +42,4 @@
     = form.button :submit, class: " btn btn waves-effect" do
       - btn_text = "Save" if local_assigns[:btn_text].nil?
       = btn_text
+    = link_to "Cancel", :back, class: "btn-flat"

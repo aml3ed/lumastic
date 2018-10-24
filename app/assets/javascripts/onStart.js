@@ -4,6 +4,7 @@ $(document).on('ready turbolinks:load', function() {
     $('.tooltipped').tooltip();
     $('select').formSelect();
     $('.modal').modal();
+    $('.collapsible').collapsible();
 
     $("[data-behavior='sortable']").sortable({
        items: '> a:not(.not-sortable)',
@@ -26,6 +27,7 @@ $(document).on('ready turbolinks:before-cache', function() {
     $('.tabs').tabs();
     $('.tooltipped').tooltip();
     $('.modal').modal();
+    $('.collapsible').collapsible();
 
 
     $('select').formSelect('destroy');

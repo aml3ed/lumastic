@@ -7,14 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 david = User.create! email: 'david@lumastic.com',
-                     display_name: 'David',
-                     password: 'password',
+                     display_name: 'David Clark',
+                     password: 'This is my password',
                      role: Roleable::ROLE_ADMIN
 
 drew = User.create! email: 'drew@lumastic.com',
-                    display_name: 'Drew',
-                     password: 'password',
+                    display_name: 'Drew Lytle',
+                     password: 'This is my password',
                      role: Roleable::ROLE_ADMIN
+
+josh = User.create! email: 'josh@lumastic.com',
+                    display_name: 'Joshua Stuart',
+                    password: 'This is my password',
+                    role: Roleable::ROLE_ADMIN
+
+lumastic = Community.create! name: "Lumastic Community",
+                              description: "This community is meant to be a communication channel between the Lumastic team and the greater Lumastic community.  This is your space to give us feedback, ask us questions, and stay in the loop about our progress on updates and new features."
 
 webdesign = Community.create! name: "Web Design",
                               description: "This is a community for people who love web design"

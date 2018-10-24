@@ -11,7 +11,7 @@
         .col
           = link_to '#', class: "author text-color" do
             = icon('fas', 'user-circle')
-            = @course.user.display_name
+            = @lesson.user.display_name
         .col.right.vid-actions.valign-wrapper{:style => "margin-left: auto;"}
           - if @lesson.user == current_user
             = link_to edit_course_lesson_path(@course, @lesson), class: "btn-flat waves-effect" do

@@ -1,5 +1,6 @@
 .sidenav li {
   a {
+    padding: 0 16px;
     &.subheader {
       color: $grey-text !important;
     }
@@ -11,6 +12,7 @@
     }
     i {
       color: $primary-color !important;
+      font-size: 1.6rem;
     }
   }
 }

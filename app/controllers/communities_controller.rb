@@ -1,9 +1,11 @@
 class CommunitiesController < ApplicationController
-  before_action :set_community, only: [:add_user, :remove_user, :show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  before_action :set_community, only: [:discussions, :members, :courses, :add_user, :remove_user, :show, :edit, :update, :destroy]
 
   def add_user
     unless @community.users.include?(current_user)
-      @community.users << current_user
+      new_member = Membership.new(user_id: current_user.id, community_id: @community.id, role: "Member")
+      @community.memberships << new_member
     end
     redirect_back(fallback_location: community_path(@community))
   end
@@ -15,11 +17,24 @@ class CommunitiesController < ApplicationController
     redirect_back(fallback_location: community_path(@community))
   end
 
+  def members
+    @members = @community.memberships
+  end
+
+  def discussions
+    @discussions = @community.discussions
+  end
+
+  def courses
+    @courses = @community.courses
+  end
+
   def index
   end
 
   def show
     @courses = @community.courses
+    @discussions = @community.discussions
   end
 
   def new

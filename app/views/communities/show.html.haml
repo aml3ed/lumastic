@@ -19,27 +19,22 @@
         %h5.header-with-link
           =material_icon.forum
           Discussions
-        = link_to '#', class: "icon-action btn-flat waves-effect " do
+        = link_to new_discussion_path(:community_id => @community.id), class: "icon-action btn-flat waves-effect " do
           = material_icon.add.css_class('left')
           New
         .divider
       .col.s12
-        .collection
-          =link_to '#', class: "collection-item text-color" do
-            Test Forum
-            .secondary-content.text-color
-              =icon('fas', 'users')
-              32
-          =link_to '#', class: "collection-item text-color" do
-            Test Forum
-            .secondary-content.text-color
-              =icon('fas', 'users')
-              32
-          =link_to '#', class: "collection-item text-color" do
-            Test Forum
-            .secondary-content.text-color
-              =icon('fas', 'users')
-              32
+        - if not @discussions.empty?
+          .collection
+            - @discussions.each do |discussion|
+              =link_to discussion_path(discussion), class: "collection-item text-color" do
+                =discussion.title
+                .secondary-content.text-color
+                  =icon('fas', 'comment')
+                  =discussion.comments.count
+        - else
+          There are no discussions
+
       .col.s12
         %h5.header-with-link
           =icon('fas', 'bell')
