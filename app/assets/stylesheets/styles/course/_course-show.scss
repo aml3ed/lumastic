@@ -4,8 +4,11 @@
   overflow-x: hidden !important;
   .collection-item {
     color: lighten($primary-color,10%) !important;
-    &.active {
-      background-color: lighten($primary-color,10%) !important;
+  }
+  .active {
+    background-color: lighten($primary-color,10%) !important;
+    color: white !important;
+    a {
       color: white !important;
     }
   }

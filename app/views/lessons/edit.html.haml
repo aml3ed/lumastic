@@ -1,22 +1,9 @@
-.container
-  .section
-  .row.no-margin
-    = link_to courses_path(@course), :class=> "btn-flat waves-effect", style: "padding-left: 0" do
-      %i.material-icons.left-icon arrow_back
-      Back
-  .row
-    %h4.header-with-button
-      = @course.title
-    %span.new.badge.inline-badge.grey{"data-badge-caption" => "Draft"}
-    = link_to new_course_path, :class=>"right btn " + (@lessons.size == 0 ? "disabled": "" ) do
-      Publish #{material_icon.public.css_class('right')}
-  .divider
+.container.section
+  = render 'components/community-header'
   .row
     .col.m4.s12
-      %h6 Course Contents
       = render 'lessonSidebar'
     .col.m8.s12
-      .section
       = render 'form', lesson: @lesson
 :javascript
   M.updateTextFields();

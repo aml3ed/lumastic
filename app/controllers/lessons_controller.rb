@@ -17,9 +17,6 @@ class LessonsController < ApplicationController
     # See get_embed_from_url before action
   end
 
-  def view
-  end
-
   # Example route: GET /lessons/new
   def new
     @lesson = Lesson.new

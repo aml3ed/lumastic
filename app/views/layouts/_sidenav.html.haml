@@ -5,30 +5,19 @@
       .background= image_tag "HeaderImage-8.png"
       %a{:href => "#user"}= image_tag "Symbol.svg", class: "circle"
       %a{:href => "#name"}
-        %span.white-text.name= current_user ? current_user.display_name : "-"
+        %span.white-text.name Please Sign Up
       %a{:href => "#email"}
-        %span.white-text.email= current_user ? current_user.email : "-"
+        %span.white-text.email or Login
   %li
-    .divider
+    = link_to root_path do
+      = material_icon.home
+      Home
   %li
-    %a.subheader Teaching
+    = link_to new_user_registration_path do
+      = icon('fas', 'user-plus')
+      Sign Up
   %li
-    = link_to courses_path do
-      = material_icon.library_books
-      My Courses
-  %li
-    = link_to destroy_user_session_path, :method => :delete do
-      = material_icon.local_library
-      Resource Center
-  %li
-    .divider
-  %li
-    = link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do
-      Terms  Conditions
-  %li
-    = link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do
-      Privacy Policy
-  %li
-    = link_to destroy_user_session_path, :method => :delete, :class=>"tiny" do
-      Sign Out
+    = link_to new_user_session_path do
+      = icon('fas', 'sign-in-alt')
+      Login
 

@@ -25,18 +25,19 @@ class Ability
   # Set roles for user without an account
   #
   def grant_guest_roles
-    can :view, Course
-    can %i[view count_ticket], Lesson
-    can :view, Material
+    can :show, Community
+    can :show, Course
+    can %i[show count_ticket], Lesson
+    can :show, Material
   end
 
   #
   # Set roles for a student
   #
   def grant_student_roles(user)
-    can %i[view index create], Course
-    can %i[view index create count_ticket], Lesson
-    can %i[view index create], Material
+    can %i[show index create], Course
+    can %i[show index create count_ticket], Lesson
+    can %i[show index create], Material
 
     if Course.all.where(user: user).present?
       grant_course_instance_roles(Course.all.where(user: user))

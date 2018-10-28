@@ -52,3 +52,7 @@ h6.flow-text { @include flow-header-mixin($h6-fontsize) }
 .accent-text {
   color: $accent-color;
 }
+
+.secondary-text {
+  color: $secondary-color;
+}

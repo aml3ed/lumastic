@@ -1,0 +1,27 @@
+.container.section
+  = render 'components/community-header'
+  .row
+    .col.s12
+      .row.no-margin
+        .col.s12
+          %h5.header-with-link
+            = icon('fas', 'users', class: "left")
+            Members
+          .divider
+      .row.no-margin
+        .col.s12
+          %table.centered.highlight
+            %thead
+              %tr
+                %th
+                  Name
+                %th
+                  Role
+                %th
+                  Contributions
+            %tbody
+              - @members.each do |member|
+                %tr
+                  %td= member.user.display_name
+                  %td= member.role
+                  %td 1

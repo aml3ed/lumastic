@@ -1,5 +1,8 @@
 class User < ApplicationRecord
-  has_and_belongs_to_many :communities
+  has_many :memberships, dependent: :destroy
+  has_many :communities, through: :memberships
+  has_many :discussions
+  has_many :comments
   include Roleable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

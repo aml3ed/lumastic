@@ -1,0 +1,31 @@
+= form_with(model: discussion, local: true) do |form|
+  / Show Errors
+  - if discussion.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(discussion.errors.count, "error")
+        prohibited this discussion from being saved:
+      %ul
+        - discussion.errors.full_messages.each do |message|
+          %li= message
+  / Put in form
+
+  .row.no-margin
+    / discussion Title
+    .input-field.col.s12.m12.l12
+      = form.label :title, "Discussion Title", for: "title"
+      = form.text_field :title, id: "title"
+      = hidden_field_tag(:community_id, @community.id)
+
+  / discussion Info
+  .row.no-margin
+    .input-field.col.s12
+      = form.label :description, for: "description"
+      = form.text_area :description, id: "description", class: "materialize-textarea"
+
+  / Save
+  .row
+    = form.button :submit, class: " btn btn waves-effect" do
+      - btn_text = "Save" if local_assigns[:btn_text].nil?
+      = btn_text
+    = link_to "Cancel", :back, class: "btn-flat"

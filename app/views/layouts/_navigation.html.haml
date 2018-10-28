@@ -1,51 +1,12 @@
 .navbar-fixed
-  %ul#subjectDropdown.dropdown-content
-    %li
-      %a{:href => "#!"}
-        = material_icon.edit
-        Language Arts
-    %li
-      %a{:href => "#!"}
-        = icon('fas', 'paint-brush')
-        Art
-    %li
-      %a{:href => "#!"}
-        = icon('fas', 'music')
-        Music
-    %li
-      %a{:href => "#!"}
-        = icon('fas', 'divide')
-        Math
-    %li
-      %a{:href => "#!"}
-        = icon('fas', 'flask')
-        Science
-    %li
-      %a{:href => "#!"}
-        = icon('fas', 'compass')
-        History
-    %li
-      %a{:href => "#!"}
-        = icon('fas', 'globe')
-        Foreign Language
-
-  %ul#userDropdown.dropdown-content
-    %li
-      %a{:href => "#!"}
-        = icon('fas', 'info-circle')
-        Account Info
-    %li
-      = link_to destroy_user_session_path, :method => :delete do
-        = icon('fas', 'sign-out-alt')
-        Signout
   %nav
-    .nav-wrapper
-      .left
+    .nav-wrapper.nav-flex
+      .f0
         %a.menu-button.sidenav-trigger.show-on-large.no-link-link{"data-target" => "slide-out"}
           = material_icon.menu
         = link_to root_path, :class=>"brand-logo" do
           = image_tag 'LumasticV16'
-      %ul.left.left-nav.hide-on-med-and-down
+      %ul.f1.hide-on-med-and-down
         %li#search-nav-item
           %form.hide-on-med-and-down
             #search-form
@@ -54,7 +15,7 @@
                 %input#search-input{:placeholder => "What makes you curious?", :required => "", :type => "search"}/
                 #close-icon.search-icon= material_icon.close
               #searchResults
-      %ul.right.hide-on-med-and-down
+      %ul.f0.hide-on-med-and-down
         - if !current_user
           %li
             = link_to "Sign Up", new_user_registration_path, :class=>" btn waves-effect waves-light"
@@ -67,4 +28,16 @@
               %span
                 = current_user.display_name != "" ? current_user.display_name : current_user.email
               = material_icon.arrow_drop_down.css_class("right")
-= render 'layouts/sidenav'
+            %ul#userDropdown.dropdown-content
+              %li
+                %a{:href => "#!"}
+                  = icon('fas', 'info-circle')
+                  Account Info
+              %li
+                = link_to destroy_user_session_path, :method => :delete do
+                  = icon('fas', 'sign-out-alt')
+                  Signout
+- if current_user
+  = render 'layouts/sidenav-user'
+- else
+  = render 'layouts/sidenav'

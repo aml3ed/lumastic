@@ -10,8 +10,8 @@
             %h6 Create your account to get started
         .row
           .input-field.col.s12
-            = f.text_field :display_name, autofocus: true, autocomplete: "display_name", type: "text", id: 'display_name', placeholder: "What should we call you?"
-            = f.label :display_name, for: "display_name"
+            = f.text_field :display_name, autofocus: true, autocomplete: "display_name", type: "text", id: 'display_name', placeholder: "First and last preferably"
+            = f.label :display_name, "Your Name", for: "display_name"
         .row
           .input-field.col.s12
             = f.email_field :email, autocomplete: "email", type: "email", id: 'email', class: "validate", placeholder: "What's your email'?"
@@ -24,5 +24,9 @@
         .row
           = f.button :submit, class: "col s12 btn btn-large waves-effect form-submit" do
             Sign Up
-  Already have an account? #{link_to "Login", new_user_session_path}
+        .row
+          Already have an account? #{link_to "Login", new_user_session_path}
+  %p.grey-text
+    By signing up, you are agreeing to our
+    = link_to "Terms of Use & Community Guidelines", '/legal'
 
