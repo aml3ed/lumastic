@@ -17,8 +17,8 @@
         .col.s12.show-field
           %label Keywords
           %p= @course.keywords
-      .row
-        .col.s12
-          = link_to edit_course_path(@course), :class=> "btn-flat waves-effect" do
-            =material_icon.mode_edit.css_class('left')
-            Edit
+        -if @course.user == current_user
+          .col.s12
+            = link_to edit_course_path(@course), :class=> "btn waves-effect" do
+              =material_icon.mode_edit.css_class('left')
+              Edit

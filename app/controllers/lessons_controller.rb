@@ -119,11 +119,7 @@ class LessonsController < ApplicationController
     def get_embed_from_url
       if @lesson.video_url != nil
         @vid_id = helpers.youtube_id(@lesson.video_url)
-        if @vid_id != nil
-          @embed_url = helpers.embed_url(@vid_id)
-        end
       end
-
     end
 
     def get_ticket_percentage

@@ -6,7 +6,7 @@
       = render 'components/toc'
     .col.s12.m12.l8
       .row.no-margin
-      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?", videoURL: @lesson.video_url}
+      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?"}
       .row.section.valign-wrapper.no-margin
         .col
           = link_to '#', class: "author text-color" do
@@ -17,7 +17,7 @@
             = link_to edit_course_lesson_path(@course, @lesson), class: "btn-flat waves-effect" do
               = material_icon.edit.css_class('left')
               Edit
-          = link_to '#', class: "btn-flat waves-effect" do
+          = link_to 'https://www.facebook.com/dialog/share?app_id=358606851550752&href='+CGI.escape(request.original_url), class: "btn-flat waves-effect share", "data-network": "facebook" do
             = material_icon.share.css_class('left')
             share
           = link_to '#', class: "btn-flat waves-effect" do

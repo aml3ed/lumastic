@@ -12,23 +12,13 @@
         = comment.user.display_name
       .row.col.s12.content.no-margin
         = comment.content
-      .row.col.s12.actions.no-margin
-        %a.valign-wrapper{onclick:"showReply(this);", "data-target" => "##{comment.id}"}
-          Reply
-          = material_icon.reply
-  .reply-form
-    .card-panel.comment-card{"id" => "#{comment.id}", "style" => "display: none;"}
-      .comment-content
-        .row.col.s12.no-margin.display-name
-          Thoughts?
-        .row.col.s12.no-margin
-          = form_for [comment.discussion, Comment.new] do |f|
-            = f.hidden_field :user_id, :value => current_user.id
-            = f.hidden_field :parent_id, :value => comment.id
-            = f.text_area :content, class: "materialize-textarea"
-            = f.button :submit, class: " btn-small waves-effect" do
-              - btn_text = "Reply" if local_assigns[:btn_text].nil?
-              = btn_text
+      - if user_signed_in?
+        .row.col.s12.actions.no-margin
+          %a.valign-wrapper{onclick:"showReply(this);", "data-target" => "##{comment.id}"}
+            Reply
+            = material_icon.reply
+  - if user_signed_in?
+    = render 'comments/reply-form', comment: comment
   %ul.comment-thread
     - comment.replies.each do |comment|
       = render 'comments/comment', comment: comment

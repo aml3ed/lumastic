@@ -5,7 +5,7 @@
         %h4.header-with-link.header-with-button
           = @community.name
     .col.no-padding
-      - unless @community.users.include?(current_user)
+      - unless @community.is_user_member(current_user)
         = link_to add_user_community_path(@community), method: :put, class: "btn-small waves-effect " do
           = icon('fas', 'user-plus', class: "left")
           join
@@ -28,6 +28,7 @@
       .btn-flat.primary-text.waves-effect.no-padding.dropdown-trigger{"data-target" => "leave_dropdown"}
         = material_icon.more_vertical
         %ul#leave_dropdown.dropdown-content
-          %li
-            = link_to "Leave Community", remove_user_community_path(@community), method: :put, class: "red-text"
+          -if @community.is_user_member(current_user)
+            %li
+              = link_to "Leave Community", remove_user_community_path(@community), method: :put, class: "red-text"
   .divider

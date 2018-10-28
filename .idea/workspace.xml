@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="46510435-9db4-415c-9b13-9ca538ef8133" name="Default" comment="">
+    <list default="true" id="46510435-9db4-415c-9b13-9ca538ef8133" name="Default" comment="Added secret base">
+      <change beforePath="$PROJECT_DIR$/.idea/lumastic.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/lumastic.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose-prod.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose-prod.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/controllers/lessons_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/lessons_controller.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/ability.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/ability.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models/community.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/models/community.rb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/comments/_comment.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/comments/_comment.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/communities/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/communities/show.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/components/_community-header.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/components/_community-header.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/components/_toc-course.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/components/_toc-course.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/components/_toc.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/components/_toc.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/courses/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/courses/show.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/discussions/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/discussions/show.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/layouts/application.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/lessons/_videoPlayer.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/lessons/_videoPlayer.html.haml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views/lessons/show.html.haml" beforeDir="false" afterPath="$PROJECT_DIR$/app/views/lessons/show.html.haml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -18,13 +32,68 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="docker-compose-prod.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/docker-compose-prod.yml">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="show.html.haml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/discussions/show.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+            <state relative-caret-position="495">
+              <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_comment.html.haml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/comments/_comment.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.haml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/lessons/show.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="390">
+              <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="share.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/share.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="285">
+              <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="youtube_video.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/assets/javascripts/youtube_video.js">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="_og.html.haml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/layouts/_og.html.haml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="6" />
             </state>
           </provider>
         </entry>
@@ -32,126 +101,121 @@
       <file leaf-file-name="application.html.haml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="104" selection-start-line="4" selection-start-column="104" selection-end-line="4" selection-end-column="104" />
+            <state relative-caret-position="75">
+              <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+      <file leaf-file-name="_videoPlayer.html.haml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/lessons/_videoPlayer.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+            <state relative-caret-position="435">
+              <caret line="29" selection-start-line="29" selection-end-line="29" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="docker-compose.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+      <file leaf-file-name="lessons_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/lessons_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+            <state relative-caret-position="1605">
+              <caret line="107" selection-start-line="107" selection-end-line="107" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Dockerfile-prod" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dockerfile-prod">
+      <file leaf-file-name="_reply-form.html.haml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/comments/_reply-form.html.haml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Dockerfile" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Dockerfile">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="11" selection-start-line="11" selection-end-line="11" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="database.yml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/database.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+            <state relative-caret-position="180">
+              <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="FindInProjectRecents">
     <findStrings>
       <find>port</find>
+      <find>tickets</find>
+      <find>subject</find>
+      <find>beta</find>
+      <find>community</find>
+      <find>course</find>
+      <find>view</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="develop" />
+        <entry key="$PROJECT_DIR$" value="addingCommunities" />
       </map>
     </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/views/devise/sessions/new.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/devise/shared/_links.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/devise/unlocks/new.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/layouts/mailer.text.haml" />
-        <option value="$PROJECT_DIR$/app/views/layouts/mailer.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_userDropdown.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_subjectDropdown.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_navigation.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_footer.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_alerts.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/layouts/_sidenav.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/lessons/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/lessons/_lessonSidebar.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/lessons/_tab-content.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/lessons/edit.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/lessons/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/lessons/new.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/lessons/show.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/lessons/view.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/materials/_form.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/materials/edit.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/materials/index.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/materials/new.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/materials/show.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/pages/_homeHero.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/pages/home.html.haml" />
-        <option value="$PROJECT_DIR$/app/views/pages/teacher.html.haml" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/navigation/_verticalNav.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/base/_mixins.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/base/_notfy.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/base/_typography.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/navigation/_sidenav.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/base/_layout.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/course/_course-show.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/_badges.scss" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/base/_globals.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/_button.scss" />
-        <option value="$PROJECT_DIR$/app/assets/stylesheets/main.scss" />
-        <option value="$PROJECT_DIR$/.dockerignore" />
-        <option value="$PROJECT_DIR$/app/views/lessons/_videoPlayer.html.haml" />
-        <option value="$PROJECT_DIR$/docker-compose-staging.yml" />
+        <option value="$PROJECT_DIR$/app/controllers/communities_controller.rb" />
+        <option value="$PROJECT_DIR$/config/locales/en.yml" />
+        <option value="$PROJECT_DIR$/public/teach.html" />
+        <option value="$PROJECT_DIR$/app/views/comments/_form.html.haml" />
+        <option value="$PROJECT_DIR$/app/models/discussion.rb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/components/_button.scss" />
+        <option value="$PROJECT_DIR$/app/views/lessons/_lessonSidebar.html.haml" />
+        <option value="$PROJECT_DIR$/app/models/comment.rb" />
+        <option value="$PROJECT_DIR$/app/models/user.rb" />
+        <option value="$PROJECT_DIR$/app/controllers/discussions_controller.rb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/components/_comments.scss" />
+        <option value="$PROJECT_DIR$/app/controllers/comments_controller.rb" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/_layout.scss" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/_typography.scss" />
+        <option value="$PROJECT_DIR$/app/views/pages/privacy.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/pages/legal.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_sidenav.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/devise/registrations/new.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/pages_controller.rb" />
+        <option value="$PROJECT_DIR$/config/routes.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_footer.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/pages/join.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/components/_course-card.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/components/_course-card-withaction.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_sidenav-user.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/pages/home.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/components/_card.scss" />
+        <option value="$PROJECT_DIR$/app/views/components/_community-card.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/components/_new-community-card.html.haml" />
         <option value="$PROJECT_DIR$/db/seeds.rb" />
-        <option value="$PROJECT_DIR$/docker-compose.yml" />
-        <option value="$PROJECT_DIR$/config/secrets.yml" />
-        <option value="$PROJECT_DIR$/Dockerfile" />
-        <option value="$PROJECT_DIR$/config/database.yml" />
-        <option value="$PROJECT_DIR$/config/environments/production.rb" />
-        <option value="$PROJECT_DIR$/Dockerfile-prod" />
+        <option value="$PROJECT_DIR$/app/views/courses/_form.html.haml" />
+        <option value="$PROJECT_DIR$/app/assets/stylesheets/styles/_home-hero.scss" />
+        <option value="$PROJECT_DIR$/app/views/pages/_homeHero.html.haml" />
+        <option value="$PROJECT_DIR$/app/helpers/application_helper.rb" />
+        <option value="$PROJECT_DIR$/app/views/communities/show.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/components/_toc.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/components/_toc-course.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/courses/show.html.haml" />
+        <option value="$PROJECT_DIR$/app/models/community.rb" />
+        <option value="$PROJECT_DIR$/app/views/components/_community-header.html.haml" />
+        <option value="$PROJECT_DIR$/app/models/ability.rb" />
+        <option value="$PROJECT_DIR$/app/views/discussions/show.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/comments/_reply-form.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/comments/_comment.html.haml" />
+        <option value="$PROJECT_DIR$/app/views/lessons/_videoPlayer.html.haml" />
+        <option value="$PROJECT_DIR$/app/controllers/lessons_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/_og.html.haml" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.haml" />
-        <option value="$PROJECT_DIR$/docker-compose-prod.yml" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/share.js" />
+        <option value="$PROJECT_DIR$/app/views/lessons/show.html.haml" />
       </list>
     </option>
   </component>
@@ -167,10 +231,10 @@
     </packageJsonPaths>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2560" />
-    <option name="y" value="-505" />
-    <option name="width" value="2560" />
-    <option name="height" value="1057" />
+    <option name="x" value="228" />
+    <option name="y" value="137" />
+    <option name="width" value="1278" />
+    <option name="height" value="777" />
   </component>
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -196,6 +260,31 @@
               <item name="lumastic" type="b2602c69:ProjectViewProjectNode" />
               <item name="lumastic" type="462c0819:PsiDirectoryNode" />
               <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lumastic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lumastic" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="javascripts" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lumastic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lumastic" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="helpers" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lumastic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lumastic" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="lumastic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="lumastic" type="462c0819:PsiDirectoryNode" />
+              <item name="app" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -205,31 +294,49 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="layouts" type="462c0819:PsiDirectoryNode" />
             </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Project Files">
+          <expand>
             <path>
-              <item name="lumastic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="lumastic" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="lumastic" type="cbb8eebc:String" user="lumastic" />
+            </path>
+            <path>
+              <item name="Root" type="cbb8eebc:String" user="Root" />
+              <item name="lumastic" type="cbb8eebc:String" user="lumastic" />
+              <item name="config" type="cbb8eebc:String" user="config" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
     </panes>
   </component>
+  <component name="PropertiesComponent">
+    <property name="RailsGeneratorsPopup.hiddenIncluded" value="false" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/lessons/show.html.haml&#10;les&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/controllers/lessons_controller.rb&#10;lesson&#9;null&#9;null&#10;videopla&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/lessons/_videoPlayer.html.haml&#10;show&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/lessons/show.html.haml&#10;comme&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/comments/_comment.html.haml&#10;abili&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/models/ability.rb&#10;header&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/components/_community-header.html.haml&#10;toc&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/components/_toc-course.html.haml&#10;home&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/assets/stylesheets/styles/_home-hero.scss&#10;form&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/courses/_form.html.haml&#10;new&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/courses/new.html.haml&#10;seed&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/db/seeds.rb&#10;comm&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/components/_community-card.html.haml&#10;glo&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/assets/stylesheets/base/_globals.scss&#10;typ&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/assets/stylesheets/styles/_typography.scss&#10;card&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/assets/stylesheets/styles/components/_card.scss&#10;side&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/layouts/_sidenav-user.html.haml&#10;sidena&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/layouts/_sidenav.html.haml&#10;course&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/components/_course-card.html.haml&#10;seeds&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/db/seeds.rb&#10;footer&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/layouts/_footer.html.haml&#10;join&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/pages/join.html.haml&#10;route&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/config/routes.rb&#10;applica&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/layouts/application.html.haml&#10;sidenav&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/layouts/_sidenav.html.haml&#10;siden&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/layouts/_sidenav-user.html.haml&#10;toc-&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/components/_toc-course.html.haml&#10;modal&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/components/_new-community-modal.html.haml&#10;routes&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/config/routes.rb&#10;roles&#9;null&#9;null&#10;car&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/components/_community-card.html.haml&#10;reply-form&#9;null&#9;null&#10;com&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/comments/_comment.html.haml&#10;c&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/models/comment.rb&#10;commen&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/comments/_comment.html.haml&#10;disc&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/controllers/discussions_controller.rb&#10;user&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/models/user.rb&#10;schema&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/db/schema.rb&#10;comment&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/models/comment.rb&#10;sidebar&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/courses/_courseSidebar.html.haml&#10;butt&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/assets/stylesheets/styles/components/_button.scss&#10;control&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/controllers/communities_controller.rb&#10;comments&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/assets/stylesheets/styles/components/_comments.scss&#10;cont&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/controllers/comments_controller.rb&#10;sche&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/db/schema.rb&#10;discuss&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/models/discussion.rb&#10;head&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/components/_community-header.html.haml&#10;discussion&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/models/discussion.rb&#10;mem&#9;FILE&#9;file:///Users/Drew/Sites/lumastic/app/views/communities/members.html.haml" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+  </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app/views/layouts" />
+      <recent name="$PROJECT_DIR$/app/views/communities" />
+      <recent name="$PROJECT_DIR$/app/views/components" />
+      <recent name="$PROJECT_DIR$/bash" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/../." />
+      <recent name="$PROJECT_DIR$/app/bash" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets/styles/components" />
       <recent name="$PROJECT_DIR$/app/assets/stylesheets/styles" />
-      <recent name="$PROJECT_DIR$/app/assets/stylesheets/styles/course" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/app/views/pages" />
-      <recent name="$PROJECT_DIR$/app/views/materials" />
-      <recent name="$PROJECT_DIR$/app/views/lessons" />
-      <recent name="$PROJECT_DIR$/app/views/layouts" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -345,126 +452,16 @@
       <workItem from="1538098631604" duration="12189000" />
       <workItem from="1538657487661" duration="560000" />
       <workItem from="1538740805859" duration="3950000" />
-      <workItem from="1538936547096" duration="25823000" />
-    </task>
-    <task id="LOCAL-00001" summary="Refactor views with HAML and SCSS with new files.  Added production Dockerfile and docker-compose file">
-      <created>1539012188360</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1539012188361</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Changed compose-prod file to specify docker prod file">
-      <created>1539012916522</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1539012916522</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Changed compose-prod file to specify docker prod file">
-      <created>1539013016497</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1539013016497</updated>
-    </task>
-    <task id="LOCAL-00004" summary="Added secret base">
-      <created>1539013953657</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1539013953657</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Added secret base">
-      <created>1539014398379</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1539014398379</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Added secret base">
-      <created>1539014581808</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1539014581808</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Added secret base">
-      <created>1539014747233</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1539014747233</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Added secret base">
-      <created>1539014927486</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1539014927486</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Added secret base">
-      <created>1539015173069</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1539015173069</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Added secret base">
-      <created>1539015213887</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1539015213887</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Added secret base">
-      <created>1539015325864</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1539015325864</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Added secret base">
-      <created>1539015537771</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1539015537771</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Added secret base">
-      <created>1539016128377</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1539016128377</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Added secret base">
-      <created>1539017109633</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1539017109633</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Added secret base">
-      <created>1539018299280</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1539018299280</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Added secret base">
-      <created>1539018651581</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1539018651581</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Added secret base">
-      <created>1539019144521</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1539019144521</updated>
+      <workItem from="1538936547096" duration="37158000" />
+      <workItem from="1539126769694" duration="3729000" />
+      <workItem from="1539269789267" duration="138000" />
+      <workItem from="1539289825930" duration="5305000" />
+      <workItem from="1539372084158" duration="16156000" />
+      <workItem from="1539615208512" duration="91144000" />
+      <workItem from="1540315184007" duration="17137000" />
+      <workItem from="1540567374692" duration="959000" />
+      <workItem from="1540675718985" duration="6371000" />
+      <workItem from="1540750330219" duration="129000" />
     </task>
     <task id="LOCAL-00018" summary="Added secret base">
       <created>1539019225418</created>
@@ -648,27 +645,186 @@
       <option name="project" value="LOCAL" />
       <updated>1539032373093</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Added secret base">
+      <created>1539032508936</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1539032508936</updated>
+    </task>
+    <task id="LOCAL-00045" summary="Added secret base">
+      <created>1539032557726</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1539032557726</updated>
+    </task>
+    <task id="LOCAL-00046" summary="Added secret base">
+      <created>1539032615907</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1539032615907</updated>
+    </task>
+    <task id="LOCAL-00047" summary="Added secret base">
+      <created>1539032675302</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1539032675302</updated>
+    </task>
+    <task id="LOCAL-00048" summary="Added secret base">
+      <created>1539032824888</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1539032824888</updated>
+    </task>
+    <task id="LOCAL-00049" summary="Added secret base">
+      <created>1539032954750</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1539032954750</updated>
+    </task>
+    <task id="LOCAL-00050" summary="Added secret base">
+      <created>1539033260011</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1539033260014</updated>
+    </task>
+    <task id="LOCAL-00051" summary="Added secret base">
+      <created>1539035242184</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1539035242184</updated>
+    </task>
+    <task id="LOCAL-00052" summary="Added secret base">
+      <created>1539035494455</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1539035494455</updated>
+    </task>
+    <task id="LOCAL-00053" summary="Added secret base">
+      <created>1539035794951</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1539035794951</updated>
+    </task>
+    <task id="LOCAL-00054" summary="Added secret base">
+      <created>1539043903593</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1539043903593</updated>
+    </task>
+    <task id="LOCAL-00055" summary="Updated sh file">
+      <created>1539043972497</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1539043972497</updated>
+    </task>
+    <task id="LOCAL-00056" summary="Woops">
+      <created>1539043993537</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1539043993537</updated>
+    </task>
+    <task id="LOCAL-00057" summary="Added secret base">
+      <created>1539048937623</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1539048937623</updated>
+    </task>
+    <task id="LOCAL-00058" summary="Added secret base">
+      <created>1539130190459</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1539130190460</updated>
+    </task>
+    <task id="LOCAL-00059" summary="Added secret base">
+      <created>1539525332248</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1539525332249</updated>
+    </task>
+    <task id="LOCAL-00060" summary="Added community model with relationship to courses and users.  Created a community show page (currently listed as index).  RUN MIGRATIONS">
+      <created>1539630290857</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1539630290858</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Added communities CRUD, join and leave">
+      <created>1539709446410</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1539709446414</updated>
+    </task>
+    <task id="LOCAL-00062" summary="More UX with community and courses and lessons">
+      <created>1539795184227</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1539795184227</updated>
+    </task>
+    <task id="LOCAL-00063" summary="Added Terms of Use, fixed links on homepage, added 'Join' page with embedded Google Form">
+      <created>1540390254658</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1540390254660</updated>
+    </task>
+    <task id="LOCAL-00064" summary="Added start a community card on the homepage">
+      <created>1540393406388</created>
+      <option name="number" value="00064" />
+      <option name="presentableId" value="LOCAL-00064" />
+      <option name="project" value="LOCAL" />
+      <updated>1540393406388</updated>
+    </task>
+    <task id="LOCAL-00065" summary="Updated community card.  Added tooltip on open courses to course form.  Updated seeds file to have a curator community">
+      <created>1540395270728</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1540395270728</updated>
+    </task>
+    <task id="LOCAL-00066" summary="Changed homepage to better reflect what we're trying to do a la Touve recommendation">
+      <created>1540567829617</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1540567829617</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25693000" />
+    <option name="totallyTimeSpent" value="178096000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2560" y="-505" width="2560" height="1057" extended-state="6" />
-    <editor active="true" />
+    <frame x="228" y="137" width="1278" height="777" extended-state="0" />
     <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21278317" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5002767" side_tool="true" weight="0.34816462" />
-      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" visible="true" weight="0.23499492" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.024390243" />
-      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4997233" weight="0.2601626" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.111328125" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.3494318" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.5006993" side_tool="true" weight="0.23499492" />
       <window_info anchor="right" id="Database" order="3" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49921995" weight="0.46088195" />
+      <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="8" sideWeight="0.4993007" weight="0.234375" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.024390243" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="10" sideWeight="0.4997233" weight="0.2413793" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -678,26 +834,27 @@
       <window_info anchor="bottom" id="Messages" order="12" weight="0.46022728" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49921995" weight="0.32604167" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="bottom" id="Docker" order="7" weight="0.3494318" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.23464306" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.023359288" />
-      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32925472" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Version Control" order="8" />
+      <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Messages" order="12" weight="0.3299389" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -721,318 +878,358 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Refactor views with HAML and SCSS with new files.  Added production Dockerfile and docker-compose file" />
     <MESSAGE value="Changed compose-prod file to specify docker prod file" />
+    <MESSAGE value="Updated sh file" />
+    <MESSAGE value="Woops" />
     <MESSAGE value="Added secret base" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added secret base" />
+    <MESSAGE value="Added community model with relationship to courses and users.  Created a community show page (currently listed as index).  RUN MIGRATIONS" />
+    <MESSAGE value="Added communities CRUD, join and leave" />
+    <MESSAGE value="More UX with community and courses and lessons" />
+    <MESSAGE value="Added Terms of Use, fixed links on homepage, added 'Join' page with embedded Google Form" />
+    <MESSAGE value="Added start a community card on the homepage" />
+    <MESSAGE value="Updated community card.  Added tooltip on open courses to course form.  Updated seeds file to have a curator community" />
+    <MESSAGE value="Changed homepage to better reflect what we're trying to do a la Touve recommendation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed homepage to better reflect what we're trying to do a la Touve recommendation" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="6" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/materials/index.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/materials/new.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" selection-start-line="3" selection-end-line="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/materials/show.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/_homeHero.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="24" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/pages/teacher.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" selection-start-line="4" selection-end-line="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/navigation/_mainNav-mobile.scss">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20181018014615_create_memberships.rb">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/navigation/_verticalNav.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/course/_course-card.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/components/_tab-content.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/components/_video.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-719" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/components/_login.scss">
+    <entry file="file://$PROJECT_DIR$/db/migrate/20181018020401_add_user_and_community_to_membership.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base/_media-screens.scss">
+    <entry file="file://$PROJECT_DIR$/app/controllers/communities_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="7" lean-forward="true" selection-start-line="15" selection-start-column="7" selection-end-line="15" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/comments_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/schema.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="953">
+          <caret line="115" column="5" selection-start-line="115" selection-start-column="5" selection-end-line="115" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Library/Caches/RubyMine2018.1/ruby_stubs/1320714068/1322250864/gems/cancancan-2.2.0/lib/cancan/ability.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-184">
+          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/_layout.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/components/_new-community-modal.html.haml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/navigation/_dropdown.scss">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/components/_number-list.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+        <state relative-caret-position="270">
+          <caret line="18" column="1" lean-forward="true" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base/_mixins.scss">
+    <entry file="file://$PROJECT_DIR$/app/views/communities/new.html.haml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/legal.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="30">
+          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/navigation/navbar.scss">
+    <entry file="file://$PROJECT_DIR$/app/views/devise/registrations/new.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="2" column="6" selection-start-line="2" selection-start-column="6" selection-end-line="2" selection-end-column="6" />
+        <state relative-caret-position="480">
+          <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/pages_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/routes.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" column="25" lean-forward="true" selection-start-line="5" selection-start-column="25" selection-end-line="5" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_footer.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="15" lean-forward="true" selection-start-line="13" selection-start-column="15" selection-end-line="13" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/join.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="65" selection-start-line="3" selection-start-column="65" selection-end-line="3" selection-end-column="65" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/components/_course-card.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="6" lean-forward="true" selection-start-line="13" selection-start-column="6" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/components/_course-card-withaction.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="17" lean-forward="true" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidenav.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="22" lean-forward="true" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_sidenav-user.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="29" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/pages/home.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/_typography.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="582">
-          <caret line="53" column="1" selection-start-line="53" selection-start-column="1" selection-end-line="53" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/navigation/_sidenav.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="1" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/components/_badges.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/components/_button.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="1" selection-start-line="2" selection-start-column="1" selection-end-line="2" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/_home-hero.scss">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/_layout.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="27" selection-start-column="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/_footer.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" selection-start-line="1" selection-end-line="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/_notify.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="1" selection-start-line="22" selection-start-column="1" selection-end-line="22" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/course/_course-show.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="840">
+          <caret line="56" column="19" selection-start-line="56" selection-start-column="19" selection-end-line="56" selection-end-column="19" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/base/_globals.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
-          <caret line="53" selection-start-line="53" selection-end-line="53" />
+        <state relative-caret-position="210">
+          <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/main.scss">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/components/_card.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
+        <state relative-caret-position="315">
+          <caret line="21" column="3" selection-start-line="21" selection-start-column="3" selection-end-line="21" selection-end-column="3" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.dockerignore">
+    <entry file="file://$PROJECT_DIR$/app/views/components/_community-card.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="45">
-          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        <state relative-caret-position="105">
+          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/youtube_api.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/youtube_video.js">
+    <entry file="file://$PROJECT_DIR$/app/views/components/_new-community-card.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="18" selection-start-line="9" selection-start-column="18" selection-end-line="9" selection-end-column="18" />
+        <state relative-caret-position="165">
+          <caret line="11" column="48" selection-start-line="11" selection-start-column="48" selection-end-line="11" selection-end-column="48" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/lessons/_videoPlayer.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="25" column="20" lean-forward="true" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/lessons/view.html.haml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="23" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/onStart.js">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile.prod">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="16" lean-forward="true" selection-start-line="10" selection-start-column="16" selection-end-line="10" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/test.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="46" lean-forward="true" selection-start-line="33" selection-start-column="46" selection-end-line="33" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="35" column="46" lean-forward="true" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/db/seeds.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        <state relative-caret-position="255">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/secrets.yml">
+    <entry file="file://$PROJECT_DIR$/app/views/courses/new.html.haml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/courses/_form.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="17" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+        <state relative-caret-position="480">
+          <caret line="32" column="13" selection-start-line="32" selection-start-column="13" selection-end-line="32" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/puma.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environment.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/application.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/boot.rb">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/database.yml">
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/styles/_home-hero.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="24" column="37" selection-start-line="24" selection-start-column="37" selection-end-line="24" selection-end-column="37" />
+        <state relative-caret-position="360">
+          <caret line="24" column="41" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile">
+    <entry file="file://$PROJECT_DIR$/app/views/pages/_homeHero.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        <state relative-caret-position="315">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/communities/show.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="37" lean-forward="true" selection-start-line="28" selection-start-column="37" selection-end-line="28" selection-end-column="37" />
+        <state relative-caret-position="345">
+          <caret line="23" column="13" lean-forward="true" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/application_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/components/_toc.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/components/_toc-course.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="13" lean-forward="true" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/courses/show.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="18" lean-forward="true" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/course.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="12" selection-start-column="6" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/community.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/components/_community-header.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" column="38" lean-forward="true" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/ability.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="34" column="3" lean-forward="true" selection-start-line="34" selection-start-column="3" selection-end-line="34" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/discussions/show.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="33" column="51" selection-start-line="33" selection-start-column="51" selection-end-line="33" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/comments/_reply-form.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" column="20" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/comments/_comment.html.haml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="52" selection-start-line="20" selection-start-column="52" selection-end-line="20" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/lessons_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" lean-forward="true" selection-start-line="15" selection-end-line="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/lessons_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1605">
+          <caret line="107" selection-start-line="107" selection-end-line="107" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="104" selection-start-line="4" selection-start-column="104" selection-end-line="4" selection-end-column="104" />
+        <state relative-caret-position="75">
+          <caret line="5" column="24" selection-start-line="5" selection-start-column="24" selection-end-line="5" selection-end-column="24" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Dockerfile-prod">
+    <entry file="file://$PROJECT_DIR$/app/views/layouts/_og.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose.yml">
+    <entry file="file://$PROJECT_DIR$/app/views/lessons/_videoPlayer.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="12" lean-forward="true" selection-start-column="12" selection-end-column="12" />
+        <state relative-caret-position="435">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/docker-compose-prod.yml">
+    <entry file="file://$PROJECT_DIR$/app/views/lessons/show.html.haml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="10" column="18" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+        <state relative-caret-position="390">
+          <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/youtube_video.js">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/share.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="3" selection-start-line="19" selection-start-column="3" selection-end-line="19" selection-end-column="3" />
         </state>
       </provider>
     </entry>
