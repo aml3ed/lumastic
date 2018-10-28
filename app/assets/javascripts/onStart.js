@@ -3,6 +3,7 @@ $(document).on('ready turbolinks:load', function() {
     $('.tabs').tabs();
     $('.tooltipped').tooltip();
     $('select').formSelect();
+    M.Modal._count = 0;
     $('.modal').modal();
     $('.collapsible').collapsible();
 
@@ -26,6 +27,7 @@ $(document).on('ready turbolinks:before-cache', function() {
     $(".dropdown-trigger").dropdown();
     $('.tabs').tabs();
     $('.tooltipped').tooltip();
+    M.Modal._count = 0;
     $('.modal').modal();
     $('.collapsible').collapsible();
 

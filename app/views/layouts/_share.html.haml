@@ -1,0 +1,16 @@
+#share-modal.modal
+  .modal-content
+    .row
+      .col.s12
+        %h5 Share with people you love!
+    .row
+      .col.s3
+        = image_tag "social-icons/email.svg", class: "responsive-img share", onclick: "shareFunction(this);", "data-network": "email"
+      .col.s3
+        = image_tag "social-icons/facebook.svg", class: "responsive-img share", onclick: "shareFunction(this);", "data-network": "facebook"
+      .col.s3
+        = image_tag "social-icons/linkedin.svg", class: "responsive-img share", onclick: "shareFunction(this);", "data-network": "linkedin"
+      .col.s3
+        = image_tag "social-icons/twitter.svg", class: "responsive-img share", onclick: "shareFunction(this);", "data-network": "twitter"
+  .modal-footer
+    .modal-close.waves-effect.btn-flat.grey-text Close
