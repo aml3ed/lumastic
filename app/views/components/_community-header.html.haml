@@ -10,9 +10,10 @@
           = icon('fas', 'user-plus', class: "left")
           join
       - else
+        - role = @community.memberships.find_by(user_id: current_user.id).role
         .btn-flat.disabled.no-padding.hide-on-med-and-down
-          = material_icon.check.css_class('left')
-          = @community.memberships.find_by(user_id: current_user.id).role
+          = material_icon.check.css_class('left ')
+          = role
     .col.hide-on-small-and-down.right
       = link_to members_community_path(@community), class: "icon-action btn-flat waves-effect primary-text" do
         = icon('fas', 'users', class: "left")

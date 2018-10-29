@@ -6,8 +6,8 @@ class PagesController < ApplicationController
   end
 
   def home
-    @courses = Course.where(id: Lesson.select(:course_id))
-    @communities = Community.all
+    @courses = Course.all.order(:created_at).reverse_order
+    @communities = Community.all.order(:created_at).reverse_order
   end
 
   def teacher
@@ -21,6 +21,14 @@ class PagesController < ApplicationController
   end
 
   def feedback
+  end
+
+  def not_found
+
+  end
+
+  def internal_server_error
+
   end
 
 end

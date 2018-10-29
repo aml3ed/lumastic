@@ -19,7 +19,7 @@
   .row
     .col.s12.m12.l7
       .video-container
-        - if @embed_url == ""
+        - if @embed_url == "" || @embed_url.nil?
           = image_tag "AddVideo-8.png", class: "responsive-img"
         - else
           %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480", :src => "#{@embed_url}", :width => "853"}
@@ -59,4 +59,4 @@
     = form.button :submit, class: " btn btn waves-effect" do
       - btn_text = "Save" if local_assigns[:btn_text].nil?
       = btn_text
-    = link_to "Cancel", :back, class: "btn-flat"
+    = link_to "Cancel", course_path(@course), class: "btn-flat"
