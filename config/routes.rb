@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get '/home', to: 'pages#home'
   get '/legal', to: 'pages#legal'
   get '/join', to: 'pages#join'
+  get '/feedback', to: 'pages#feedback'
   get '/teacher', to: 'pages#teacher'
   get '/testvideo', to: 'pages#testvideo'
 

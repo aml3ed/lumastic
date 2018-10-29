@@ -20,4 +20,7 @@ class PagesController < ApplicationController
   def join
   end
 
+  def feedback
+  end
+
 end

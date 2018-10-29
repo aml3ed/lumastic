@@ -16,5 +16,8 @@
       = render 'layouts/alerts'
       = yield
       = render 'layouts/share'
+      .fixed-action-btn
+        =link_to feedback_path, class: "btn-floating btn-large tooltipped", "data-tooltip": "Found a bug or have recommendations? Tell us!", "data-position" => "left" do
+          = material_icon.feedback
     = render 'layouts/footer'
 
