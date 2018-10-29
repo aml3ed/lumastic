@@ -30,6 +30,7 @@ class CommunitiesController < ApplicationController
   end
 
   def index
+    @communities = Community.all
   end
 
   def show

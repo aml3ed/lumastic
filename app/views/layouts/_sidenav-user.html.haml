@@ -12,18 +12,17 @@
     = link_to root_path do
       = material_icon.home
       Home
-
   %li
-    %ul.collapsible.collapsible-accordion
-      %li
-        %a.collapsible-header
-          = icon('fas', 'users', class: "left")
-          My Communities
-        .collapsible-body
-          %ul
-            - @my_communities.each do |community|
-              %li
-                = link_to community.name, community_path(community)
+    = link_to communities_path do
+      = icon('fas', 'compass')
+      Explore
+  %li
+    %a.subheader
+      MY COMMUNITIES
+  - @my_communities.each do |community|
+    %li
+      = link_to community_path(community) do
+        = community.name
   %li
     .divider
   %li

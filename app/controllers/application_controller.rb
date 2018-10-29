@@ -10,6 +10,14 @@ class ApplicationController < ActionController::Base
       stored_location_for(resource) || super
     end
 
+    def after_sign_up_path_for(resource)
+      stored_location_for(resource) || super
+    end
+
+    def after_sign_out_path_for(resource)
+      stored_location_for(resource) || super
+    end
+
   private
     def my_communities
       if current_user

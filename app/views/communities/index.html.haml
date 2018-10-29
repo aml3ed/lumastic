@@ -1,0 +1,14 @@
+.container.section
+  .row
+    .col.s12
+      .row.no-margin
+        .col.s12
+          %h5.header-with-link
+            Find A Community
+          = link_to new_community_path, class: "icon-action btn-flat waves-effect " do
+            = material_icon.add.css_class('left')
+            Create
+          .divider
+        - @communities.each do |community|
+          .col.l4.m6.s12
+            = render('components/community-card', :community => community)

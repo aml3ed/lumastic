@@ -20,7 +20,10 @@ class Course < ApplicationRecord
 
   def green_percent
     tickets = self.tickets
-    percent(tickets[:green], tickets[:total])
+    if tickets[:total] != 0
+      return percent(tickets[:green], tickets[:total]).to_s + "%"
+    end
+    return "NEW"
   end
 
   
