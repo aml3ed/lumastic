@@ -48,7 +48,8 @@ class CommunitiesController < ApplicationController
     # Build a new course object from the form parameters
     @community = Community.new(community_params)
     # Add the user_id from the session object
-    @community.users << current_user
+    first_curator = Membership.new(user_id: current_user.id, community_id: @community.id, role: "Curator")
+    @community.memberships << first_curator
     # Save the new course object to the database
     respond_to do |format|
       if @community.save
