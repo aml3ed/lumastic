@@ -30,7 +30,7 @@
               = material_icon.arrow_drop_down.css_class("right")
             %ul#userDropdown.dropdown-content
               %li
-                %a{:href => "#!"}
+                = link_to edit_user_registration_path do
                   = icon('fas', 'info-circle')
                   Account Info
               %li
