@@ -3,18 +3,19 @@
     .vid-overlay-container
       .vid-text-overlay= locals[:question]
       .vid-buttons.row
-        %button#red.vid-button.red-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
-          = icon("fab", "youtube")
-          %br/
-          Hasn't clicked yet.
-        %button#blue.vid-button.yellow-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
-          = icon("fab", "youtube")
-          %br/
-          I'm starting to get it.
         %button#green.vid-button.green-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
           = icon("fab", "youtube")
           %br/
           I got this!
+        %button#blue.vid-button.yellow-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
+          = icon("fab", "youtube")
+          %br/
+          I'm starting to get it.
+        %button#red.vid-button.red-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
+          = icon("fab", "youtube")
+          %br/
+          Hasn't clicked yet.
+
     #player
 
 :javascript

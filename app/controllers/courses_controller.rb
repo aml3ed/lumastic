@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   load_and_authorize_resource
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  before_action :get_lessons, only: [:show, :edit, :show]
+  before_action :get_lessons, only: [:show, :edit]
   before_action :ticket_breakdown, only: [:edit, :show]
 
 
@@ -25,8 +25,8 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses/1
   def show
-    @lessons.order(:position)
     @community = Community.find(@course.community_id)
+    @lessons.order(:position)
     @course_path_nav = course_path(@course)
   end
 
@@ -38,6 +38,7 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses/1/edit
   def edit
+    @community = Community.find(@course.community_id)
     @course_path_nav = edit_course_path(@course)
     @lessons.order(:position)
     # Check to see if the course belongs to this user
@@ -97,7 +98,7 @@ class CoursesController < ApplicationController
     end
 
     def get_lessons
-      @lessons = Lesson.where(:course_id => @course.id)
+      @lessons = Lesson.where(:course_id => @course.id).order(:position)
     end
 
     # Declares what parameters are mutatable by the controller
@@ -106,15 +107,8 @@ class CoursesController < ApplicationController
     end
 
     def ticket_breakdown
-      totalReds = 0
-      totalBlues = 0
-      totalGreens = 0
-      @lessons.each do |lesson|
-        totalReds += lesson.out_red
-        totalBlues += lesson.out_blue
-        totalGreens += lesson.out_green
-      end
-      totalTickets = totalReds + totalBlues + totalGreens
-      @tickets = [helpers.percent(totalReds, totalTickets), helpers.percent(totalBlues, totalTickets), helpers.percent(totalGreens, totalTickets)]
+      tickets = @course.tickets
+      @totalTickets = tickets[:total]
+      @ticketPercents = {red: helpers.percent(tickets[:red], @totalTickets), blue: helpers.percent(tickets[:blue],@totalTickets), green: helpers.percent(tickets[:green],@totalTickets)}
     end
 end

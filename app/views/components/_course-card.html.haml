@@ -13,7 +13,8 @@
         = course.user.display_name
       .col.s4.valign-wrapper.justify-right.green-text
         = material_icon.local_offer
-        %span 10%
+        %span
+          = course.green_percent.to_s + "%"
     = link_to "", course_path(course), :class=>"container-clickable"
     .row
       .col.s12

@@ -15,28 +15,11 @@
       = form.label :title, "Lesson Title", for: "title"
       = form.text_field :title, id: "title", style: "font-size: 24px"
     .col.s3
-      .row.course-list-stat
-        .col.s12.valign-wrapper.justify-right.green-text
-          = material_icon.local_offer
-          %span
-            = @tickets[2]
-            \%
-      .row.course-list-stat
-        .col.s12.valign-wrapper.justify-right.light-blue-text
-          = material_icon.local_offer
-          %span
-            = @tickets[1]
-            \%
-      .row.course-list-stat
-        .col.s12.valign-wrapper.justify-right.red-text
-          = material_icon.local_offer
-          %span
-            = @tickets[0]
-            \%
+      = render 'components/stats-vertical', green: @tickets[2], blue: @tickets[1], red: @tickets[0]
   .row
     .col.s12.m12.l7
       .video-container
-        - if @embed_url.nil?
+        - if @embed_url == ""
           = image_tag "AddVideo-8.png", class: "responsive-img"
         - else
           %iframe{:allowfullscreen => "", :frameborder => "0", :height => "480", :src => "#{@embed_url}", :width => "853"}
@@ -55,22 +38,22 @@
       = form.label :lesson_info, "Lesson Info", for: "lesson_info"
       = form.text_area :lesson_info, id: "lesson_info", class: "materialize-textarea"
   / Materials
-  .row
-    %h5.col.s12 Materials
-  .row
-    = form.fields_for :materials do |material|
-      .input-field.col.s12.m6.l4
-        = material.select :category, [['Choose Type', {:disabled => true, :selected => true}], 'Lesson Plan', 'Slides', 'Activity', 'Worksheet'], id: "category"
-        = material.label :category, "Category", for: "category"
-      .input-field.col.s12.m6.l4
-        = material.label :title
-        = material.text_field :title
-      .file-field.input-field.col.m12.l4
-        .btn-floating.waves-effect.left.dark-button
-          = material_icon.attachment
-          = material.file_field :file
-        .file-path-wrapper
-          = text_field_tag nil, (material.object.file.nil? ?  material.object.file.filename : ""), {class: 'file-path ', placeholder: 'Upload a file...', :disabled => true}
+  -#.row
+  -#  %h5.col.s12 Materials
+  -#.row
+  -#  = form.fields_for :materials do |material|
+  -#    .input-field.col.s12.m6.l4
+  -#      = material.select :category, [['Choose Type', {:disabled => true, :selected => true}], 'Lesson Plan', 'Slides', 'Activity', 'Worksheet'], id: "category"
+  -#      = material.label :category, "Category", for: "category"
+  -#    .input-field.col.s12.m6.l4
+  -#      = material.label :title
+  -#      = material.text_field :title
+  -#    .file-field.input-field.col.m12.l4
+  -#      .btn-floating.waves-effect.left.dark-button
+  -#        = material_icon.attachment
+  -#        = material.file_field :file
+  -#      .file-path-wrapper
+  -#        = text_field_tag nil, (material.object.file.nil? ?  material.object.file.filename : ""), {class: 'file-path ', placeholder: 'Upload a file...', :disabled => true}
   / Save
   .row
     = form.button :submit, class: " btn btn waves-effect" do
