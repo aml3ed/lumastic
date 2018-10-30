@@ -10,4 +10,5 @@ class Community < ApplicationRecord
     end
     return false
   end
+
 end

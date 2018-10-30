@@ -8,11 +8,11 @@
           = image_tag 'LumasticV16'
       %ul.f1.hide-on-med-and-down
         %li#search-nav-item
-          %form.hide-on-med-and-down
+          = form_tag search_path, method: :get, class: "hide-on-med-and-down" do
             #search-form
               #search-container.valign-wrapper
                 .search-icon= material_icon.search
-                %input#search-input{:placeholder => "What makes you curious?", :required => "", :type => "search"}/
+                = text_field_tag :search, params[:search], placeholder: "What makes you curious?", type: "search", id: "search-input"
                 #close-icon.search-icon= material_icon.close
               #searchResults
       %ul.f0.hide-on-med-and-down

@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   get '/legal', to: 'pages#legal'
   get '/join', to: 'pages#join'
   get '/feedback', to: 'pages#feedback'
+  get '/search', to: 'pages#search'
   get '/teacher', to: 'pages#teacher'
   get '/testvideo', to: 'pages#testvideo'
   match "/404", :to => "pages#not_found", :via => :all

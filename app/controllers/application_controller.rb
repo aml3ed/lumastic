@@ -28,7 +28,7 @@ class ApplicationController < ActionController::Base
   private
     def my_communities
       if current_user
-        @my_communities = current_user.communities
+        @my_communities = current_user.communities.order(:name)
       end
     end
 

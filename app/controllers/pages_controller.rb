@@ -10,6 +10,20 @@ class PagesController < ApplicationController
     @communities = Community.all.order(:created_at).reverse_order
   end
 
+  def search
+    @query = params[:search]
+    @noresults = false
+    if params[:search]
+      @communities = Community.where('name LIKE ?', "%#{params[:search]}%")
+      if @communities.empty?
+        @noresults = true
+        @communities = Community.all
+      end
+    else
+      @communities = Community.all
+    end
+  end
+
   def teacher
     generic
   end
