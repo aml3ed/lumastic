@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_18_195109) do
+ActiveRecord::Schema.define(version: 2018_10_30_201300) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2018_10_18_195109) do
     t.bigint "user_id"
     t.bigint "community_id"
     t.boolean "open"
+    t.string "type"
     t.index ["community_id"], name: "index_courses_on_community_id"
     t.index ["user_id"], name: "index_courses_on_user_id"
   end

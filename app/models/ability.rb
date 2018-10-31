@@ -35,12 +35,14 @@ class Ability
   # Set roles for a student
   #
   def grant_student_roles(user)
-    can %i[show index create], Course
-    can %i[show index create count_ticket], Lesson
-    can %i[show index create], Material
+    can %i[show index create add_user remove_user members discussions courses], Community
 
-    if Course.all.where(user: user).present?
-      grant_course_instance_roles(Course.all.where(user: user))
+    can %i[show index], Course
+    can %i[show index count_ticket new create], Lesson
+    can %i[show index new create], Material
+
+    if user.communities.present?
+      grant_community_instance_roles(user)
     end
   end
 
@@ -52,11 +54,27 @@ class Ability
   end
 
   #
+  # Set roles for memberships
+  #
+  def grant_community_instance_roles(user)
+    user.communities.each do |community|
+      puts community.users.include? user
+      can %i[show index new create], Course if community.users.include? user
+      if community.courses.where(user: user).present?
+        grant_course_instance_roles(community.courses.where(user: user))
+      end
+    end
+  end
+
+  #
   # Set roles for course instances
   #
   def grant_course_instance_roles(course_instances)
     course_instances.each do |course|
       can :manage, course
+      can %i[new create], Lesson do |lesson|
+        lesson.course == course
+      end
       grant_lesson_instance_roles(course) if course.lessons.present?
     end
   end
