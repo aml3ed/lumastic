@@ -1,33 +1,27 @@
-.container
-  .section
-  .row.no-margin
-    = link_to courses_path(@course), :class=> "btn-flat waves-effect", style: "padding-left: 0" do
-      %i.material-icons.left-icon arrow_back
-      Back
-  .row
-    %h4.header-with-button
-      = @course.title
-    %span.new.badge.inline-badge.grey{"data-badge-caption" => "Draft"}
-    = link_to new_course_path(@community), :class=>"right btn " + (@lessons.size == 0 ? "disabled": "" ) do
-      Publish #{material_icon.public.css_class('right')}
-  .divider
+.container.section
+  = render 'components/community-header', :community => @community
   .row
     .col.m4.s12
-      %h5 Course Contents
-      = render 'courseSidebar'
+      = render 'components/toc-course'
     .col.m8.s12
-      .row
-        .col.m6.s12.show-field
-          %label Course Title
-          %p= @course.title
-        .col.s12.show-field
+      .row.no-margin
+        = render 'components/stats-horizontal', total: @totalTickets, red: @ticketPercents[:red], blue: @ticketPercents[:blue], green: @ticketPercents[:green]
+      .row.no-margin
+        .col.s6.show-field
           %label Course Info
           %p= @course.course_info
+        .col.s3.show-field
+          %label Created
+          %p= @course.created_at.strftime("%m/%d/%Y")
+        .col.s3.show-field
+          %label Started By
+          %p= @course.user.display_name
+      .row
         .col.s12.show-field
           %label Keywords
           %p= @course.keywords
-      .row
-        .col.s12
-          = link_to edit_course_path(@course), :class=> "btn waves-effect" do
-            %i.material-icons.left mode_edit
-            Edit
+        -if @course.user == current_user
+          .col.s12
+            = link_to edit_course_path(@course), :class=> "btn waves-effect" do
+              =material_icon.mode_edit.css_class('left')
+              Edit

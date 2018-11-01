@@ -5,23 +5,27 @@
     .col.s12.m12.l4
       = render 'components/toc'
     .col.s12.m12.l8
+      .row.no-margin.valign-wrapper
+        .col
+          %h5
+            = @lesson.title
+        .col.vid-actions{:style => "margin-left: auto;"}
+          - if @lesson.user == current_user
+            = link_to edit_course_lesson_path(@course, @lesson), class: "btn-small waves-effect" do
+              = material_icon.edit.css_class('left')
+              Edit
+
       .row.no-margin
-      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?", videoURL: @lesson.video_url}
+      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?"}
+
       .row.section.valign-wrapper.no-margin
         .col
           = link_to '#', class: "author text-color" do
             = icon('fas', 'user-circle')
-            = @course.user.display_name
-        .col.right.vid-actions.valign-wrapper{:style => "margin-left: auto;"}
-          - if @lesson.user == current_user
-            = link_to edit_course_lesson_path(@course, @lesson), class: "btn-flat waves-effect" do
-              = material_icon.edit.css_class('left')
-              Edit
-          = link_to '#', class: "btn-flat waves-effect" do
-            = material_icon.share.css_class('left')
-            share
-          = link_to '#', class: "btn-flat waves-effect" do
-            = material_icon.more_vertical
+            = @lesson.user.display_name
+        .col.valign-wrapper.hide-on-small-and-down{:style => "margin-left: auto;"}
+          = render 'components/stats-horizontal', total: @totalTickets, green: @tickets[2], blue: @tickets[1], red: @tickets[0]
+
       .row.no-margin
         .col.s12
           .truncate= @lesson.lesson_info

@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_course
+  load_resource :course
+  load_and_authorize_resource :lesson, through: :course
   before_action :set_community
   before_action :find_lessons
   before_action :set_lesson, only: [:show, :view, :edit, :update, :destroy]
@@ -17,12 +17,12 @@ class LessonsController < ApplicationController
     # See get_embed_from_url before action
   end
 
-  def view
-  end
-
   # Example route: GET /lessons/new
   def new
-    @lesson = Lesson.new
+    puts @course.inspect
+    puts '(((((((((((((((((((())))))))))))))))))))))'
+    puts params.inspect
+    @lesson = Lesson.new(course: @course)
     @lesson.materials.build
   end
 
@@ -122,15 +122,12 @@ class LessonsController < ApplicationController
     def get_embed_from_url
       if @lesson.video_url != nil
         @vid_id = helpers.youtube_id(@lesson.video_url)
-        if @vid_id != nil
-          @embed_url = helpers.embed_url(@vid_id)
-        end
+        @embed_url = helpers.embed_url(@vid_id)
       end
-
     end
 
     def get_ticket_percentage
-      totalTickets = @lesson.out_red + @lesson.out_blue + @lesson.out_green
-      @tickets = [helpers.percent(@lesson.out_red, totalTickets), helpers.percent(@lesson.out_blue, totalTickets), helpers.percent(@lesson.out_green, totalTickets)]
+      @totalTickets = @lesson.out_red + @lesson.out_blue + @lesson.out_green
+      @tickets = [helpers.percent(@lesson.out_red, @totalTickets), helpers.percent(@lesson.out_blue, @totalTickets), helpers.percent(@lesson.out_green, @totalTickets)]
     end
 end

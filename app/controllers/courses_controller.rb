@@ -1,7 +1,11 @@
 class CoursesController < ApplicationController
   load_and_authorize_resource
+  load_resource :community
+  # load_resource :community, except: :new
+  # load_and_authorize_resource :course, through: :community
+  before_action :set_community, only: :new
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-  before_action :get_lessons, only: [:show, :edit, :show]
+  before_action :get_lessons, only: [:show, :edit]
   before_action :ticket_breakdown, only: [:edit, :show]
 
 
@@ -25,19 +29,22 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses/1
   def show
-    @lessons.order(:position)
     @community = Community.find(@course.community_id)
+    @lessons.order(:position)
     @course_path_nav = course_path(@course)
   end
 
   # Example route: GET /courses/new
   def new
     @community = Community.find(params[:community_id])
-    @course = Course.new
+    @course = Course.new(community: @community)
   end
 
   # Example route: GET /courses/1/edit
   def edit
+    @community = @course.community
+
+
     @course_path_nav = edit_course_path(@course)
     @lessons.order(:position)
     # Check to see if the course belongs to this user
@@ -50,14 +57,19 @@ class CoursesController < ApplicationController
   # Example route: POST /courses
   def create
     # Build a new course object from the form parameters
-    puts params.inspect
-    @course = Course.new(course_params)
+    puts "************************** #{course_params.inspect}"
+    if course_params[:open] == "1"
+      @course = OpenCourse.new(course_params)
+    else
+      @course = ClosedCourse.new(course_params)
+    end
     @course.community = Community.find(params[:community_id])
     # Add the user_id from the session object
     @course.user_id = current_user.id
     # Save the new course object to the database
     respond_to do |format|
       if @course.save
+        puts @course.inspect
         format.html { redirect_to new_course_lesson_path(@course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
         format.json { render :show, status: :created, location: @course }
       else
@@ -96,8 +108,12 @@ class CoursesController < ApplicationController
       @course = Course.find(params[:id])
     end
 
+    def set_community
+      @community = Community.find(params[:community_id])
+    end
+
     def get_lessons
-      @lessons = Lesson.where(:course_id => @course.id)
+      @lessons = Lesson.where(:course_id => @course.id).order(:position)
     end
 
     # Declares what parameters are mutatable by the controller
@@ -106,15 +122,8 @@ class CoursesController < ApplicationController
     end
 
     def ticket_breakdown
-      totalReds = 0
-      totalBlues = 0
-      totalGreens = 0
-      @lessons.each do |lesson|
-        totalReds += lesson.out_red
-        totalBlues += lesson.out_blue
-        totalGreens += lesson.out_green
-      end
-      totalTickets = totalReds + totalBlues + totalGreens
-      @tickets = [helpers.percent(totalReds, totalTickets), helpers.percent(totalBlues, totalTickets), helpers.percent(totalGreens, totalTickets)]
+      tickets = @course.tickets
+      @totalTickets = tickets[:total]
+      @ticketPercents = {red: helpers.percent(tickets[:red], @totalTickets), blue: helpers.percent(tickets[:blue],@totalTickets), green: helpers.percent(tickets[:green],@totalTickets)}
     end
 end

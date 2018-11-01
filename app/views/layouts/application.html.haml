@@ -1,9 +1,10 @@
-!!!
 %html
   %head
-    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0, maximum-scale=1.0"}/
-    %title Lumastic
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0, maximum-scale=1.0"}
+    %meta{:name => "description", :content => "We're a community driven online learning platform.  Here, you can connect with people who share your passions, learn from each other, and collaboratively curate courses.  Learn more on Lumastic!"}
+    = render 'layouts/og'
+    %title Lumastic - Your Online Learning Community
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
@@ -14,5 +15,9 @@
     %main
       = render 'layouts/alerts'
       = yield
+      = render 'layouts/share'
+      .fixed-action-btn
+        =link_to feedback_path, class: "btn-floating btn-large tooltipped", "data-tooltip": "Found a bug or have recommendations? Tell us!", "data-position" => "left" do
+          = material_icon.feedback
     = render 'layouts/footer'
 

@@ -1,0 +1,42 @@
+.container.section
+  = render 'components/community-header'
+  .row
+    .col.s12
+      .row.no-margin
+        .col.s12
+          %h5
+            = material_icon.forum
+            = @discussion.title
+            .btn-flat.primary-text.waves-effect.no-padding.dropdown-trigger{"data-target" => "discussion_dropdown"}
+              = material_icon.more_vertical
+              %ul#discussion_dropdown.dropdown-content
+                - if @discussion.user == current_user
+                  %li
+                    = link_to "Delete Discussion", discussion_path(@discussion), method: :delete, class: "red-text"
+          = @discussion.description
+          .divider
+      .row.no-margin
+        .col.s12
+          .card-panel.comment-card
+            .comment-content
+              .row.col.s12.no-margin.display-name
+                Thoughts?
+              .row.col.s12.no-margin
+                - if user_signed_in?
+                  = form_for [@discussion, Comment.new] do |f|
+                    = f.hidden_field :user_id, :value => current_user.id
+                    = f.hidden_field :discussion_id, :value => @discussion.id
+                    = f.text_area :content, class: "materialize-textarea"
+                    = f.button :submit, class: " btn-small waves-effect" do
+                      - btn_text = "Post" if local_assigns[:btn_text].nil?
+                      = btn_text
+                - else
+                  = link_to "Sign up", new_user_registration_path
+                  to join the discussion!
+          %ul
+            - @discussion.comments.where(:parent_id => nil).each do |comment|
+              = render 'comments/comment', comment: comment
+:javascript
+  function showReply(self) {
+    $($(self).data("target")).toggle()
+  }

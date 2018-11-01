@@ -1,0 +1,24 @@
+%li
+  .card-panel.comment-card
+    .vote
+      %a.up
+        =material_icon.keyboard_arrow_up
+      .votes
+        4
+      %a.down
+        =material_icon.keyboard_arrow_down
+    .comment-content
+      .row.col.s12.no-margin.display-name
+        = comment.user.display_name
+      .row.col.s12.content.no-margin
+        = comment.content
+      - if user_signed_in?
+        .row.col.s12.actions.no-margin
+          %a.valign-wrapper{onclick:"showReply(this);", "data-target" => "##{comment.id}"}
+            Reply
+            = material_icon.reply
+  - if user_signed_in?
+    = render 'comments/reply-form', comment: comment
+  %ul.comment-thread
+    - comment.replies.each do |comment|
+      = render 'comments/comment', comment: comment

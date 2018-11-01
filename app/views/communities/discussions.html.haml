@@ -1,0 +1,24 @@
+.container.section
+  = render 'components/community-header'
+  .row
+    .col.s12
+      .row.no-margin
+        .col.s12
+          %h5.header-with-link
+            = material_icon.forum.css_class('left')
+            Discussions
+          .divider
+      .row.no-margin
+        .col.s12
+          %table.centered.highlight
+            %thead
+              %tr
+                %th
+                  Title
+                %th
+                  Comments
+            %tbody
+              - @discussions.each do |discussion|
+                %tr
+                  %td= discussion.title
+                  %td= discussion.comments.count

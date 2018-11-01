@@ -3,7 +3,7 @@
     .container
       .card.row.paper-popup.wider.left-align
         .card-content
-          #first-modal.modal-content
+          #first-page
             %h4
               Want to start a community?
               %i.secondary-text Cool!
@@ -28,14 +28,14 @@
                   Be kind, be honest, and
                   %i ask for help if you need it.
             .row
-              .btn.dark-button.waves-light.right.waves-effect.modalNextButton Next
-          #second-modal.modal-content
+              .btn.dark-button.waves-light.right.waves-effect.nextButton Next
+          #second-page{style: "display: none;"}
             %h4 Get ready to change the world!
             = render('form', community: @community)
 
 :javascript
-  $('.modalNextButton').click(function() {
-    $('#first-modal').fadeOut(300, function() {
-      $('#second-modal').fadeIn(300);
+  $('.nextButton').click(function() {
+    $('#first-page').fadeOut(300, function() {
+      $('#second-page').fadeIn(300);
     });
   });

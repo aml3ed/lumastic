@@ -5,29 +5,31 @@
         %h4.header-with-link.header-with-button
           = @community.name
     .col.no-padding
-      - unless @community.users.include?(current_user)
+      - unless @community.is_user_member(current_user)
         = link_to add_user_community_path(@community), method: :put, class: "btn-small waves-effect " do
           = icon('fas', 'user-plus', class: "left")
           join
       - else
+        - role = @community.memberships.find_by(user_id: current_user.id).role
         .btn-flat.disabled.no-padding.hide-on-med-and-down
-          = material_icon.check.css_class('left')
-          member
+          = material_icon.check.css_class('left ')
+          = role
     .col.hide-on-small-and-down.right
-      = link_to '#', class: "icon-action btn-flat waves-effect primary-text" do
+      = link_to members_community_path(@community), class: "icon-action btn-flat waves-effect primary-text" do
         = icon('fas', 'users', class: "left")
-        = @community.users.count
-      = link_to '#', class: "icon-action btn-flat waves-effect primary-text" do
+        = @community.memberships.count
+      = link_to courses_community_path(@community), class: "icon-action btn-flat waves-effect primary-text" do
         = material_icon.library_books.css_class('left')
         = @community.courses.count
-      = link_to '#', class: "icon-action btn-flat waves-effect primary-text" do
+      = link_to  discussions_community_path(@community), class: "icon-action btn-flat waves-effect primary-text" do
         = material_icon.forum.css_class('left')
-        0
-      = link_to '#', class: "icon-action btn-flat waves-effect primary-text" do
+        = @community.discussions.count
+      = link_to '#share-modal', class: "icon-action btn-flat waves-effect primary-text modal-trigger" do
         = material_icon.share.css_class('left')
       .btn-flat.primary-text.waves-effect.no-padding.dropdown-trigger{"data-target" => "leave_dropdown"}
         = material_icon.more_vertical
         %ul#leave_dropdown.dropdown-content
-          %li
-            = link_to "Leave Group", remove_user_community_path(@community), method: :put, class: "red-text"
+          -if @community.is_user_member(current_user)
+            %li
+              = link_to "Leave Community", remove_user_community_path(@community), method: :put, class: "red-text"
   .divider

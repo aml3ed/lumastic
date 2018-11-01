@@ -1,12 +1,18 @@
 .dark-button {
   background-color: lighten($primary-color, 10%) !important;
 }
+.accent-button {
+  background-color: darken($accent-color, 10%) !important;
+}
 .btn-flat .left-icon {
   margin-right: 5px !important;
   float: left !important;
 
 }
 .icon-action {
+  &:hover {
+    color: $secondary-color !important;
+  }
   padding-right: 8px !important;
   i {
     margin-right: 5px;

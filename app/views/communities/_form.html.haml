@@ -28,3 +28,4 @@
     = form.button :submit, class: " btn dark-button right waves-effect" do
       - btn_text = "Create Community" if local_assigns[:btn_text].nil?
       = btn_text
+    = link_to "Cancel", :back, class: "btn-flat right"

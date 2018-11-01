@@ -1,4 +1,4 @@
-= form_with(model: course, local: true) do |form|
+= form_with(model: course.becomes(Course), local: true) do |form|
   / Show Errors
   - if course.errors.any?
     #error_explanation
@@ -36,9 +36,12 @@
           = form.check_box :open, checked: true
           %span.lever
           Open
+          .inline.tooltipped{"data-tooltip" => "Open courses allow members to collaborate and add lessons", "data-position" => "top"}
+            =icon('far', 'question-circle')
 
   / Save
   .row
     = form.button :submit, class: " btn btn waves-effect" do
       - btn_text = "Save" if local_assigns[:btn_text].nil?
       = btn_text
+    = link_to "Cancel", :back, class: "btn-flat"

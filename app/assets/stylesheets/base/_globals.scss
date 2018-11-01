@@ -8,7 +8,7 @@ $font-bold: 900;
 $primary-color: #19508C !default;
 $grey-text: rgba(0, 0,0,.54) !default;
 $secondary-color: #44BAF4 !default;
-$link-color: #44BAF4 !default;
+$link-color: $secondary-color !default;
 $off-black: darken($primary-color, 10%) !default;
 $sidenav-font-color: darken($primary-color, 10%) !default;
 $card-link-color: #44BAF4 !default;

@@ -1,3 +1,27 @@
+@media #{$large-and-up} {
+  .nav-flex {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-basis: 0;
+    align-items: center;
+    justify-content: center;
+    .f0 {
+      flex-grow: 0;
+      .brand-logo {
+        position: relative !important;
+        margin-left: 16px;
+      }
+    }
+    .f1 {
+      flex-grow: 1;
+      margin: 0 20px;
+    }
+  }
+}
+
+
+//************************
 
 
 .menu-button {
@@ -12,7 +36,6 @@
   }
 }
 .brand-logo {
-  margin: 0px 0px 0px 10px;
   height: 64px;
   img {
     height: 64px;
@@ -23,7 +46,7 @@
 
 li#search-nav-item {
   height: 64px;
-  width: 405px;
+  width: 100%;
   form{
     height: 48px;
     margin: 8px 0px;
@@ -66,9 +89,6 @@ li#search-nav-item {
 
 
 
-.left-nav {
-  margin-left: 270px;
-}
 #subjectDropdown {
   min-width: 230px;
   height: auto;
