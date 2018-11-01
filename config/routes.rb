@@ -8,7 +8,6 @@ Rails.application.routes.draw do
         patch :sort
       end
       member do
-        get 'view'
         patch :count_ticket
       end
     end

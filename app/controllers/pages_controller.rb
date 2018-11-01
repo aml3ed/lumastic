@@ -14,7 +14,7 @@ class PagesController < ApplicationController
     @query = params[:search]
     @noresults = false
     if params[:search]
-      @communities = Community.where('name LIKE ?', "%#{params[:search]}%")
+      @communities = Community.where('lower(name) LIKE ?', "%#{params[:search].downcase}%")
       if @communities.empty?
         @noresults = true
         @communities = Community.all

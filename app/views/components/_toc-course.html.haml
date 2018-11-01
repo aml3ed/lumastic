@@ -5,6 +5,7 @@
     - if @course.open
       %span.badge.card-badge.collaborative Open
     %h5
+      = material_icon.book.css_class("white-text")
       = link_to @course.title, course_path(@course), class: "primary-text"
   / For each lesson, make a collection item with that lesson and it's url
   - @lessons.each do |lesson|
