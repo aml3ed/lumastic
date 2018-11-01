@@ -8,13 +8,13 @@ class Community < ApplicationRecord
   # Return a list of open courses for a community
   #
   def open_courses
-    courses.where(type: "Open")
+    courses.where(type: "OpenCourse")
   end
 
   #
   # Return a list of closed courses for a community
   #
   def closed_courses
-    courses.where(type: "Closed")
+    courses.where(type: "ClosedCourse")
   end
 end
