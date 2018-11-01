@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
-  load_and_authorize_resource
   load_resource :course
+  load_and_authorize_resource :lesson, through: :course
   before_action :set_community
   before_action :find_lessons
   before_action :set_lesson, only: [:show, :view, :edit, :update, :destroy]

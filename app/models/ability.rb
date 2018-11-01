@@ -11,6 +11,8 @@ class Ability
   # Set roles for users with an account
   #
   def initialize_user(user)
+    can :manage, Discussion
+    can :manage, Comment
     case user.role
     when Roleable::ROLE_GUEST
       grant_guest_roles
@@ -37,8 +39,8 @@ class Ability
   def grant_student_roles(user)
     can %i[show index create add_user remove_user members discussions courses], Community
 
-    can %i[show index], Course
-    can %i[show index count_ticket new create], Lesson
+    can %i[show index new create], Course
+    can %i[show index count_ticket], Lesson
     can %i[show index new create], Material
 
     if user.communities.present?
@@ -58,10 +60,13 @@ class Ability
   #
   def grant_community_instance_roles(user)
     user.communities.each do |community|
-      puts community.users.include? user
-      can %i[show index new create], Course if community.users.include? user
+      # puts '************************** COMMUNITY *****************************'
+      # can %i[show index new create], Course do |course|
+      #   course.community.users.include? user
+      # end
+      can %i[new create], Lesson, course: { type: "OpenCourse", community: community }
       if community.courses.where(user: user).present?
-        grant_course_instance_roles(community.courses.where(user: user))
+        grant_course_instance_roles(user, community)
       end
     end
   end
@@ -69,23 +74,21 @@ class Ability
   #
   # Set roles for course instances
   #
-  def grant_course_instance_roles(course_instances)
-    course_instances.each do |course|
-      can :manage, course
-      can %i[new create], Lesson do |lesson|
-        lesson.course == course
-      end
-      grant_lesson_instance_roles(course) if course.lessons.present?
+  def grant_course_instance_roles(user, community)
+    community.courses.each do |course|
+      can :manage, course if course.user == user
+      can %i[new create], Lesson, course: { type: "ClosedCourse", user: user }
+      grant_lesson_instance_roles(user, course) if course.lessons.present?
     end
   end
 
   #
   # Set roles for lesson instances
   #
-  def grant_lesson_instance_roles(course)
+  def grant_lesson_instance_roles(user, course)
     course.lessons.each do |lesson|
-      can :manage, lesson
-      grant_material_instance_roles(lesson) if lesson.materials.present?
+      can :manage, lesson if lesson.user == user
+      grant_material_instance_roles(lesson) if lesson.materials.present? && lesson.user == user
     end
   end
 

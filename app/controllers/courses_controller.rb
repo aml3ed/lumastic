@@ -1,7 +1,9 @@
 class CoursesController < ApplicationController
-  load_and_authorize_resource :community, except: [:new]
-  load_and_authorize_resource :course, through: :community
-  # load_resource :community, except: [:new]
+  load_and_authorize_resource
+  load_resource :community
+  # load_resource :community, except: :new
+  # load_and_authorize_resource :course, through: :community
+  before_action :set_community, only: :new
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :get_lessons, only: [:show, :edit, :show]
   before_action :ticket_breakdown, only: [:edit, :show]
@@ -40,6 +42,9 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses/1/edit
   def edit
+    @community = @course.community
+
+
     @course_path_nav = edit_course_path(@course)
     @lessons.order(:position)
     # Check to see if the course belongs to this user
