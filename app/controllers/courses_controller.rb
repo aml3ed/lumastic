@@ -1,5 +1,9 @@
 class CoursesController < ApplicationController
   load_and_authorize_resource
+  load_resource :community
+  # load_resource :community, except: :new
+  # load_and_authorize_resource :course, through: :community
+  before_action :set_community, only: :new
   before_action :set_course, only: [:show, :edit, :update, :destroy]
   before_action :get_lessons, only: [:show, :edit]
   before_action :ticket_breakdown, only: [:edit, :show]
@@ -33,12 +37,14 @@ class CoursesController < ApplicationController
   # Example route: GET /courses/new
   def new
     @community = Community.find(params[:community_id])
-    @course = Course.new
+    @course = Course.new(community: @community)
   end
 
   # Example route: GET /courses/1/edit
   def edit
-    @community = Community.find(@course.community_id)
+    @community = @course.community
+
+
     @course_path_nav = edit_course_path(@course)
     @lessons.order(:position)
     # Check to see if the course belongs to this user
@@ -51,14 +57,19 @@ class CoursesController < ApplicationController
   # Example route: POST /courses
   def create
     # Build a new course object from the form parameters
-    puts params.inspect
-    @course = Course.new(course_params)
+    puts "************************** #{course_params.inspect}"
+    if course_params[:open] == "1"
+      @course = OpenCourse.new(course_params)
+    else
+      @course = ClosedCourse.new(course_params)
+    end
     @course.community = Community.find(params[:community_id])
     # Add the user_id from the session object
     @course.user_id = current_user.id
     # Save the new course object to the database
     respond_to do |format|
       if @course.save
+        puts @course.inspect
         format.html { redirect_to new_course_lesson_path(@course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
         format.json { render :show, status: :created, location: @course }
       else
@@ -95,6 +106,10 @@ class CoursesController < ApplicationController
     # Finds the course in the database and references it in a variable
     def set_course
       @course = Course.find(params[:id])
+    end
+
+    def set_community
+      @community = Community.find(params[:community_id])
     end
 
     def get_lessons

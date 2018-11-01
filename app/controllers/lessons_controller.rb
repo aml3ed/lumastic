@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
-  load_and_authorize_resource
-  before_action :set_course
+  load_resource :course
+  load_and_authorize_resource :lesson, through: :course
   before_action :set_community
   before_action :find_lessons
   before_action :set_lesson, only: [:show, :view, :edit, :update, :destroy]
@@ -19,7 +19,10 @@ class LessonsController < ApplicationController
 
   # Example route: GET /lessons/new
   def new
-    @lesson = Lesson.new
+    puts @course.inspect
+    puts '(((((((((((((((((((())))))))))))))))))))))'
+    puts params.inspect
+    @lesson = Lesson.new(course: @course)
     @lesson.materials.build
   end
 
