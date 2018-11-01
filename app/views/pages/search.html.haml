@@ -1,0 +1,18 @@
+.container.section
+  .row
+    .col.s12
+      .row.no-margin
+        .col.s12
+          %h5.header-with-link
+            - if @noresults
+              No communities for '#{@query}'
+              %br
+              %h6.grey-text{style: "margin-top: 0px"} Showing all communities
+            - else
+              Communities that involve '#{@query}'
+          .divider
+        .col.l4.m6.s12
+          = render('components/new-community-card')
+        - @communities.each do |community|
+          .col.l4.m6.s12
+            = render('components/community-card', :community => community)

@@ -30,6 +30,7 @@ class CommunitiesController < ApplicationController
   end
 
   def index
+    @communities = Community.all
   end
 
   def show
@@ -45,11 +46,10 @@ class CommunitiesController < ApplicationController
   end
 
   def create
-    # Build a new course object from the form parameters
     @community = Community.new(community_params)
-    # Add the user_id from the session object
-    @community.users << current_user
-    # Save the new course object to the database
+    first_curator = Membership.new(user_id: current_user.id, community_id: @community.id, role: "Curator")
+    @community.memberships << first_curator
+
     respond_to do |format|
       if @community.save
         format.html { redirect_to community_path(@community), :flash => {:notice => "Your community was created successfully! Woohoo!"} }

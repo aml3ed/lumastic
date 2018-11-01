@@ -1,6 +1,6 @@
 .card.course-card.hoverable
   - if course.open
-    %span.badge.card-badge.collaborative Open
+    %span.badge.card-badge.collaborative open
   .card-image
     .overlay-effect
     = link_to "", course_path(course), :class=>"container-clickable"
@@ -13,7 +13,8 @@
         = course.user.display_name
       .col.s4.valign-wrapper.justify-right.green-text
         = material_icon.local_offer
-        %span 10%
+        %span
+          = course.green_percent
     = link_to "", course_path(course), :class=>"container-clickable"
     .row
       .col.s12

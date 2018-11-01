@@ -2,6 +2,7 @@ class Course < ApplicationRecord
   belongs_to :user
   belongs_to :community
   has_many :lessons
+  include ApplicationHelper
 
   # Validations
   validates :title, presence: true
@@ -17,8 +18,16 @@ class Course < ApplicationRecord
     default_course
   end
 
+  def green_percent
+    tickets = self.tickets
+    if tickets[:total] != 0
+      return percent(tickets[:green], tickets[:total]).to_s + "%"
+    end
+    return "NEW"
+  end
+
   
-  def total_tickets
+  def tickets
     totalReds = 0
     totalBlues = 0
     totalGreens = 0

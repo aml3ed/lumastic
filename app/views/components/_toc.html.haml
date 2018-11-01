@@ -5,6 +5,7 @@
     - if @course.open
       %span.badge.card-badge.collaborative Open
     %h5
+      = material_icon.book.css_class("primary-text")
       = link_to @course.title, course_path(@course), class: "primary-text"
   / For each lesson, make a collection item with that lesson and it's url
   - if @lesson.id == nil
@@ -20,7 +21,7 @@
 
 / Add Lesson Button
 - if @course.open or (@course.user == current_user)
-  = link_to new_course_lesson_path(@course), :class => " btn-flat right" do
+  = link_to new_course_lesson_path(@course), :class => " btn-flat right" + disabled_if_no_user do
     = material_icon.add.css_class("left")
-    Contribute
+    ADD LESSON
 

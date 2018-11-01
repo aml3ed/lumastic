@@ -6,8 +6,22 @@ class PagesController < ApplicationController
   end
 
   def home
-    @courses = Course.where(id: Lesson.select(:course_id))
-    @communities = Community.all
+    @courses = Course.all.order(:created_at).reverse_order
+    @communities = Community.all.order(:created_at).reverse_order
+  end
+
+  def search
+    @query = params[:search]
+    @noresults = false
+    if params[:search]
+      @communities = Community.where('lower(name) LIKE ?', "%#{params[:search].downcase}%")
+      if @communities.empty?
+        @noresults = true
+        @communities = Community.all
+      end
+    else
+      @communities = Community.all
+    end
   end
 
   def teacher
@@ -18,6 +32,17 @@ class PagesController < ApplicationController
   end
 
   def join
+  end
+
+  def feedback
+  end
+
+  def not_found
+
+  end
+
+  def internal_server_error
+
   end
 
 end
