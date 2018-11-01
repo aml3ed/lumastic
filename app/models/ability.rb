@@ -27,7 +27,8 @@ class Ability
   # Set roles for user without an account
   #
   def grant_guest_roles
-    can :show, Community
+    can %i[show discussions members courses], Community
+    can :show, Discussion
     can :show, Course
     can %i[show count_ticket], Lesson
     can :show, Material

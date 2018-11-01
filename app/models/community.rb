@@ -17,4 +17,12 @@ class Community < ApplicationRecord
   def closed_courses
     courses.where(type: "ClosedCourse")
   end
+
+  def is_user_member(current_user)
+    if current_user
+      return self.users.include?(current_user)
+    end
+    return false
+  end
+
 end

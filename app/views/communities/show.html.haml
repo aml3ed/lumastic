@@ -7,7 +7,7 @@
           %h5.header-with-link
             =material_icon.library_books
             Courses
-          = link_to new_course_path(:community_id => @community.id), class: "icon-action btn-flat waves-effect " do
+          = link_to new_course_path(:community_id => @community.id), class: "icon-action btn-flat waves-effect" + disabled_if_no_user do
             = material_icon.library_add.css_class('left')
             Create
           .divider
@@ -19,7 +19,7 @@
         %h5.header-with-link
           =material_icon.forum
           Discussions
-        = link_to new_discussion_path(:community_id => @community.id), class: "icon-action btn-flat waves-effect " do
+        = link_to new_discussion_path(:community_id => @community.id), class: "icon-action btn-flat waves-effect" + disabled_if_no_user do
           = material_icon.add.css_class('left')
           New
         .divider
@@ -36,7 +36,9 @@
           There are no discussions
 
       .col.s12
-        %h5.header-with-link
+        %h5.header-with-link.grey-text
           =icon('fas', 'bell')
           Recent Activity
+        %p.inline.grey-text.tooltipped{"data-tooltip" => "This feature is coming soon!", "data-position" => "top"}
+          =icon('far', 'question-circle')
         .divider

@@ -122,15 +122,12 @@ class LessonsController < ApplicationController
     def get_embed_from_url
       if @lesson.video_url != nil
         @vid_id = helpers.youtube_id(@lesson.video_url)
-        if @vid_id != nil
-          @embed_url = helpers.embed_url(@vid_id)
-        end
+        @embed_url = helpers.embed_url(@vid_id)
       end
-
     end
 
     def get_ticket_percentage
-      totalTickets = @lesson.out_red + @lesson.out_blue + @lesson.out_green
-      @tickets = [helpers.percent(@lesson.out_red, totalTickets), helpers.percent(@lesson.out_blue, totalTickets), helpers.percent(@lesson.out_green, totalTickets)]
+      @totalTickets = @lesson.out_red + @lesson.out_blue + @lesson.out_green
+      @tickets = [helpers.percent(@lesson.out_red, @totalTickets), helpers.percent(@lesson.out_blue, @totalTickets), helpers.percent(@lesson.out_green, @totalTickets)]
     end
 end
