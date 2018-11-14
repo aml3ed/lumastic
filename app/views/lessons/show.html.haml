@@ -5,6 +5,10 @@
     .col.s12.m12.l4
       = render 'components/toc'
     .col.s12.m12.l8
+
+      .row.no-margin
+      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?"}
+
       .row.no-margin.valign-wrapper
         .col
           %h5
@@ -14,9 +18,6 @@
             = link_to edit_course_lesson_path(@course, @lesson), class: "btn-small waves-effect" do
               = material_icon.edit.css_class('left')
               Edit
-
-      .row.no-margin
-      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?"}
 
       .row.section.valign-wrapper.no-margin
         .col

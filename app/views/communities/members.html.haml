@@ -22,6 +22,6 @@
             %tbody
               - @members.each do |member|
                 %tr
-                  %td= member.user.display_name
+                  %td= member.user.try(:display_name)
                   %td= member.role
                   %td 1
