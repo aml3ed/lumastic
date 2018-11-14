@@ -22,6 +22,10 @@
   }
 }
 
+.card.horizontal .card-stacked {
+  max-width: 100% !important;
+}
+
 .course-card {
   .badge {
     z-index: 5;
