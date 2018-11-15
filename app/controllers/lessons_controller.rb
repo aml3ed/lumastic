@@ -67,7 +67,7 @@ class LessonsController < ApplicationController
   def destroy
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to course_path(@course), notice: 'Lesson was successfully destroyed.' }
+      format.html { redirect_to course_path(@course), notice: 'Lesson was successfully deleted.' }
     end
   end
 

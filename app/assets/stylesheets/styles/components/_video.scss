@@ -86,6 +86,12 @@
     cursor: pointer;
   }
 }
+#showMore {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
 .red-vid-button {
   background-color: $red-color;
   &:hover {

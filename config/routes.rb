@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       member do
         patch :count_ticket
       end
+      resources :comments, only: [:new, :create]
     end
   end
 
@@ -32,7 +33,6 @@ Rails.application.routes.draw do
   resource :comments do
     resource :comments
   end
-
 
   # Devise session management
 

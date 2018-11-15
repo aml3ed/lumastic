@@ -48,4 +48,4 @@
       = link_to "Cancel", :back, class: "btn-flat"
     - unless course.new_record?
       .col.right
-        = link_to material_icon.delete, course_path(@course), method: :delete, class: "grey-text"
+        = link_to material_icon.delete, course_path(@course), method: :delete, data: {confirm: "Are you sure you want to delete this course?"}, class: "grey-text"
