@@ -24,6 +24,16 @@ class CommentsController < ApplicationController
   def destroy
   end
 
+  def vote
+    @comment = Comment.find(params[:comment_id])
+    if params[:type] == 'up'
+      @comment.upvote += 1
+    else
+      @comment.downvote += 1
+    end
+    @comment.save
+  end
+
   private
 
   def comment_params

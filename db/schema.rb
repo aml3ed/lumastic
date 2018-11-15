@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_15_213811) do
+ActiveRecord::Schema.define(version: 2018_11_15_223608) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,8 @@ ActiveRecord::Schema.define(version: 2018_11_15_213811) do
     t.bigint "discussion_id"
     t.bigint "parent_id"
     t.bigint "lesson_id"
+    t.integer "upvote", default: 1
+    t.integer "downvote", default: 0
     t.index ["discussion_id"], name: "index_comments_on_discussion_id"
     t.index ["lesson_id"], name: "index_comments_on_lesson_id"
     t.index ["parent_id"], name: "index_comments_on_parent_id"

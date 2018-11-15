@@ -53,7 +53,7 @@
                   = link_to "Sign up", new_user_registration_path
                   to join the discussion!
           %ul
-            - @lesson.comments.where(:parent_id => nil).each do |comment|
+            - @lesson.comments.where(:parent_id => nil).order(upvote: :desc).each do |comment|
               = render 'comments/comment-lesson', comment: comment
 :javascript
   function showReply(self) {

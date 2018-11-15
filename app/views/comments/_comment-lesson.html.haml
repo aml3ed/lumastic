@@ -1,11 +1,11 @@
 %li
   .card-panel.comment-card
     .vote
-      %a.up
+      %a.up{onclick:"vote(this);", "data-target" => "up", "data-comment" => "#{comment.id}", "data-url" => "#{vote_comments_path}"}
         =material_icon.keyboard_arrow_up
       .votes
-        4
-      %a.down
+        = comment.upvote - comment.downvote
+      %a.down{onclick:"vote(this);", "data-target" => "down", "data-comment" => "#{comment.id}", "data-url" => "#{vote_comments_path}"}
         =material_icon.keyboard_arrow_down
     .comment-content
       .row.col.s12.no-margin.display-name
@@ -20,5 +20,5 @@
   - if user_signed_in?
     = render 'comments/reply-form-lesson', comment: comment
   %ul.comment-thread
-    - comment.replies.each do |comment|
+    - comment.replies.order(upvote: :desc).each do |comment|
       = render 'comments/comment-lesson', comment: comment
