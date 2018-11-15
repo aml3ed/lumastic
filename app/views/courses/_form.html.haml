@@ -41,7 +41,11 @@
 
   / Save
   .row
-    = form.button :submit, class: " btn btn waves-effect" do
-      - btn_text = "Save" if local_assigns[:btn_text].nil?
-      = btn_text
-    = link_to "Cancel", :back, class: "btn-flat"
+    .col
+      = form.button :submit, class: " btn btn waves-effect" do
+        - btn_text = "Save" if local_assigns[:btn_text].nil?
+        = btn_text
+      = link_to "Cancel", :back, class: "btn-flat"
+    - unless course.new_record?
+      .col.right
+        = link_to material_icon.delete, course_path(@course), method: :delete, class: "grey-text"
