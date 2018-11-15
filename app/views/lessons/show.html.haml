@@ -29,8 +29,17 @@
 
       .row.no-margin
         .col.s12
-          .truncate= @lesson.lesson_info
+          #description.truncate= @lesson.lesson_info
       .row.section.no-margin
-        .col.grey-text
+        #showMore.col.grey-text{:onclick => "showMore()"}
           SHOW MORE
       .divider
+
+:javascript
+  function showMore() {
+    $("#description").toggleClass("truncate");
+    if( $("#description").hasClass("truncate") )
+      $("#showMore").text("SHOW MORE");
+    else
+      $("#showMore").text("SHOW LESS");
+  }
