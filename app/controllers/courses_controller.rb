@@ -37,7 +37,7 @@ class CoursesController < ApplicationController
   # Example route: GET /courses/new
   def new
     @community = Community.find(params[:community_id])
-    @course = Course.new(community: @community)
+    @course = Course.new(community: @community, open: true)
   end
 
   # Example route: GET /courses/1/edit
