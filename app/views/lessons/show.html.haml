@@ -15,7 +15,7 @@
             = @lesson.title
         .col.vid-actions{:style => "margin-left: auto;"}
           - if @lesson.user == current_user
-            = link_to edit_course_lesson_path(@course, @lesson), class: "btn-small waves-effect" do
+            = link_to edit_community_course_lesson_path(@community, @course, @lesson), class: "btn-small waves-effect" do
               = material_icon.edit.css_class('left')
               Edit
 

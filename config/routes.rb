@@ -1,29 +1,27 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
-  resources :courses do
-    get '/new/:community_id', to: "courses#new"
-    resources :lessons do
-      collection do
-        patch :sort
-      end
-      member do
-        patch :count_ticket
-      end
-    end
-  end
-
-  resources :materials
-
   resources :communities do
     member do
       put :add_user
       put :remove_user
       get :members
-      get :courses
       get :discussions
     end
+    resources :courses do
+      resources :lessons do
+        collection do
+          patch :sort
+        end
+        member do
+          patch :count_ticket
+        end
+      end
+    end
   end
+
+
+  resources :materials
 
   resources :discussions do
     resources :comments, only: [:new, :create]
