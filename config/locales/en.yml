@@ -34,4 +34,4 @@ en:
 
   unauthorized:
     manage:
-      all: "Woops! Try logging in first."
+      all: "Not authorized to %{action} %{subject}."

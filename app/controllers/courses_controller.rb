@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   load_resource :community
-  load_and_authorize_resource :course, through: :community
+  load_and_authorize_resource :course, through: :community, :except => :new
   before_action :get_lessons, only: [:show, :edit]
   before_action :ticket_breakdown, only: [:edit, :show]
 
@@ -32,6 +32,7 @@ class CoursesController < ApplicationController
   # Example route: GET /courses/new
   def new
     @course = Course.new(community: @community)
+    authorize! :new, @course
   end
 
   # Example route: GET /courses/1/edit
