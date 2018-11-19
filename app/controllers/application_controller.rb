@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     puts "***** THIS IS AN EXCEPTION *****"
     puts exception.action
     unless current_user.present?
-      redirect_to new_user_registration_path, :alert => "Poopface"
+      redirect_to new_user_registration_path, :alert => "Woops! Try logging in first."
     else
       redirect_to request.referer, :alert => exception.message
     end
