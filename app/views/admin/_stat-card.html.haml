@@ -1,0 +1,10 @@
+.card.hoverable
+  .card-content.center
+    .row.no-margin
+      .col.s12
+        .grey-text.truncate
+          = locals[:model].pluralize
+    .row.no-margin
+      .col.s12
+        %h5.text-color.center-align
+          = locals[:model].constantize.all.count

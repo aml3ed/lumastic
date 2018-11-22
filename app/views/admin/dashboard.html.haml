@@ -1,0 +1,42 @@
+.container.section
+  .row.no-margin
+    .col.s12.l8
+      .row.no-margin
+        .col.s12
+          %h5 Quick Totals
+      .row
+        .col.s6.m6.l3
+          = render 'stat-card', :locals => {:model => "User"}
+        .col.s6.m6.l3
+          = render 'stat-card', :locals => {:model => "Community"}
+        .col.s6.m6.l3
+          = render 'stat-card', :locals => {:model => "Course"}
+        .col.s6.m6.l3
+          = render 'stat-card', :locals => {:model => "Lesson"}
+    .col.s12.l4
+      .row.no-margin
+        .col.s12
+          %h5 This Week
+        .col.s12
+          %ul.collection
+            %li.collection-item
+              Users
+              %span.badge.stat-badge.secondary-content
+                +
+                = User.where('created_at >= ?', 1.week.ago).count
+            %li.collection-item
+              Communities
+              %span.badge.stat-badge.secondary-content
+                +
+                = Community.where('created_at >= ?', 1.week.ago).count
+            %li.collection-item
+              Courses
+              %span.badge.stat-badge.secondary-content
+                +
+                = Course.where('created_at >= ?', 1.week.ago).count
+            %li.collection-item
+              Lessons
+              %span.badge.stat-badge.secondary-content
+                +
+                = Lesson.where('created_at >= ?', 1.week.ago).count
+
