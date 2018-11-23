@@ -25,4 +25,10 @@ class Community < ApplicationRecord
     return false
   end
 
+  def last_updated
+    community_updated = self.updated_at
+    course_updated = self.courses.maximum(:updated_at)
+    [community_updated, course_updated].max
+  end
+
 end
