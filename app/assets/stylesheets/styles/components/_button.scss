@@ -4,11 +4,14 @@
 .accent-button {
   background-color: darken($accent-color, 10%) !important;
 }
+.btn-flat.grey-btn {
+  color: #9e9e9e;
+}
 .btn-flat .left-icon {
   margin-right: 5px !important;
   float: left !important;
-
 }
+
 .icon-action {
   &:hover {
     color: $secondary-color !important;

@@ -1,32 +1,33 @@
 .container.section
   = render('components/community-header')
   .row
-
-    .col.s12.m12.l4
-      = render 'components/toc'
-    .col.s12.m12.l8
-
-      .row.no-margin
-      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?"}
-
+    .col.s12.m12.push-l4.l8
       .row.no-margin.valign-wrapper
         .col
-          %h5
+          %h5{style: "margin-top: 0px;"}
             = @lesson.title
-        .col.vid-actions{:style => "margin-left: auto;"}
+        .col{style: "margin-left: auto;"}
           - if @lesson.user == current_user
-            = link_to edit_community_course_lesson_path(@community, @course, @lesson), class: "btn-small waves-effect" do
+            = link_to edit_community_course_lesson_path(@community, @course, @lesson), class: "btn-flat waves-effect" do
               = material_icon.edit.css_class('left')
               Edit
-
+      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?"}
+      .row.section.no-margin.valign-wrapper{style: "padding-bottom: 0"}
+        .col
+          .grey-text{style: "font-size: 1.1rem"}= @views.to_s + " views"
+        .col.vid-actions{style: "margin-left: auto;"}
+          = link_to edit_community_course_lesson_path(@community, @course, @lesson), class: "btn-flat green-text waves-effect" do
+            = material_icon.arrow_upward.css_class('left')
+            = @lesson.likes.to_i
+          = link_to edit_community_course_lesson_path(@community, @course, @lesson), class: "btn-flat red-text waves-effect" do
+            = material_icon.arrow_downward.css_class('left')
+            = @lesson.dislikes.to_i
+      .divider
       .row.section.valign-wrapper.no-margin
         .col
           = link_to '#', class: "author text-color" do
             = icon('fas', 'user-circle')
             = @lesson.user.display_name
-        .col.valign-wrapper.hide-on-small-and-down{:style => "margin-left: auto;"}
-          = render 'components/stats-horizontal', total: @totalTickets, green: @tickets[2], blue: @tickets[1], red: @tickets[0]
-
       .row.no-margin
         .col.s12
           .truncate= @lesson.lesson_info
@@ -34,3 +35,7 @@
         .col.grey-text
           SHOW MORE
       .divider
+
+    .col.s12.m12.pull-l8.l4
+      = render 'components/toc'
+
