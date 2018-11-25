@@ -1,24 +1,28 @@
 
+#play-btn {
+  font-weight: 900;
+  transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+  margin: 40px 0px 0px 0px;
+  h2 {
+    margin: 0;
+  }
+  &:hover {
+    cursor: pointer;
+    color: $accent-color;
+  }
 
+}
 
 .vid-player-container {
   box-sizing: border-box;
   @include material-medium-shadow;
 }
-.vid-header h5 {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  margin-top: 0px;
-}
 .vid-actions {
   i {
-    margin-right: 5px;
-    font-size: 1.5rem;
+    font-size: 1rem;
   }
-  .btn-flat {
-    padding-right: 0px;
-    font-size: 1.25rem !important;
+  .btn-small {
+    margin-right: 5px;
   }
 }
 
@@ -41,69 +45,18 @@
   width: 100%;
   height: 100%;
 
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center !important;
+  align-items: center !important;
 
   position: absolute;
   top: 0;
   z-index: 2;
   background-color: rgba(#003A6E, 0.6);
-}
-.vid-text-overlay {
-  flex: 0 1 auto;
-  margin-top: 45px;
-  color: $bg-color;
-  font-size: 22px;
+
+  color: white;
   text-shadow: 0px 0px 4px black;
-}
-.vid-buttons {
-  flex: 1 1 auto;
 
-  display: flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  justify-content: center;
-  padding: 10px;
-  box-sizing: border-box;
+  font-size: 1.1rem;
 }
-.vid-button {
-  flex: 1 1 0;
-  margin: 10px;
-  height: 70%;
-  font-size: 16px;
-  color: $bg-color;
-  font-weight: bold;
-  border-radius: 10px;
-  box-sizing: border-box;
-  border: none;
-  @include material-low-shadow;
-  i {
-    margin-bottom: 16px;
-    font-size: 55px;
-  }
-  &:hover {
-    @include material-hover;
-    cursor: pointer;
-  }
-}
-.red-vid-button {
-  background-color: $red-color;
-  &:hover {
-    color: $accent-color;
-  }
-}
-.yellow-vid-button {
-  background-color: darken($secondary-color, 7%);
-  &:hover {
-    color: $accent-color;
-  }
 
-}
-.green-vid-button {
-  background-color: $green-color;
-  &:hover {
-    color: $accent-color;
-  }
-}
