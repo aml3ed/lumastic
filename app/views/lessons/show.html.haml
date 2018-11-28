@@ -19,12 +19,12 @@
         .col.vid-actions{style: "margin-left: auto;"}
           .grey-text.inline
             Helpful?
-          = link_to edit_community_course_lesson_path(@community, @course, @lesson), class: "btn-small green-btn waves-effect" do
+          %a.btn-small.green-btn.waves-effect{onclick:"vote('upvote');"}
             = icon('fas', 'arrow-up', class: 'left')
-            = @lesson.likes.to_i
-          = link_to edit_community_course_lesson_path(@community, @course, @lesson), class: "btn-small red-btn waves-effect" do
+            %span#upvotes= @lesson.likes.to_i
+          %a.btn-small.red-btn.waves-effect{onclick:"vote('downvote');"}
             = icon('fas', 'arrow-down', class: 'left')
-            = @lesson.dislikes.to_i
+            %span#downvotes= @lesson.dislikes.to_i
       .row.no-margin
         .col.s12
           .truncate= @lesson.lesson_info
@@ -36,3 +36,18 @@
     .col.s12.m12.pull-l8.l4
       = render 'components/toc'
 
+:javascript
+  function vote(vote) {
+    Rails.ajax({
+      type: "PATCH",
+      url: "#{vote_community_course_lesson_path(@community, @course, @lesson)}",
+      data: "vote=" + vote,
+    });
+    if(vote == "upvote")  {
+      new_val = parseInt($('#upvotes').text()) + 1;
+      $('#upvotes').text(new_val);
+    } else {
+      new_val = parseInt($('#downvotes').text()) + 1;
+      $('#downvotes').text(new_val);
+    }
+  }

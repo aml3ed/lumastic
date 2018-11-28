@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         end
         member do
           patch :count_ticket
+          patch :vote
         end
       end
     end

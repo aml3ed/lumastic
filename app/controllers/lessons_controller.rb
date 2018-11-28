@@ -87,6 +87,16 @@ class LessonsController < ApplicationController
     @lesson.save!
   end
 
+  def vote
+    vote = params[:vote]
+    if vote == "upvote"
+      @lesson.increment!(:likes)
+    else
+      @lesson.increment!(:dislikes)
+    end
+    @lesson.save!
+  end
+
   private
     # All of these methods are 'before_actions'
     # They get run before anything happens inside the controller
