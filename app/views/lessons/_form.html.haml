@@ -1,4 +1,4 @@
-= form_for([@course.becomes(Course), @lesson]) do |form|
+= form_for([@community, @course.becomes(Course), lesson]) do |form|
   / Show Errors
   - if lesson.errors.any?
     #error_explanation
@@ -60,7 +60,7 @@
       = form.button :submit, class: " btn btn waves-effect" do
         - btn_text = "Save" if local_assigns[:btn_text].nil?
         = btn_text
-      = link_to "Cancel", :back, class: "btn-flat"
-    - unless lesson.new_record?
-      .col.right
-        = link_to material_icon.delete, course_lesson_path(@course, @lesson), method: :delete, data: {confirm: "Are you sure you want to delete this lesson?"}, class: "grey-text"
+      = link_to "Cancel", community_course_path(@community, @course), class: "btn-flat"
+      - unless lesson.new_record?
+        .col.right
+          = link_to material_icon.delete, course_lesson_path(@course, @lesson), method: :delete, data: {confirm: "Are you sure you want to delete this lesson?"}, class: "grey-text"

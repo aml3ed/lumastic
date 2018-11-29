@@ -1,10 +1,6 @@
 class CoursesController < ApplicationController
-  load_and_authorize_resource
   load_resource :community
-  # load_resource :community, except: :new
-  # load_and_authorize_resource :course, through: :community
-  before_action :set_community, only: :new
-  before_action :set_course, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource :course, through: :community, :except => :new
   before_action :get_lessons, only: [:show, :edit]
   before_action :ticket_breakdown, only: [:edit, :show]
 
@@ -15,7 +11,7 @@ class CoursesController < ApplicationController
     @courses = Course.where(:user_id => current_user.id)
     @course_tickets = {}
     @courses.each do |course|
-      totals = course.total_tickets
+      totals = course.tickets
       totalTickets = totals[:total]
       totalReds = totals[:red]
       totalBlues = totals[:blue]
@@ -29,48 +25,38 @@ class CoursesController < ApplicationController
 
   # Example route: GET /courses/1
   def show
-    @community = Community.find(@course.community_id)
     @lessons.order(:position)
-    @course_path_nav = course_path(@course)
+    @course_path_nav = community_course_path(@community, @course)
   end
 
   # Example route: GET /courses/new
   def new
-    @community = Community.find(params[:community_id])
-    @course = Course.new(community: @community, open: true)
+    @course = Course.new(community: @community)
+    authorize! :new, @course
   end
 
   # Example route: GET /courses/1/edit
   def edit
-    @community = @course.community
-
-
-    @course_path_nav = edit_course_path(@course)
+    @course_path_nav = edit_community_course_path(@community, @course)
     @lessons.order(:position)
-    # Check to see if the course belongs to this user
-    if @course.user_id != current_user.id
-      # If it doesn't, redirect to the homepage (we should make this go somewhere else)
-      redirect_to root_path
-    end
   end
 
   # Example route: POST /courses
   def create
     # Build a new course object from the form parameters
-    puts "************************** #{course_params.inspect}"
     if course_params[:open] == "1"
       @course = OpenCourse.new(course_params)
     else
       @course = ClosedCourse.new(course_params)
     end
-    @course.community = Community.find(params[:community_id])
+    @course.community = @community
     # Add the user_id from the session object
     @course.user_id = current_user.id
     # Save the new course object to the database
     respond_to do |format|
       if @course.save
         puts @course.inspect
-        format.html { redirect_to new_course_lesson_path(@course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
+        format.html { redirect_to new_community_course_lesson_path(@community, @course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
         format.json { render :show, status: :created, location: @course }
       else
         format.html { render :new }
@@ -83,7 +69,7 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to course_path(@course), :flash => {:notice => "Your course was saved successfully! Woohoo!" } }
+        format.html { redirect_to community_course_path(@community, @course), :flash => {:notice => "Your course was saved successfully! Woohoo!" } }
       else
         format.html { render :show }
       end
@@ -95,7 +81,7 @@ class CoursesController < ApplicationController
     @community = @course.community
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to community_path(@community), notice: 'Course was successfully deleted.' }
+      format.html { redirect_to community_courses_url, notice: 'Course was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -104,22 +90,13 @@ class CoursesController < ApplicationController
     # All of these methods are 'before_actions'
     # They get run before anything happens inside the controller
 
-    # Finds the course in the database and references it in a variable
-    def set_course
-      @course = Course.find(params[:id])
-    end
-
-    def set_community
-      @community = Community.find(params[:community_id])
-    end
-
     def get_lessons
-      @lessons = Lesson.where(:course_id => @course.id).order(:position)
+      @lessons = Lesson.where(course: @course).order(:position)
     end
 
     # Declares what parameters are mutatable by the controller
     def course_params
-      params.require(:course).permit(:community_id, :title, :course_info, :open, :instructor_bio, :keywords, :price)
+      params.require(:course).permit(:title, :course_info, :open, :instructor_bio, :keywords, :price)
     end
 
     def ticket_breakdown

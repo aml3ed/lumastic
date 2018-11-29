@@ -7,13 +7,15 @@
           %h5.header-with-link
             =material_icon.library_books
             Courses
-          = link_to new_course_path(:community_id => @community.id), class: "icon-action btn-flat waves-effect" + disabled_if_no_user do
-            = material_icon.library_add.css_class('left')
-            Create
+          - puts can? :create, Course, community_id: @community.id
+          - if can? :create, Course, community_id: @community.id
+            = link_to new_community_course_path(@community), class: "icon-action btn-flat waves-effect" + disabled_if_no_user do
+              = material_icon.library_add.css_class('left')
+              Create
           .divider
         - @courses.each do |course|
           .col.l6.m12.s12
-            = render('components/course-card', :course => course)
+            = render('components/course-card', community: @community, course: course)
     .col.m5.s12
       .col.s12
         %h5.header-with-link

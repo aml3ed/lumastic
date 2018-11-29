@@ -3,15 +3,15 @@
     .vid-overlay-container
       .vid-text-overlay= locals[:question]
       .vid-buttons.row
-        %button#green.vid-button.green-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
+        %button#green.vid-button.green-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_community_course_lesson_path(@community, @course, @lesson)}"}
           = icon("fab", "youtube")
           %br/
           I got this!
-        %button#blue.vid-button.yellow-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
+        %button#blue.vid-button.yellow-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_community_course_lesson_path(@community, @course, @lesson)}"}
           = icon("fab", "youtube")
           %br/
           I'm starting to get it
-        %button#red.vid-button.red-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
+        %button#red.vid-button.red-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_community_course_lesson_path(@community, @course, @lesson)}"}
           = icon("fab", "youtube")
           %br/
           Not confident yet

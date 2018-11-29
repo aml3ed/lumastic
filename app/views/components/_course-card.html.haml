@@ -3,7 +3,7 @@
     %span.badge.card-badge.collaborative open
   .card-image
     .overlay-effect
-    = link_to "", course_path(course), :class=>"container-clickable"
+    = link_to "", community_course_path(community, course), :class=>"container-clickable"
     = image_tag "HeaderImage-8.png", class: "sixteen-nine"
     %span.card-title= course.title
   .card-content
@@ -15,7 +15,7 @@
         = material_icon.local_offer
         %span
           = course.green_percent
-    = link_to "", course_path(course), :class=>"container-clickable"
+    = link_to "", community_course_path(community, course), :class=>"container-clickable"
     .row
       .col.s12
         %p.truncate= course.course_info
