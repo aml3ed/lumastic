@@ -31,5 +31,8 @@
         %ul#leave_dropdown.dropdown-content
           -if @community.is_user_member(current_user)
             %li
+              = link_to "Edit Community", edit_community_path(@community)
+          -if @community.is_user_member(current_user)
+            %li
               = link_to "Leave Community", remove_user_community_path(@community), method: :put, class: "red-text"
   .divider

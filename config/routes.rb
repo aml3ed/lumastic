@@ -28,9 +28,11 @@ Rails.application.routes.draw do
   end
 
   resource :comments do
+    member do
+      patch :vote
+    end
     resource :comments
   end
-
 
   # Devise session management
 

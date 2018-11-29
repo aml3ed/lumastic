@@ -78,6 +78,7 @@ class CoursesController < ApplicationController
 
   # Example route: DELETE /courses/1
   def destroy
+    @community = @course.community
     @course.destroy
     respond_to do |format|
       format.html { redirect_to community_courses_url, notice: 'Course was successfully destroyed.' }
