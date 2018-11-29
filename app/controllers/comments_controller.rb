@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     else params.has_key?(:lesson_id)
       @lesson = Lesson.find(params[:lesson_id])
       @comment =@lesson.comments.new(comment_params)
-      redirect = course_lesson_path(@lesson.course, @lesson)
+      redirect = community_course_lesson_path(@lesson.course.community, @lesson.course, @lesson)
     end
     if @comment.save
       redirect_to redirect, notice: "Your comment was successfully posted!"

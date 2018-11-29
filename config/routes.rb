@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
     resources :courses do
       resources :lessons do
+        resources :comments, only: [:new, :create]
         collection do
           patch :sort
         end

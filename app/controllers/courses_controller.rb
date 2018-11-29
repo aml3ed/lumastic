@@ -8,19 +8,7 @@ class CoursesController < ApplicationController
   # Example route: GET /courses
   def index
     # Show only the courses for that logged-in user
-    @courses = Course.where(:user_id => current_user.id)
-    @course_tickets = {}
-    @courses.each do |course|
-      totals = course.tickets
-      totalTickets = totals[:total]
-      totalReds = totals[:red]
-      totalBlues = totals[:blue]
-      totalGreens = totals[:green]
-      @tickets = [helpers.percent(totalReds, totalTickets),
-                  helpers.percent(totalBlues, totalTickets),
-                  helpers.percent(totalGreens, totalTickets)]
-      @course_tickets[course.id.to_s] = @tickets
-    end
+    @courses = @community.courses
   end
 
   # Example route: GET /courses/1
@@ -32,6 +20,7 @@ class CoursesController < ApplicationController
   # Example route: GET /courses/new
   def new
     @course = Course.new(community: @community)
+    @course.open = true
     authorize! :new, @course
   end
 
@@ -78,11 +67,9 @@ class CoursesController < ApplicationController
 
   # Example route: DELETE /courses/1
   def destroy
-    @community = @course.community
     @course.destroy
     respond_to do |format|
-      format.html { redirect_to community_courses_url, notice: 'Course was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to community_path(@community), notice: 'Course was successfully destroyed.' }
     end
   end
 

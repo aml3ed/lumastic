@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_29_065613) do
+ActiveRecord::Schema.define(version: 2018_11_29_190302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 2018_11_29_065613) do
     t.string "title"
     t.string "video_url"
     t.string "lesson_info"
-    t.integer "likes"
-    t.integer "dislikes"
+    t.integer "likes", null: false
+    t.integer "dislikes", null: false
     t.integer "shares"
     t.boolean "material_access"
     t.string "keywords"

@@ -4,7 +4,7 @@
       .row.col.s12.no-margin.display-name
         Thoughts?
       .row.col.s12.no-margin
-        = form_for [comment.lesson.course, comment.lesson, Comment.new] do |f|
+        = form_for [comment.lesson.course.community, comment.lesson.course, comment.lesson, Comment.new] do |f|
           = f.hidden_field :user_id, :value => current_user.id
           = f.hidden_field :parent_id, :value => comment.id
           = f.text_area :content, class: "materialize-textarea"

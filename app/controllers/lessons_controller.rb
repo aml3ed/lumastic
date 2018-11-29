@@ -4,7 +4,6 @@ class LessonsController < ApplicationController
   load_and_authorize_resource :lesson, through: :course
   before_action :find_lessons
   before_action :get_embed_from_url, only: [:show, :view, :edit]
-  before_action :get_ticket_percentage, only: %i[create show edit new]
 
   # Example route: GET /lessons
   def index
@@ -65,7 +64,7 @@ class LessonsController < ApplicationController
   def destroy
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to community_course_path(@course), notice: 'Lesson was successfully destroyed.' }
+      format.html { redirect_to community_course_path(@community,@course), notice: 'Lesson was successfully destroyed.' }
     end
   end
 

@@ -5,6 +5,7 @@
     - if @course.open
       %span.badge.card-badge.collaborative Open
     %h5
+      = material_icon.book.css_class("primary-text")
       = link_to @course.title, community_course_path(@community, @course), class: "primary-text"
   / For each lesson, make a collection item with that lesson and it's url
   - if @lesson.id == nil
@@ -15,8 +16,14 @@
     - path_show_lesson = community_course_lesson_path(@community, @course, lesson)
     / Add Link to Collection Item
     = link_to path_show_lesson, :class => (@lesson.id == lesson.id ? "active" : "")+" collection-item", :id => dom_id(lesson) do
-      = material_icon.drag_handle.css_class('left')
-      = lesson.title
+      .flex{style: "align-items: center;"}
+        .f0
+          = material_icon.drag_handle
+        .truncate.f1
+          %span{style: "margin-left: 8px"}= lesson.title
+        .f0{style: "white-space: nowrap; margin-left: 5px;"}
+          =icon('fas', 'arrows-alt-v')
+          = lesson.likes.to_i - lesson.dislikes.to_i
 
 / Add Lesson Button
 = link_to new_community_course_lesson_path(@community, @course), :class => " btn-flat right" do

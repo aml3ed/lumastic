@@ -13,9 +13,14 @@
     - path_show_lesson = community_course_lesson_path(@community, @course, lesson)
     / Add Link to Collection Item
     = link_to path_show_lesson, :class => " collection-item", :id => dom_id(lesson) do
-      .truncate
-        = icon('fas','play-circle')
-        .inline{style: "margin-left: 8px"}= lesson.title
+      .flex{style: "align-items: center;"}
+        .f0
+          = icon('fas','play-circle')
+        .truncate.f1
+          %span{style: "margin-left: 8px"}= lesson.title
+        .f0{style: "white-space: nowrap; margin-left: 5px;"}
+          =icon('fas', 'arrows-alt-v')
+          = lesson.votes_difference
 
 
 / Add Lesson Button

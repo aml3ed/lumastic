@@ -1,3 +1,4 @@
+- contributors = course.contributors
 .card.course-card.hoverable
   - if course.open
     %span.badge.card-badge.collaborative open
@@ -8,13 +9,15 @@
     %span.card-title= course.title
   .card-content
     .row.valign-wrapper
-      .col.s8.author.truncate
-        = icon('fas', 'user-circle')
-        = course.user.display_name
-      .col.s4.valign-wrapper.justify-right.green-text
-        = material_icon.local_offer
+      .col.s12.author
+        = icon('fas', 'users')
+        - count = contributors.count
+        = count
+        = " Contributor" + (count != 1 ? "s" : "")
+      .col.right{style: "white-space: nowrap;"}
+        =icon('fas', 'arrows-alt-v')
         %span
-          = course.green_percent
+          = course.votes[:difference]
     = link_to "", community_course_path(community, course), :class=>"container-clickable"
     .row
       .col.s12

@@ -6,6 +6,7 @@ $(document).on('ready turbolinks:load', function() {
     M.Modal._count = 0;
     $('.modal').modal();
     $('.collapsible').collapsible();
+    M.updateTextFields();
 
     $("[data-behavior='sortable']").sortable({
        items: '> a:not(.not-sortable)',
@@ -30,7 +31,7 @@ $(document).on('ready turbolinks:before-cache', function() {
     M.Modal._count = 0;
     $('.modal').modal();
     $('.collapsible').collapsible();
-
+    M.updateTextFields();
 
     $('select').formSelect('destroy');
 
