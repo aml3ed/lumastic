@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
     unless current_user.present?
       redirect_to new_user_registration_path, :alert => "Woops! Try logging in first."
     else
-      redirect_to request.referer, :alert => exception.message
+      redirect_to request.referer.nil? ? root_path : request.referer, :alert => exception.message
     end
 
 

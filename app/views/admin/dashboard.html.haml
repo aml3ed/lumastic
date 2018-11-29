@@ -1,0 +1,39 @@
+.container.section
+  .row.no-margin
+    .col.s12
+      %h4
+        Team Dashboard
+      .divider
+  .row.no-margin
+    .col.s12.m6.l4
+      .row.no-margin
+        .col.s12
+          %h5
+            = (Date.new(2018, 12, 4) - Date.today).to_i
+            Days To Complete:
+      .row.no-margin
+        .col.s12
+          = render 'admin-goal', :locals => {:text => "1 Lesson made not by us", :percent => percent(Lesson.where("user_id > ?", 3).count, 1).to_s + "%"}
+        .col.s12
+          = render 'admin-goal', :locals => {:text => "25 Users signed up", :percent => percent(User.all.count - 3, 25).to_s + "%"}
+        .col.s12
+          = render 'admin-goal', :locals => {:text => "180 Likes on Facebook", :percent => percent(133, 180).to_s + "%"}
+    .col.s12.m6.l8
+      .row.no-margin
+        .col.s12
+          %h5 This Week's Stats
+      .row.no-margin
+        .col.s6.m6.l3
+          = link_to admin_users_path do
+            = render 'stat-card', :locals => {:model => "User"}
+        .col.s6.m6.l3
+          = link_to admin_communities_path do
+            = render 'stat-card', :locals => {:model => "Community"}
+        .col.s6.m6.l3
+          = link_to admin_courses_path do
+            = render 'stat-card', :locals => {:model => "Course"}
+        .col.s6.m6.l3
+          = link_to admin_lessons_path do
+            = render 'stat-card', :locals => {:model => "Lesson"}
+
+

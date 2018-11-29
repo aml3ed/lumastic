@@ -54,6 +54,7 @@ class Ability
   #
   def grant_admin_roles
     can :manage, :all
+    can :manage, :admin
   end
 
   #

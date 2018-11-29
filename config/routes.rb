@@ -41,6 +41,15 @@ Rails.application.routes.draw do
              controllers: { sessions: 'sessions', registrations: 'registrations', passwords: 'passwords' },
              skip: %i[invitations]
 
+  # Admin Pages
+  scope '/admin' do
+    get '', to: 'admin#dashboard', as: 'admin_dashboard'
+    get '/users', to: 'admin#admin_users', as: 'admin_users'
+    get '/communities', to: 'admin#admin_communities', as: 'admin_communities'
+    get '/courses', to: 'admin#admin_courses', as: 'admin_courses'
+    get '/lessons', to: 'admin#admin_lessons', as: 'admin_lessons'
+  end
+
   # Static Pages
 
   get '/home', to: 'pages#home'

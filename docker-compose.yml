@@ -19,5 +19,6 @@ services:
       RAILS_ENV: "development"
       BASE_URL: "http://localhost:3000"
       SECRET_KEY_BASE: "88526a8c8b04f85a93e2fee77f1108941ac0183f428ff5f9ef3c14167884caa26343b6c067c46270e0d1e7a98a5d1d24bc351bf017b7a45430a1178d0eb7b724"
+      GA_ID: ""
     depends_on:
       - db
