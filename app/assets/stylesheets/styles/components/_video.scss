@@ -60,3 +60,41 @@
   font-size: 1.1rem;
 }
 
+.vid-button {
+  flex: 1 1 0;
+  margin: 10px;
+  height: 70%;
+  font-size: 16px;
+  color: $bg-color;
+  font-weight: bold;
+  border-radius: 10px;
+  box-sizing: border-box;
+  border: none;
+  @include material-low-shadow;
+  i {
+    margin-bottom: 16px;
+    font-size: 55px;
+  }
+  &:hover {
+    @include material-hover;
+    cursor: pointer;
+  }
+}
+#showMore {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.red-vid-button {
+  background-color: $red-color;
+  &:hover {
+    color: $accent-color;
+  }
+}
+.yellow-vid-button {
+  background-color: darken($secondary-color, 7%);
+  &:hover {
+    color: $accent-color;
+  }
+

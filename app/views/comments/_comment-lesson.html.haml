@@ -18,7 +18,7 @@
             Reply
             = material_icon.reply
   - if user_signed_in?
-    = render 'comments/reply-form', comment: comment
+    = render 'comments/reply-form-lesson', comment: comment
   %ul.comment-thread
     - comment.replies.order(upvote: :desc).each do |comment|
-      = render 'comments/comment', comment: comment
+      = render 'comments/comment-lesson', comment: comment

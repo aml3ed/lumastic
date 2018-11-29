@@ -62,6 +62,13 @@ class CommunitiesController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @community.update(community_params)
+        format.html { redirect_to community_path(@community), :flash => {:notice => "Your community was saved successfully! Woohoo!" } }
+      else
+        format.html { render :show }
+      end
+    end
   end
 
   def destroy

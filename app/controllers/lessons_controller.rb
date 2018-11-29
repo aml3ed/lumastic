@@ -20,9 +20,6 @@ class LessonsController < ApplicationController
 
   # Example route: GET /lessons/new
   def new
-    puts @course.inspect
-    puts '(((((((((((((((((((())))))))))))))))))))))'
-    puts params.inspect
     @lesson = Lesson.new(course: @course)
     @lesson.materials.build
   end
