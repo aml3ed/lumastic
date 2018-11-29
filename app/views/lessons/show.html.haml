@@ -14,7 +14,7 @@
           %h5
             = @lesson.title
         .col.vid-actions{:style => "margin-left: auto;"}
-          - if @lesson.user == current_user
+          - if can? :edit, @lesson
             = link_to edit_community_course_lesson_path(@community, @course, @lesson), class: "btn-small waves-effect" do
               = material_icon.edit.css_class('left')
               Edit
@@ -29,8 +29,41 @@
 
       .row.no-margin
         .col.s12
-          .truncate= @lesson.lesson_info
+          #description.truncate= @lesson.lesson_info
       .row.section.no-margin
-        .col.grey-text
+        #showMore.col.grey-text{:onclick => "showMore()"}
           SHOW MORE
       .divider
+      .row.no-margin
+        .col.s12
+          .card-panel.comment-card
+            .comment-content
+              .row.col.s12.no-margin.display-name
+                Thoughts?
+              .row.col.s12.no-margin
+                - if user_signed_in?
+                  = form_for [@course, @lesson, Comment.new] do |f|
+                    = f.hidden_field :user_id, :value => current_user.id
+                    = f.hidden_field :lesson_id, :value => @lesson.id
+                    = f.text_area :content, class: "materialize-textarea"
+                    = f.button :submit, class: " btn-small waves-effect" do
+                      - btn_text = "Post" if local_assigns[:btn_text].nil?
+                      = btn_text
+                - else
+                  = link_to "Sign up", new_user_registration_path
+                  to join the discussion!
+          %ul
+            - @lesson.comments.where(:parent_id => nil).order(upvote: :desc).each do |comment|
+              = render 'comments/comment-lesson', comment: comment
+:javascript
+  function showReply(self) {
+    $($(self).data("target")).toggle()
+  }
+
+  function showMore() {
+    $("#description").toggleClass("truncate");
+    if( $("#description").hasClass("truncate") )
+      $("#showMore").text("SHOW MORE");
+    else
+      $("#showMore").text("SHOW LESS");
+  }

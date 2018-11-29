@@ -39,25 +39,17 @@ class CoursesController < ApplicationController
   def edit
     @course_path_nav = edit_community_course_path(@community, @course)
     @lessons.order(:position)
-    # Check to see if the course belongs to this user
-    if @course.user_id != current_user.id
-      # If it doesn't, redirect to the homepage (we should make this go somewhere else)
-      redirect_to root_path
-    end
   end
 
   # Example route: POST /courses
   def create
     # Build a new course object from the form parameters
-    puts "************************** #{course_params.inspect}"
     if course_params[:open] == "1"
       @course = OpenCourse.new(course_params)
     else
       @course = ClosedCourse.new(course_params)
     end
     @course.community = @community
-    puts "community *******"
-    puts @community.inspect
     # Add the user_id from the session object
     @course.user_id = current_user.id
     # Save the new course object to the database
@@ -86,6 +78,7 @@ class CoursesController < ApplicationController
 
   # Example route: DELETE /courses/1
   def destroy
+    @community = @course.community
     @course.destroy
     respond_to do |format|
       format.html { redirect_to community_courses_url, notice: 'Course was successfully destroyed.' }

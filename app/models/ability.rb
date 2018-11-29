@@ -62,8 +62,13 @@ class Ability
   #
   def grant_community_instance_roles(user)
     user.communities.each do |community|
-      puts '************************** COMMUNITY *****************************'
       can %i[show index new create], Course, community_id: community.id
+
+      # Grant curator roles to manage courses and lessons within the community
+      if Membership.where(community: community, user: user, role: "Curator").present?
+        can :manage, Course, community: community
+        can :manage, Lesson, course: { community: community }
+      end
 
       # Can create lesson if course is open and user belongs to the community
       can %i[new create], Lesson, course: { type: "OpenCourse", community: community }
