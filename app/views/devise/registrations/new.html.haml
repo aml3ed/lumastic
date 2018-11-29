@@ -20,6 +20,10 @@
           .input-field.col.s12
             = f.password_field :password, type: "password", autocomplete: "off" , id: 'password', class: "validate", placeholder: "Make it memorable!"
             = f.label :password, for: "password"
+        .row
+          .input-field.col.s12
+            = f.text_field :referred_by, autocomplete: "off", id: 'referred_by', type: "text", placeholder: "How did you hear about us?"
+            = f.label :referred_by, for: "referred_by"
         %br/
         .row
           = f.button :submit, class: "col s12 btn btn-large waves-effect form-submit" do
