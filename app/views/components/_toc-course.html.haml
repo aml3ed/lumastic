@@ -13,8 +13,10 @@
     - path_show_lesson = community_course_lesson_path(@community, @course, lesson)
     / Add Link to Collection Item
     = link_to path_show_lesson, :class => " collection-item", :id => dom_id(lesson) do
-      = lesson.position
-      = lesson.title
+      .truncate
+        = icon('fas','play-circle')
+        .inline{style: "margin-left: 8px"}= lesson.title
+
 
 / Add Lesson Button
 - if @course.open or (@course.user == current_user)

@@ -30,7 +30,7 @@ class Ability
     can %i[show discussions members courses], Community
     can :show, Discussion
     can :show, Course
-    can %i[show count_ticket], Lesson
+    can %i[show count_ticket vote], Lesson
     can :show, Material
   end
 

@@ -14,6 +14,8 @@ class LessonsController < ApplicationController
   # Example route: GET /lessons/1
   def show
     # See get_embed_from_url before action
+    video = Yt::Video.new id: @vid_id
+    @views = video.view_count
   end
 
   # Example route: GET /lessons/new
@@ -79,6 +81,16 @@ class LessonsController < ApplicationController
     field = "#{params[:type]}_#{params[:color]}".to_sym
     cur_val = @lesson.send(field).nil? ? 0 : @lesson.send(field)
     @lesson.send(field.to_s + '=', cur_val + 1)
+    @lesson.save!
+  end
+
+  def vote
+    vote = params[:vote]
+    if vote == "upvote"
+      @lesson.increment!(:likes)
+    else
+      @lesson.increment!(:dislikes)
+    end
     @lesson.save!
   end
 

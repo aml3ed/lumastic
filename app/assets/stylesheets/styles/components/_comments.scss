@@ -1,3 +1,31 @@
+.vote {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  margin-right: 16px;
+  color: #cdcdcd;
+  a {
+    cursor: pointer;
+    color: #cdcdcd;
+    &.active {
+      color: $accent-color;
+    }
+  }
+  i {
+    font-size: 2rem !important;
+  }
+  .btn-flat {
+    height: 20px;
+    line-height: 20px;
+    i {
+      font-size: 1.5rem !important;
+      margin-right: 4px;
+    }
+  }
+}
+
 .comment-thread {
   border-left: 3px solid #e0e0e0;
   li {
@@ -12,25 +40,6 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-start;
-  .vote {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 0;
-    margin-right: 16px;
-    color: #cdcdcd;
-    a {
-      cursor: pointer;
-      color: #cdcdcd;
-      &.active {
-        color: $accent-color;
-      }
-    }
-    i {
-      font-size: 2rem !important;
-    }
-  }
   .comment-content{
     height: inherit;
     width: 100%;
