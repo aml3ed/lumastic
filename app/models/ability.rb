@@ -41,7 +41,7 @@ class Ability
     can %i[show index create add_user remove_user members discussions courses], Community
 
     can %i[show index], Course
-    can %i[show index count_ticket], Lesson
+    can %i[show index count_ticket vote], Lesson
     can %i[show index new create], Material
 
     if user.communities.present?

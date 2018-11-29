@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     puts "***** THIS IS AN EXCEPTION *****"
     puts exception.action
-    unless current_user.present?
+    if current_user.blank?
       redirect_to new_user_registration_path, :alert => "Woops! Try logging in first."
     else
       redirect_to request.referer.nil? ? root_path : request.referer, :alert => exception.message
