@@ -41,7 +41,7 @@
               Thoughts?
             .row.col.s12.no-margin
               - if user_signed_in?
-                = form_for [@community, @course, @lesson, Comment.new] do |f|
+                = form_for [@community, @course.becomes(Course), @lesson, Comment.new] do |f|
                   = f.hidden_field :user_id, :value => current_user.id
                   = f.hidden_field :lesson_id, :value => @lesson.id
                   = f.text_area :content, class: "materialize-textarea"
