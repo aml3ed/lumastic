@@ -33,5 +33,7 @@ en:
   hello: "Hello world"
 
   unauthorized:
-    manage:
-      all: "Woops! Try logging in first."
+    default: "Not allowed to %{action} %{subject}"
+    create:
+      course: "Join the community before creating a course."
+      lesson: "You can't add lessons to this course."

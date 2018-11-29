@@ -40,7 +40,7 @@ class Ability
   def grant_student_roles(user)
     can %i[show index create add_user remove_user members discussions courses], Community
 
-    can %i[show index new create], Course
+    can %i[show index], Course
     can %i[show index count_ticket], Lesson
     can %i[show index new create], Material
 
@@ -61,10 +61,15 @@ class Ability
   #
   def grant_community_instance_roles(user)
     user.communities.each do |community|
-      # puts '************************** COMMUNITY *****************************'
-      # can %i[show index new create], Course do |course|
-      #   course.community.users.include? user
-      # end
+      can %i[show index new create], Course, community_id: community.id
+
+      # Grant curator roles to manage courses and lessons within the community
+      if Membership.where(community: community, user: user, role: "Curator").present?
+        can :manage, Course, community: community
+        can :manage, Lesson, course: { community: community }
+      end
+
+      # Can create lesson if course is open and user belongs to the community
       can %i[new create], Lesson, course: { type: "OpenCourse", community: community }
       if community.courses.where(user: user).present?
         grant_course_instance_roles(user, community)
@@ -77,8 +82,12 @@ class Ability
   #
   def grant_course_instance_roles(user, community)
     community.courses.each do |course|
+      # Can manage the course if the user is the course creator
       can :manage, course if course.user == user
+
+      # Can create a lesson if the course is closed and the user is the course creator
       can %i[new create], Lesson, course: { type: "ClosedCourse", user: user }
+
       grant_lesson_instance_roles(user, course) if course.lessons.present?
     end
   end

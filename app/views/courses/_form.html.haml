@@ -1,4 +1,4 @@
-= form_with(model: course.becomes(Course), local: true) do |form|
+= form_with(model: [@community, course.becomes(Course)], local: true) do |form|
   / Show Errors
   - if course.errors.any?
     #error_explanation
@@ -27,7 +27,6 @@
     .input-field.col.s12
       = form.label :keywords
       = form.text_field :keywords
-      = hidden_field_tag(:community_id, @community.id)
   .row
     .input-field.col
       .switch

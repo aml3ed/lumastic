@@ -20,8 +20,8 @@
         .col.s12.show-field
           %label Keywords
           %p= @course.keywords
-        -if @course.user == current_user
+        -if can? :edit, @course
           .col.s12
-            = link_to edit_course_path(@course), :class=> "btn waves-effect" do
+            = link_to edit_community_course_path(@community, @course), :class=> "btn waves-effect" do
               =material_icon.mode_edit.css_class('left')
               Edit

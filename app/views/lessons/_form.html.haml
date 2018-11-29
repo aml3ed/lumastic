@@ -1,4 +1,4 @@
-= form_for([@course.becomes(Course), @lesson]) do |form|
+= form_for([@community, @course.becomes(Course), lesson]) do |form|
   / Show Errors
   - if lesson.errors.any?
     #error_explanation
@@ -59,4 +59,4 @@
     = form.button :submit, class: " btn btn waves-effect" do
       - btn_text = "Save" if local_assigns[:btn_text].nil?
       = btn_text
-    = link_to "Cancel", course_path(@course), class: "btn-flat"
+    = link_to "Cancel", community_course_path(@community, @course), class: "btn-flat"
