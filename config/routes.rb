@@ -1,38 +1,40 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
 
-  resources :courses do
-    get '/new/:community_id', to: "courses#new"
-    resources :lessons do
-      collection do
-        patch :sort
-      end
-      member do
-        patch :count_ticket
-      end
-    end
-  end
-
-  resources :materials
-
   resources :communities do
     member do
       put :add_user
       put :remove_user
       get :members
-      get :courses
       get :discussions
     end
+    resources :courses do
+      resources :lessons do
+        resources :comments, only: [:new, :create]
+        collection do
+          patch :sort
+        end
+        member do
+          patch :count_ticket
+          patch :vote
+        end
+      end
+    end
   end
+
+
+  resources :materials
 
   resources :discussions do
     resources :comments, only: [:new, :create]
   end
 
   resource :comments do
+    member do
+      patch :vote
+    end
     resource :comments
   end
-
 
   # Devise session management
 
@@ -40,6 +42,15 @@ Rails.application.routes.draw do
              path_names: { sign_in: 'login', sign_out: 'logout' },
              controllers: { sessions: 'sessions', registrations: 'registrations', passwords: 'passwords' },
              skip: %i[invitations]
+
+  # Admin Pages
+  scope '/admin' do
+    get '', to: 'admin#dashboard', as: 'admin_dashboard'
+    get '/users', to: 'admin#admin_users', as: 'admin_users'
+    get '/communities', to: 'admin#admin_communities', as: 'admin_communities'
+    get '/courses', to: 'admin#admin_courses', as: 'admin_courses'
+    get '/lessons', to: 'admin#admin_lessons', as: 'admin_lessons'
+  end
 
   # Static Pages
 

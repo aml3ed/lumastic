@@ -17,8 +17,8 @@
   .row
     - @courses.each do |course|
       .col.l3.m6.s12
-        = render('components/course-card-withaction', :course => course)
-
+        = render('components/course-card-withaction', :course => course, :community => course.community)
 
 = render('components/new-community-modal')
+
 

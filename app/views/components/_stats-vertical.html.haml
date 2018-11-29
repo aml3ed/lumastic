@@ -1,18 +1,10 @@
 .row.course-list-stat.no-margin
   .col.s12.valign-wrapper.justify-right.green-text
-    = material_icon.local_offer
+    = icon('fas', 'arrow-up', class: 'left')
     %span
-      = green
-      \%
-.row.course-list-stat.no-margin
-  .col.s12.valign-wrapper.justify-right.light-blue-text
-    = material_icon.local_offer
-    %span
-      = blue
-      \%
+      = likes
 .row.course-list-stat.no-margin
   .col.s12.valign-wrapper.justify-right.red-text
-    = material_icon.local_offer
+    = icon('fas', 'arrow-down', class: 'left')
     %span
-      = red
-      \%
+      = dislikes

@@ -16,4 +16,13 @@ module ApplicationHelper
   rescue
     0
   end
+
+  def is_admin(current_user)
+    admin = false
+    if current_user.role == Roleable::ROLE_ADMIN
+      admin = true
+    end
+    admin
+  end
+
 end

@@ -8,6 +8,12 @@
   float: none !important;
   margin-left: 10px !important;
 }
+.stat-badge {
+  background-color: $green-color;
+  color: white !important;
+  border-radius: 2px;
+}
+
 .card-badge {
   position: absolute;
   top:0;

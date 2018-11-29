@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_30_201300) do
+ActiveRecord::Schema.define(version: 2018_11_29_190302) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +43,11 @@ ActiveRecord::Schema.define(version: 2018_10_30_201300) do
     t.bigint "user_id"
     t.bigint "discussion_id"
     t.bigint "parent_id"
+    t.bigint "lesson_id"
+    t.integer "upvote", default: 1
+    t.integer "downvote", default: 0
     t.index ["discussion_id"], name: "index_comments_on_discussion_id"
+    t.index ["lesson_id"], name: "index_comments_on_lesson_id"
     t.index ["parent_id"], name: "index_comments_on_parent_id"
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
@@ -87,8 +91,8 @@ ActiveRecord::Schema.define(version: 2018_10_30_201300) do
     t.string "title"
     t.string "video_url"
     t.string "lesson_info"
-    t.integer "likes"
-    t.integer "dislikes"
+    t.integer "likes", null: false
+    t.integer "dislikes", null: false
     t.integer "shares"
     t.boolean "material_access"
     t.string "keywords"
@@ -142,6 +146,7 @@ ActiveRecord::Schema.define(version: 2018_10_30_201300) do
     t.datetime "updated_at", null: false
     t.string "role", default: "student"
     t.string "display_name"
+    t.string "referred_by"
     t.index ["display_name"], name: "index_users_on_display_name", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

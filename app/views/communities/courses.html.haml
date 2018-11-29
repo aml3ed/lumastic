@@ -7,7 +7,7 @@
           %h5.header-with-link
             =material_icon.library_books
             Courses
-          = link_to new_course_path(:community_id => @community.id), class: "icon-action btn-flat waves-effect " do
+          = link_to new_community_course_path(:community_id => @community.id), class: "icon-action btn-flat waves-effect " do
             = material_icon.library_add.css_class('left')
             Create
           .divider

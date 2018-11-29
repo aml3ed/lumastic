@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :memberships, dependent: :destroy
+  has_many :memberships, dependent: :delete_all
   has_many :communities, through: :memberships
   has_many :discussions
   has_many :comments

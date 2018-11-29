@@ -27,6 +27,32 @@ class Course < ApplicationRecord
     return "NEW"
   end
 
+  def votes
+    likes = 0
+    dislikes = 0
+    if lessons.present?
+      lessons.each do |lesson|
+        likes += lesson.likes.to_i
+        dislikes += lesson.dislikes.to_i
+      end
+    end
+    votes = {likes: likes, dislikes: dislikes, difference: likes-dislikes}
+    votes
+  end
+
+  def contributors
+    contributors = []
+    if lessons.present?
+      lessons.each do |lesson|
+        user = lesson.user.display_name
+        unless contributors.include?(user)
+          contributors << user
+        end
+      end
+    end
+    contributors
+  end
+
   
   def tickets
     totalReds = 0

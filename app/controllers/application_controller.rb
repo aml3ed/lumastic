@@ -1,6 +1,14 @@
 class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to new_user_registration_path, :alert => exception.message
+    puts "***** THIS IS AN EXCEPTION *****"
+    puts exception.action
+    if current_user.blank?
+      redirect_to new_user_registration_path, :alert => "Woops! Try logging in first."
+    else
+      redirect_to request.referer.nil? ? root_path : request.referer, :alert => exception.message
+    end
+
+
   end
   before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :store_user_location!, if: :storable_location?

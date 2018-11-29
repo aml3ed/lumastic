@@ -1,3 +1,4 @@
+- contributors = @course.contributors
 .container.section
   = render 'components/community-header', :community => @community
   .row
@@ -5,23 +6,18 @@
       = render 'components/toc-course'
     .col.m8.s12
       .row.no-margin
-        = render 'components/stats-horizontal', total: @totalTickets, red: @ticketPercents[:red], blue: @ticketPercents[:blue], green: @ticketPercents[:green]
-      .row.no-margin
-        .col.s6.show-field
+        .col.s12.show-field
           %label Course Info
           %p= @course.course_info
-        .col.s3.show-field
+      .row.no-margin
+        .col.s12.m6.show-field
           %label Created
-          %p= @course.created_at.strftime("%m/%d/%Y")
-        .col.s3.show-field
-          %label Started By
-          %p= @course.user.display_name
-      .row
-        .col.s12.show-field
-          %label Keywords
-          %p= @course.keywords
-        -if @course.user == current_user
+          %p= @course.created_at.strftime("%m/%d/%Y") + " by " + @course.user.display_name
+        .col.s12.m6.show-field
+          %label Contributors
+          %p= contributors.join(", ")
+        -if can? :edit, @course
           .col.s12
-            = link_to edit_course_path(@course), :class=> "btn waves-effect" do
+            = link_to edit_community_course_path(@community, @course), :class=> "btn waves-effect" do
               =material_icon.mode_edit.css_class('left')
               Edit

@@ -5,7 +5,7 @@ module LessonsHelper
     if match && !match[1].blank?
       match[1]
     else
-      nil
+      ""
     end
   end
 

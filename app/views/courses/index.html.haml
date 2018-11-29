@@ -1,14 +1,16 @@
-.container
-  .section
-  .section
-    / Page Title
-    .row
-      %h4.header-with-button Your Courses
-      = link_to 'New Course', new_course_path, :class=>"right btn"
-
-    / Begin Collection
-    %ul.collection.course-collection.highlight
-      / For Every Course make Collection Item
-      - @courses.each do |course|
-        = render partial: '/courses/indexPartials/indexCollectionItem', locals: { course: course, tickets: @course_tickets[course.id.to_s] }
-
+.container.section
+  = render('components/community-header')
+  .row
+    .col.s12
+      .row.no-margin
+        .col.s12
+          %h5.header-with-link
+            =material_icon.library_books
+            Courses
+          = link_to new_community_course_path(@community), class: "icon-action btn-flat waves-effect " do
+            = material_icon.library_add.css_class('left')
+            Create
+          .divider
+        - @courses.each do |course|
+          .col.l4.m6.s12
+            = render('components/course-card', :course => course, :community => @community)

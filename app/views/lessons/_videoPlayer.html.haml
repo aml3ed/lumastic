@@ -1,20 +1,20 @@
 .vid-player-container
   .vid-iframe-container
-    .vid-overlay-container
-      .vid-text-overlay= locals[:question]
-      .vid-buttons.row
-        %button#green.vid-button.green-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
-          = icon("fab", "youtube")
-          %br/
-          I got this!
-        %button#blue.vid-button.yellow-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
-          = icon("fab", "youtube")
-          %br/
-          I'm starting to get it
-        %button#red.vid-button.red-vid-button{"data-type" => "in", "data-url" => "#{count_ticket_course_lesson_path(@course, @lesson)}"}
-          = icon("fab", "youtube")
-          %br/
-          Not confident yet
+    .vid-overlay-container.center.flex
+      .row.no-margin.section.f0
+        #play-btn.col.s12
+          %h2= icon("fab", "youtube")
+        .col.s12
+          %h5.flow-text After watching be sure to:
+        .col.s4
+          =icon('fas', 'comments')
+          Leave a comment
+        .col.s4
+          =icon('fas', 'arrow-up', class: 'green-text') + '/' + icon('fas', 'arrow-down', class: 'red-text')
+          Give feedback
+        .col.s4
+          =icon('fas', 'share-alt')
+          Share with others
 
     #player
 
@@ -22,8 +22,7 @@
   player = new Youtube.Player({
       video_id: '#{@vid_id}',
       https: true,
-      params: {origin: '#{ENV['BASE_URL']}', rel: '0',color: 'white',theme:'light',},
-      on: {'time_change' : bringBackButtons},
+      params: {origin: '#{ENV['BASE_URL']}', rel: '0', color: 'white'},
   });
   $('#player').replaceWith(player.get_iframe());
   vidbuttonOnClick();

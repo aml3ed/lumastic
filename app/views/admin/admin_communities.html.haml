@@ -1,0 +1,25 @@
+.container.section
+  .row
+    .col.s12
+      %h4 Communities
+      .divider
+  .row.no-margin
+    .col.s12
+      %table.highlight
+        %thead
+          %tr
+            %th
+              Name
+            %th
+              Members
+            %th
+              Courses
+            %th
+              Last Updated
+        %tbody
+          - @communities.each do |community|
+            %tr
+              %td= link_to community.try(:name), community_path(community)
+              %td= community.memberships.count
+              %td= community.courses.count
+              %td= time_ago_in_words(community.last_updated) + " ago"

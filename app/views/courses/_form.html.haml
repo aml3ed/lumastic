@@ -1,4 +1,4 @@
-= form_with(model: course.becomes(Course), local: true) do |form|
+= form_with(model: [@community, course.becomes(Course)], local: true) do |form|
   / Show Errors
   - if course.errors.any?
     #error_explanation
@@ -27,13 +27,12 @@
     .input-field.col.s12
       = form.label :keywords
       = form.text_field :keywords
-      = hidden_field_tag(:community_id, @community.id)
   .row
     .input-field.col
       .switch
         %label
           Private
-          = form.check_box :open, checked: true
+          = form.check_box :open
           %span.lever
           Open
           .inline.tooltipped{"data-tooltip" => "Open courses allow members to collaborate and add lessons", "data-position" => "top"}
@@ -41,7 +40,11 @@
 
   / Save
   .row
-    = form.button :submit, class: " btn btn waves-effect" do
-      - btn_text = "Save" if local_assigns[:btn_text].nil?
-      = btn_text
-    = link_to "Cancel", :back, class: "btn-flat"
+    .col
+      = form.button :submit, class: " btn btn waves-effect" do
+        - btn_text = "Save" if local_assigns[:btn_text].nil?
+        = btn_text
+      = link_to "Cancel", :back, class: "btn-flat"
+    - unless course.new_record?
+      .col.right
+        = link_to material_icon.delete, community_course_path(@community, @course), method: :delete, data: {confirm: "Are you sure you want to delete this course?"}, class: "grey-text"

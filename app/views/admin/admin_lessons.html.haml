@@ -1,0 +1,28 @@
+.container.section
+  .row
+    .col.s12
+      %h4 Lessons
+      .divider
+  .row.no-margin
+    .col.s12
+      %table.highlight
+        %thead
+          %tr
+            %th
+              Title
+            %th
+              Course
+            %th
+              Author
+            %th
+              Likes
+            %th
+              Dislikes
+        %tbody
+          - @lessons.each do |lesson|
+            %tr
+              %td= lesson.try(:title)
+              %td= lesson.course.try(:title)
+              %td= lesson.user.try(:display_name)
+              %td= lesson.try(:likes)
+              %td= lesson.try(:dislikes)

@@ -1,11 +1,9 @@
 class LessonsController < ApplicationController
-  load_resource :course
+  load_resource :community
+  load_resource :course, through: :community
   load_and_authorize_resource :lesson, through: :course
-  before_action :set_community
   before_action :find_lessons
-  before_action :set_lesson, only: [:show, :view, :edit, :update, :destroy]
   before_action :get_embed_from_url, only: [:show, :view, :edit]
-  before_action :get_ticket_percentage, only: %i[create show edit new]
 
   # Example route: GET /lessons
   def index
@@ -15,13 +13,12 @@ class LessonsController < ApplicationController
   # Example route: GET /lessons/1
   def show
     # See get_embed_from_url before action
+    video = Yt::Video.new id: @vid_id
+    @views = video.view_count
   end
 
   # Example route: GET /lessons/new
   def new
-    puts @course.inspect
-    puts '(((((((((((((((((((())))))))))))))))))))))'
-    puts params.inspect
     @lesson = Lesson.new(course: @course)
     @lesson.materials.build
   end
@@ -35,13 +32,13 @@ class LessonsController < ApplicationController
     # Build a new lesson object from the form parameters
     @lesson = Lesson.new(lesson_params)
     # Add the course_id from the url parameters
-    @lesson.course_id = params[:course_id]
+    @lesson.course = @course
     @lesson.user_id = current_user.id
     # Save the new lesson object to the database
-    @lesson.position = Lesson.where(course_id: @course).present? ? Lesson.where(course_id: @course).maximum('position') + 1 : 1
+    @lesson.position = Lesson.where(course: @course).present? ? Lesson.where(course: @course).maximum('position') + 1 : 1
     respond_to do |format|
       if @lesson.save
-        format.html { redirect_to course_lesson_path(@course, @lesson), notice: 'Lesson was successfully created.' }
+        format.html { redirect_to community_course_lesson_path(@community, @course, @lesson), notice: 'Lesson was successfully created.' }
         format.json { render :show, status: :created, location: @lesson }
       else
         format.html { render :new }
@@ -54,7 +51,7 @@ class LessonsController < ApplicationController
   def update
     respond_to do |format|
       if @lesson.update(lesson_params)
-        format.html { redirect_to course_lesson_path(@course, @lesson), notice: 'Lesson was successfully updated.' }
+        format.html { redirect_to community_course_lesson_path(@community, @course, @lesson), notice: 'Lesson was successfully updated.' }
         format.json { render :show, status: :ok, location: @lesson }
       else
         format.html { render :edit }
@@ -67,7 +64,7 @@ class LessonsController < ApplicationController
   def destroy
     @lesson.destroy
     respond_to do |format|
-      format.html { redirect_to course_path(@course), notice: 'Lesson was successfully destroyed.' }
+      format.html { redirect_to community_course_path(@community,@course), notice: 'Lesson was successfully destroyed.' }
     end
   end
 
@@ -86,23 +83,20 @@ class LessonsController < ApplicationController
     @lesson.save!
   end
 
+  def vote
+    vote = params[:vote]
+    if vote == "upvote"
+      @lesson.increment!(:likes)
+    else
+      @lesson.increment!(:dislikes)
+    end
+    @lesson.save!
+  end
+
   private
     # All of these methods are 'before_actions'
     # They get run before anything happens inside the controller
 
-    # Finds the lesson in the database and references it in a variable
-    def set_lesson
-      @lesson = Lesson.find(params[:id])
-    end
-
-    # Finds the course in the database and references it in a variable
-    def set_course
-      @course = Course.find(params[:course_id])
-    end
-
-    def set_community
-      @community = @course.community
-    end
 
     # Finds all of the lessons that belong to the specific course
     def find_lessons

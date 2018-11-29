@@ -25,8 +25,12 @@ $text-color: #003A6E;
 $bg-color: #fafafa;
 $card-color: #fff;
 $button-flat-color: $secondary-color !default;
-
-$green-color: #2BAD54;
+$success-color: #2BAD54 !default;
+$green: $success-color !default;
+$green-color: $success-color !default;
+.green-text {
+  color: $green-color !important;
+}
 $red-color: #E83E3E !default;
 
 

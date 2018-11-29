@@ -1,13 +1,13 @@
 %li.collection-item.avatar
   / Course Thumbnail
   .valign-wrapper
-    = link_to course_path(course) do
+    = link_to community_course_path(@community, course) do
       = image_tag "testimages/ballThumb.jpg", class: "collections-thumb responsive-img"
 
   .row.course-collection-row{:style => "padding-right: 160px; padding-top: 5px;"}
     / Course Title and Basic Info
     .col.s12.l9
-      = link_to course_path(course) do
+      = link_to community_course_path(@community, course) do
         %span.title.truncate{style: "color: black"}= course.title
         %span.new.badge.left-badge.grey{"data-badge-caption" => "Draft"}
 
@@ -28,7 +28,7 @@
 
   / Edit and Actions
   .secondary-content.valign-wrapper{:href => "#!"}
-    = link_to edit_course_path(course), :class=> "btn-small hide-on-small-only" do
+    = link_to edit_community_course_path(@community, course), :class=> "btn-small hide-on-small-only" do
       %i.material-icons.left mode_edit
       %span Edit
     = link_to "#", :class=> "dropdown-trigger", :"data-target"=>"optionsDropdown" do

@@ -1,25 +1,32 @@
 / This is the sidebar that appears on new/edit course and new/edit lesson
 
-.collection.with-header.courses-sidebar{"data-behavior" => "sortable", "data-url" => "#{sort_course_lessons_path(@course)}"}
+.collection.with-header.courses-sidebar{"data-behavior" => "sortable", "data-url" => "#{sort_community_course_lessons_path(@community, @course)}"}
 
   / Make the Course Info Item
   .collection-header.active
     - if @course.open
       %span.badge.card-badge.collaborative Open
     %h5
-      = link_to @course.title, course_path(@course), class: "primary-text"
+      = material_icon.book.css_class("white-text")
+      = link_to @course.title, community_course_path(@community, @course), class: "primary-text"
 
   / For each lesson, make a collection item with that lesson and it's url
   - @lessons.each do |lesson|
     / Make Edit Lesson Url with ID
-    - path_show_lesson = course_lesson_path(@course, lesson)
+    - path_show_lesson = community_course_lesson_path(@community, @course, lesson)
     / Add Link to Collection Item
     = link_to path_show_lesson, :class => " collection-item", :id => dom_id(lesson) do
-      = material_icon.drag_handle.css_class('left')
-      = lesson.title
+      .flex{style: "align-items: center;"}
+        .f0
+          = material_icon.drag_handle
+        .truncate.f1
+          %span{style: "margin-left: 8px"}= lesson.title
+        .f0{style: "white-space: nowrap; margin-left: 5px;"}
+          =icon('fas', 'arrows-alt-v')
+          = lesson.likes.to_i - lesson.dislikes.to_i
 
 / Add Lesson Button
-= link_to new_course_lesson_path(@course), :class => " btn-flat right" do
+= link_to new_community_course_lesson_path(@community, @course), :class => " btn-flat right" do
   = material_icon.add.css_class("left")
   Add Lesson
 

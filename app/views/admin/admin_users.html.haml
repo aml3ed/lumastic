@@ -1,0 +1,28 @@
+.container.section
+  .row
+    .col.s12
+      %h4 Users
+      .divider
+  .row.no-margin
+    .col.s12
+      %table.highlight
+        %thead
+          %tr
+            %th
+              Name
+            %th
+              Email
+            %th
+              Sign In Count
+            %th
+              Last Signed In
+            %th
+              Referred by
+        %tbody
+          - @users.each do |user|
+            %tr
+              %td= user.try(:display_name)
+              %td= user.try(:email)
+              %td= user.try(:sign_in_count)
+              %td= user.try(:last_sign_in_at).nil? ? "" : time_ago_in_words(user.try(:last_sign_in_at)) + " ago"
+              %td= user.try(:referred_by)

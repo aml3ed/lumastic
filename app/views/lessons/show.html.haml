@@ -1,36 +1,89 @@
 .container.section
   = render('components/community-header')
   .row
-
-    .col.s12.m12.l4
-      = render 'components/toc'
-    .col.s12.m12.l8
-
-      .row.no-margin
-      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?"}
-
+    .col.s12.m12.push-l4.l8
       .row.no-margin.valign-wrapper
-        .col
-          %h5
+        .col.s12
+          %h5.flow-text.header-with-button{style: "margin-top: 0px;"}
             = @lesson.title
-        .col.vid-actions{:style => "margin-left: auto;"}
-          - if @lesson.user == current_user
-            = link_to edit_course_lesson_path(@course, @lesson), class: "btn-small waves-effect" do
+          - if can? :edit, @lesson
+            = link_to edit_community_course_lesson_path(@community, @course, @lesson), class: "right btn-small waves-effect" do
               = material_icon.edit.css_class('left')
               Edit
 
+      = render 'videoPlayer', locals: { question: "How confident are you with this topic already?"}
       .row.section.valign-wrapper.no-margin
         .col
           = link_to '#', class: "author text-color" do
             = icon('fas', 'user-circle')
             = @lesson.user.display_name
-        .col.valign-wrapper.hide-on-small-and-down{:style => "margin-left: auto;"}
-          = render 'components/stats-horizontal', total: @totalTickets, green: @tickets[2], blue: @tickets[1], red: @tickets[0]
-
+        .col.vid-actions{style: "margin-left: auto;"}
+          .grey-text.inline
+            Helpful?
+          %a.btn-small.green-btn.waves-effect{onclick:"lesson_vote('upvote');"}
+            = icon('fas', 'arrow-up', class: 'left')
+            %span#upvotes= @lesson.likes.to_i
+          %a.btn-small.red-btn.waves-effect{onclick:"lesson_vote('downvote');"}
+            = icon('fas', 'arrow-down', class: 'left')
+            %span#downvotes= @lesson.dislikes.to_i
       .row.no-margin
         .col.s12
-          .truncate= @lesson.lesson_info
+          #description.truncate= @lesson.lesson_info
       .row.section.no-margin
-        .col.grey-text
+        #showMore.col.grey-text{:onclick => "showMore()"}
           SHOW MORE
       .divider
+      .row.no-margin
+      .col.s12
+        .card-panel.comment-card
+          .comment-content
+            .row.col.s12.no-margin.display-name
+              Thoughts?
+            .row.col.s12.no-margin
+              - if user_signed_in?
+                = form_for [@community, @course, @lesson, Comment.new] do |f|
+                  = f.hidden_field :user_id, :value => current_user.id
+                  = f.hidden_field :lesson_id, :value => @lesson.id
+                  = f.text_area :content, class: "materialize-textarea"
+                  = f.button :submit, class: " btn-small waves-effect" do
+                    - btn_text = "Post" if local_assigns[:btn_text].nil?
+                    = btn_text
+              - else
+                = link_to "Sign up", new_user_registration_path
+                to join the discussion!
+        %ul
+          - @lesson.comments.where(:parent_id => nil).order(upvote: :desc).each do |comment|
+            = render 'comments/comment-lesson', comment: comment
+
+    .col.s12.m12.pull-l8.l4
+      = render 'components/toc'
+    
+
+
+:javascript
+  function lesson_vote(vote) {
+    Rails.ajax({
+      type: "PATCH",
+      url: "#{vote_community_course_lesson_path(@community, @course, @lesson)}",
+      data: "vote=" + vote,
+    });
+    if(vote == "upvote")  {
+      new_val = parseInt($('#upvotes').text()) + 1;
+      $('#upvotes').text(new_val);
+    } else {
+      new_val = parseInt($('#downvotes').text()) + 1;
+      $('#downvotes').text(new_val);
+    }
+  }
+
+  function showReply(self) {
+    $($(self).data("target")).toggle()
+  }
+
+  function showMore() {
+    $("#description").toggleClass("truncate");
+    if( $("#description").hasClass("truncate") )
+      $("#showMore").text("SHOW MORE");
+    else
+      $("#showMore").text("SHOW LESS");
+  }

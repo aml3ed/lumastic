@@ -1,0 +1,25 @@
+.container.section
+  .row
+    .col.s12
+      %h4 Courses
+      .divider
+  .row.no-margin
+    .col.s12
+      %table.highlight
+        %thead
+          %tr
+            %th
+              Name
+            %th
+              Type
+            %th
+              Lessons
+            %th
+              Last Updated
+        %tbody
+          - @courses.each do |course|
+            %tr
+              %td= link_to course.try(:title), community_course_path(course.community, course)
+              %td= course.type
+              %td= course.lessons.count
+              %td= time_ago_in_words(course.updated_at) + " ago"

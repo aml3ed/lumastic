@@ -1,6 +1,6 @@
 class CommunitiesController < ApplicationController
   load_and_authorize_resource
-  before_action :set_community, only: [:discussions, :members, :courses, :add_user, :remove_user, :show, :edit, :update, :destroy]
+  # before_action :set_community, only: [:discussions, :members, :courses, :add_user, :remove_user, :show, :edit, :update, :destroy]
 
   def add_user
     unless @community.users.include?(current_user)
@@ -62,6 +62,13 @@ class CommunitiesController < ApplicationController
   end
 
   def update
+    respond_to do |format|
+      if @community.update(community_params)
+        format.html { redirect_to community_path(@community), :flash => {:notice => "Your community was saved successfully! Woohoo!" } }
+      else
+        format.html { render :show }
+      end
+    end
   end
 
   def destroy
