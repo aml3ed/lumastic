@@ -22,4 +22,4 @@
               %td= link_to community.try(:name), community_path(community)
               %td= community.memberships.count
               %td= community.courses.count
-              %td= time_ago_in_words(community.last_updated) + " ago"
+              %td= time_ago_in_words(community.updated_at) + " ago"
