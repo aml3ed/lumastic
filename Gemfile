@@ -27,6 +27,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'yt', '~> 0.29.1'
 gem 'haml'
 gem 'youtube_id'
+gem 'acts_as_votable', '~> 0.12.0'
 
 
 group :development, :test do
