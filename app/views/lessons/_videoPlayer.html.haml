@@ -22,7 +22,7 @@
   player = new Youtube.Player({
       video_id: '#{@vid_id}',
       https: true,
-      params: {origin: '#{ENV['BASE_URL']}', rel: '0', color: 'white'},
+      params: {origin: '#{URI.encode(ENV['BASE_URL'])}', rel: '0', color: 'white'},
   });
   $('#player').replaceWith(player.get_iframe());
   vidbuttonOnClick();
