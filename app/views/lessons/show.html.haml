@@ -19,13 +19,22 @@
             = @lesson.user.display_name
         .col.vid-actions{style: "margin-left: auto;"}
           .grey-text.inline
+          - has_voted = current_user.voted_as_when_voted_for @lesson
+          - if has_voted.nil?
             Helpful?
-          %a.btn-small.green-btn.waves-effect{onclick:"lesson_vote('upvote');"}
-            = icon('fas', 'arrow-up', class: 'left')
-            %span#upvotes= @lesson.likes.to_i
-          %a.btn-small.red-btn.waves-effect{onclick:"lesson_vote('downvote');"}
-            = icon('fas', 'arrow-down', class: 'left')
-            %span#downvotes= @lesson.dislikes.to_i
+            %a.btn-small.green-btn.waves-effect{onclick:"lesson_vote('upvote');"}
+              = icon('fas', 'arrow-up', class: 'left')
+              %span#upvotes= @lesson.get_upvotes.size
+            %a.btn-small.red-btn.waves-effect{onclick:"lesson_vote('downvote');"}
+              = icon('fas', 'arrow-down', class: 'left')
+              %span#downvotes= @lesson.get_downvotes.size
+          - else
+            %a.btn-flat.grey-btn.waves-effect.up{class: ("voted" unless !has_voted)}
+              = icon('fas', 'arrow-up', class: 'left')
+              %span#upvotes= @lesson.get_upvotes.size
+            %a.btn-flat.grey-btn.waves-effect.down{class: ("voted" unless has_voted)}
+              = icon('fas', 'arrow-down', class: 'left')
+              %span#downvotes= @lesson.get_downvotes.size
       .row.no-margin
         .col.s12
           #description.truncate= @lesson.lesson_info

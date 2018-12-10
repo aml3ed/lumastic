@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  acts_as_voter
   has_many :memberships, dependent: :delete_all
   has_many :communities, through: :memberships
   has_many :discussions

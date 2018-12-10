@@ -23,7 +23,7 @@
           %span{style: "margin-left: 8px"}= lesson.title
         .f0{style: "white-space: nowrap; margin-left: 5px;"}
           =icon('fas', 'arrows-alt-v')
-          = lesson.votes_difference
+          = lesson.weighted_score
 
 / Add Lesson Button
 - if @course.open or (@course.user == current_user)
