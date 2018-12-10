@@ -19,7 +19,7 @@ class Lesson < ApplicationRecord
 
   def author
     author = ""
-    if self.user?
+    unless self.user.nil?
       author = self.user.display_name
     end
     author

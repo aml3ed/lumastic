@@ -56,7 +56,7 @@ class Course < ApplicationRecord
   def creator
     creator = ""
     if lessons.present?
-      first = lessons.minimum(:created_at)
+      first = lessons.order(:created_at).first
       creator = first.author
     end
     creator
