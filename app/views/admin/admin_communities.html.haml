@@ -16,6 +16,8 @@
               Courses
             %th
               Last Updated
+            %th
+              Actions
         %tbody
           - @communities.each do |community|
             %tr
@@ -23,3 +25,4 @@
               %td= community.memberships.count
               %td= community.courses.count
               %td= time_ago_in_words(community.updated_at) + " ago"
+              %td= link_to material_icon.delete, community_path(community), method: :delete

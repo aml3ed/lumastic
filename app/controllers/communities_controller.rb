@@ -72,6 +72,10 @@ class CommunitiesController < ApplicationController
   end
 
   def destroy
+    @community.destroy
+    respond_to do |format|
+      format.html{ redirect_back(fallback_location: root_path, notice: 'Community was successfully destroyed.')}
+    end
   end
 
   private

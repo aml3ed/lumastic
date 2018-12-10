@@ -10,9 +10,10 @@ class RegistrationsController < Devise::RegistrationsController
 
     if Community.first.present?
       community = Community.where(name: "Lumastic Community").first
-      Membership.create!(community: community, user: resource)
+      Membership.create!(community: community, user: resource, role: member)
     end
   end
+
 
   protected
     def sign_up_params

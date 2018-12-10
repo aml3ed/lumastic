@@ -45,6 +45,8 @@ lesson_1 = Lesson.create! title: "Getting Started with Josh",
                           lesson_info: "A little introduction from Josh!",
                           keywords: "Getting Started",
                           position: 1,
+                          likes: 1,
+                          dislikes: 0,
                           user: josh,
                           course: getting_started_course
 
@@ -53,6 +55,8 @@ lesson_2 = Lesson.create! title: "What is a community?",
                           lesson_info: "The community is the core of Lumastic.  Communities are made up of people who share the same interest and passion.  Members of communities teach, learn, and grow together.  They encourage each other to go farther and achieve their dreams.",
                           keywords: "Community, Lumastic",
                           position: 2,
+                          likes: 1,
+                          dislikes: 0,
                           user: josh,
                           course: getting_started_course
 
@@ -61,6 +65,8 @@ lesson_3 = Lesson.create! title: "What is a course?",
                           lesson_info: "A course is a collection of lessons centered around a certain topic - obviously.  However, on Lumamstic, it's important to note that courses can be open or closed.  Open courses allow anyone in the community to add lessons.",
                           keywords: "Courses",
                           position: 3,
+                          likes: 1,
+                          dislikes: 0,
                           user: josh,
                           course: getting_started_course
 
@@ -69,6 +75,8 @@ lesson_4 = Lesson.create! title: "What is a lesson?",
                           lesson_info: "A lesson is your time to shine! Hit record on anything that takes video and make it happen!  Do not worry about production quality or being self conscience.  If you're into it, I'm into it.  Share what you know!",
                           keywords: "Courses",
                           position: 4,
+                          likes: 1,
+                          dislikes: 0,
                           user: josh,
                           course: getting_started_course
 
@@ -77,6 +85,8 @@ lesson_5 = Lesson.create! title: "What is a discussion?",
                           lesson_info: "A discussion is a forum for you to ask questions and foster productive discourse with peers in your community.",
                           keywords: "Discussions",
                           position: 5,
+                          likes: 1,
+                          dislikes: 0,
                           user: josh,
                           course: getting_started_course
 
@@ -85,5 +95,7 @@ lesson_6 = Lesson.create! title: "Words of Encouragement",
                           lesson_info: "At Lumastic, we want you to share everything you know with others.  We don't care what package that comes in, and neither will your fellow community members.  It's about growing together.  That's it.",
                           keywords: "Encouragement",
                           position: 6,
+                          likes: 1,
+                          dislikes: 0,
                           user: josh,
                           course: getting_started_course

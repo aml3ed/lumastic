@@ -47,6 +47,7 @@ Rails.application.routes.draw do
   scope '/admin' do
     get '', to: 'admin#dashboard', as: 'admin_dashboard'
     get '/users', to: 'admin#admin_users', as: 'admin_users'
+    get '/users/:id', to: 'admin#admin_user_destroy', :via => :delete, as: 'admin_destroy_user'
     get '/communities', to: 'admin#admin_communities', as: 'admin_communities'
     get '/courses', to: 'admin#admin_courses', as: 'admin_courses'
     get '/lessons', to: 'admin#admin_lessons', as: 'admin_lessons'
