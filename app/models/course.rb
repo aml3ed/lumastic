@@ -52,7 +52,15 @@ class Course < ApplicationRecord
     end
     contributors
   end
-
+  
+  def creator
+    creator = ""
+    if lessons.present?
+      first = lessons.minimum(:created_at)
+      creator = first.user.display_name
+    end
+    creator
+  end
   
   def tickets
     totalReds = 0

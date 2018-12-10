@@ -1,8 +1,8 @@
 class Community < ApplicationRecord
-  has_many :memberships, dependent: :destroy
+  has_many :memberships, dependent: :delete_all
   has_many :users, through: :memberships
-  has_many :discussions
-  has_many :courses
+  has_many :discussions, dependent: :delete_all
+  has_many :courses, dependent: :delete_all
 
   #
   # Return a list of open courses for a community

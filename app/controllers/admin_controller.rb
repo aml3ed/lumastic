@@ -20,6 +20,15 @@ class AdminController < ApplicationController
     @lessons = Lesson.all.order(:updated_at).reverse_order
   end
 
+  def admin_user_destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    if @user.destroy
+      redirect_back(fallback_location: root_path, notice: "User deleted.")
+    end
+  end
+
   private
 
   def check_admin
