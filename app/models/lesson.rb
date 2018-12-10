@@ -16,4 +16,12 @@ class Lesson < ApplicationRecord
     difference = likes - dislikes
     difference
   end
+
+  def author
+    author = ""
+    unless self.user.nil?
+      author = self.user.display_name
+    end
+    author
+  end
 end
