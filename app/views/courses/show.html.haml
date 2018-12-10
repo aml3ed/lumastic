@@ -12,7 +12,7 @@
       .row.no-margin
         .col.s12.m6.show-field
           %label Created
-          %p= @course.created_at.strftime("%m/%d/%Y") + " by " + @course.user.display_name
+          %p= @course.created_at.strftime("%m/%d/%Y") + " by " + @course.creator
         .col.s12.m6.show-field
           %label Contributors
           %p= contributors.join(", ")

@@ -18,6 +18,8 @@
               Last Signed In
             %th
               Referred by
+            %th
+              Actions
         %tbody
           - @users.each do |user|
             %tr
@@ -26,3 +28,4 @@
               %td= user.try(:sign_in_count)
               %td= user.try(:last_sign_in_at).nil? ? "" : time_ago_in_words(user.try(:last_sign_in_at)) + " ago"
               %td= user.try(:referred_by)
+              %td= link_to material_icon.delete ,admin_user_destroy_path(user), method: :delete
