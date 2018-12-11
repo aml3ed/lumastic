@@ -86,9 +86,9 @@ class LessonsController < ApplicationController
   def vote
     vote = params[:vote]
     if vote == "upvote"
-      @lesson.increment!(:likes)
+      @lesson.upvote_by current_user
     else
-      @lesson.increment!(:dislikes)
+      @lesson.downvote_by current_user
     end
     @lesson.save!
   end

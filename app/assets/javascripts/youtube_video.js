@@ -14,6 +14,5 @@ function playButton() {
 function vidbuttonOnClick() {
     $("#play-btn").click(function() {
         playButton();
-
     });
 }

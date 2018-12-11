@@ -10,8 +10,18 @@
 .red-btn {
   background-color: $red-color !important;
 }
+
 .btn-flat.grey-btn {
   color: #9e9e9e;
+}
+.btn-flat.voted {
+  padding-right: 0px;
+  &.down{
+    color: $red-color;
+  }
+  &.up{
+    color: $green-color;
+  }
 }
 .btn-flat .left-icon {
   margin-right: 5px !important;
