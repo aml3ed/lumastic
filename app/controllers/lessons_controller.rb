@@ -13,8 +13,6 @@ class LessonsController < ApplicationController
   # Example route: GET /lessons/1
   def show
     # See get_embed_from_url before action
-    video = Yt::Video.new id: @vid_id
-    @views = video.view_count
   end
 
   # Example route: GET /lessons/new

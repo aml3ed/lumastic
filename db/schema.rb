@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_29_190302) do
+ActiveRecord::Schema.define(version: 2018_12_12_200600) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,8 +91,8 @@ ActiveRecord::Schema.define(version: 2018_11_29_190302) do
     t.string "title"
     t.string "video_url"
     t.string "lesson_info"
-    t.integer "likes", null: false
-    t.integer "dislikes", null: false
+    t.integer "likes", default: 1, null: false
+    t.integer "dislikes", default: 0, null: false
     t.integer "shares"
     t.boolean "material_access"
     t.string "keywords"
@@ -150,6 +150,20 @@ ActiveRecord::Schema.define(version: 2018_11_29_190302) do
     t.index ["display_name"], name: "index_users_on_display_name", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "votes", id: :serial, force: :cascade do |t|
+    t.string "votable_type"
+    t.integer "votable_id"
+    t.string "voter_type"
+    t.integer "voter_id"
+    t.boolean "vote_flag"
+    t.string "vote_scope"
+    t.integer "vote_weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.index ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope"
+    t.index ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope"
   end
 
   add_foreign_key "materials", "lessons"
