@@ -5,11 +5,12 @@
       %h4.header-with-link Find A Community
       = link_to "See More", communities_path, class: "modal-trigger waves-light waves-effect"
   .row
+    .col.l4.m6.s12
+      = render('components/new-community-card')
     - @communities.each do |community|
       .col.l4.m6.s12
         = render('components/community-card', :community => community)
-    .col.l4.m6.s12
-      = render('components/new-community-card')
+
 
   .row.no-margin
     .col.s12
