@@ -8,4 +8,4 @@ ADD Gemfile Gemfile.lock /lumastic/
 RUN bundle install
 
 ADD . .
-CMD ["bundle","exec","rails","server","-p","80","-b","0.0.0.0"]
+CMD bundle exec rails server -b '0.0.0.0'

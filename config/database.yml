@@ -26,6 +26,8 @@ production:
   secret_key_base: <%= ENV['SECRET_KEY_BASE'] %>
   pool: 5
   port: 5432
+  sslmode: 'verify-full'
+  sslrootcert: 'config/amazon-rds-ca-cert.pem'
   database: lumastic_production
 
 test:

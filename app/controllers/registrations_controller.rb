@@ -10,7 +10,7 @@ class RegistrationsController < Devise::RegistrationsController
 
     if Community.first.present?
       community = Community.where(name: "Lumastic Community").first
-      Membership.create!(community: community, user: resource, role: member)
+      Membership.create!(community: community, user: resource, role: 'Member')
     end
   end
 
