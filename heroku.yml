@@ -1,3 +1,12 @@
+setup:
+  config:
+    DB_HOST: lumastic-prod-db.cweydkfsbgul.us-east-1.rds.amazonaws.com
+    DB_NAME: production
+    DB_PASSWORD: lumasticdb
+    DB_USER: lumastic
+    RAILS_ENV: production
+    RAILS_LOG_TO_STDOUT: false
+    SECRET_KEY_BASE: 88526a8c8b04f85a93e2fee77f1108941ac0183f428ff5f9ef3c14167884caa26343b6c067c46270e0d1e7a98a5d1d24bc351bf017b7a45430a1178d0eb7b724
 build:
   docker:
     web: Dockerfile.prod
