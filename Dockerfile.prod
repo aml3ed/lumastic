@@ -6,7 +6,7 @@ WORKDIR /lumastic
 ADD Gemfile Gemfile.lock /lumastic/
 
 RUN bundle install --without development test
-RUN rake assets:precompile
+RUN bundle exec rake assets:precompile
 
 ADD . .
 CMD bundle exec rails server -b '0.0.0.0'
