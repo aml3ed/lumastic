@@ -15,7 +15,7 @@
     }
     height: 200px;
   }
-  background-image: linear-gradient(rgba($primary-color,0.20),rgba($secondary-color,0.1)), url("HeaderImage-8.png");
+  background-image: linear-gradient(rgba($primary-color,0.20),rgba($secondary-color,0.1)), image-url("HeaderImage-8.png");
   //filter: blur(5px);
   background-position: center;
   background-size: cover;
