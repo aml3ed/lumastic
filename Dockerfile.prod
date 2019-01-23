@@ -4,5 +4,6 @@ WORKDIR /lumastic
 ADD Gemfile Gemfile.lock /lumastic/
 RUN bundle install --without development test
 ADD . .
-ENTRYPOINT ["RAILS_ENV=production", "rails", "assets:precompile"]
+ARG ASSET_HOST
+RUN bundle exec rake ASSET_HOST=${ASSET_HOST} RAILS_ENV=production assets:precompile
 CMD rails server -b '0.0.0.0'
