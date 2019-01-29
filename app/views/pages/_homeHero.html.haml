@@ -1,21 +1,37 @@
 .section.home-hero
   .container
-    .row
-      .col.s12.center-align.white-text
-        %h2.flow-text
-          This is
-          %span.accent-text your
-          learning community!
-        %h5.flow-text.hide-on-small-and-down
-          Lumastic powers
-          %span.accent-text lightbulb moments
-          to illuminate
-          %span.accent-text sparks
-    .row
-      .col.s6.right-align
-        = link_to new_user_registration_path, class: "btn waves-effect" do
-          Sign Up
-      .col.s6.left-align
-        = link_to 'https://medium.com/lumastic/what-is-lumastic-d205e8331867', class: "btn waves-effect dark-button" do
-          Start Here
+    - if !current_user
+      .row
+        .col.s12.center-align.white-text
+          %h2.flow-text
+            This is
+            %span.accent-text your
+            learning community.
+          %h5.flow-text.hide-on-small-and-down
+            %span.accent-text Explore
+            your interests.
+            %span.accent-text Cultivate
+            your passions.
+            %span.accent-text Light
+            the way for others.
+      .row
+        .col.s6.right-align
+          = link_to new_user_registration_path, class: "btn waves-effect" do
+            Sign Up
+        .col.s6.left-align
+          = link_to 'https://medium.com/lumastic/what-is-lumastic-d205e8331867', class: "btn waves-effect dark-button" do
+            Start Here
+    - else
+      .row
+        .col.s12.center-align.white-text
+          %h2.flow-text
+            Welcome back,
+            %span.accent-text= current_user.display_name != "" ? current_user.display_name : current_user.email
+            !
+          %h5.flow-text.hide-on-small-and-down
+            Learn how to contribute and start making lessons.
+      .row
+        .col.s12.center-align
+          = link_to "https://www.lumastic.com/communities/1/courses/2", class: "btn waves-effect dark-button" do
+            CHANGE LIVES
 .section

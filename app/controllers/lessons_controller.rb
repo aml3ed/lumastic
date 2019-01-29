@@ -21,7 +21,7 @@ class LessonsController < ApplicationController
     @lesson.materials.build
   end
 
-  # Example route: GET /lessons/1/edit
+  # Example route: GET /lessons/1/editdocker
   def edit
   end
 
