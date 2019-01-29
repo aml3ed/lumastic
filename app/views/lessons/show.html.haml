@@ -17,10 +17,11 @@
           = link_to '#', class: "author text-color" do
             = icon('fas', 'user-circle')
             = @lesson.user.display_name
+          .tooltipped.inline{"data-tooltip": "Links to support instructors are coming soon!", "data-position": "down"}
+            %a.btn-small.disabled.waves-effect
+              = icon('fas', 'donate', class: 'left')
+              Support
         .col.vid-actions{style: "margin-left: auto;"}
-          %a.btn-small.disabled.waves-effect{onclick:"lesson_vote('upvote');"}
-            = icon('fas', 'donate', class: 'left')
-            Support
           %a.btn-small.dark-button.waves-effect{onclick:"lesson_vote('upvote');"}
             = icon('fas', 'lightbulb', class: 'left')
             %span#upvotes=  @lesson.likes.to_i.to_s
