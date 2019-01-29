@@ -15,9 +15,9 @@
         = count
         = " Contributor" + (count != 1 ? "s" : "")
       .col.right{style: "white-space: nowrap;"}
-        =icon('fas', 'arrows-alt-v')
+        =icon('fas', 'lightbulb')
         %span
-          = course.votes[:difference]
+          = course.likes
     = link_to "", community_course_path(community, course), :class=>"container-clickable"
     .row
       .col.s12

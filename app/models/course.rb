@@ -27,17 +27,14 @@ class Course < ApplicationRecord
     return "NEW"
   end
 
-  def votes
+  def likes
     likes = 0
-    dislikes = 0
     if lessons.present?
       lessons.each do |lesson|
         likes += lesson.likes.to_i
-        dislikes += lesson.dislikes.to_i
       end
     end
-    votes = {likes: likes, dislikes: dislikes, difference: likes-dislikes}
-    votes
+    likes
   end
 
   def contributors
