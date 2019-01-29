@@ -14,8 +14,6 @@
     .input-field.col.f1
       = form.label :title, "Lesson Title", for: "title"
       = form.text_field :title, id: "title", style: "font-size: 24px"
-    .col.f0
-      = render 'components/stats-vertical', likes: @lesson.likes, dislikes: @lesson.dislikes
   .row
     .col.s12.m12.l7
       .video-container

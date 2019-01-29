@@ -1,20 +1,5 @@
 .vid-player-container
   .vid-iframe-container
-    .vid-overlay-container.center.flex
-      .row.no-margin.section.f0
-        #play-btn.col.s12
-          %h2= icon("fab", "youtube")
-        .col.s12
-          %h5.flow-text After watching be sure to:
-        .col.s4
-          =icon('fas', 'comments')
-          Leave a comment
-        .col.s4
-          =icon('fas', 'arrow-up', class: 'green-text') + '/' + icon('fas', 'arrow-down', class: 'red-text')
-          Give feedback
-        .col.s4
-          =icon('fas', 'share-alt')
-          Share with others
 
     #player
 
@@ -22,8 +7,7 @@
   player = new Youtube.Player({
       video_id: '#{@vid_id}',
       https: true,
-      params: {origin: '#{ENV['BASE_URL']}', rel: '0', color: 'white'},
+      params: {rel: '0', color: 'white', autoplay: '1'},
   });
   $('#player').replaceWith(player.get_iframe());
-  vidbuttonOnClick();
 

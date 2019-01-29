@@ -22,8 +22,8 @@
         .truncate.f1
           %span{style: "margin-left: 8px"}= lesson.title
         .f0{style: "white-space: nowrap; margin-left: 5px;"}
-          =icon('fas', 'arrows-alt-v')
-          = lesson.likes.to_i - lesson.dislikes.to_i
+          =icon('fas', 'lightbulb')
+          = lesson.likes.to_i
 
 / Add Lesson Button
 = link_to new_community_course_lesson_path(@community, @course), :class => " btn-flat right" do
