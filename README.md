@@ -1,15 +1,11 @@
 # Lumastic
-Last revision on 7/6/18 by Drew Lytle
+Last revision on 2/5/19 by Drew Lytle
 ## Who We Are
 ### Our Mission
-Lumastic has two organizational missions:
-1. Create a positive and sustainable evolution in education for all.
-2. Enable teammates to fulfill their dreams.
-
-Every decision we make is based on what will help us complete those two missions *simultaneously*.  Both are essential to the well-being of the company and its members.  Neither one is worth completing without the other.
+Lumastic's mission is to encourage and enable the dreams of others.  Every decision we make is based on helping us complete this mission for our members *and* our teammates.  Both are essential to the well-being of the company.
 
 ## Project Description
-Lumastic is an online learning tool where teachers can flip their classrooms, track student learning and participation, and sell additional learning resources to other teachers or students.
+Lumastic is a learning platform where we foster communities of knowledge seekers and guides.  Lumastic is designed to build connections that encourage and enable dreams.
 
 [View the AdobeXD Prototype (Password: Lumastic1234)](https://xd.adobe.com/view/8b14feb3-d85f-42f4-55ce-ff877f2043a5-fd25/)
 [View the Business Plan](https://docs.google.com/document/d/1oTVtZjsgA98P2BRpPWLxomp3ZmPDBMP_lfGZM-U13dU/edit?usp=sharing)
@@ -32,7 +28,9 @@ There are a lot of resources for installing `ruby` and `rails`.  I'll list the o
 
 ### Installing Docker and Docker Compose
 #### Windows
-Just don't.  Use a virtual installation of Linux.
+You can try [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
+
+But it might be better to just use a virtual installation of Linux.
 #### Mac OS X
 If you're on a Mac, you can *simple download Docker CE* (Community Edition) and go through your *normal application setup* process as outlined in the documentation.  Docker for Mac *already comes with Compose options*.  So, once it installs, you're all set!
 
@@ -159,11 +157,6 @@ When developing with a team, the Github repository for the project can get a lit
 #### Slack
 Slack will be the primary means of online communication between the team.  Slack is an intelligent group-chatting application that offers great features for team and project organization.
 
-*Workspaces* (like Lumastic) have a variety of *Channels*.  Each channel is basically a group chat but for a more specific purpose.  Teammates can create channels for specific features, actions, or just to talk to each other.  It's pretty intuitive once you get going.
-
-Here are some example channels for Lumastic:
-* *Standup* - This channel is for sprint standup meetings in which teammates update others on the progress of their tasks by answering: 1. *What I've done*  2. *What I'm working on now*  3. *What I need help with*
-* *PlsHelp* - This channel is for asking questions and getting assistance from teammates.
-NOTE: Once you have fixed your issue, edit your original post with a "WE GOOD:" to let others know.
+*Workspaces* have a variety of *Channels*.  Each channel is basically a group chat but for a more specific purpose.  Teammates can create channels for specific features, actions, or just to talk to each other.  It's pretty intuitive once you get going.
 
 [Download Slack](https://slack.com/downloads/) and [Join the Workspace](https://join.slack.com/t/lumastic/shared_invite/enQtMzkzOTkzNjYzOTcxLWVkNTRlN2Y5YTgyM2ZjNTAwY2U2YjcxMTRhNjVlZmJjNTY1MGFhNTJlZGJjZmZiOWI3MjI3ZTRmODQ5ZWVkOTU)
