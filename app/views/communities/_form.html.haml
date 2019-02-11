@@ -15,7 +15,11 @@
     .input-field.col.s12.m12.l12
       = form.label :name, "Community name", for: "name"
       = form.text_field :name, id: "name"
-
+  .row
+    / Member Identifier
+    .input-field.col.s12.m12.l12
+      = form.label :identifier, "Member identifier", for: "identifier"
+      = form.text_field :identifier, id: "identifier", placeholder: "i.e. Maker, Baker, Mathematician..."
 
   .row
     / Community Info
