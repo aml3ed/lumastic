@@ -80,7 +80,7 @@ class CommunitiesController < ApplicationController
 
   private
   def community_params
-    params.require(:community).permit(:name, :description)
+    params.require(:community).permit(:name, :description, :identifier)
   end
 
   def set_community
