@@ -27,7 +27,7 @@
             %span#upvotes=  @lesson.likes.to_i.to_s
       .row.no-margin
         .col.s12
-          #description.truncate= @lesson.lesson_info
+          #description.truncate= sanitize @lesson.lesson_info
       .row.section.no-margin
         #showMore.col.grey-text{:onclick => "showMore()"}
           SHOW MORE

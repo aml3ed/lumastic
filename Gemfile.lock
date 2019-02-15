@@ -209,6 +209,8 @@ GEM
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
+    trix (0.10.1)
+      rails
     turbolinks (5.2.0)
       turbolinks-source (~> 5.2)
     turbolinks-source (5.2.0)
@@ -262,6 +264,7 @@ DEPENDENCIES
   selenium-webdriver
   semantic-ui-sass
   simple_form (~> 4.0, >= 4.0.1)
+  trix
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)

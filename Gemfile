@@ -27,6 +27,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'yt', '~> 0.29.1'
 gem 'haml'
 gem 'youtube_id'
+gem 'trix'
 
 
 group :development, :test do
