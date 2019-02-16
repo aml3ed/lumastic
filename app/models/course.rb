@@ -37,6 +37,27 @@ class Course < ApplicationRecord
     likes
   end
 
+  def duration
+    time = 0
+    if lessons.present?
+      lessons.each do |lesson|
+        time += lesson.duration
+      end
+    end
+    time
+  end
+
+  def display_duration
+    duration = self.duration
+    minutes = (duration / 60) % 60
+    hours = duration / (3600)
+    if hours < 1
+      return format("%dm", minutes)
+    else
+      return format("%dh%dm", hours, minutes)
+    end
+  end
+
   def contributors
     contributors = []
     if lessons.present?

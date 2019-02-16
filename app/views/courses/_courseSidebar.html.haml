@@ -4,8 +4,6 @@
 
   / Make the Course Info Item
   .collection-header.active
-    - if @course.open
-      %span.badge.card-badge.collaborative Open
     %h5
       = material_icon.book.css_class("white-text")
       = link_to @course.title, community_course_path(@community, @course), class: "primary-text"

@@ -2,14 +2,12 @@
   .container
     .row.valign-wrapper
       .col.s4
-        = image_tag "LogoText.svg", :id=>"footer-logo-text"
-        %p We are creating a world where all are encouraged and enabled to achieve their dreams.
+        %h6 Our Mission
+        %p We encourage and enable dreams through learning.
         = link_to "Join Our Team", '/join'
       .col.s4.center-align.full-height
         = image_tag "Symbol.svg", :id=>"footer-logo-symbol"
       .col.s4.right-align
-        %p 1717B Jefferson Park Avenue
-        %p Charlottesville, VA 22903
         = mail_to("contact@lumastic.com")
         .social
           = link_to (icon('fab', 'facebook')).html_safe, "https://www.facebook.com/Lumastic/"
@@ -18,5 +16,5 @@
           = link_to (icon('fab', 'youtube-square')).html_safe, "https://www.youtube.com/channel/UCHxMkAiAbH762mqWUq4yP2A"
   .footer-copyright
     .container
-      © 2018 Headfake Digital LLC
+      © 2019 Headfake Digital LLC
       %a.grey-text.text-lighten-4.right{:href => "#!"} Live the life you have imagined.

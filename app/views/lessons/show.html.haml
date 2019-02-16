@@ -2,60 +2,86 @@
   = render('components/community-header')
   .row
     .col.s12.m12.push-l4.l8
-      .row.no-margin.valign-wrapper
-        .col.s12
-          %h5.flow-text.header-with-button{style: "margin-top: 0px;"}
-            = @lesson.title
-          - if can? :edit, @lesson
-            = link_to edit_community_course_lesson_path(@community, @course.becomes(Course), @lesson), class: "right btn-small waves-effect" do
-              = material_icon.edit.css_class('left')
-              Edit
-
       = render 'videoPlayer', locals: { question: "How confident are you with this topic already?"}
-      .row.section.valign-wrapper.no-margin
-        .col
-          = link_to '#', class: "author text-color" do
-            = icon('fas', 'user-circle')
-            = @lesson.user.display_name
-          .tooltipped.inline{"data-tooltip": "Links to support instructors are coming soon!", "data-position": "down"}
-            %a.btn-small.disabled.waves-effect
-              = icon('fas', 'donate', class: 'left')
-              Support
-        .col.vid-actions{style: "margin-left: auto;"}
-          %a.btn-small.dark-button.waves-effect{onclick:"lesson_vote('upvote');"}
-            = icon('fas', 'lightbulb', class: 'left')
-            %span#upvotes=  @lesson.likes.to_i.to_s
-      .row.no-margin
-        .col.s12
-          #description.truncate= sanitize @lesson.lesson_info
+      .row.section.no-margin{style: "padding-bottom: 0px;"}
+        .col.s12.flex{style: "align-items: center;"}
+          .f1.truncate
+            %h6.flow-text.header-with-button{style: "margin: 0px;"}
+              = @lesson.title
+          - if can? :edit, @lesson
+            .f0
+              = link_to edit_community_course_lesson_path(@community, @course.becomes(Course), @lesson), class: "right btn-flat waves-effect" do
+                = material_icon.edit.css_class('left')
+                Edit
+          .f0.vid-actions
+            %a.btn-flat.waves-effect{onclick:"lesson_vote('upvote');"}
+              = icon('fas', 'lightbulb', class: 'left')
+              %span#upvotes=  @lesson.likes.to_i.to_s
+            %a.btn-flat.modal-trigger.waves-effect{href:"#share-modal"}
+              = icon('fas', 'share', class: 'left')
+              %span Share
       .row.section.no-margin
-        #showMore.col.grey-text{:onclick => "showMore()"}
-          SHOW MORE
+        .col.s12.flex{style: "align-items: center;"}
+          .f1
+            = link_to '#', class: "author text-color" do
+              = icon('fas', 'user-circle')
+              = @lesson.user.display_name
+          .f0
+            .tooltipped.inline{"data-tooltip": "Links to support instructors are coming soon!", "data-position": "down"}
+              %a.right.btn.waves-effect
+                = icon('fas', 'donate', class: 'left')
+                SUPPORT
       .divider
-      .row.no-margin
-      .col.s12
-        .card-panel.comment-card
-          .comment-content
-            .row.col.s12.no-margin.display-name
-              Thoughts?
-            .row.col.s12.no-margin
-              - if user_signed_in?
-                = form_for [@community, @course.becomes(Course), @lesson, Comment.new] do |f|
-                  = f.hidden_field :user_id, :value => current_user.id
-                  = f.hidden_field :lesson_id, :value => @lesson.id
-                  = f.text_area :content, class: "materialize-textarea"
-                  = f.button :submit, class: " btn-small waves-effect" do
-                    - btn_text = "Post" if local_assigns[:btn_text].nil?
-                    = btn_text
-              - else
-                = link_to "Sign up", new_user_registration_path
-                to join the discussion!
-        %ul
-          - @lesson.comments.where(:parent_id => nil).order(upvote: :desc).each do |comment|
-            = render 'comments/comment-lesson', comment: comment
+      .row
+        .col.s12
+          %ul.tabs
+            %li.tab.col.m4.s3
+              %a.active{href: "#writeup"}
+                =icon('fas', 'sticky-note')
+                Writeup
+            %li.tab.col.m4.s3
+              %a{href: "#discussion"}
+                =icon('fas', 'comment')
+                Discussion
+            %li.tab.col.m4.s3
+              %a{href: "#references"}
+                =icon('fas', 'download')
+                Resources
+            %li.tab.col.s3.hide-on-med-and-up
+              %a{href: "#references"} More
+          .divider
+        #writeup.col.s12
+          .writeup.section= sanitize @lesson.lesson_info
+        #discussion.col.s12
+          .card-panel.comment-card
+            .comment-content
+              .row.col.s12.no-margin.display-name
+                Thoughts?
+              .row.col.s12.no-margin
+                - if user_signed_in?
+                  = form_for [@community, @course.becomes(Course), @lesson, Comment.new] do |f|
+                    = f.hidden_field :user_id, :value => current_user.id
+                    = f.hidden_field :lesson_id, :value => @lesson.id
+                    = f.text_area :content, class: "materialize-textarea"
+                    = f.button :submit, class: " btn-small waves-effect" do
+                      - btn_text = "Post" if local_assigns[:btn_text].nil?
+                      = btn_text
+                - else
+                  = link_to "Sign up", new_user_registration_path
+                  to join the discussion!
+          %ul
+            - @lesson.comments.where(:parent_id => nil).order(upvote: :desc).each do |comment|
+              = render 'comments/comment-lesson', comment: comment
+        #references.col.s12
 
     .col.s12.m12.pull-l8.l4
       = render 'components/toc'
+      .row
+        .col.s12
+          %h5 We Hate Ads.
+          %h6 But We Need Money.
+          =link_to 'teespring.com/lumastic' do
+            =image_tag 'tshirt.jpg', style: "width: 100%"
     
 
 

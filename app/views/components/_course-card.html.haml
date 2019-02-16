@@ -1,7 +1,5 @@
 - contributors = course.contributors
 .card.course-card.hoverable
-  - if course.open
-    %span.badge.card-badge.collaborative open
   .card-image
     .overlay-effect
     = link_to "", community_course_path(community, course), :class=>"container-clickable"

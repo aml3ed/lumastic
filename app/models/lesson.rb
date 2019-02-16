@@ -10,6 +10,8 @@ class Lesson < ApplicationRecord
   validates :video_url, presence: true, uniqueness: false, format: {with: /\A(http(s)?:\/\/)?((w){3}.)?youtu(be|.be)?(\.com)?\/.+\z/}
   validates :position, presence: true, uniqueness: { scope: :course }
 
+  include LessonsHelper
+
   def votes_difference
     likes = self.likes
     dislikes = self.dislikes
@@ -23,5 +25,23 @@ class Lesson < ApplicationRecord
       author = self.user.display_name
     end
     author
+  end
+
+  def duration
+    video = Yt::Video.new id: youtube_id(self.video_url)
+    video.duration
+  end
+
+  def display_duration
+    duration = self.duration
+    minutes = (duration / 60) % 60
+    hours = duration / (3600)
+    if minutes < 1
+      return "1m"
+    elsif hours < 1
+      return format("%dm", minutes)
+    else
+      return format("%dh%dm", hours, minutes)
+    end
   end
 end
