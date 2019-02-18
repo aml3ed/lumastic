@@ -18,9 +18,11 @@
 
   / Course Info
   .row.no-margin
-    .input-field.col.s12
+    .col.s12
       = form.label :course_info, for: "course_info"
-      = form.text_area :course_info, id: "course_info", class: "materialize-textarea"
+    .input-field.col.s12
+      = form.hidden_field :course_info, id: "course_info", class: "materialize-textarea"
+      %trix-editor.writeup{input: "course_info"}
 
   / Keywords
   .row.no-margin

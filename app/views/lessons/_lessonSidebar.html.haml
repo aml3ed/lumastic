@@ -19,9 +19,12 @@
           = material_icon.drag_handle
         .truncate.f1
           %span{style: "margin-left: 8px"}= lesson.title
-        .f0{style: "white-space: nowrap; margin-left: 5px;"}
+        .f0{style: "white-space: nowrap; margin-left: 5px; font-size: 12px;"}
+          =icon('fas', 'clock')
+          = lesson.display_duration
+        .f0{style: "white-space: nowrap; margin-left: 5px; font-size: 12px;"}
           =icon('fas', 'lightbulb')
-          = lesson.likes.to_i
+          = lesson.likes
 
 / Add Lesson Button
 = link_to new_community_course_lesson_path(@community, @course), :class => " btn-flat right" do

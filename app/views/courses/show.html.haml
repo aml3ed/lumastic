@@ -16,7 +16,7 @@
               .truncate= contributor.display_name
         .col.s9.show-field
           %label Course Info
-          %p= @course.course_info
+          .writeup= sanitize @course.course_info
         -if can? :edit, @course
           .col.s12
             = link_to edit_community_course_path(@community, @course), :class=> "btn waves-effect" do
