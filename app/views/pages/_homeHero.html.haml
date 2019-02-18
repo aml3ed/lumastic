@@ -4,8 +4,8 @@
       .row
         .col.s12.center-align.white-text
           %h2.flow-text
-            Free, Open, & Collaborative
-            %span.accent-text Learning
+            Learn, Share, & Grow for
+            %span.accent-text Free.
           %h5.flow-text.hide-on-small-and-down
             %span.accent-text Explore
             your interests.
@@ -16,10 +16,12 @@
       .row
         .col.s6.right-align
           = link_to new_user_registration_path, class: "btn waves-effect" do
+            =icon('fas', 'user-plus', class: "left")
             Sign Up
         .col.s6.left-align
-          = link_to 'https://medium.com/lumastic/what-is-lumastic-d205e8331867', class: "btn waves-effect dark-button" do
-            Start Here
+          = link_to '#story-modal', class: "btn waves-effect dark-button modal-trigger" do
+            =icon('fas', 'play-circle', class: "left")
+            Our story
     - else
       .row
         .col.s12.center-align.white-text
@@ -33,4 +35,11 @@
         .col.s12.center-align
           = link_to "https://www.lumastic.com/communities/1/courses/2", class: "btn waves-effect dark-button" do
             CHANGE LIVES
+
+#story-modal.modal
+  .modal-content
+    .row
+      .col.s12
+        =render 'lessons/videoPlayer', locals: { vid_id: "FYyi3mTyilY"}
+
 .section

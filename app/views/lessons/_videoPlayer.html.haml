@@ -5,7 +5,7 @@
 
 :javascript
   player = new Youtube.Player({
-      video_id: '#{@vid_id}',
+      video_id: '#{locals[:vid_id]}',
       https: true,
       params: {rel: '0', color: 'white', autoplay: '1'},
   });
