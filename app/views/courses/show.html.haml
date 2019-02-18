@@ -6,16 +6,17 @@
       = render 'components/toc-course'
     .col.m8.s12
       .row.no-margin
-        .col.s12.show-field
+
+      .row.no-margin
+        .col.s3.show-field
+          %label{style: "margin-bottom: 5px;"} Contributors
+          - contributors[:users].each do |contributor|
+            = link_to '#', class: "author text-color valign-wrapper", style: "margin-bottom: 5px" do
+              = image_tag contributor.get_avatar(30), class: "circle responsive-img", width: 30, height: 30
+              .truncate= contributor.display_name
+        .col.s9.show-field
           %label Course Info
           %p= @course.course_info
-      .row.no-margin
-        .col.s12.m6.show-field
-          %label Created
-          %p= @course.created_at.strftime("%m/%d/%Y") + " by " + @course.creator
-        .col.s12.m6.show-field
-          %label Contributors
-          %p= contributors.join(", ")
         -if can? :edit, @course
           .col.s12
             = link_to edit_community_course_path(@community, @course), :class=> "btn waves-effect" do

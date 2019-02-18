@@ -24,8 +24,8 @@
             = link_to "Login", new_user_session_path, :class=>"  btn dark-button waves-effect waves-light"
         - else
           %li.user-nav
-            %a.dropdown-trigger.valign-wrapper{"data-target" => "userDropdown", :href => "#!"}
-              = icon('fas', 'user-circle')
+            %a.dropdown-trigger.valign-wrapper{"data-target" => "userDropdown"}
+              = image_tag current_user.get_avatar(30), class: "responsive-img circle", width: "30", height: "30"
               %span
                 = current_user.display_name != "" ? current_user.display_name : current_user.email
               = material_icon.arrow_drop_down.css_class("right")
@@ -33,7 +33,7 @@
               %li
                 = link_to edit_user_registration_path do
                   = icon('fas', 'info-circle')
-                  Account Info
+                  My Account
               %li
                 = link_to destroy_user_session_path, :method => :delete do
                   = icon('fas', 'sign-out-alt')

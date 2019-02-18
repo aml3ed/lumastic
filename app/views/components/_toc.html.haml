@@ -28,8 +28,9 @@
 
 
 / Add Lesson Button
-- if @course.open or (@course.user == current_user)
-  = link_to new_community_course_lesson_path(@community, @course), :class => " btn-flat right" + disabled_if_no_user do
-    = material_icon.add.css_class("left")
-    ADD LESSON
+.row.no-margin
+  - if @course.open or (@course.user == current_user)
+    = link_to new_community_course_lesson_path(@community, @course), :class => " btn-flat right" + disabled_if_no_user do
+      = material_icon.add.css_class("left")
+      ADD LESSON
 

@@ -27,6 +27,24 @@ class Lesson < ApplicationRecord
     author
   end
 
+  def next
+    course = self.course
+    position = self.position
+    if course.lessons.size > position
+      return course.lessons.where("position > ?", position).first
+    end
+    return nil
+  end
+
+  def previous
+    course = self.course
+    position = self.position
+    if position <= course.lessons.size
+      return course.lessons.where("position < ?", position).last
+    end
+    return nil
+  end
+
   def duration
     video = Yt::Video.new id: youtube_id(self.video_url)
     video.duration

@@ -19,13 +19,6 @@ class Course < ApplicationRecord
     default_course
   end
 
-  def green_percent
-    tickets = self.tickets
-    if tickets[:total] != 0
-      return percent(tickets[:green], tickets[:total]).to_s + "%"
-    end
-    return "NEW"
-  end
 
   def likes
     likes = 0
@@ -62,13 +55,13 @@ class Course < ApplicationRecord
     contributors = []
     if lessons.present?
       lessons.each do |lesson|
-        user = lesson.user.display_name
-        unless contributors.include?(user)
-          contributors << user
+        contributor = lesson.user
+        unless contributors.include?(contributor)
+          contributors << contributor
         end
       end
     end
-    contributors
+    {:count => contributors.count, :users => contributors}
   end
   
   def creator

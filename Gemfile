@@ -16,6 +16,7 @@ gem 'acts_as_list'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.0'
+gem 'mini_magick'
 gem 'mini_racer', platforms: :ruby
 gem 'sass-rails', '~> 5.0'
 gem 'materialize-sass', '~> 1.0.0.rc2'
