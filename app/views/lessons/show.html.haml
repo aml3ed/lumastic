@@ -1,8 +1,12 @@
+- share_tags(og_type: "lesson",
+  og_title: @lesson.title,
+  og_description: strip_tags(sanitize(@lesson.lesson_info)),
+  og_image: polymorphic_url(@course.get_thumbnail))
 .container.section
   = render('components/community-header')
   .row
     .col.s12.m12.push-l4.l8
-      = render 'videoPlayer', locals: { vid_id: @vid_id}
+      = render 'videoPlayer', locals: { vid_id: @vid_id, autoplay: "1"}
       .row.section.no-margin{style: "padding-bottom: 0px;"}
         .col.s12.flex{style: "align-items: center; flex-wrap: wrap;"}
           .f1.truncate

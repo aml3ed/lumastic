@@ -1,3 +1,6 @@
+- share_tags(og_type: "community",
+  og_title: @community.name,
+  og_description: strip_tags(sanitize(@community.description)))
 .container.section
   = render('components/community-header')
   .row

@@ -4,7 +4,7 @@
   .collection-header.active
     %h5
       = icon('fas', 'book')
-      = link_to @course.title, community_course_path(@community, @course), class: "primary-text"
+      = link_to truncate(@course.title, length: 55), community_course_path(@community, @course), class: "primary-text"
   / For each lesson, make a collection item with that lesson and it's url
   - @lessons.each do |lesson|
     / Make Edit Lesson Url with ID

@@ -7,7 +7,7 @@
   player = new Youtube.Player({
       video_id: '#{locals[:vid_id]}',
       https: true,
-      params: {rel: '0', color: 'white', autoplay: '1'},
+      params: {rel: '0', color: 'white', autoplay: #{locals[:autoplay]}},
   });
   $('#player').replaceWith(player.get_iframe());
 

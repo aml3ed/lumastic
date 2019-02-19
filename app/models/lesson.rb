@@ -46,8 +46,13 @@ class Lesson < ApplicationRecord
   end
 
   def duration
-    video = Yt::Video.new id: youtube_id(self.video_url)
-    video.duration
+    vid_id = youtube_id(self.video_url)
+    unless vid_id.blank?
+      video = Yt::Video.new id: vid_id
+      return video.duration
+    else
+      return 0
+    end
   end
 
   def display_duration

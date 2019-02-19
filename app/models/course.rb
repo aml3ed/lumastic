@@ -1,4 +1,5 @@
 class Course < ApplicationRecord
+  has_one_attached :thumbnail
   belongs_to :user
   belongs_to :community
   has_many :lessons
@@ -6,6 +7,7 @@ class Course < ApplicationRecord
 
   # Validations
   validates :title, presence: true
+  validates :thumbnail, content_type: { in: ['image/png', 'image/jpg', 'image/jpeg'], message: "must be JPEG or PNG"}, size: { less_than: 2.megabytes , message: 'must be smaller than 2 MB' }
 
   def first_lesson
     Lesson.where(course: self, position: 1).first
@@ -72,19 +74,15 @@ class Course < ApplicationRecord
     end
     creator
   end
-  
-  def tickets
-    totalReds = 0
-    totalBlues = 0
-    totalGreens = 0
-    if lessons.present?
-      lessons.each do |lesson|
-        totalReds += lesson.out_red
-        totalBlues += lesson.out_blue
-        totalGreens += lesson.out_green
-      end
+
+  def get_thumbnail(size=400)
+    height = size * 0.5625
+    if self.thumbnail.attached? && self.thumbnail.attachment.blob.present? && self.thumbnail.attachment.blob.persisted?
+      self.thumbnail.variant(resize: "#{size}x#{height}!")
+    else
+      "HeaderImage-8.png"
     end
-    tickets = { red: totalReds, blue: totalBlues, green: totalGreens, total: totalReds + totalBlues + totalGreens }
-    tickets
   end
+
+
 end

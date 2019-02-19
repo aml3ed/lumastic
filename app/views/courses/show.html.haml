@@ -1,4 +1,9 @@
 - contributors = @course.contributors
+- share_tags(og_type: "course",
+  og_title: @course.title,
+  og_description: strip_tags(sanitize(@course.course_info)),
+  og_image: polymorphic_url(@course.get_thumbnail))
+
 .container.section
   = render 'components/community-header', :community => @community
   .row
@@ -6,19 +11,20 @@
       = render 'components/toc-course'
     .col.m8.s12
       .row.no-margin
-
-      .row.no-margin
+        .col.s9.show-field
+          %label Course Title
+          %h5= @course.title
+          %label Course Info
+          .writeup= sanitize @course.course_info
         .col.s3.show-field
           %label{style: "margin-bottom: 5px;"} Contributors
           - contributors[:users].each do |contributor|
             = link_to '#', class: "author text-color valign-wrapper", style: "margin-bottom: 5px" do
               = image_tag contributor.get_avatar(30), class: "circle responsive-img", width: 30, height: 30
               .truncate= contributor.display_name
-        .col.s9.show-field
-          %label Course Info
-          .writeup= sanitize @course.course_info
         -if can? :edit, @course
           .col.s12
-            = link_to edit_community_course_path(@community, @course), :class=> "btn waves-effect" do
+            = link_to edit_community_course_path(@community, @course), :class=> "btn-flat right waves-effect" do
               =material_icon.mode_edit.css_class('left')
               Edit
+

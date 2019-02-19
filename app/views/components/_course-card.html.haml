@@ -2,12 +2,12 @@
 .card.course-card.hoverable
   .card-image
     = link_to "", community_course_path(community, course), :class=>"container-clickable"
-    = image_tag "HeaderImage-8.png", class: "sixteen-nine"
+    = image_tag course.get_thumbnail, class: "sixteen-nine"
   .card-content
     .row
-      .col.s12
+      .col.s12.title
         %label= course.community.name
-        %h6= course.title
+        %h6= truncate(course.title, length: 55)
     .row.valign-wrapper.no-margin
       .col.s12.author.contributors.valign-wrapper
         - contributors[:users].take(3).each do |contributor|

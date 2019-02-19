@@ -11,8 +11,18 @@
   / Put in form
 
   .row.no-margin
+    .col.s12
+      = image_tag course.get_thumbnail, class: "responsive-img"
+    .input-field.file-field.col.s12.flex
+      .f0.btn-flat{onclick: "document.getElementById('thumbField').click();"}
+        %span
+          = icon('fas', 'paperclip')
+          Add Thumbnail
+        = form.file_field :thumbnail, style: "display: none;", id: "thumbField"
+      .f1.file-path-wrapper
+        %input.file-path.validate
     / Course Title
-    .input-field.col.s12.m12.l12
+    .input-field.col.s12
       = form.label :title, "Course Title", for: "title"
       = form.text_field :title, id: "title"
 

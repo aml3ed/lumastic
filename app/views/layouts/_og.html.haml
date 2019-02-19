@@ -1,5 +1,5 @@
 %meta{:content => CGI.escape(request.original_url), :property => "og:url"}/
-%meta{:content => "article", :property => "og:type"}/
-%meta{:content => "Lumastic: Your online learning community", :property => "og:title"}/
-%meta{:content => "Share your interests, grow your talents, and find people who love what you love!", :property => "og:description"}/
-%meta{:content => "#", :property => "og:image"}/
+%meta{:content => content_for?(:og_type) ? yield(:og_type) : "website", :property => "og:type"}/
+%meta{:content => content_for?(:og_title) ? yield(:og_title) : "Lumastic: Your online learning community", :property => "og:title"}/
+%meta{:content => content_for?(:og_description) ? yield(:og_description) : "Explore your interests. Cultivate your passions. Light the way for others.", :property => "og:description"}/
+%meta{:content => content_for?(:og_image) ? yield(:og_image) : image_path('HeaderImage-8.png'), :property => "og:image"}/
