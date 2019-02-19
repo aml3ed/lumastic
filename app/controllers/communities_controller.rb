@@ -30,7 +30,7 @@ class CommunitiesController < ApplicationController
   end
 
   def index
-    @communities = Community.all
+    @communities = Community.left_joins(:memberships).group(:id).order('COUNT(memberships) DESC')
   end
 
   def show
@@ -80,7 +80,7 @@ class CommunitiesController < ApplicationController
 
   private
   def community_params
-    params.require(:community).permit(:name, :description)
+    params.require(:community).permit(:name, :description, :identifier)
   end
 
   def set_community

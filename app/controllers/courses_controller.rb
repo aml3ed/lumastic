@@ -1,8 +1,7 @@
 class CoursesController < ApplicationController
   load_resource :community
   load_and_authorize_resource :course, through: :community, :except => :new
-  before_action :get_lessons, only: [:show, :edit]
-  before_action :ticket_breakdown, only: [:edit, :show]
+  before_action :get_lessons, only: [:show, :edit, :update]
 
 
   # Example route: GET /courses
@@ -58,9 +57,11 @@ class CoursesController < ApplicationController
   def update
     respond_to do |format|
       if @course.update(course_params)
-        format.html { redirect_to community_course_path(@community, @course), :flash => {:notice => "Your course was saved successfully! Woohoo!" } }
+        format.html { redirect_to community_course_path(@community, @course), notice: 'Course was successfully updated.' }
+        format.json { render :show, status: :ok, location: @course }
       else
-        format.html { render :show }
+        format.html { render :edit }
+        format.json { render json: @course.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -83,7 +84,7 @@ class CoursesController < ApplicationController
 
     # Declares what parameters are mutatable by the controller
     def course_params
-      params.require(:course).permit(:title, :course_info, :open, :instructor_bio, :keywords, :price)
+      params.require(:course).permit(:title, :course_info, :open, :instructor_bio, :keywords, :price, :thumbnail)
     end
 
     def ticket_breakdown

@@ -7,10 +7,11 @@
     padding-left: 20px !important;
   }
   .active {
-    background-color: lighten($primary-color,10%) !important;
-    color: white !important;
+    background-color: lighten($primary-color,55%) !important;
+    font-weight: bold;
+    //color: white !important;
     a {
-      color: white !important;
+      //color: white !important;
     }
   }
 }

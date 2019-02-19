@@ -18,11 +18,13 @@
   @include material-medium-shadow;
 }
 .vid-actions {
-  i {
-    font-size: 1rem;
-  }
-  .btn-small {
-    margin-right: 5px;
+
+  .btn-flat {
+    padding: 0 10px;
+    color: $grey-text !important;
+    i {
+      margin-right: 8px;
+    }
   }
 }
 
@@ -38,7 +40,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    filter: blur(5px);
   }
 }
 .vid-overlay-container {

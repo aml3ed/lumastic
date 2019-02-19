@@ -1,15 +1,11 @@
 # Lumastic
-Last revision on 7/6/18 by Drew Lytle
+Last revision on 2/11/19 by Drew Lytle
 ## Who We Are
 ### Our Mission
-Lumastic has two organizational missions:
-1. Create a positive and sustainable evolution in education for all.
-2. Enable teammates to fulfill their dreams.
-
-Every decision we make is based on what will help us complete those two missions *simultaneously*.  Both are essential to the well-being of the company and its members.  Neither one is worth completing without the other.
+Lumastic's mission is to encourage and enable the dreams of others.  Every decision we make is based on helping us complete this mission for our members *and* our teammates.  Both are essential to the well-being of the company.
 
 ## Project Description
-Lumastic is an online learning tool where teachers can flip their classrooms, track student learning and participation, and sell additional learning resources to other teachers or students.
+Lumastic is a learning platform where we foster communities of knowledge seekers and guides.  Lumastic is designed to build connections that encourage and enable dreams.
 
 [View the AdobeXD Prototype (Password: Lumastic1234)](https://xd.adobe.com/view/8b14feb3-d85f-42f4-55ce-ff877f2043a5-fd25/)
 [View the Business Plan](https://docs.google.com/document/d/1oTVtZjsgA98P2BRpPWLxomp3ZmPDBMP_lfGZM-U13dU/edit?usp=sharing)
@@ -31,13 +27,28 @@ There are a lot of resources for installing `ruby` and `rails`.  I'll list the o
 [Linux](https://tecadmin.net/install-ruby-on-rails-on-ubuntu/)
 
 ### Installing Docker and Docker Compose
-#### Windows
-Just don't.  Use a virtual installation of Linux.
-#### Mac OS X
+<details>
+    <summary>On Windows</summary>
+
+#### Installing Docker and Docker Compose on Windows
+You can try [Docker for Windows](https://docs.docker.com/docker-for-windows/install/)
+
+But it might be better to just use a virtual installation of Linux.
+</details>
+
+<details>
+    <summary>On Mac OSX</summary>
+    
+#### Installing Docker and Docker Compose on Mac OS X
 If you're on a Mac, you can *simple download Docker CE* (Community Edition) and go through your *normal application setup* process as outlined in the documentation.  Docker for Mac *already comes with Compose options*.  So, once it installs, you're all set!
 
 [Docker for Mac](https://docs.docker.com/docker-for-mac/install/)
-#### Linux/Ubuntu
+</details>
+
+<details>
+    <summary>On Linux/Ubuntu</summary>
+    
+#### Installing Docker and Docker Compose on Linux/Ubuntu
 As with all things, the setup process for Docker and Compose on Linux is a little more convoluted.
 
 The following instructions were taken from the [Docker Docs](https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository) page on 7/14/18.  If something doesn't work, refer to that guide for more up-to-date information.
@@ -92,6 +103,8 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-c
 sudo chmod +x /usr/local/bin/docker-compose
 ```
 You should now, hopefully, have Docker and Docker Compose running on your machine.  Again, if anything is screwy, just head over to the updated documentation from [Docker Docs](https://docs.docker.com/install/linux/docker-ce/ubuntu/#set-up-the-repository).
+</details>
+
 ### Getting up and Running
 #### Cloning the repository
 Clone the repository and checkout the `develop` branch using the following commands (or your preferred git client)
@@ -101,14 +114,6 @@ cd lumastic
 git fetch
 git checkout develop
 ```
-##### NOTE: Running Commands
-Since the application is being run in a virtual environment, **one can not simply run rails commands in the project folder**.  Before any command, we must specify which container the command should run inside.
-
-For example, to migrate the database, we would run the command:
-```
-docker-compose run web rails db:migrate
-```
-This tells `docker-compose` to `run` the `web` container and perform the `rails db:migrate` action inside of it.  Without doing this, changes made to the project might not be reflected in the docker container or the code-base.  So, better safe than sorry.
 #### Creating the local database
 Now that you have all of the project files, you need to create the database for rails to connect to.  You can do this by running the following commands:
 ```
@@ -119,12 +124,6 @@ If you want to seed the database using the `seeds.rb` file, run the following:
 ```
 docker-compose run web rails db:seed
 ```
-#### Devise Secret Key
-Navigate to the `/lumastic/` directory and run the following command:
-```
-docker-compose up
-```
-This will initiate the virtual environment and also start the rails server.  However, **there will probably be an error with the devise configuration**.  Devise is used for user authentication and requires a `secret key` for encryption.  This key is not kept in our repository and is therefore not setup upon cloning it.  So, add the line it recommends to create the key in `config/initializers/devise.rb`.
 #### Run it, baby!
 Once all of that is setup, re-run:
 ```
@@ -141,7 +140,29 @@ NOTE: If adding gems, this command should be performed AFTER running:
 ```
 docker-compose run web bundle install
 ```
+##### NOTE: Running Commands
+Since the application is being run in a virtual environment, **one can not simply run rails commands in the project folder**.  Before any command, we must specify which container the command should run inside.
+
+For example, to migrate the database, we would run the command:
+```
+docker-compose run web rails db:migrate
+```
+This tells `docker-compose` to `run` the `web` container and perform the `rails db:migrate` action inside of it.  Without doing this, changes made to the project might not be reflected in the docker container or the code-base.
+
+Typing that preface everytime can get really annoying, so there are a variety of bash commands you can use for common tasks in the `bash` folder off of the main directory.
+
+For example, to migrate the database, we can just run:
+```
+./bash/migrate-db.sh
+```
+
 ### Teammate Tools
+#### RubyMine
+RubyMine is an excellent Rails IDE that we recommend you use.  You can download it [here](https://www.jetbrains.com/ruby/)
+#### Trello
+Lumastic uses the Agile developement methodology and our Agile Board is kept on Trello. You can join the board [here](https://trello.com/invite/b/5iYUaB8o/d6c81d45ee2982230e19a50ec3ab0a19/agile-board)
+
+Any teammember can add Tasks/Cards to the `Backlog` and assign new ones to themselves from `This Sprint` at anytime.  Just be sure to keep the board up to date as you work so everyone is on the same page.
 #### Github
 When developing with a team, the Github repository for the project can get a little insane.  To combat this, please keep the following guidelines in mind:
 1. **Never** develop directly on the `master` branch (the master branch should house a fully working version of the application at all times)
@@ -151,7 +172,7 @@ When developing with a team, the Github repository for the project can get a lit
   * What does it do?
   * What additional work needs to be done?
 4. After making the first push to a new branch, create a pull request on GitHub with the following:
-  * Reviewers - either aml3ed or dclark43
+  * Reviewers - either aml3ed or mlovering
   * Assignees - yourself
   * Labels - `Work in progress` if the branch is incomplete and `In review` if the branch is ready to merge
 
@@ -159,11 +180,6 @@ When developing with a team, the Github repository for the project can get a lit
 #### Slack
 Slack will be the primary means of online communication between the team.  Slack is an intelligent group-chatting application that offers great features for team and project organization.
 
-*Workspaces* (like Lumastic) have a variety of *Channels*.  Each channel is basically a group chat but for a more specific purpose.  Teammates can create channels for specific features, actions, or just to talk to each other.  It's pretty intuitive once you get going.
-
-Here are some example channels for Lumastic:
-* *Standup* - This channel is for sprint standup meetings in which teammates update others on the progress of their tasks by answering: 1. *What I've done*  2. *What I'm working on now*  3. *What I need help with*
-* *PlsHelp* - This channel is for asking questions and getting assistance from teammates.
-NOTE: Once you have fixed your issue, edit your original post with a "WE GOOD:" to let others know.
+*Workspaces* have a variety of *Channels*.  Each channel is basically a group chat but for a more specific purpose.  Teammates can create channels for specific features, actions, or just to talk to each other.  It's pretty intuitive once you get going.
 
 [Download Slack](https://slack.com/downloads/) and [Join the Workspace](https://join.slack.com/t/lumastic/shared_invite/enQtMzkzOTkzNjYzOTcxLWVkNTRlN2Y5YTgyM2ZjNTAwY2U2YjcxMTRhNjVlZmJjNTY1MGFhNTJlZGJjZmZiOWI3MjI3ZTRmODQ5ZWVkOTU)

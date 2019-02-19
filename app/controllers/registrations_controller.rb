@@ -21,7 +21,7 @@ class RegistrationsController < Devise::RegistrationsController
     end
 
     def update_resource(resource, params)
-      devise_parameter_sanitizer.permit(:account_update, keys: [:display_name])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:display_name, :avatar])
       # Require current password if user is trying to change password.
       return super if params["password"]&.present?
 

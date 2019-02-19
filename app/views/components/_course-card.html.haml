@@ -1,24 +1,25 @@
 - contributors = course.contributors
 .card.course-card.hoverable
-  - if course.open
-    %span.badge.card-badge.collaborative open
   .card-image
-    .overlay-effect
     = link_to "", community_course_path(community, course), :class=>"container-clickable"
-    = image_tag "HeaderImage-8.png", class: "sixteen-nine"
-    %span.card-title= course.title
+    = image_tag course.get_thumbnail, class: "sixteen-nine"
   .card-content
-    .row.valign-wrapper
-      .col.s12.author
-        = icon('fas', 'users')
-        - count = contributors.count
-        = count
-        = " Contributor" + (count != 1 ? "s" : "")
-      .col.right{style: "white-space: nowrap;"}
-        =icon('fas', 'arrows-alt-v')
-        %span
-          = course.votes[:difference]
-    = link_to "", community_course_path(community, course), :class=>"container-clickable"
     .row
-      .col.s12
-        %p.truncate= course.course_info
+      .col.s12.title
+        %label= course.community.name
+        %h6= truncate(course.title, length: 55)
+    .row.valign-wrapper.no-margin
+      .col.s12.author.contributors.valign-wrapper
+        - contributors[:users].take(3).each do |contributor|
+          = image_tag contributor.get_avatar(20), class: "responsive-img circle", width: 20, height: 20
+        %span.truncate
+          = contributors[:count]
+          = " Contributor" + (contributors[:count] != 1 ? "s" : "")
+      .col.course-info.right{style: "white-space: nowrap;"}
+        %span
+          =icon('fas', 'lightbulb')
+          = course.likes
+        %span
+          =icon('fas', 'clock')
+          = course.display_duration
+    = link_to "", community_course_path(community, course), :class=>"container-clickable"

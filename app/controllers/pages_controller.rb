@@ -6,8 +6,8 @@ class PagesController < ApplicationController
   end
 
   def home
-    @courses = Course.all.order(:created_at).reverse_order
-    @communities = Community.all.order(:created_at).reverse_order
+    @courses = Course.left_joins(:lessons).group(:id).order('COUNT(lessons) DESC').limit(4)
+    @communities = Community.left_joins(:memberships).group(:id).order('COUNT(memberships) DESC').limit(6)
   end
 
   def search
