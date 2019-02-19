@@ -19,13 +19,13 @@
         = icon('fas', 'users', class: "left")
         = @community.memberships.count
       = link_to community_courses_path(@community), class: "icon-action btn-flat waves-effect primary-text" do
-        = material_icon.library_books.css_class('left')
+        = icon('fas', 'book', class: "left")
         = @community.courses.count
       = link_to  discussions_community_path(@community), class: "icon-action btn-flat waves-effect primary-text" do
-        = material_icon.forum.css_class('left')
+        = icon('fas', 'comments', class: "left")
         = @community.discussions.count
       = link_to '#share-modal', class: "icon-action btn-flat waves-effect primary-text modal-trigger" do
-        = material_icon.share.css_class('left')
+        = icon('far', 'envelope-open', class: "left")
       .btn-flat.primary-text.waves-effect.no-padding.dropdown-trigger{"data-target" => "leave_dropdown"}
         = material_icon.more_vertical
         %ul#leave_dropdown.dropdown-content

@@ -3,6 +3,8 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 gem 'autoprefixer-rails'
+gem 'active_storage_validations'
+gem 'aws-sdk-s3', require: false
 gem 'bcrypt', '~> 3.1.7'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'cancancan'
@@ -16,6 +18,7 @@ gem 'acts_as_list'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.0'
+gem 'mini_magick'
 gem 'mini_racer', platforms: :ruby
 gem 'sass-rails', '~> 5.0'
 gem 'materialize-sass', '~> 1.0.0.rc2'
@@ -27,6 +30,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'yt', '~> 0.29.1'
 gem 'haml'
 gem 'youtube_id'
+gem 'trix'
 
 
 group :development, :test do

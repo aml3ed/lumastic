@@ -10,7 +10,22 @@
   z-index: 10;
 }
 .author{
-  font-size: 1.25rem;
+  font-size: 1rem;
+  img {
+    margin-right: 10px;
+  }
+}
+.contributors {
+  color: $grey-text;
+  font-size: .8rem;
+  margin-left: 9px !important;
+  img {
+    margin-right: 0 !important;
+    margin-left: -9px;
+  }
+  span {
+    margin-left: 10px;
+  }
 }
 .card .card-content {
   position: relative;
@@ -27,8 +42,18 @@
 }
 
 .course-card {
-  .badge {
-    z-index: 5;
+  .title {
+    height: 4rem;
+  }
+  h6 {
+    margin-top: .25rem !important;
+  }
+  .course-info {
+    span {
+      color: $grey-text;
+      font-size: .8rem;
+      margin-left: 5px;
+    }
   }
   .card-title {
     z-index: 5;

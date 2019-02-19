@@ -7,7 +7,6 @@ $(document).on('ready turbolinks:load', function() {
     $('.modal').modal();
     $('.collapsible').collapsible();
     M.updateTextFields();
-
     $("[data-behavior='sortable']").sortable({
        items: '> a:not(.not-sortable)',
        update:function(e, ui) {
@@ -32,7 +31,6 @@ $(document).on('ready turbolinks:before-cache', function() {
     $('.modal').modal();
     $('.collapsible').collapsible();
     M.updateTextFields();
-
     $('select').formSelect('destroy');
 
 

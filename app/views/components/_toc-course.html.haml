@@ -2,11 +2,9 @@
 .collection.with-header.courses-sidebar{"data-behavior" => "sortable", "data-url" => "#{sort_community_course_lessons_path(@community, @course)}"}
   / Make the Course Info Item
   .collection-header.active
-    - if @course.open
-      %span.badge.card-badge.collaborative Open
     %h5
-      = material_icon.book.css_class("white-text")
-      = link_to @course.title, community_course_path(@community, @course), class: "primary-text"
+      = icon('fas', 'book')
+      = link_to truncate(@course.title, length: 55), community_course_path(@community, @course), class: "primary-text"
   / For each lesson, make a collection item with that lesson and it's url
   - @lessons.each do |lesson|
     / Make Edit Lesson Url with ID
@@ -14,11 +12,14 @@
     / Add Link to Collection Item
     = link_to path_show_lesson, :class => " collection-item", :id => dom_id(lesson) do
       .flex{style: "align-items: center;"}
-        .f0
-          = icon('fas','play-circle')
-        .truncate.f1
-          %span{style: "margin-left: 8px"}= lesson.title
         .f0{style: "white-space: nowrap; margin-left: 5px;"}
+          = lesson.position.to_s + "."
+        .truncate.f1
+          %span{style: "margin-left: 8px;"}= lesson.title
+        .f0{style: "white-space: nowrap; margin-left: 5px; font-size: 12px;"}
+          =icon('fas', 'clock')
+          = lesson.display_duration
+        .f0{style: "white-space: nowrap; margin-left: 5px; font-size: 12px;"}
           =icon('fas', 'lightbulb')
           = lesson.likes
 

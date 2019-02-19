@@ -32,9 +32,11 @@
         = form.text_field :keywords
   / Lesson Info
   .row
+    .col.s12
+      = form.label :lesson_info, "Writeup", for: "lesson_info"
     .input-field.col.s12
-      = form.label :lesson_info, "Lesson Info", for: "lesson_info"
-      = form.text_area :lesson_info, id: "lesson_info", class: "materialize-textarea"
+      = form.hidden_field :lesson_info, id: "lesson_info"
+      %trix-editor.writeup{input: "lesson_info"}
   / Materials
   -#.row
   -#  %h5.col.s12 Materials

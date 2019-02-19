@@ -1,22 +1,29 @@
-%li
-  .card-panel.comment-card
-    .vote
+%li.comment
+  .flex{style: "align-items: flex-start"}
+    .f0.vote
       %a.up{onclick:"vote(this);", "data-target" => "up", "data-comment" => "#{comment.id}", "data-url" => "#{vote_comments_path}"}
         =material_icon.keyboard_arrow_up
       .votes
         = comment.upvote - comment.downvote
       %a.down{onclick:"vote(this);", "data-target" => "down", "data-comment" => "#{comment.id}", "data-url" => "#{vote_comments_path}"}
         =material_icon.keyboard_arrow_down
-    .comment-content
-      .row.col.s12.no-margin.display-name
-        = comment.user.display_name
-      .row.col.s12.content.no-margin
-        = comment.content
+    .f1
+      .row.col.s12.no-margin.info
+        .display-name
+          = comment.user.display_name
+          said
+        .time-ago
+          = time_ago_in_words(comment.created_at)
+          ago
+      .row.col.s12.no-margin.content
+        = sanitize comment.content
       - if user_signed_in?
-        .row.col.s12.actions.no-margin
+        .row.col.s12.no-margin.actions
           %a.valign-wrapper{onclick:"showReply(this);", "data-target" => "##{comment.id}"}
+            = icon('fas', 'reply')
             Reply
-            = material_icon.reply
+
+  .divider
   - if user_signed_in?
     = render 'comments/reply-form-lesson', comment: comment
   %ul.comment-thread

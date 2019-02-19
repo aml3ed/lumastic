@@ -57,3 +57,17 @@ h6.flow-text { @include flow-header-mixin($h6-fontsize) }
 .secondary-text {
   color: $secondary-color;
 }
+
+.writeup {
+  h1 {
+    font-size: 1.8rem !important;
+    margin: 1rem 0 !important;
+  }
+}
+
+.comment {
+  h1 {
+    font-size: 1rem !important;
+    margin: 0rem 0 !important;
+  }
+}

@@ -18,4 +18,5 @@
 //= require jquery-ui/widgets/sortable
 //= require jquery_ujs
 //= require materialize
+//= require trix
 //= require_tree .

@@ -30,7 +30,7 @@ class CommunitiesController < ApplicationController
   end
 
   def index
-    @communities = Community.all
+    @communities = Community.left_joins(:memberships).group(:id).order('COUNT(memberships) DESC')
   end
 
   def show

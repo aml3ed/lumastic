@@ -30,7 +30,7 @@ class ApplicationController < ActionController::Base
     def configure_permitted_parameters
       # Permit the `subscribe_newsletter` parameter along with the other
       # sign up parameters.
-      devise_parameter_sanitizer.permit(:account_update, keys: [:display_name])
+      devise_parameter_sanitizer.permit(:account_update, keys: [:display_name, :avatar])
     end
 
   private

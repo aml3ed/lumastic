@@ -4,10 +4,8 @@
 
   / Make the Course Info Item
   .collection-header.active
-    - if @course.open
-      %span.badge.card-badge.collaborative Open
     %h5
-      = material_icon.book.css_class("white-text")
+      = icon('fas', 'book')
       = link_to @course.title, community_course_path(@community, @course), class: "primary-text"
 
   / For each lesson, make a collection item with that lesson and it's url
@@ -21,7 +19,10 @@
           = material_icon.drag_handle
         .truncate.f1
           %span{style: "margin-left: 8px"}= lesson.title
-        .f0{style: "white-space: nowrap; margin-left: 5px;"}
+        .f0{style: "white-space: nowrap; margin-left: 5px; font-size: 12px;"}
+          =icon('fas', 'clock')
+          = lesson.display_duration
+        .f0{style: "white-space: nowrap; margin-left: 5px; font-size: 12px;"}
           =icon('fas', 'lightbulb')
           = lesson.likes
 

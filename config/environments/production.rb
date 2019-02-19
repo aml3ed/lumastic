@@ -32,7 +32,7 @@ Rails.application.configure do
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
   # Enable serving of images, stylesheets, and JavaScripts from an asset server.
-  # config.action_controller.asset_host = ENV['ASSET_HOST']
+  config.action_controller.asset_host = ENV['ASSET_HOST']
 
   # Specifies the header that your server uses for sending files.
   # Specifies the header that your server uses for sending files.
@@ -40,7 +40,7 @@ Rails.application.configure do
   # config.action_dispatch.x_sendfile_header = 'X-Accel-Redirect' # for NGINX
 
   # Store uploaded files on the local file system (see config/storage.yml for options)
-  config.active_storage.service = :local
+  config.active_storage.service = :amazon
 
   # Mount Action Cable outside main process or domain
   # config.action_cable.mount_path = nil
