@@ -1,7 +1,7 @@
 - share_tags(og_type: "lesson",
   og_title: @lesson.title,
   og_description: strip_tags(sanitize(@lesson.lesson_info)),
-  og_image: polymorphic_url(@course.get_thumbnail))
+  og_image: (@course.get_thumbnail == "HeaderImage-8.png") ? image_path("HeaderImage-8.png") : polymorphic_url(@course.get_thumbnail))
 .container.section
   = render('components/community-header')
   .row
