@@ -13,6 +13,9 @@ class LessonsController < ApplicationController
   # Example route: GET /lessons/1
   def show
     # See get_embed_from_url before action
+    unless current_user.nil?
+      view
+    end
   end
 
   # Example route: GET /lessons/new

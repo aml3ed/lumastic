@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_165701) do
+ActiveRecord::Schema.define(version: 2019_02_20_012759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -151,6 +151,16 @@ ActiveRecord::Schema.define(version: 2019_02_11_165701) do
     t.index ["display_name"], name: "index_users_on_display_name", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  end
+
+  create_table "views", id: false, force: :cascade do |t|
+    t.integer "lesson_count"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.bigint "lesson_id"
+    t.index ["lesson_id"], name: "index_views_on_lesson_id"
+    t.index ["user_id"], name: "index_views_on_user_id"
   end
 
   add_foreign_key "materials", "lessons"

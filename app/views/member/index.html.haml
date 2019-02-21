@@ -10,11 +10,48 @@
     .col.s12
       %ul.tabs
         %li.tab.col.s3
-          %a{:href => "#progress"} Learn
+          %a{:href => "#learn"} Learn
         %li.tab.col.s3
-          %a{:href => "#progress"} Explore
+          %a{:href => "#explore"} Explore
         %li.tab.col.s3
-          %a{:href => "#progress"} Connect
+          %a{:href => "#connect"} Connect
         %li.tab.col.s3
-          %a{:href => "#progress"} Contribute
-    #progress.col.s12
+          %a{:href => "#contribute"} Contribute
+    #learn.col.s12
+      =render('courserow', locals:{courses:@courses, sectionTitle:"Continue Watching:"})
+      .divider
+      =render('courserow', locals:{courses:@courses, sectionTitle:"New Uploads In Your Communities:"})
+      .divider
+      =render('courserow', locals:{courses:@courses, sectionTitle:"Your Completed Courses:"})
+    #explore.col.s12
+      =render('courserow', locals:{courses:@courses, sectionTitle:"Your Completed Courses:"})
+      .divider
+      .section
+        %h5 Section 2
+      .divider
+    #connect.col.s12
+      .section
+        %h5 Section 1
+        .row
+          - @courses.each do |course|
+            .col.l4.m6.s12
+              = render('components/course-card', :course => course, :community => course.community)
+      .divider
+      .section
+        %h5 Section 2
+      .divider
+      .section
+        %h5 Section 3
+    #contribute.col.s12
+      .section
+        %h5 Section 1
+        .row
+          - @courses.each do |course|
+            .col.l4.m6.s12
+              = render('components/course-card', :course => course, :community => course.community)
+      .divider
+      .section
+        %h5 Section 2
+      .divider
+      .section
+        %h5 Section 3
