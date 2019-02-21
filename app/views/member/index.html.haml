@@ -24,34 +24,62 @@
       .divider
       =render('courserow', locals:{courses:@courses, sectionTitle:"Your Completed Courses:"})
     #explore.col.s12
-      =render('courserow', locals:{courses:@courses, sectionTitle:"Your Completed Courses:"})
+      =render('courserow', locals:{courses:@courses, sectionTitle:"Courses Recommended For You:"})
       .divider
-      .section
-        %h5 Section 2
+      =render('courserow', locals:{courses:@courses, sectionTitle:"Popular Courses:"})
+      .divider
+      =render('courserow', locals:{courses:@courses, sectionTitle:"New Uploads:"})
       .divider
     #connect.col.s12
       .section
-        %h5 Section 1
+        %h5 What's Happening in Your Communities:
         .row
-          - @courses.each do |course|
-            .col.l4.m6.s12
-              = render('components/course-card', :course => course, :community => course.community)
+          %ul.collection
+            %li.collection-item.avatar
+              =image_tag("Symbol.svg", class:"circle responsive-img", )
+              %span.title Discussion Forum 1
+              %p
+                For Curator Community
+                %br/
+                Second Line
+              %a.secondary-content{:href => "/communities/2"}
+                %i.material-icons
+                  =image_tag("Symbol.svg", class:"circle responsive-img", )
+            %li.collection-item.avatar
+              =image_tag("Symbol.svg", class:"circle responsive-img", )
+              %span.title Discussion Forum 2
+              %p
+                For Lumastic Community
+                %br/
+                Second Line
+              %a.secondary-content{:href => "/communities/1"}
+                %i.material-icons
+                  =image_tag("Symbol.svg", class:"circle responsive-img", )
+            %li.collection-item.avatar
+              =image_tag("Symbol.svg", class:"circle responsive-img", )
+              %span.title Discussion Forum 3
+              %p
+                For Community Z
+                %br/
+                Second Line
+              %a.secondary-content{:href => ""}
+                %i.material-icons
+                  =image_tag("Symbol.svg", class:"circle responsive-img", )
+            %li.collection-item.avatar
+              =image_tag("Symbol.svg", class:"circle responsive-img", )
+              %span.title Discussion Forum 4
+              %p
+                For Community A
+                %br/
+                Second Line
+              %a.secondary-content{:href => ""}
+                %i.material-icons
+                  =image_tag("Symbol.svg", class:"circle responsive-img", )
       .divider
       .section
-        %h5 Section 2
+        %h5 Your Followers:
       .divider
       .section
-        %h5 Section 3
+        =render('courserow', locals:{courses:@courses, sectionTitle:" "})
     #contribute.col.s12
-      .section
-        %h5 Section 1
-        .row
-          - @courses.each do |course|
-            .col.l4.m6.s12
-              = render('components/course-card', :course => course, :community => course.community)
-      .divider
-      .section
-        %h5 Section 2
-      .divider
-      .section
-        %h5 Section 3
+      =render('courserow', locals:{courses:@courses, sectionTitle:"Start Creating:"})
