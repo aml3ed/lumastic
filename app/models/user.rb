@@ -5,6 +5,7 @@ class User < ApplicationRecord
   has_many :lessons, dependent: :destroy
   has_many :discussions
   has_many :comments
+  has_many :views
   include Roleable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

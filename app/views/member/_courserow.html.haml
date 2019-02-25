@@ -1,0 +1,6 @@
+.section
+  %h5= locals[:sectionTitle]
+  .row
+    - locals[:courses].each do |course|
+      .col.l4.m6.s12
+        = render('components/course-card', :course => course, :community => course.community)

@@ -2,13 +2,26 @@
   .row
     .col.s4
       .avatar
-      =image_tag("art-supplies-arts-and-crafts-ballpens-159644.jpg", class:"circle responsive-img", )
+      =image_tag(current_user.get_avatar(), class:"circle responsive-img", )
     .col.s8
-      %h1 big name
-      %p baker, explorer, adventurer, puzzler, nerd
+      %h2.flow-text
+        %span= current_user.display_name != "" ? current_user.display_name : current_user.email
+        %b{:style => "font-size:25%;"}
+          = link_to edit_user_registration_path do
+            = icon('fas', 'info-circle')
+            Edit My Account
+      %h6.flow-text
+        - if current_user.communities.empty?
+          You aren't a part of any communities, yet.
+          %a{:href => "/communities/"} Find what inspires you!
+        - else
+          - current_user.communities.each do |community|
+            = community.identifier
+      %h4.flow-text
+
   .row
     .col.s12
-      %ul.tabs
+      %ul.tabs.hoverable
         %li.tab.col.s3
           %a{:href => "#learn"} Learn
         %li.tab.col.s3
@@ -24,62 +37,51 @@
       .divider
       =render('courserow', locals:{courses:@courses, sectionTitle:"Your Completed Courses:"})
     #explore.col.s12
-      =render('courserow', locals:{courses:@courses, sectionTitle:"Courses Recommended For You:"})
-      .divider
       =render('courserow', locals:{courses:@courses, sectionTitle:"Popular Courses:"})
       .divider
-      =render('courserow', locals:{courses:@courses, sectionTitle:"New Uploads:"})
+      =render('communityrow', locals:{communities:@communities, sectionTitle:"New Communities:"})
       .divider
     #connect.col.s12
       .section
         %h5 What's Happening in Your Communities:
         .row
-          %ul.collection
-            %li.collection-item.avatar
-              =image_tag("Symbol.svg", class:"circle responsive-img", )
-              %span.title Discussion Forum 1
-              %p
-                For Curator Community
-                %br/
-                Second Line
-              %a.secondary-content{:href => "/communities/2"}
-                %i.material-icons
-                  =image_tag("Symbol.svg", class:"circle responsive-img", )
-            %li.collection-item.avatar
-              =image_tag("Symbol.svg", class:"circle responsive-img", )
-              %span.title Discussion Forum 2
-              %p
-                For Lumastic Community
-                %br/
-                Second Line
-              %a.secondary-content{:href => "/communities/1"}
-                %i.material-icons
-                  =image_tag("Symbol.svg", class:"circle responsive-img", )
-            %li.collection-item.avatar
-              =image_tag("Symbol.svg", class:"circle responsive-img", )
-              %span.title Discussion Forum 3
-              %p
-                For Community Z
-                %br/
-                Second Line
-              %a.secondary-content{:href => ""}
-                %i.material-icons
-                  =image_tag("Symbol.svg", class:"circle responsive-img", )
-            %li.collection-item.avatar
-              =image_tag("Symbol.svg", class:"circle responsive-img", )
-              %span.title Discussion Forum 4
-              %p
-                For Community A
-                %br/
-                Second Line
-              %a.secondary-content{:href => ""}
-                %i.material-icons
-                  =image_tag("Symbol.svg", class:"circle responsive-img", )
+          - if current_user.communities.empty?
+            Join a community to join the discussion!
+          - else
+            - current_user.communities.each do |community|
+              = link_to community_path(community, anchor: "discussion-top") do
+                .card.horizontal.hoverable
+                  .card-stacked
+                    .card-content
+                      .col.s2
+                        .avatar
+                          =image_tag("LumasticV16.svg.png", size:"1600x1000", class:"circle responsive-img", )
+                      .col.s10
+                        .row.no-margin
+                          .col.s12
+                            %br/
+                            %h5.text-color.truncate
+                              = community.identifier
+                              's Discussion Board
+                        .row.no-margin
+                          %h7.text-color.truncate
+                            For the
+                            = community.name
+                        .row.no-margin
+                          .col.s12.valign-wrapper
+                            .text-color.valign-wrapper.icon-action
+                              = icon('fas', 'users')
+                              = community.memberships.count
+                            .text-color.valign-wrapper.icon-action
+                              = material_icon.forum
+                              = community.discussions.count
       .divider
       .section
-        %h5 Your Followers:
+        %h5.header-with-link.grey-text
+          =icon('fas', 'group')
+          Your Followers
+        %p.inline.grey-text.tooltipped{"data-tooltip" => "This feature is coming soon!", "data-position" => "top"}
+          =icon('far', 'question-circle')
       .divider
-      .section
-        =render('courserow', locals:{courses:@courses, sectionTitle:" "})
     #contribute.col.s12
       =render('courserow', locals:{courses:@courses, sectionTitle:"Start Creating:"})
