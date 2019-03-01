@@ -14,9 +14,11 @@ class LessonsController < ApplicationController
   def show
     # See get_embed_from_url before action
     unless current_user.nil?
-      view = View.new(user: current_user, lesson: @lesson, lesson_count: @course.lessons.count)
-      view.save
-      puts @lesson.views.count
+      unless @lesson.views.map(&:user_id).include? current_user.id
+        view = View.new(user: current_user, lesson: @lesson, lesson_count: @course.lessons.count)
+        view.save
+        puts @lesson.views.count
+      end
     end
   end
 

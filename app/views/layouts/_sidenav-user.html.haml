@@ -13,6 +13,10 @@
       = material_icon.home
       Home
   %li
+    = link_to "/member/" do
+      = material_icon.person
+      My Profile
+  %li
     = link_to communities_path do
       = icon('fas', 'compass')
       Explore
@@ -34,5 +38,3 @@
   %li
     = link_to '/legal', :class=>"tiny" do
       Terms of Use & Community Guidelines
-
-

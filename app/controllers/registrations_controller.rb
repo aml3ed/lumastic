@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     super
 
     if Community.first.present?
-      community = Community.where(name: "Lumastic Community").first
+      community = Community.where(name: "Lumastic Members").first
       Membership.create!(community: community, user: resource, role: 'Member')
     end
   end

@@ -1,0 +1,9 @@
+.section
+  %h5= locals[:sectionTitle]
+  .row
+    - if locals[:contribution].any?
+      - locals[:contribution].each do |contributor|
+        .col.l4.m6.s12
+          = render('components/course-card', :course => contributor, :community => contributor.community)
+    - else
+      Create something

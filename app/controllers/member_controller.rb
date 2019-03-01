@@ -3,12 +3,27 @@ class MemberController < ApplicationController
   def index
     @courses = Course.all
     @communities = Community.all
-    # Course.newCourses
-    # Course.completedCourses ->create a join table like in schema.rb - "20181018014615_create_memberships" and the one after that
+
+    @contributedCourses = []
+    allUserLessons = current_user.lessons
+    allUserLessons.each do |lesson|
+      unless contributedCourses.include?(lesson.course)
+          @contributedCourses << lesson.course
+      end
+    end
+
+    @curatedCommunities = []
+    allUserCommunities = current_user.communities
+    allUserCommunities.each do |community|
+        if community.is_user_curator(current_user)
+          @curatedCommunities << community
+        end
+    end
+    # @completed = Course.completed_courses
+    # @inprogress = Course.inprogress_courses
   end
 
   def show
-    @member_path_nav = member_path(current_user.id)
   end
 
 end
