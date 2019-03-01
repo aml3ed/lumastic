@@ -16,7 +16,7 @@
           %a{:href => "/communities/"} Find what inspires you!
         - else
           - current_user.communities.each do |community|
-            .tooltipped.inline{"data-tooltip": community, "data-position": "up"}
+            .tooltipped.inline{"data-tooltip": community.name, "data-position": "up"}
               = link_to community_path(community, anchor: community.id) do
                 = community.identifier
       %h4.flow-text
