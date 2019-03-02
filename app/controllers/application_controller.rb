@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     puts "***** THIS IS AN EXCEPTION *****"
     puts exception.action
     if current_user.blank?
-      redirect_to new_user_registration_path, :alert => "Woops! Try logging in first."
+      redirect_to new_user_registration_path, :alert => "Woops! Try creating an account first."
     else
       redirect_to request.referer.nil? ? root_path : request.referer, :alert => exception.message
     end
@@ -16,11 +16,11 @@ class ApplicationController < ActionController::Base
 
   protected
     def after_sign_in_path_for(resource)
-      stored_location_for(resource) || super
+      member_index_path || super
     end
 
     def after_sign_up_path_for(resource)
-      stored_location_for(resource) || super
+      member_index_path || super
     end
 
     def after_sign_out_path_for(resource)

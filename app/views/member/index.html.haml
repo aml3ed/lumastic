@@ -1,99 +1,95 @@
-.container.section
-  .row
-    .col.s4
-      .avatar
-      =image_tag(current_user.get_avatar(), class:"circle responsive-img", )
-    .col.s8
-      %h2.flow-text
-        %span= current_user.display_name != "" ? current_user.display_name : current_user.email
-        %b{:style => "font-size:25%;"}
-          = link_to edit_user_registration_path do
-            = icon('fas', 'info-circle')
-            Edit My Account
-      %h6.flow-text
-        - if current_user.communities.empty?
-          You aren't a part of any communities, yet.
-          %a{:href => "/communities/"} Find what inspires you!
-        - else
-          - current_user.communities.each do |community|
-            .tooltipped.inline{"data-tooltip": community.name, "data-position": "up"}
-              = link_to community_path(community, anchor: community.id) do
-                = community.identifier
-      %h4.flow-text
-  .divider
-  .row
+.section.profile-header
+  .container
+    .row.flex{style: "align-items: center"}
+      .col.m3.l2
+        .profile-pic
+          =image_tag(current_user.get_avatar(150), class:"circle responsive-img")
+      .col.m9.l10
+        .row.no-margin
+          %h3.flow-text{style: "display: inline;"}
+            %span= current_user.display_name != "" ? current_user.display_name : current_user.email
+          = link_to edit_user_registration_path, class: "btn-flat waves-effect right" do
+            Edit Profile
+        .row.no-margin
+          %span
+            - if current_user.communities.empty?
+              You aren't a part of any communities, yet.
+              %a{:href => "/communities/"} Find what inspires you!
+            - else
+              - current_user.communities.each do |community|
+                .tooltipped.inline{"data-tooltip": community.name, "data-position": "up"}
+                  = link_to community_path(community) do
+                    = community.identifier + ","
+          %h4.flow-text
+
+.container
+  .row.no-margin
     .col.s12
+      .divider
       %ul.tabs
         %li.tab.col.s3
-          %a{:href => "#learn"} Learn
+          %a{:href => "#learn"} Improve
         %li.tab.col.s3
           %a{:href => "#explore"} Explore
         %li.tab.col.s3
           %a{:href => "#connect"} Connect
         %li.tab.col.s3
           %a{:href => "#contribute"} Contribute
+      .divider
+.container.section
+  .row.no-margin
     #learn.col.s12
-      .section
-        %h5 Your In-Progress Courses:
-        .row
-          - current_user.views.each do |viewed|
-            .col.l4.m6.s12
-              = render('components/course-card', :course => viewed.lesson.course, :community => viewed.lesson.course.community)
-        .divider
-        %h5 Your Complete Courses:
-        .row
-          - current_user.views.each do |view|
-            - if view.lesson != 0
-              .col.l4.m6.s12
-                = render('components/course-card', :course => view.lesson.course, :community => view.lesson.course.community)
-        .divider
+      %h5 Your In-Progress Courses:
+      .row
+        - current_user.views.each do |viewed|
+          .col.l3.m6.s12
+            = render('components/course-card', :course => viewed.lesson.course, :community => viewed.lesson.course.community)
+      .divider
+      %h5 Your Complete Courses:
+      .row
+        - current_user.views.each do |view|
+          - if view.lesson != 0
+            .col.l3.m6.s12
+              = render('components/course-card', :course => view.lesson.course, :community => view.lesson.course.community)
     #explore.col.s12
       =render('courserow', locals:{courses:@courses, sectionTitle:"Popular Courses:"})
       .divider
       =render('communityrow', locals:{communities:@communities, sectionTitle:"New Communities:"})
     #connect.col.s12
-      .section
-        %h5 What's Happening in Your Communities:
-        .row
-          - if current_user.communities.empty?
-            Join a community to join the discussion!
-          - else
-            - current_user.communities.each do |community|
-              = link_to community_path(community, anchor: "discussion-top") do
-                .card.horizontal.hoverable
-                  .card-stacked
-                    .card-content
-                      .col.s2
-                        .avatar
-                          =image_tag("LumasticV16.svg.png", size:"1600x1000", class:"circle responsive-img", )
-                      .col.s10
-                        .row.no-margin
-                          .col.s12
-                            %br/
-                            %h5.text-color.truncate
-                              = community.identifier
-                              's Discussion Board
-                        .row.no-margin
-                          %h7.text-color.truncate
-                            For the
-                            = community.name
-                        .row.no-margin
-                          .col.s12.valign-wrapper
-                            .text-color.valign-wrapper.icon-action
-                              = icon('fas', 'users')
-                              = community.memberships.count
-                            .text-color.valign-wrapper.icon-action
-                              = material_icon.forum
-                              = community.discussions.count
-      .divider
-      .section
-        %h5.header-with-link.grey-text
-          =icon('fas', 'group')
-          Your Followers:
-        %p.inline.grey-text.tooltipped{"data-tooltip" => "This feature is coming soon!", "data-position" => "top"}
-          =icon('far', 'question-circle')
-      .divider
+      %h5 What's Happening in Your Communities:
+      .row
+        - if current_user.communities.empty?
+          Join a community to join the discussion!
+        - else
+          - current_user.communities.each do |community|
+            = link_to community_path(community, anchor: "discussion-top") do
+              .card.horizontal.hoverable
+                .card-stacked
+                  .card-content
+                    .col.s2
+                      .avatar
+                        =image_tag("LumasticV16.svg.png", size:"1600x1000", class:"circle responsive-img", )
+                    .col.s10
+                      .row.no-margin
+                        .col.s12
+                          %br/
+                          %h5.text-color.truncate
+                            = community.identifier
+                            's Discussion Board
+                      .row.no-margin
+                        %h7.text-color.truncate
+                          For the
+                          = community.name
+                      .row.no-margin
+                        .col.s12.valign-wrapper
+                          .text-color.valign-wrapper.icon-action
+                            = icon('fas', 'users')
+                            = community.memberships.count
+                          .text-color.valign-wrapper.icon-action
+                            = material_icon.forum
+                            = community.discussions.count
     #contribute.col.s12
+      .row
       =render('mycourserow', locals:{contribution:@contributedCourses, sectionTitle:"Courses I've Contributed To:"})
       .divider
       =render('curatorrow', locals:{curation:@curatedCommunities, sectionTitle:"Communities I'm A Curator Of:"})

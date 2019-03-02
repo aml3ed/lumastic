@@ -32,15 +32,13 @@
               %span.hide-on-small-and-down Share
       .row.section.no-margin
         .col.s12.flex{style: "align-items: center;"}
-          .f1
+          .f0
+            %label
+              Contributed by
             = link_to '#', class: "author text-color valign-wrapper" do
               = image_tag @lesson.user.get_avatar(30), class: "circle responsive-img", width: 30, height: 30
               = @lesson.user.display_name
-          .f0
-            .tooltipped.inline{"data-tooltip": "Links to support instructors are coming soon!", "data-position": "up"}
-              %a.right.btn.waves-effect
-                = icon('fas', 'donate', class: 'left')
-                TIP THEM
+
       .divider
       .row
         .col.s12

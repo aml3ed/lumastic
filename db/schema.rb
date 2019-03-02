@@ -155,8 +155,6 @@ ActiveRecord::Schema.define(version: 2019_02_20_012759) do
 
   create_table "views", id: false, force: :cascade do |t|
     t.integer "lesson_count"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.bigint "lesson_id"
     t.index ["lesson_id"], name: "index_views_on_lesson_id"
