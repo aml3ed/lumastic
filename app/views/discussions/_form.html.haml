@@ -13,7 +13,7 @@
   .row.no-margin
     / discussion Title
     .input-field.col.s12.m12.l12
-      = form.label :title, "Discussion Title", for: "title"
+      = form.label :title, "Discussion Question", for: "title"
       = form.text_field :title, id: "title"
       = hidden_field_tag(:community_id, @community.id)
 

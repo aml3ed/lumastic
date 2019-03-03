@@ -1,38 +1,42 @@
-.section
-  .row.no-margin
-    .col
-      = link_to community_path(@community), class:"text-color" do
-        %h4.header-with-link.header-with-button
-          = @community.name
-    .col.no-padding
-      - unless @community.is_user_member(current_user)
-        = link_to add_user_community_path(@community), method: :put, class: "btn-small waves-effect " do
-          = icon('fas', 'user-plus', class: "left")
-          join
-      - else
-        - role = @community.memberships.find_by(user_id: current_user.id).role
-        .btn-flat.disabled.no-padding.hide-on-med-and-down
-          = material_icon.check.css_class('left ')
-          = role
-    .col.hide-on-small-and-down.right
-      = link_to members_community_path(@community), class: "icon-action btn-flat waves-effect primary-text" do
-        = icon('fas', 'users', class: "left")
-        = @community.memberships.count
-      = link_to community_courses_path(@community), class: "icon-action btn-flat waves-effect primary-text" do
-        = icon('fas', 'book', class: "left")
-        = @community.courses.count
-      = link_to  discussions_community_path(@community), class: "icon-action btn-flat waves-effect primary-text" do
-        = icon('fas', 'comments', class: "left")
-        = @community.discussions.count
-      = link_to '#share-modal', class: "icon-action btn-flat waves-effect primary-text modal-trigger" do
-        = icon('far', 'envelope-open', class: "left")
-      .btn-flat.primary-text.waves-effect.no-padding.dropdown-trigger{"data-target" => "leave_dropdown"}
-        = material_icon.more_vertical
-        %ul#leave_dropdown.dropdown-content
-          -if @community.is_user_member(current_user)
-            %li
-              = link_to "Edit Community", edit_community_path(@community)
-          -if @community.is_user_member(current_user)
-            %li
-              = link_to "Leave Community", remove_user_community_path(@community), method: :put, class: "red-text"
-  .divider
+.section.profile-header
+  .container
+    .row.no-margin.flex{style: "align-items: center"}
+      .col.f1
+        = link_to community_path(@community) do
+          %h4.white-text.flow-text{style: "display: inline;"}
+            %span= @community.name
+      .col.f0
+        - if can? :edit, @community
+          = link_to edit_community_path(@community), class: "btn-flat waves-effect" do
+            =icon('fas', 'edit', class: "left")
+            Edit
+        - unless @community.is_user_member(current_user)
+          = link_to add_user_community_path(@community), method: :put, class: "btn-small waves-effect " do
+            = icon('fas', 'user-plus', class: "left")
+            join
+        - else
+          - role = @community.memberships.find_by(user_id: current_user.id).role
+          = link_to '#leave-modal', class: "btn-small dark-button hide-on-med-and-down waves-effect modal-trigger" do
+            = icon('fas', 'certificate', class: "left")
+            = role
+
+    .row.no-margin.flex{style: "align-items: center"}
+      .col.contributors.valign-wrapper.f1
+        - @community.users.take(5).each do |member|
+          = image_tag member.get_avatar(30), class: "responsive-img circle", width: 30, height: 30
+        = link_to members_community_path(@community), class: "white-text", style: "padding-left: 9px" do
+          = @community.users.count
+          = " Member" + (@community.users.count != 1 ? "s" : "")
+      .col.f0
+        = link_to '#share-modal', class: "btn-flat white-text waves-effect modal-trigger" do
+          = icon('far', 'envelope-open', class: "left")
+          Invite Friends
+#leave-modal.modal
+  .modal-content
+    .row.no-margin
+      .col.s12.center-align
+        %h5 Sure you want to leave this community?
+  .modal-footer
+    .modal-close.waves-effect.btn-flat.grey-text Close
+    = link_to remove_user_community_path(@community), method: :put, class: "btn-flat waves-effect " do
+      leave

@@ -30,7 +30,7 @@
               = material_icon.arrow_drop_down.css_class("right")
             %ul#userDropdown.dropdown-content
               %li
-                %a{:href => "/member/"}
+                = link_to member_index_path do
                   %i.material-icons account_circle
                   My Profile
               %li

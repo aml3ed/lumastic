@@ -1,21 +1,18 @@
-= link_to community_path(community) do
-  .card.horizontal.hoverable
+
+.card.horizontal.hoverable.community-card
+  = link_to community_path(community), style: "width: 100%" do
     - unless community.created_at < Time.now - 7.days
       %span.badge.card-badge.new
     .card-stacked
       .card-content
         .row.no-margin
           .col.s12
-            %h5.text-color.truncate
+            %h5.white-text.truncate{style: "margin-top: 0.656rem;"}
               = community.name
         .row.no-margin
           .col.s12.valign-wrapper
-            .text-color.valign-wrapper.icon-action
-              = icon('fas', 'users')
-              = community.memberships.count
-            .text-color.valign-wrapper.icon-action
-              =material_icon.video_library
-              = community.courses.count
-            .text-color.valign-wrapper.icon-action
-              =material_icon.forum
-              = community.discussions.count
+            - community.users.take(5).each do |member|
+              = image_tag member.get_avatar(20), class: "responsive-img circle", width: 20, height: 20
+            %span{style: "padding-left: 9px", class: "white-text"}
+              = community.users.count
+              = " Member" + (community.users.count != 1 ? "s" : "")

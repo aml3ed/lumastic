@@ -38,4 +38,15 @@ class Community < ApplicationRecord
     return false
   end
 
+  def curators
+    members = self.memberships
+    curators = []
+    members.each do |member|
+      if member.role == "Curator"
+        curators << member.user
+      end
+    end
+    curators
+  end
+
 end

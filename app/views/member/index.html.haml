@@ -20,7 +20,6 @@
                 .tooltipped.inline{"data-tooltip": community.name, "data-position": "up"}
                   = link_to community_path(community) do
                     = community.identifier + ","
-          %h4.flow-text
 
 .container
   .row.no-margin
@@ -28,7 +27,7 @@
       .divider
       %ul.tabs
         %li.tab.col.s3
-          %a{:href => "#learn"} Improve
+          %a{:href => "#learn"} Learn
         %li.tab.col.s3
           %a{:href => "#explore"} Explore
         %li.tab.col.s3

@@ -2,8 +2,8 @@
   og_title: @lesson.title,
   og_description: strip_tags(sanitize(@lesson.lesson_info)),
   og_image: (@course.get_thumbnail == "HeaderImage-8.png") ? image_path("HeaderImage-8.png") : polymorphic_url(@course.get_thumbnail))
+= render 'components/community-header'
 .container.section
-  = render('components/community-header')
   .row
     .col.s12.m12.push-l4.l8
       = render 'videoPlayer', locals: { vid_id: @vid_id, autoplay: "1"}
