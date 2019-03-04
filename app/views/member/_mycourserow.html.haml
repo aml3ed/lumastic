@@ -6,4 +6,5 @@
         .col.l4.m6.s12
           = render('components/course-card', :course => contributor, :community => contributor.community)
     - else
-      Create something
+      You haven't contributed to any courses yet.
+      %a{:href => "/communities/1/courses/1"} Need help getting started?

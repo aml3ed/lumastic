@@ -33,20 +33,9 @@
         %li.tab.col.s3
           %a{:href => "#contribute"} Contribute
     #learn.col.s12
-      .section
-        %h5 Your In-Progress Courses:
-        .row
-          - current_user.views.each do |viewed|
-            .col.l4.m6.s12
-              = render('components/course-card', :course => viewed.lesson.course, :community => viewed.lesson.course.community)
-        .divider
-        %h5 Your Complete Courses:
-        .row
-          - current_user.views.each do |view|
-            - if view.lesson != 0
-              .col.l4.m6.s12
-                = render('components/course-card', :course => view.lesson.course, :community => view.lesson.course.community)
-        .divider
+      =render('courserow', locals:{courses:@inprogressCourses, sectionTitle:"Your In Progress Courses:"})
+      .divider
+      =render('courserow', locals:{courses:@completedCourses, sectionTitle:"Your Completed Courses:"})
     #explore.col.s12
       =render('courserow', locals:{courses:@courses, sectionTitle:"Popular Courses:"})
       .divider

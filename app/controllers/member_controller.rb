@@ -19,8 +19,29 @@ class MemberController < ApplicationController
           @curatedCommunities << community
         end
     end
-    # @completed = Course.completed_courses
-    # @inprogress = Course.inprogress_courses
+
+    @completedCourses = []
+    @inprogressCourses = []
+    viewedLessonCount = 0
+    lessonCount = 0
+    allCourses = @courses
+    allCourses.each do |course|
+      course.lessons.each do |lesson|
+        lessonCount = lessonCount + 1
+        lesson.views.each do |view|
+          if view.user == current_user
+            viewedLessonCount = viewedLessonCount + 1
+          end
+        end
+      end
+      if (lessonCount == viewedLessonCount)
+        @completedCourses << course
+      end
+      if (viewedLessonCount >= 1 && viewedLessonCount < lessonCount)
+        @inprogressCourses << course
+      end
+    end
+
   end
 
   def show
