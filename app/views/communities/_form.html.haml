@@ -23,9 +23,11 @@
 
   .row
     / Community Info
-    .input-field.col.s12
+    .col.s12
       = form.label :description, for: "description"
-      = form.text_area :description, id: "description", class: "materialize-textarea"
+    .input-field.col.s12
+      = form.hidden_field :description, id: "description", class: "materialize-textarea"
+      %trix-editor.writeup{input: "description"}
 
   / Save
   .row

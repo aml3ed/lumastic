@@ -1,7 +1,7 @@
-.section
-  %h5.header-with-link=locals[:sectionTitle]
-  = link_to "See More", communities_path, class: "modal-trigger waves-light waves-effect"
-  .row
-    - locals[:communities].take(6).each do |community|
-      .col.l4.m6.s12
-        = render('components/community-card', :community => community)
+
+%h5.header-with-link=locals[:sectionTitle]
+= link_to "See More", communities_path, class: "modal-trigger waves-light waves-effect"
+.row
+  - locals[:communities].take(6).each do |community|
+    .col.l4.m6.s12
+      = render('components/community-card', :community => community)

@@ -6,8 +6,8 @@
           %h5.header-with-link
             Find A Community
           .divider
-        .col.l4.m6.s12
-          = render('components/new-community-card')
         - @communities.each do |community|
           .col.l4.m6.s12
             = render('components/community-card', :community => community)
+        .col.s12
+          = render('components/new-community-card')

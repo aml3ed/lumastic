@@ -2,8 +2,8 @@
   og_title: @lesson.title,
   og_description: strip_tags(sanitize(@lesson.lesson_info)),
   og_image: (@course.get_thumbnail == "HeaderImage-8.png") ? image_path("HeaderImage-8.png") : polymorphic_url(@course.get_thumbnail))
+= render 'components/community-header'
 .container.section
-  = render('components/community-header')
   .row
     .col.s12.m12.push-l4.l8
       = render 'videoPlayer', locals: { vid_id: @vid_id, autoplay: "1"}
@@ -32,15 +32,13 @@
               %span.hide-on-small-and-down Share
       .row.section.no-margin
         .col.s12.flex{style: "align-items: center;"}
-          .f1
+          .f0
+            %label
+              Contributed by
             = link_to '#', class: "author text-color valign-wrapper" do
               = image_tag @lesson.user.get_avatar(30), class: "circle responsive-img", width: 30, height: 30
               = @lesson.user.display_name
-          .f0
-            .tooltipped.inline{"data-tooltip": "Links to support instructors are coming soon!", "data-position": "up"}
-              %a.right.btn.waves-effect
-                = icon('fas', 'donate', class: 'left')
-                TIP THEM
+
       .divider
       .row
         .col.s12

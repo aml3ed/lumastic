@@ -1,5 +1,5 @@
 class AdminController < ApplicationController
-  before_action :check_admin
+  authorize_resource class: false
 
   def dashboard
   end

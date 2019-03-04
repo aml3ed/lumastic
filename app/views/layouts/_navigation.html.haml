@@ -15,7 +15,6 @@
                 = text_field_tag :search, params[:search], placeholder: "What makes you curious?", type: "search", id: "search-input"
                 #close-icon.search-icon= material_icon.close
               #searchResults
-
       %ul.f0.hide-on-med-and-down
         - if !current_user
           %li
@@ -31,7 +30,7 @@
               = material_icon.arrow_drop_down.css_class("right")
             %ul#userDropdown.dropdown-content
               %li
-                %a{:href => "/member/"}
+                = link_to member_index_path do
                   %i.material-icons account_circle
                   My Profile
               %li

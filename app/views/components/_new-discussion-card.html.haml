@@ -1,12 +1,12 @@
-= link_to new_community_path do
+= link_to new_discussion_path(community_id: @community.id) do
   .card.light-grey.hoverable
     .card-stacked
       .card-content.center
         .row.no-margin
           .col.s12
             %h5.grey-text{style: "margin-top: 0;"}
-              = material_icon.add_circle
-              Start A Community
+              = icon('fas', 'comments')
+              Start A Discussion
         .row.no-margin
           .col.s12
-            %p.grey-text Find people who love what you love!
+            %p.grey-text What's on your mind?

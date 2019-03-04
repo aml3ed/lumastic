@@ -1,36 +1,37 @@
 %center
   .section
-  .container
-    .z-depth-1.row.paper-popup
-      = form_for(resource, as: resource_name, :class=>"col s12", url: registration_path(resource_name)) do |f|
-        = devise_error_messages!
-        .row
-          .col.s12
-            %h5 Welcome to Lumastic!
-            %h6 Create your account to get started
-        .row
-          .input-field.col.s12
-            = f.text_field :display_name, autofocus: true, autocomplete: "display_name", type: "text", id: 'display_name', placeholder: "First and last preferably"
-            = f.label :display_name, "Your Name", for: "display_name"
-        .row
-          .input-field.col.s12
-            = f.email_field :email, autocomplete: "email", type: "email", id: 'email', class: "validate", placeholder: "What's your email'?"
-            = f.label :email, for: "email", class: "active"
-        .row
-          .input-field.col.s12
-            = f.password_field :password, type: "password", autocomplete: "off" , id: 'password', class: "validate", placeholder: "Make it memorable!"
-            = f.label :password, for: "password", class: "active"
-        .row
-          .input-field.col.s12
-            = f.text_field :referred_by, autocomplete: "off", id: 'referred_by', type: "text", placeholder: "How did you hear about us?"
-            = f.label :referred_by, for: "referred_by", class: "active"
-        %br/
-        .row
-          = f.button :submit, class: "col s12 btn btn-large waves-effect form-submit" do
-            Sign Up
-        .row
-          Already have an account? #{link_to "Login", new_user_session_path}
-  %p.grey-text
-    By signing up, you are agreeing to our
-    = link_to "Terms of Use & Community Guidelines", '/legal'
+    .container
+      .card.row.paper-popup.left-align
+        .card-content
+          = form_for(resource, as: resource_name, :class=>"col s12", url: registration_path(resource_name)) do |f|
+            = devise_error_messages!
+            .row
+              .col.s12.left-align
+                %h4 Learn what you love.
+                %h6.grey-text
+                  Create an account to get started.
+            .row.no-margin
+              .input-field.col.s12
+                = f.text_field :display_name, autofocus: true, autocomplete: "display_name", type: "text", id: 'display_name', placeholder: "People trust people, not usernames."
+                = f.label :display_name, "First & Last Name", for: "display_name"
+            .row.no-margin
+              .input-field.col.s12
+                = f.email_field :email, autocomplete: "email", type: "email", id: 'email', class: "validate", placeholder: "e.g. harry@hogwarts.edu"
+                = f.label :email, "Email", for: "email", class: "active"
+            .row
+              .input-field.col.s12
+                = f.password_field :password, type: "password", autocomplete: "off" , id: 'password', class: "validate", placeholder: "Make it memorable!"
+                = f.label :password, for: "password", class: "active"
+            .row.no-margin
+              .input-field.col.s12
+                = f.text_field :referred_by, autocomplete: "off", id: 'referred_by', type: "text", placeholder: "How did you hear about us?"
+                = f.label :referred_by, for: "referred_by", class: "active"
+            .row
+              = f.button :submit, class: "col s12 btn btn-large waves-effect form-submit" do
+                Sign Up
+            .row.center-align
+              Already have an account? #{link_to "Login", new_user_session_path}
+      %p.grey-text
+        By signing up, you are agreeing to our
+        = link_to "Terms of Use & Community Guidelines", '/legal'
 

@@ -10,7 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'cancancan'
 gem 'coffee-rails', '~> 4.2'
 gem 'devise'
-gem 'font-awesome-sass', '~> 5.0.13'
+gem 'font-awesome-sass', '~> 5.6.1'
 gem 'jbuilder', '~> 2.5'
 gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
 gem 'jquery-ui-rails'

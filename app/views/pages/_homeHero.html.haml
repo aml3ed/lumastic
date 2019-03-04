@@ -14,12 +14,12 @@
             %span.accent-text Light
             the way for others.
       .row
-        .col.s6.right-align
-          = link_to new_user_registration_path, class: "btn waves-effect" do
+        .col.s12.center-align
+          = link_to new_user_registration_path, class: "btn-large waves-effect" do
             =icon('fas', 'user-plus', class: "left")
-            Sign Up
-        .col.s6.left-align
-          = link_to '#story-modal', class: "btn waves-effect dark-button modal-trigger" do
+            Achieve Your Dreams
+        .col.s12.center-align
+          = link_to '#story-modal', class: "btn-flat waves-effect white-text modal-trigger" do
             =icon('fas', 'play-circle', class: "left")
             Our story
     - else
@@ -27,8 +27,7 @@
         .col.s12.center-align.white-text
           %h2.flow-text
             Welcome back,
-            %span.accent-text= current_user.display_name != "" ? current_user.display_name : current_user.email
-            !
+            %span.accent-text= (current_user.display_name != "" ? current_user.display_name : current_user.email) + "!"
           %h5.flow-text.hide-on-small-and-down
             Learn how to contribute and start making lessons.
       .row
