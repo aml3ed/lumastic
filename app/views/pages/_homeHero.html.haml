@@ -28,8 +28,6 @@
           %h1.flow-text
             Welcome back,
             %span.accent-text= (current_user.display_name != "" ? current_user.display_name : current_user.email) + "!"
-          %h5.flow-text.hide-on-small-and-down
-            Learn how to contribute and start making lessons.
       .row
         .col.s12.center-align
           = link_to "/member/", class: "btn waves-effect dark-button" do

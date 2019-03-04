@@ -19,7 +19,7 @@
               - current_user.communities.each do |community|
                 .tooltipped.inline{"data-tooltip": community.name, "data-position": "up"}
                   = link_to community_path(community) do
-                    = community.identifier + ","
+                    = community.identifier.nil? ? "" : community.identifier + ","
 
 .container
   .row.no-margin
