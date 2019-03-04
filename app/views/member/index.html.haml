@@ -48,8 +48,8 @@
     #connect.col.s12
       %h5 What's Happening in Your Communities:
       .row
-        .col.s12.m6
-          - @discussions.each do |discussion|
+        - @discussions.each do |discussion|
+          .col.s12.m6
             =render('components/discussion-card', discussion: discussion)
     #contribute.col.s12
       .row
