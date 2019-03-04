@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   flex-grow: 0;
-  margin-right: 16px;
+  margin-right: 0px;
   color: #cdcdcd;
   a {
     cursor: pointer;
@@ -56,16 +56,17 @@
 
 .comment-thread {
   border-left: 3px solid #e0e0e0;
+  margin-left: 12px;
   li {
-    margin-left: 20px;
+    margin-left: 12px;
   }
 }
 
 
 
 .reply-form {
-  .comment-card {
-    margin-left: 20px;
+  .comment-form {
+    margin-left: 25px;
   }
   border-left: 3px solid #e0e0e0;
 }

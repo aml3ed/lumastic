@@ -1,0 +1,22 @@
+.card.horizontal.hoverable.discussion-card
+  = link_to discussion_path(discussion), style: "width: 100%", class: "primary-text" do
+    - unless discussion.created_at < Time.now - 7.days
+      %span.badge.card-badge.new
+    .card-stacked
+      .card-content
+        .row.no-margin
+          .col.s12
+            %h6.truncate{style: "margin-top: 0rem;"}
+              = discussion.title
+        .row.no-margin
+          .col.s12.valign-wrapper
+            %span.truncate
+              =discussion.description
+        .row.no-margin.flex{style: "align-items: center", style: "margin-top: .4rem;"}
+          .col.f1
+            %label= discussion.community.name
+          .col.f0
+            %label
+              = icon('fas', 'comments')
+              = discussion.comments.count
+              = " Comment" + (discussion.comments.count != 1 ? "s" : "")

@@ -2,9 +2,17 @@ class MemberController < ApplicationController
   authorize_resource class: false
 
   def index
+    # Get courses with most lessons
     @courses = Course.left_joins(:lessons).group(:id).order('COUNT(lessons) DESC').limit(4)
+
+    # Get communities with most members
     @communities = Community.left_joins(:memberships).group(:id).order('COUNT(memberships) DESC').limit(6)
 
+    # Get discussion in communities, order by most comments, take first 5
+    @discussions = @communities.to_a.collect{|d| d.discussions.to_a}.flatten()
+    @discussions = @discussions.sort_by!{|d| d.comments.count}.take(5)
+
+    # Get courses user has contributed to
     @contributedCourses = []
     allUserLessons = current_user.lessons
     allUserLessons.each do |lesson|
@@ -13,6 +21,7 @@ class MemberController < ApplicationController
       end
     end
 
+    # Get communities user is curator of
     @curatedCommunities = []
     allUserCommunities = current_user.communities
     allUserCommunities.each do |community|
@@ -21,6 +30,7 @@ class MemberController < ApplicationController
         end
     end
 
+    # Get courses user has completed and are in progress
     @completedCourses = []
     @inprogressCourses = []
     viewedLessonCount = 0
