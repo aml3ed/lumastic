@@ -10,9 +10,9 @@
             %h5.white-text.truncate{style: "margin-top: 0.656rem;"}
               = community.name
         .row.no-margin
-          .col.s12.valign-wrapper
+          .col.s12.valign-wrapper.contributors
             - community.users.take(5).each do |member|
               = image_tag member.get_avatar(20), class: "responsive-img circle", width: 20, height: 20
-            %span{style: "padding-left: 9px", class: "white-text"}
+            %span{ class: "white-text"}
               = community.users.count
               = " Member" + (community.users.count != 1 ? "s" : "")

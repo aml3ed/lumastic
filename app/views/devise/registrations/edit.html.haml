@@ -11,11 +11,16 @@
           .row
             .profile-pic
               = image_tag resource.get_avatar(100), class: "circle responsive-img"
-              %label{for: "avatar"}
-                = icon('fas', 'edit', class: 'left')
+              .file-field
+                .btn-flat{onclick: "document.getElementById('avatar').click();"}
+                  %span
+                    = icon('fas', 'edit', class: 'left')
+                    Change Picture
                 = f.file_field :avatar, id: "avatar", style: "display: none;"
+                .file-path-wrapper
+                  %input.file-path.validate
           .row
-            .input-field.col.s12.m8
+            .input-field.col.s12
               = f.text_field :display_name, autofocus: true, autocomplete: "display_name", type: "text", id: 'display_name', placeholder: "First and last preferably"
               = f.label :display_name, "Your Name", for: "display_name"
           .row

@@ -1,7 +1,8 @@
 class MemberController < ApplicationController
-  authorize_resource class: false
 
   def index
+    # Can user access profile
+    authorize! :index, :profile
     # Get courses with most lessons
     @courses = Course.left_joins(:lessons).group(:id).order('COUNT(lessons) DESC').limit(4)
 

@@ -38,22 +38,6 @@
         = link_to "Terms of Use & Community Guidelines", '/legal'
 
 :javascript
-  $(".form-submit").on({
-    "mouseover focus" : function(e){
-      $(".bigsparkle").sparkleh({
-        count: 30,
-        color: ["#FECF2F", "#E2AF06", "#AF8700"]
-      });
-    }
-  });
-
-  $(function(){
-    $(".sparkle").sparkleh({
-      count: 40,
-      color: ["#FECF2F", "#E2AF06", "#AF8700"]
-    });
-  });
-
 
   $.fn.sparkleh = function( options ) {
 
@@ -315,4 +299,22 @@
   };
 
 
+
+
+
+  $(".form-submit").on({
+    "mouseover focus" : function(e){
+      $(".bigsparkle").sparkleh({
+        count: 30,
+        color: ["#FECF2F", "#E2AF06", "#AF8700"]
+      });
+    }
+  });
+
+  $(function(){
+    $(".sparkle").sparkleh({
+      count: 40,
+      color: ["#FECF2F", "#E2AF06", "#AF8700"]
+    });
+  });
 

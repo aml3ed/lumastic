@@ -15,17 +15,7 @@ class ApplicationController < ActionController::Base
   before_action :my_communities
 
   protected
-    def after_sign_in_path_for(resource)
-      member_index_path || super
-    end
 
-    def after_sign_up_path_for(resource)
-      member_index_path || super
-    end
-
-    def after_sign_out_path_for(resource)
-      stored_location_for(resource) || super
-    end
 
     def configure_permitted_parameters
       # Permit the `subscribe_newsletter` parameter along with the other

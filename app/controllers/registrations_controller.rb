@@ -9,7 +9,7 @@ class RegistrationsController < Devise::RegistrationsController
     super
 
     if Community.first.present?
-      community = Community.where(name: "Lumastic Members").first
+      community = Community.first
       Membership.create!(community: community, user: resource, role: 'Member')
     end
   end
@@ -27,5 +27,9 @@ class RegistrationsController < Devise::RegistrationsController
 
       # Allows user to update registration information without password.
       resource.update_without_password(params.except("current_password"))
+    end
+
+    def after_sign_up_path_for(resource)
+      member_index_path || super
     end
 end
