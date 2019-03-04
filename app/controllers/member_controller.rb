@@ -17,7 +17,7 @@ class MemberController < ApplicationController
     @contributedCourses = []
     allUserLessons = current_user.lessons
     allUserLessons.each do |lesson|
-      unless contributedCourses.include?(lesson.course)
+      unless @contributedCourses.include?(lesson.course)
           @contributedCourses << lesson.course
       end
     end
