@@ -31,13 +31,9 @@
 
     #discussions
       .row
-        .col.s12
-          - @discussions.each do |discussion|
-            =link_to discussion_path(discussion), class: " text-color" do
-              =discussion.title
-              .secondary-content.text-color
-                =icon('fas', 'comment')
-                =discussion.comments.count
+        - @discussions.each do |discussion|
+          .col.m6.s12
+            =render('components/discussion-card', discussion: discussion)
         .col.s12
           = render('components/new-discussion-card')
     #guidelines

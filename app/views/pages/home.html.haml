@@ -2,14 +2,6 @@
 .container
   .row.no-margin
     .col.s12
-      %h4.header-with-link Featured Courses
-  .row
-    - @courses.take(4).each do |course|
-      .col.l3.m6.s12
-        = render('components/course-card', :course => course, :community => course.community)
-  .divider
-  .row.no-margin
-    .col.s12
       %h4.header-with-link Popular Communities
       = link_to "See More", communities_path, class: "modal-trigger waves-light waves-effect"
   .row
@@ -18,6 +10,15 @@
         = render('components/community-card', :community => community)
     .col.s12
       = render('components/new-community-card')
+
+  .divider
+  .row.no-margin
+    .col.s12
+      %h4.header-with-link Featured Courses
+  .row
+    - @courses.take(4).each do |course|
+      .col.l3.m6.s12
+        = render('components/course-card', :course => course, :community => course.community)
 
 
 

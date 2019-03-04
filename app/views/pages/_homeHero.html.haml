@@ -3,21 +3,21 @@
     - if !current_user
       .row
         .col.s12.center-align.white-text
-          %h2.flow-text
-            Learn, Share, & Grow for
-            %span.accent-text Free.
+          %h1.flow-text
+            Learn what you
+            %span.accent-text love.
           %h5.flow-text.hide-on-small-and-down
-            %span.accent-text Explore
-            your interests.
-            %span.accent-text Cultivate
-            your passions.
-            %span.accent-text Light
-            the way for others.
+            %span.accent-text Connect
+            with others.
+            %span.accent-text Share
+            knowledge.
+            %span.accent-text Achieve
+            your dreams.
       .row
         .col.s12.center-align
-          = link_to new_user_registration_path, class: "btn-large waves-effect" do
+          = link_to new_user_registration_path, class: "btn waves-effect" do
             =icon('fas', 'user-plus', class: "left")
-            Achieve Your Dreams
+            Find Your Community
         .col.s12.center-align
           = link_to '#story-modal', class: "btn-flat waves-effect white-text modal-trigger" do
             =icon('fas', 'play-circle', class: "left")
