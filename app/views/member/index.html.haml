@@ -13,7 +13,7 @@
         .row.no-margin
           %span
             - if current_user.communities.empty?
-              You aren't a part of any communities, yet.
+              %span.white-text You aren't a part of any communities, yet.
               %a{:href => "/communities/"} Find what inspires you!
             - else
               - current_user.communities.each do |community|
