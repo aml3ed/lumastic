@@ -38,7 +38,9 @@ class ApplicationController < ActionController::Base
       store_location_for(:user, request.fullpath)
     end
 
-
+    def track_activity(trackable, action = params[:action])
+      current_user.activities.create! action: action, trackable: trackable
+    end
 
 
 end

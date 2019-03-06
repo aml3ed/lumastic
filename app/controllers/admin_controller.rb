@@ -2,6 +2,7 @@ class AdminController < ApplicationController
   authorize_resource class: false
 
   def dashboard
+    @activities = Activity.order("created_at desc").take(50)
   end
 
   def admin_users

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  has_many :activities
   has_one_attached :avatar
   has_many :memberships, dependent: :delete_all
   has_many :communities, through: :memberships

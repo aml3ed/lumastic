@@ -2,6 +2,7 @@
   .row.no-margin
     .col.s12
       %h4
+        =icon('fas', 'trophy')
         Team Dashboard
       .divider
   .row.no-margin
@@ -16,6 +17,14 @@
           = render 'admin-goal', :locals => {:text => "100 Members Signed Up", :percent => percent(User.all.count, 100).to_s + "%"}
         .col.s12
           = render 'admin-goal', :locals => {:text => "28 Lessons Made", :percent => percent(Lesson.all.count, 28).to_s + "%"}
+      .row.no-margin
+        .col.s12
+          %h5 Member Activity
+        .col.s12
+          .divider
+        - @activities.each do |activity|
+          .col.s12
+            = render("activities/#{activity.trackable_type}/#{activity.action}", activity: activity) rescue render(activity)
     .col.s12.m6.l8
       .row.no-margin
         .col.s12
@@ -33,5 +42,6 @@
         .col.s6.m6.l3
           = link_to admin_lessons_path do
             = render 'stat-card', :locals => {:model => "Lesson"}
+
 
 

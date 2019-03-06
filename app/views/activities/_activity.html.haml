@@ -1,0 +1,10 @@
+.flex{style: "align-items: center"}
+  .f0
+    %h6{style: "margin: 1rem 0"}= icon('fas', "#{activity.icon}")
+  .col.f0
+    %p{style: "margin: 1rem 0"}
+      = activity.user.display_name
+      = activity.display_action
+      = time_ago_in_words(activity.created_at)
+      ago
+.divider

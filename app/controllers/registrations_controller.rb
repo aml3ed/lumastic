@@ -7,7 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     super
-
+    track_activity(resource)
     if Community.first.present?
       community = Community.first
       Membership.create!(community: community, user: resource, role: 'Member')
