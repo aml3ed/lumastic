@@ -11,6 +11,7 @@ class ApplicationController < ActionController::Base
 
   end
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :masquerade_user!
   before_action :store_user_location!, if: :storable_location?
   before_action :my_communities
 

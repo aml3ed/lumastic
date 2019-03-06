@@ -8,11 +8,16 @@ class Activity < ApplicationRecord
     when Trackable::LOGIN
       "logged in"
     when Trackable::CREATE
-      "posted a"
+      case trackable_type
+      when "User"
+        "signed up"
+      else
+        "posted a " + trackable_type
+      end
     when Trackable::UPDATE
-      "edited a"
+      "edited a " + trackable_type
     when Trackable::DESTROY
-      "deleted a"
+      "deleted a " + trackable_type
     else
       action
     end
@@ -30,17 +35,19 @@ class Activity < ApplicationRecord
         "user-plus"
       end
 
+    # When the activity is on Comment or Discussion
+    when "Comment"
+      "comment"
+    when "Discussion"
+      "comments"
+
     # When the activity is on Lesson
-    when "Comment" || "Discussion"
-      "posted a"
+    when "Lesson"
+      "chalkboard-teacher"
 
     # When the activity is on Course
-    when "Lesson"
-      "edited a"
-
-    # When the activity is on Community
     when "Course"
-      "deleted a"
+      "book"
 
     # Otherwise
     else

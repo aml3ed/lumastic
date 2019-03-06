@@ -1,3 +1,11 @@
+- if user_masquerade?
+  .navbar-fixed{style: "height: 2rem"}
+    %nav{style: "margin: 0; padding: 0.25rem; background-color: #3bb2f2; height: 2rem; line-height: 1.5rem"}
+      .nav-wrapper.center-align
+        = link_to back_masquerade_path(current_user), class: "white-text" do
+          %strong WARNING:
+          You are masquerading as another user!
+          %u Click Here to Reverse Masquerade
 .navbar-fixed
   %nav
     .nav-wrapper.nav-flex

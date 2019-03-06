@@ -43,6 +43,7 @@ class LessonsController < ApplicationController
     @lesson.position = Lesson.where(course: @course).present? ? Lesson.where(course: @course).maximum('position') + 1 : 1
     respond_to do |format|
       if @lesson.save
+        track_activity(@lesson)
         format.html { redirect_to community_course_lesson_path(@community, @course, @lesson), notice: 'Lesson was successfully created.' }
         format.json { render :show, status: :created, location: @lesson }
       else
