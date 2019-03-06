@@ -15,6 +15,7 @@ class CommentsController < ApplicationController
       redirect = community_course_lesson_path(@lesson.course.community, @lesson.course, @lesson)
     end
     if @comment.save
+      track_activity(@comment)
       redirect_to redirect, notice: "Your comment was successfully posted!"
     else
       redirect_to redirect, notice: "Your comment wasn't posted!"

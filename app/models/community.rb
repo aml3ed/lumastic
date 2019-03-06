@@ -30,12 +30,23 @@ class Community < ApplicationRecord
     course_updated = self.courses.maximum(:updated_at)
     [community_updated, course_updated].max
   end
-    
+
   def is_user_curator(current_user)
-    if current_user
+    if current_user && current_user.role == "Curator"
       return self.memberships.find_by(user_id: current_user.id).role == "Curator"
     end
     return false
+  end
+
+  def curators
+    members = self.memberships
+    curators = []
+    members.each do |member|
+      if member.role == "Curator"
+        curators << member.user
+      end
+    end
+    curators
   end
 
 end

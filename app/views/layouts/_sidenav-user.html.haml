@@ -12,10 +12,23 @@
     = link_to root_path do
       = material_icon.home
       Home
+  - if is_admin(current_user)
+    %li
+      = link_to admin_dashboard_path do
+        = icon('fas', 'wrench')
+        Admin
+  %li
+    = link_to member_index_path do
+      = material_icon.person
+      My Profile
   %li
     = link_to communities_path do
       = icon('fas', 'compass')
-      Explore
+      Find Communities
+  %li
+    = link_to new_community_path do
+      = icon('fas', 'plus-circle')
+      New Community
   %li
     %a.subheader
       MY COMMUNITIES
@@ -34,5 +47,3 @@
   %li
     = link_to '/legal', :class=>"tiny" do
       Terms of Use & Community Guidelines
-
-

@@ -1,64 +1,51 @@
 - share_tags(og_type: "community",
   og_title: @community.name,
   og_description: strip_tags(sanitize(@community.description)))
-.container.section
-  = render('components/community-header')
-  .row
-    .col.m7.s12
-      .row.no-margin
-        .col.s12
-          %h5.header-with-link
-            =icon('fas', 'book')
-            Courses
-          - puts can? :create, Course, community_id: @community.id
-          - if can? :create, Course, community_id: @community.id
-            = link_to new_community_course_path(@community), class: "icon-action btn-flat waves-effect" + disabled_if_no_user do
-              = icon('fas', 'plus-circle', class: "left")
-              Create
-          .divider
-        -if not @courses.empty?
-          - @courses.each do |course|
-            .col.l6.m12.s12
-              = render('components/course-card', community: @community, course: course)
-        - else
-          .col.l12.m12.s12
-            = link_to new_community_course_path(@community) do
-              .card.light-grey.hoverable
-                .card-stacked
-                  .card-content.center
-                    .row.no-margin
-                      .col.s12
-                        %h5.grey-text
-                          = material_icon.library_add
-                          Start A Course
-                    .row.no-margin
-                      .col.s12
-                        %p.grey-text What do you want to know or share?
-    .col.m5.s12
-      .col.s12
-        %h5.header-with-link
-          =icon('fas', 'comments')
-          Discussions
-        = link_to new_discussion_path(:community_id => @community.id), class: "icon-action btn-flat waves-effect" + disabled_if_no_user do
-          = icon('fas', 'plus-circle', class: "left")
-          New
-        .divider
-      .col.s12
-        - if not @discussions.empty?
-          .collection
-            - @discussions.each do |discussion|
-              =link_to discussion_path(discussion), class: "collection-item text-color" do
-                =discussion.title
-                .secondary-content.text-color
-                  =icon('fas', 'comment')
-                  =discussion.comments.count
-        - else
-          There are no discussions
 
-      .col.s12
-        %h5.header-with-link.grey-text
-          =icon('fas', 'bell')
-          Recent Activity
-        %p.inline.grey-text.tooltipped{"data-tooltip" => "This feature is coming soon!", "data-position" => "top"}
-          =icon('far', 'question-circle')
-        .divider
+= render('components/community-header')
+.container
+  .row.no-margin.flex{style: "align-items: center"}
+    .col.f1
+      %ul.tabs
+        %li.tab.col.s4
+          %a{:href => "#courses"}
+            = icon('fas', 'book')
+            Courses
+        %li.tab.col.s4
+          %a{:href => "#discussions"}
+            = icon('fas', 'comments')
+            Discussions
+        %li.tab.col.s4
+          %a{:href => "#guidelines"}
+            Details
+      .divider
+.container
+  .section
+    #courses
+      .row
+        .col.s12
+          = render('components/new-course-card')
+        - @courses.each do |course|
+          .col.l3.m6.s12
+            = render('components/course-card', community: @community, course: course)
+
+    #discussions
+      .row
+        - @discussions.each do |discussion|
+          .col.m6.s12
+            =render('components/discussion-card', discussion: discussion)
+        .col.s12
+          = render('components/new-discussion-card')
+    #guidelines
+      .row
+        .col.l9.m6.s12
+          %h6 Community Details
+          .writeup= sanitize @community.description
+        .col.l3.m6.s12
+          %h6 Curators
+          - @community.curators.each do |curator|
+            = link_to '', class: "author text-color valign-wrapper", style: "margin-bottom: 5px" do
+              = image_tag curator.get_avatar(30), class: "circle responsive-img", width: 30, height: 30
+              .truncate= curator.display_name
+
+

@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
     puts "***** THIS IS AN EXCEPTION *****"
     puts exception.action
     if current_user.blank?
-      redirect_to new_user_registration_path, :alert => "Woops! Try logging in first."
+      redirect_to new_user_registration_path, :alert => "Woops! Try creating an account first."
     else
       redirect_to request.referer.nil? ? root_path : request.referer, :alert => exception.message
     end
@@ -11,21 +11,12 @@ class ApplicationController < ActionController::Base
 
   end
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action :masquerade_user!
   before_action :store_user_location!, if: :storable_location?
   before_action :my_communities
 
   protected
-    def after_sign_in_path_for(resource)
-      stored_location_for(resource) || super
-    end
 
-    def after_sign_up_path_for(resource)
-      stored_location_for(resource) || super
-    end
-
-    def after_sign_out_path_for(resource)
-      stored_location_for(resource) || super
-    end
 
     def configure_permitted_parameters
       # Permit the `subscribe_newsletter` parameter along with the other
@@ -48,7 +39,9 @@ class ApplicationController < ActionController::Base
       store_location_for(:user, request.fullpath)
     end
 
-
+    def track_activity(trackable, action = params[:action])
+      current_user.activities.create! action: action, trackable: trackable
+    end
 
 
 end

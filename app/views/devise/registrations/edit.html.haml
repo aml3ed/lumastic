@@ -8,14 +8,19 @@
           .row
             .col.s12
               %h5 Your Account
-          .row.no-margin
-            .col.s12.m4
-              .profile-pic
-                = image_tag resource.get_avatar(100), class: "circle responsive-img"
-                %label{for: "avatar"}
-                  = icon('fas', 'edit', class: 'left')
-                  = f.file_field :avatar, id: "avatar", style: "display: none;"
-            .input-field.col.s12.m8
+          .row
+            .profile-pic
+              = image_tag resource.get_avatar(100), class: "circle responsive-img"
+              .file-field
+                .btn-flat{onclick: "document.getElementById('avatar').click();"}
+                  %span
+                    = icon('fas', 'edit', class: 'left')
+                    Change Picture
+                = f.file_field :avatar, id: "avatar", style: "display: none;"
+                .file-path-wrapper
+                  %input.file-path.validate
+          .row
+            .input-field.col.s12
               = f.text_field :display_name, autofocus: true, autocomplete: "display_name", type: "text", id: 'display_name', placeholder: "First and last preferably"
               = f.label :display_name, "Your Name", for: "display_name"
           .row
@@ -46,5 +51,3 @@
               Save
           -#.row
           -#  = link_to "Delete My Account", registration_path(resource_name), data: { confirm: "Are you sure you want to delete your account?" }, method: :delete, class: "btn-flat"
-
-

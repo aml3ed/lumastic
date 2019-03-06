@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_11_165701) do
+ActiveRecord::Schema.define(version: 2019_03_06_004759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 2019_02_11_165701) do
     t.string "checksum", null: false
     t.datetime "created_at", null: false
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
+  end
+
+  create_table "activities", force: :cascade do |t|
+    t.bigint "user_id"
+    t.string "action"
+    t.string "trackable_type"
+    t.bigint "trackable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["trackable_type", "trackable_id"], name: "index_activities_on_trackable_type_and_trackable_id"
+    t.index ["user_id"], name: "index_activities_on_user_id"
   end
 
   create_table "comments", force: :cascade do |t|
@@ -153,5 +164,14 @@ ActiveRecord::Schema.define(version: 2019_02_11_165701) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "views", id: false, force: :cascade do |t|
+    t.integer "lesson_count"
+    t.bigint "user_id"
+    t.bigint "lesson_id"
+    t.index ["lesson_id"], name: "index_views_on_lesson_id"
+    t.index ["user_id"], name: "index_views_on_user_id"
+  end
+
+  add_foreign_key "activities", "users"
   add_foreign_key "materials", "lessons"
 end

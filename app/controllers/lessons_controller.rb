@@ -13,6 +13,13 @@ class LessonsController < ApplicationController
   # Example route: GET /lessons/1
   def show
     # See get_embed_from_url before action
+    unless current_user.nil?
+      unless @lesson.views.map(&:user_id).include? current_user.id
+        view = View.new(user: current_user, lesson: @lesson, lesson_count: @course.lessons.count)
+        view.save
+        puts @lesson.views.count
+      end
+    end
   end
 
   # Example route: GET /lessons/new
@@ -36,6 +43,7 @@ class LessonsController < ApplicationController
     @lesson.position = Lesson.where(course: @course).present? ? Lesson.where(course: @course).maximum('position') + 1 : 1
     respond_to do |format|
       if @lesson.save
+        track_activity(@lesson)
         format.html { redirect_to community_course_lesson_path(@community, @course, @lesson), notice: 'Lesson was successfully created.' }
         format.json { render :show, status: :created, location: @lesson }
       else

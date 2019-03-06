@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :activities
   root to: 'pages#home'
 
   resources :communities do
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
     end
   end
 
-
   resources :materials
 
   resources :discussions do
@@ -42,6 +42,8 @@ Rails.application.routes.draw do
              path_names: { sign_in: 'login', sign_out: 'logout' },
              controllers: { sessions: 'sessions', registrations: 'registrations', passwords: 'passwords' },
              skip: %i[invitations]
+
+  resources :member, only: [:show, :index]
 
   # Admin Pages
   scope '/admin' do

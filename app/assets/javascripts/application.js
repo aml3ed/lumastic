@@ -18,5 +18,7 @@
 //= require jquery-ui/widgets/sortable
 //= require jquery_ujs
 //= require materialize
+//= require Chart.bundle
+//= require chartkick
 //= require trix
 //= require_tree .

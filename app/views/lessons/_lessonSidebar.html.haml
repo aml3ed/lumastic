@@ -3,7 +3,7 @@
   / Make the Course Info Item
   .collection-header
     %h5
-      = material_icon.book.css_class("primary-text")
+      = icon('fas', 'book')
       = link_to @course.title, community_course_path(@community, @course), class: "primary-text"
   / For each lesson, make a collection item with that lesson and it's url
   - if @lesson.id == nil

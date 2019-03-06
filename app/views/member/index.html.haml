@@ -1,0 +1,58 @@
+.section.profile-header
+  .container
+    .row.flex{style: "align-items: center"}
+      .col.m3.l2
+        .profile-pic
+          =image_tag(current_user.get_avatar(150), class:"circle responsive-img")
+      .col.m9.l10
+        .row.no-margin
+          %h3.flow-text{style: "display: inline;"}
+            %span= current_user.display_name != "" ? current_user.display_name : current_user.email
+          = link_to edit_user_registration_path, class: "btn-flat waves-effect right" do
+            Edit Profile
+        .row.no-margin
+          %span
+            - if current_user.communities.empty?
+              %span.white-text You aren't a part of any communities, yet.
+              %a{:href => "/communities/"} Find what inspires you!
+            - else
+              - current_user.communities.each do |community|
+                .tooltipped.inline{"data-tooltip": community.name, "data-position": "up"}
+                  = link_to community_path(community) do
+                    = community.identifier.nil? ? "" : community.identifier + ","
+
+.container
+  .row.no-margin
+    .col.s12
+      .divider
+      %ul.tabs
+        %li.tab.col.s3
+          %a{:href => "#explore"} Explore
+        %li.tab.col.s3
+          %a{:href => "#learn"} Learn
+        %li.tab.col.s3
+          %a{:href => "#connect"} Connect
+        %li.tab.col.s3
+          %a{:href => "#contribute"} Contribute
+      .divider
+.container.section
+  .row.no-margin
+    #learn.col.s12
+      =render('courserow', locals:{courses:@inprogressCourses, sectionTitle:"Your In Progress Courses:"})
+      .divider
+      =render('courserow', locals:{courses:@completedCourses, sectionTitle:"Your Completed Courses:"})
+    #explore.col.s12
+      =render('courserow', locals:{courses:@courses, sectionTitle:"Learn Something New:"})
+      .divider
+      =render('communityrow', locals:{communities:@communities, sectionTitle:"Find New Communities:"})
+    #connect.col.s12
+      %h5 What's Happening in Your Communities:
+      .row
+        - @discussions.each do |discussion|
+          .col.s12.m6
+            =render('components/discussion-card', discussion: discussion)
+    #contribute.col.s12
+      .row
+      =render('mycourserow', locals:{contribution:@contributedCourses, sectionTitle:"Courses I've Contributed To:"})
+      .divider
+      =render('curatorrow', locals:{curation:@curatedCommunities, sectionTitle:"Communities I'm A Curator Of:"})

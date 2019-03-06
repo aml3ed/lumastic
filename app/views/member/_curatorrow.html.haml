@@ -1,0 +1,12 @@
+
+%h5= locals[:sectionTitle]
+.row
+  - if locals[:curation].any?
+    - locals[:curation].each do |curator|
+      .col.l4.m6.s12
+        = render('components/community-card', :community => curator)
+  - else
+    .col.s12
+      You aren't a curator of any communities. You can create your own if you want to be!
+      = render('components/new-community-card')
+

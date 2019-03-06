@@ -65,7 +65,7 @@ class Course < ApplicationRecord
     end
     {:count => contributors.count, :users => contributors}
   end
-  
+
   def creator
     creator = ""
     if lessons.present?
@@ -83,6 +83,5 @@ class Course < ApplicationRecord
       "HeaderImage-8.png"
     end
   end
-
 
 end

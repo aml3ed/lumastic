@@ -39,7 +39,7 @@ class Ability
   #
   def grant_student_roles(user)
     can %i[show index create add_user remove_user members discussions courses], Community
-
+    can :index, :profile
     can %i[show index], Course
     can %i[show index count_ticket vote], Lesson
     can %i[show index new create], Material

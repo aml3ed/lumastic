@@ -1,15 +1,17 @@
 class User < ApplicationRecord
+  has_many :activities
   has_one_attached :avatar
   has_many :memberships, dependent: :delete_all
   has_many :communities, through: :memberships
   has_many :lessons, dependent: :destroy
   has_many :discussions
   has_many :comments
+  has_many :views
   include Roleable
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable
+         :recoverable, :rememberable, :trackable, :validatable, :masqueradable
 
   # Validations
   validates :email, presence: true, uniqueness: true
