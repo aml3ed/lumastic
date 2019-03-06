@@ -2,6 +2,9 @@ class AdminController < ApplicationController
   authorize_resource class: false
 
   def dashboard
+    @list_activities = Activity.order("created_at desc").take(20)
+    @logins_and_signups = Activity.where(trackable_type: "User")
+    @contribution_activities = Activity.where.not(trackable_type: "User")
   end
 
   def admin_users

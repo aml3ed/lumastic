@@ -1,4 +1,5 @@
 class Lesson < ApplicationRecord
+  has_many :activities, as: :trackable
   belongs_to :course
   belongs_to :user
   has_many :comments, dependent: :destroy

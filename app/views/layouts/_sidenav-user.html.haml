@@ -12,6 +12,11 @@
     = link_to root_path do
       = material_icon.home
       Home
+  - if is_admin(current_user)
+    %li
+      = link_to admin_dashboard_path do
+        = icon('fas', 'wrench')
+        Admin
   %li
     = link_to member_index_path do
       = material_icon.person

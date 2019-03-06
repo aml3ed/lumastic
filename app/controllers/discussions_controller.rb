@@ -29,6 +29,7 @@ class DiscussionsController < ApplicationController
     # Save the new course object to the database
     respond_to do |format|
       if @discussion.save
+        track_activity(@discussion)
         format.html { redirect_to community_path(@discussion.community), :flash => {:notice => "Your discussion was created successfully! Woohoo!"} }
         format.json { render :show, status: :created, location: @community }
       else

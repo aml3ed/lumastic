@@ -43,7 +43,7 @@ class CoursesController < ApplicationController
     # Save the new course object to the database
     respond_to do |format|
       if @course.save
-        puts @course.inspect
+        track_activity(@course)
         format.html { redirect_to new_community_course_lesson_path(@community, @course), :flash => {:notice => "Your course was created successfully! Woohoo!"} }
         format.json { render :show, status: :created, location: @course }
       else

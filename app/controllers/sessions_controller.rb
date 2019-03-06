@@ -5,7 +5,7 @@ class SessionsController < Devise::SessionsController
 
   def create
     super
-
+    track_activity(resource, Trackable::LOGIN)
     flash[:notice] = "Welcome back, #{resource.display_name}!"
   end
 

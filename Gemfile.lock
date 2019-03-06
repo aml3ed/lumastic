@@ -82,6 +82,7 @@ GEM
       rack (>= 1.6.0)
       rack-test (>= 0.6.3)
       xpath (~> 3.1)
+    chartkick (3.0.2)
     childprocess (0.9.0)
       ffi (~> 1.0, >= 1.0.11)
     chromedriver-helper (1.2.0)
@@ -102,6 +103,9 @@ GEM
       railties (>= 4.1.0, < 6.0)
       responders
       warden (~> 1.2.3)
+    devise_masquerade (0.6.5)
+      devise (>= 2.1.0)
+      railties (>= 3.0)
     erubi (1.7.1)
     execjs (2.7.0)
     ffi (1.9.25)
@@ -109,6 +113,8 @@ GEM
       sassc (>= 1.11)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
+    groupdate (4.1.1)
+      activesupport (>= 4.2)
     haml (5.0.4)
       temple (>= 0.8.0)
       tilt
@@ -266,10 +272,13 @@ DEPENDENCIES
   byebug
   cancancan
   capybara (>= 2.15, < 4.0)
+  chartkick
   chromedriver-helper
   coffee-rails (~> 4.2)
   devise
+  devise_masquerade
   font-awesome-sass (~> 5.6.1)
+  groupdate
   haml
   jbuilder (~> 2.5)
   jquery-rails (~> 4.3, >= 4.3.1)
