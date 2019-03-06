@@ -31,9 +31,9 @@
               %td= user.try(:last_sign_in_at).nil? ? "" : time_ago_in_words(user.try(:last_sign_in_at)) + " ago"
               %td= user.try(:referred_by)
               %td
-                %a.dropdown-trigger{"data-target" => "actionDropdown"}
+                %a.dropdown-trigger{"data-target" => "actionDropdown#{user.id}"}
                   =icon('fas', 'ellipsis-v')
-                %ul#actionDropdown.dropdown-content
+                %ul.dropdown-content{id: "actionDropdown#{user.id}"}
                   %li
                     = link_to admin_user_destroy_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this?"}, class: "grey-text" do
                       = icon('fas', 'trash')
