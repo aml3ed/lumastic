@@ -23,6 +23,7 @@
             %th
               =icon('fas', 'lightbulb')
               Lightbulbs
+            %th Actions
         %tbody
           - @lessons.each do |lesson|
             %tr
@@ -30,3 +31,7 @@
               %td= link_to lesson.course.try(:title), community_course_path(lesson.course.community, lesson.course)
               %td= lesson.user.try(:display_name)
               %td= lesson.try(:likes)
+              %td
+                = link_to community_course_lesson_path(lesson.course.community, lesson.course, lesson), method: :delete, data: {confirm: "Are you sure you want to delete this?"}, class: "grey-text" do
+                  = icon('fas', 'trash')
+                  Delete
